@@ -1,4 +1,5 @@
 # leetcode自由刷题——go版本
+
 1. `two-sum` [题目](https://leetcode.com/problems/two-sum/) [代码](two-sum/two-sum.go) 暴力循环|哈希Map
 2. `Add Two Numbers` [题目](https://leetcode.com/problems/add-two-numbers/) [代码](add-two-numbers/add-two-numbers.go) 新建链表，仿真
 3. `Longest Substring Without Repeating Characters` [题目](https://leetcode.com/problems/longest-substring-without-repeating-characters/) [代码](longest-substring-without-repeating-characters/longest-substring-without-repeating-characters.go)  DP优化
@@ -7,3 +8,5 @@
 6. `ZigZag Conversion` [题目](https://leetcode.com/problems/zigzag-conversion/) [代码](zigzag-conversion/zigzag-conversion.go) 规律总结 O(n)
 7. `Reverse Integer` [题目](https://leetcode.com/problems/reverse-integer/) [代码](reverse-integer/reverse-integer.go) strconv.Itoa() strconv.Atoi() 实现
 8. `String to Integer (atoi)` [题目](https://leetcode.com/problems/string-to-integer-atoi/) [代码](string-to-integer-atoi/string-to-integer-atoi.go) 正则匹配
+9. `Palindrome Number` [题目](https://leetcode.com/problems/palindrome-number/) [代码](palindrome-number/palindrome-number.go) strconv.Itoa() O(n/2)
+

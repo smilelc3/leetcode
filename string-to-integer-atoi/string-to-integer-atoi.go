@@ -10,7 +10,7 @@ func myAtoi(s string) int {
 	ans := 0
 	const Int32Max = int(^uint32(0) >> 1)
 	const Int32Min = ^Int32Max
-	compile := regexp.MustCompile(`^\s*([-+])?\d+`)
+	compile := regexp.MustCompile(`^\s*[-+]?\d+`)
 	match := compile.FindString(s)
 	startFrom := 0
 	for idx, char := range match {
