@@ -5,7 +5,7 @@ func isMatch(s string, p string) bool {
 	//0 <= s.length <= 20
 	//0 <= p.length <= 30
 
-	// 构建DP
+	// 构建DP, 默认false
 	dp := make([][]bool, len(s)+1)
 	for i := range dp {
 		dp[i] = make([]bool, len(p)+1)
@@ -33,18 +33,18 @@ func isMatch(s string, p string) bool {
 			}
 			if p[j] == '*' {
 				if p[j-1] == s[i] || p[j-1] == '.' {
-
-					//以下三种状态取一个，为真
-					//dp[i+1][j+1] = dp[i][j+1] // a* 匹配多个a
-					//dp[i+1][j+1] = dp[i+1][j] // a* 匹配一个a
-					//dp[i+1][j+1] = dp[i+1][j-1] // a* 匹配空
 					dp[i+1][j+1] = dp[i][j+1] || dp[i+1][j] || dp[i+1][j-1]
+					/*
+						dp[i+1][j+1]以下三种状态取一个，为真
+						dp[i][j+1] 	a* 匹配多个a
+						dp[i+1][j]	a* 匹配一个a
+						dp[i+1][j-1]	a* 匹配空
+					*/
 				} else {
 					dp[i+1][j+1] = dp[i+1][j-1] //p前一个不匹配，*就匹配0次
 				}
 			}
 		}
 	}
-
 	return dp[len(s)][len(p)]
 }
