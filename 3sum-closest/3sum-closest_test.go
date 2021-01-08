@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestThreeSumExample1(t *testing.T) {
+func TestThreeSumClosestExample1(t *testing.T) {
 	nums := []int{-1, 2, 1, -4}
 	target := 1
 	ans := threeSumClosest(nums, target)
