@@ -13,3 +13,6 @@
 11. `Container With Most Water` [题目](https://leetcode.com/problems/container-with-most-water/) [代码](container-with-most-water/container-with-most-water.go) two pointers算法 O(n)
 12. `Integer to Roman` [题目](https://leetcode.com/problems/integer-to-roman/) [代码](integer-to-roman/integer-to-roman.go) 打表 ≈O(1)
 13. `Roman to Integer` [题目](https://leetcode.com/problems/roman-to-integer/) [代码](roman-to-integer/roman-to-integer.go) switch-case O(n)
+14. `Longest Common Prefix` [题目](https://leetcode.com/problems/longest-common-prefix/) [代码](longest-common-prefix/longest-common-prefix.go) if模拟 O(n*m)
+15. `3Sum`  [题目](https://leetcode.com/problems/3sum/) [代码](3sum/3sum.go) two-point O(n^2)
+16. `3Sum Closest` [题目](https://leetcode.com/problems/3sum-closest/) [代码](3sum-closest/3sum-closest.go) two-point O(n^2)
