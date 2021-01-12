@@ -17,3 +17,4 @@
 15. `3Sum`  [题目](https://leetcode.com/problems/3sum/) [代码](3sum/3sum.go) two-point O(n^2)
 16. `3Sum Closest` [题目](https://leetcode.com/problems/3sum-closest/) [代码](3sum-closest/3sum-closest.go) two-point O(n^2)
 17. `Letter Combinations of a Phone Number` [题目](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) [代码](letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.go) O(4^n)
+18. `4Sum` [题目](https://leetcode.com/problems/4sum/) [代码](4sum/4sum.go) O(n^3)
