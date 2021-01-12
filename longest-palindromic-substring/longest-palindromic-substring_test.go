@@ -3,7 +3,7 @@ package longest_palindromic_substring
 import "testing"
 
 func TestLongestPalindrome(t *testing.T) {
-  // Manacher algorithm
+	// Manacher algorithm
 	s := "babad"
 	ans := longestPalindrome(s)
 	if ans != "bab" && ans != "aba" {

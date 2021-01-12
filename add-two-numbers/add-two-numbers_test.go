@@ -73,7 +73,7 @@ func TestAddTwoNumbersExample2(t *testing.T) {
 
 func TestAddTwoNumbersExample3(t *testing.T) {
 	l1 := []int{9, 9, 9, 9, 9, 9, 9}
-	l2 := []int{9,9,9,9}
+	l2 := []int{9, 9, 9, 9}
 	Link1 := new(ListNode)
 	Link2 := new(ListNode)
 
