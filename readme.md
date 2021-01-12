@@ -43,3 +43,4 @@
 22. `Generate Parentheses` [题目](https://leetcode.com/problems/generate-parentheses/) [代码](generate-parentheses/generate-parentheses.go)
     递归 O(2^n)
 23. `Merge k Sorted Lists` [题目](https://leetcode.com/problems/merge-k-sorted-lists/) [代码](merge-k-sorted-lists/merge-k-sorted-lists.go) 分治O(log(n)*m)
+24. `Swap Nodes in Pairs` [题目](https://leetcode.com/problems/swap-nodes-in-pairs/) [代码](swap-nodes-in-pairs/swap-nodes-in-pairs.go) 链表交换节点 O(n)
