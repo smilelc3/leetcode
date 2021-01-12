@@ -1,5 +1,8 @@
 # leetcode自由刷题——go版本
 
+* 若无特殊说明，所给代码解法**均为时间最优解**，在某些题的代码中，包含多个可AC方法，最终也只采用最优时间解。
+* 每个题单独创建以题名为命名的文件夹，下含有源码与单元测试代码，均通过测试
+
 1. `two-sum` [题目](https://leetcode.com/problems/two-sum/) [代码](two-sum/two-sum.go) 暴力循环|哈希Map
 2. `Add Two Numbers` [题目](https://leetcode.com/problems/add-two-numbers/) [代码](add-two-numbers/add-two-numbers.go)
    新建链表，仿真
