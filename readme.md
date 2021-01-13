@@ -48,3 +48,4 @@
 23. `Merge k Sorted Lists` [题目](https://leetcode.com/problems/merge-k-sorted-lists/) [代码](merge-k-sorted-lists/merge-k-sorted-lists.go) 分治O(log(n)*m)
 24. `Swap Nodes in Pairs` [题目](https://leetcode.com/problems/swap-nodes-in-pairs/) [代码](swap-nodes-in-pairs/swap-nodes-in-pairs.go) 链表交换节点 O(n)
 25. `Reverse Nodes in k-Group` [题目](https://leetcode.com/problems/reverse-nodes-in-k-group/) [代码](reverse-nodes-in-k-group/reverse-nodes-in-k-group.go) 记录前驱+后驱节点 时间O(n) 空间O(1)
+26. `Remove Duplicates from Sorted Array` [题目](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) [代码](remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.go) O(n) slice传参：带地址的结构体值
