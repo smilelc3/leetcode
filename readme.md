@@ -3,18 +3,15 @@
 * 若无特殊说明，所给代码解法**均为时间最优解**，在某些题的代码中，包含多个可AC方法，最终也只采用最优时间解。
 * 每个题单独创建以题名为命名的文件夹，下含有源码与单元测试代码，均通过测试
 
+| 编号 | 题目 | 代码 | 时间复杂度 | 简述 |  空间复杂度 |
+|:---:|:-----:|:---:|:---:|:---:|:---:|
+| 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | [two-sum.go](two-sum/two-sum.go) | O(n) | 哈希Map |  |
+| 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | [add-two-numbers.go](add-two-numbers/add-two-numbers.go) | O(n) | 单向链表 | |
+| 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [longest-substring-without-repeating-characters.go](longest-substring-without-repeating-characters/longest-substring-without-repeating-characters.go) | O(n) | DP优化 | |
+| 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | [median-of-two-sorted-arrays.go](median-of-two-sorted-arrays/median-of-two-sorted-arrays.go) | O(log(min(N1,N2))) | 来自[https://www.cnblogs.com/grandyang/p/4465932.html](https://www.cnblogs.com/grandyang/p/4465932.html) |  |
 
-1. `two-sum` [题目](https://leetcode.com/problems/two-sum/) [代码](two-sum/two-sum.go) 暴力循环|哈希Map
 
-2. `Add Two Numbers` [题目](https://leetcode.com/problems/add-two-numbers/) [代码](add-two-numbers/add-two-numbers.go)
-   新建链表，仿真
 
-3. `Longest Substring Without Repeating Characters` [题目](https://leetcode.com/problems/longest-substring-without-repeating-characters/) [代码](longest-substring-without-repeating-characters/longest-substring-without-repeating-characters.go)
-   DP优化 O(n)
-
-4. `Median of Two Sorted Arrays` [题目](https://leetcode.com/problems/median-of-two-sorted-arrays/) [代码](median-of-two-sorted-arrays/median-of-two-sorted-arrays.go)
-   O(log(min(N1,N2)))
-   来自[https://www.cnblogs.com/grandyang/p/4465932.html](https://www.cnblogs.com/grandyang/p/4465932.html)
 
 5. `Longest Palindromic Substring` [题目](https://leetcode.com/problems/longest-palindromic-substring/) [代码](longest-palindromic-substring/longest-palindromic-substring.go)
    manacher算法 O(n)
@@ -67,22 +64,27 @@
 
 22. `Generate Parentheses` [题目](https://leetcode.com/problems/generate-parentheses/) [代码](generate-parentheses/generate-parentheses.go)
     递归 O(2^n)
-    
 
-23. `Merge k Sorted Lists` [题目](https://leetcode.com/problems/merge-k-sorted-lists/) [代码](merge-k-sorted-lists/merge-k-sorted-lists.go) 分治O(log(n)*m)
+23. `Merge k Sorted Lists` [题目](https://leetcode.com/problems/merge-k-sorted-lists/) [代码](merge-k-sorted-lists/merge-k-sorted-lists.go)
+    分治O(log(n)*m)
 
-24. `Swap Nodes in Pairs` [题目](https://leetcode.com/problems/swap-nodes-in-pairs/) [代码](swap-nodes-in-pairs/swap-nodes-in-pairs.go) 链表交换节点 O(n)
+24. `Swap Nodes in Pairs` [题目](https://leetcode.com/problems/swap-nodes-in-pairs/) [代码](swap-nodes-in-pairs/swap-nodes-in-pairs.go)
+    链表交换节点 O(n)
 
-25. `Reverse Nodes in k-Group` [题目](https://leetcode.com/problems/reverse-nodes-in-k-group/) [代码](reverse-nodes-in-k-group/reverse-nodes-in-k-group.go) 记录前驱+后驱节点 时间O(n) 空间O(1)
+25. `Reverse Nodes in k-Group` [题目](https://leetcode.com/problems/reverse-nodes-in-k-group/) [代码](reverse-nodes-in-k-group/reverse-nodes-in-k-group.go)
+    记录前驱+后驱节点 时间O(n) 空间O(1)
 
-26. `Remove Duplicates from Sorted Array` [题目](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) [代码](remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.go) O(n) slice传参：带地址的结构体值
+26. `Remove Duplicates from Sorted Array` [题目](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) [代码](remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.go)
+    O(n) slice传参：带地址的结构体值
 
 27. `Remove Element` [题目](https://leetcode.com/problems/remove-element/) [代码](remove-element/remove-element.go) 空间 O(1)
 
-28. `Implement strStr()` [题目](https://leetcode.com/problems/implement-strstr/) [代码](implement-strstr/implement-strstr.go) KMP算法 O(n+m)
-    
+28. `Implement strStr()` [题目](https://leetcode.com/problems/implement-strstr/) [代码](implement-strstr/implement-strstr.go)
+    KMP算法 O(n+m)
 
-29. `Divide Two Integers` [题目](https://leetcode.com/problems/divide-two-integers/) [代码](divide-two-integers/divide-two-integers.go) 位操作实现除法 O(log(n))
+29. `Divide Two Integers` [题目](https://leetcode.com/problems/divide-two-integers/) [代码](divide-two-integers/divide-two-integers.go)
+    位操作实现除法 O(log(n))
 
 
-35. `Search Insert Position` [题目](https://leetcode.com/problems/search-insert-position/) [代码](search-insert-position/search-insert-position.go) 二分查找 O(log(n))
+35. `Search Insert Position` [题目](https://leetcode.com/problems/search-insert-position/) [代码](search-insert-position/search-insert-position.go)
+    二分查找 O(log(n))
