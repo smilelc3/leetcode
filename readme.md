@@ -50,3 +50,5 @@
 25. `Reverse Nodes in k-Group` [题目](https://leetcode.com/problems/reverse-nodes-in-k-group/) [代码](reverse-nodes-in-k-group/reverse-nodes-in-k-group.go) 记录前驱+后驱节点 时间O(n) 空间O(1)
 26. `Remove Duplicates from Sorted Array` [题目](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) [代码](remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.go) O(n) slice传参：带地址的结构体值
 27. `Remove Element` [题目](https://leetcode.com/problems/remove-element/) [代码](remove-element/remove-element.go) 空间 O(1)
+28. `Implement strStr()` [题目](https://leetcode.com/problems/implement-strstr/) [代码](implement-strstr/implement-strstr.go) KMP算法 O(n+m)
+29. `Divide Two Integers` [题目](https://leetcode.com/problems/divide-two-integers/) [代码](divide-two-integers/divide-two-integers.go) 位操作实现除法 O(log(n))
