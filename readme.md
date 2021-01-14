@@ -10,29 +10,18 @@
 | 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [longest-substring-without-repeating-characters.go](longest-substring-without-repeating-characters/longest-substring-without-repeating-characters.go) | O(n) | DP优化 | |
 | 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | [median-of-two-sorted-arrays.go](median-of-two-sorted-arrays/median-of-two-sorted-arrays.go) | O(log(min(N1,N2))) | 参考[Grandyang博客](https://www.cnblogs.com/grandyang/p/4465932.html) |  |
 | 5 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | [longest-palindromic-substring.go](longest-palindromic-substring/longest-palindromic-substring.go) | O(n) | manacher算法 |  |
+| 6 | [ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/) | [zigzag-conversion.go](zigzag-conversion/zigzag-conversion.go) | O(n) | 规律总结 |  |
+| 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) | [reverse-integer.go](reverse-integer/reverse-integer.go) | O(n) | strconv.Itoa()+strconv.Atoi()实现 |  |
+| 8 | [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) | [string-to-integer-atoi.go](string-to-integer-atoi/string-to-integer-atoi.go) |  | 正则匹配 |  |
+| 9 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/) | [palindrome-number.go](palindrome-number/palindrome-number.go) | O(n/2) | strconv.Itoa()实现 |  |
+| 10 | [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) | [regular-expression-matching.go](regular-expression-matching/regular-expression-matching.go) | O(n*m) | DP |  |   
+| 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | [container-with-most-water.go](container-with-most-water/container-with-most-water.go) | O(n) | two-pointer算法 |  |   
 
 
+    
 
-5. `Longest Palindromic Substring` [题目](https://leetcode.com/problems/longest-palindromic-substring/) [代码](longest-palindromic-substring/longest-palindromic-substring.go)
-   manacher算法 O(n)
-
-6. `ZigZag Conversion` [题目](https://leetcode.com/problems/zigzag-conversion/) [代码](zigzag-conversion/zigzag-conversion.go)
-   规律总结 O(n)
-
-7. `Reverse Integer` [题目](https://leetcode.com/problems/reverse-integer/) [代码](reverse-integer/reverse-integer.go)
-   strconv.Itoa() strconv.Atoi() 实现
-
-8. `String to Integer (atoi)` [题目](https://leetcode.com/problems/string-to-integer-atoi/) [代码](string-to-integer-atoi/string-to-integer-atoi.go)
-   正则匹配
-
-9. `Palindrome Number` [题目](https://leetcode.com/problems/palindrome-number/) [代码](palindrome-number/palindrome-number.go)
-   strconv.Itoa()实现 O(n/2)
-
-10. `Regular Expression Matching` [题目](https://leetcode.com/problems/regular-expression-matching/) [代码](regular-expression-matching/regular-expression-matching.go)
-    DP O(n*m)
-
-11. `Container With Most Water` [题目](https://leetcode.com/problems/container-with-most-water/) [代码](container-with-most-water/container-with-most-water.go)
-    two-pointer算法 O(n)
+11. `` [题目]() [代码]()
+    
 
 12. `Integer to Roman` [题目](https://leetcode.com/problems/integer-to-roman/) [代码](integer-to-roman/integer-to-roman.go)
     打表 ≈O(1)
