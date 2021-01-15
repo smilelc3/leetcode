@@ -34,4 +34,5 @@
 | 27 | [Remove Element](https://leetcode.com/problems/remove-element/) | [remove-element.go](remove-element/remove-element.go) | O(n) |  | O(1) |
 | 28 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/) | [implement-strstr.go](implement-strstr/implement-strstr.go) | O(n+m) | KMP算法 |  |
 | 29 | [Divide Two Integers](https://leetcode.com/problems/divide-two-integers/) | [divide-two-integers.go](divide-two-integers/divide-two-integers.go) | O(log(n)) | 位操作实现除法 |  |
+| 30 | [Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/) | [substring-with-concatenation-of-all-words.go](substring-with-concatenation-of-all-words/substring-with-concatenation-of-all-words.go) | O(n) | 滑动窗口算法 |  |
 | 35 | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | [search-insert-position.go](search-insert-position/search-insert-position.go) | O(log(n)) | 二分查找 |  |
