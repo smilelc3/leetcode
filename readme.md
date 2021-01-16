@@ -37,4 +37,5 @@
 | 30 | [Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/) | [substring-with-concatenation-of-all-words.go](substring-with-concatenation-of-all-words/substring-with-concatenation-of-all-words.go) | O(n) | 滑动窗口+HashMap |  |
 | 31 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | [next-permutation_test.go](next-permutation/next-permutation_test.go) | O(n) | 参考C++ [std::next_next_permutation](https://en.cppreference.com/w/cpp/algorithm/next_permutation) | O(1) |
 | 32 | [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) | [longest-valid-parentheses.go](longest-valid-parentheses/longest-valid-parentheses.go) | O(n) | 栈 |  |
+| 33 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | [search-in-rotated-sorted-array.go](search-in-rotated-sorted-array/search-in-rotated-sorted-array.go) | O(log(n)) | 二分查找 |  |
 | 35 | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | [search-insert-position.go](search-insert-position/search-insert-position.go) | O(log(n)) | 二分查找 |  |
