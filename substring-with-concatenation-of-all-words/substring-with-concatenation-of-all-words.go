@@ -49,7 +49,6 @@ func findSubstring(s string, words []string) []int {
 						winLeft += wordLength
 					}
 				}
-
 			} else {
 				winLeft = winRight
 				match = 0
@@ -63,7 +62,6 @@ func findSubstring(s string, words []string) []int {
 				winLeft += wordLength
 			}
 		}
-
 	}
 	return ans
 }
