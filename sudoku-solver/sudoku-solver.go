@@ -1,24 +1,12 @@
 package sudoku_solver
 
-import (
-	"fmt"
-	"io/ioutil"
-	"strconv"
-	"strings"
-	"time"
-)
-
 func solveSudoku(board [][]byte) {
 	sudoku := NewSudoku()
 	data := transBytesDataToArray(board)
 	sudoku.LoadDataFromArray(data)
-	startTime := time.Now().UnixNano()
 	isSolved := DanceLinkSolver(sudoku) // 解数独
-	endTime := time.Now().UnixNano()
 
 	if isSolved {
-		//sudoku.Show()
-		fmt.Println("舞蹈链法所用时间：", float64(endTime-startTime)/1e6, "ms")
 		transArrayToBytesData(sudoku.GetDataByArray(), board)
 	}
 }
@@ -157,59 +145,6 @@ func (Sudoku *Sudoku) LoadDataFromArray(data [81]uint8) {
 	Sudoku.isLoadData = true
 }
 
-//从控制框中输入数据
-func (Sudoku *Sudoku) LoadDataFromInput() {
-	fmt.Println("请输入81个 [1-9] 的数字， 待填写数字用 0 代替, 数字间用空格间隔")
-	var data [9 * 9]uint8
-	for idx := 0; idx < (9 * 9); idx++ {
-		_, err := fmt.Scanf("%d", &data[idx])
-		if err != nil {
-			panic(err)
-		}
-		if data[idx] > 9 {
-			panic("数字不合法")
-		}
-	}
-	Sudoku.LoadDataFromArray(data)
-}
-
-//从文本文件中输入数据
-func (Sudoku *Sudoku) LoadDataFromFile(filePath string, splitMark string) {
-	data, err := ioutil.ReadFile(filePath)
-	if err != nil {
-		fmt.Println("文件读取错误")
-		panic(err)
-
-	}
-	idx := 0
-	stringLines := strings.Split(string(data), "\n")
-	for _, Line := range stringLines {
-		stringValues := strings.Split(Line, splitMark)
-		for _, stringValue := range stringValues {
-			stringValue = strings.Trim(stringValue, " \t\r")
-			if stringValue == "" {
-				continue
-			}
-			val, err := strconv.Atoi(stringValue)
-			if err != nil {
-				fmt.Println("文件内容错误")
-				panic(err)
-			}
-			if val > 9 || val < 0 {
-				panic("文件数据错误")
-			}
-			Sudoku.Cells[idx].Val = uint8(val)
-			idx++
-		}
-	}
-	if idx != 81 {
-		panic("数据内容错误")
-	} else {
-		Sudoku.isLoadData = true
-	}
-
-}
-
 // 通过坐标获取值
 func (Sudoku *Sudoku) GetValByCoords(row uint8, col uint8) uint8 {
 	return Sudoku.GetCellByCoords(row, col).Val
@@ -237,41 +172,6 @@ func (Sudoku *Sudoku) GetCellByCoords(row uint8, col uint8) *Cell {
 	return Sudoku.GetBoxByCoords(row, col).Cells[Sudoku.GetCellIdByCoords(row, col)]
 }
 
-// 格式化数独输出
-func (Sudoku *Sudoku) GetFormString() string {
-	if Sudoku.isLoadData == false {
-		panic("请先加载数据")
-	}
-	var row, col uint8
-	formString := ""
-	formString += "+-----------------------------+" + "\n"
-	for row = 0; row < 9; row++ {
-		formString += "| "
-		for col = 0; col < 9; col++ {
-			if Sudoku.GetValByCoords(row, col) == 0 {
-				formString += string(Sudoku.blankInShow)
-			} else {
-				formString += fmt.Sprintf("%d", Sudoku.GetValByCoords(row, col))
-			}
-
-			if col == 2 || col == 5 {
-				formString += " | "
-			} else if col == 8 {
-				formString += " |"
-			} else {
-				formString += "  "
-			}
-
-		}
-		formString += "\n"
-		if row == 2 || row == 5 {
-			formString += "|---------+---------+---------|" + "\n"
-		}
-	}
-	formString += "+-----------------------------+" + "\n"
-	return formString
-}
-
 // 以一维数组返回所有数据
 func (Sudoku *Sudoku) GetDataByArray() [81]uint8 {
 	data := [81]uint8{}
@@ -279,16 +179,6 @@ func (Sudoku *Sudoku) GetDataByArray() [81]uint8 {
 		data[idx] = cell.Val
 	}
 	return data
-}
-
-// 设置blank
-func (Sudoku *Sudoku) SetBlank(blank byte) {
-	Sudoku.blankInShow = blank
-}
-
-// 打印数独
-func (Sudoku *Sudoku) Show() {
-	fmt.Print(Sudoku.GetFormString())
 }
 
 // 获取某一个cell所受影响的周边cells的集合（借助map[*Cell]struct{}实现）
@@ -375,79 +265,6 @@ func (danceLink *DanceLink) markOneHeaderNode(header *node) (map[*node]bool, []i
 		cNode = cNode.Down
 	}
 	return markedNodesSet, rowNumSet, rowNumLinkHeadersSet
-}
-
-// 直接删除元素
-func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]bool) {
-	// 不修改node本身的标记，仅修改相邻节点的信息
-	//1. 删除节点两个相对方向都是非删除节点，直接删除并重建链
-	//2. 当删除节点的一方向为删除节点，另外相对方向为非删除节点时，非删除节点连接到顺次的第一个非删除节点
-	//3. 当删除节点四边都是非删除节点时，不处理该节点（因为header节点不会被选中，因此必然存一个非删除节点）
-	for node := range allNodesSet {
-		danceLink.Headers[node.ColNum].arg-- //header计数更新
-
-		_, isLeftExist := allNodesSet[node.Left]
-		_, isRightExist := allNodesSet[node.Right]
-		_, isUpExist := allNodesSet[node.Up]
-		_, isDownExist := allNodesSet[node.Down]
-
-		if isUpExist && !isDownExist { //pNode向上找到第一个不是删除节点的节点
-			pNode := node.Up
-			for _, exist := allNodesSet[pNode]; exist; _, exist = allNodesSet[pNode] {
-				pNode = pNode.Up
-			}
-			node.Down.Up = pNode
-			pNode.Down = node.Down
-		}
-		if !isUpExist && isDownExist { //pNode向下找到第一个不是删除节点的节点
-			pNode := node.Down
-			for _, exist := allNodesSet[pNode]; exist; _, exist = allNodesSet[pNode] {
-				pNode = pNode.Down
-			}
-			node.Up.Down = pNode
-			pNode.Up = node.Up
-		}
-		if isLeftExist && !isRightExist { //pNode向左找到第一个不是删除节点的节点
-			pNode := node.Left
-			for _, exist := allNodesSet[pNode]; exist; _, exist = allNodesSet[pNode] {
-				pNode = pNode.Left
-			}
-			node.Right.Left = pNode
-			pNode.Right = node.Right
-		}
-		if !isLeftExist && isRightExist { //pNode向右找到第一个不是删除节点的节点
-			pNode := node.Right
-			for _, exist := allNodesSet[pNode]; exist; _, exist = allNodesSet[pNode] {
-				pNode = pNode.Right
-			}
-			node.Left.Right = pNode
-			pNode.Left = node.Left
-		}
-
-		if !isUpExist && !isDownExist {
-			node.Up.Down = node.Down
-			node.Down.Up = node.Up
-		}
-		if !isLeftExist && !isRightExist {
-			node.Left.Right = node.Right
-			node.Right.Left = node.Left
-		}
-	}
-}
-
-// 直接恢复元素
-func (danceLink *DanceLink) resumeNodes(allNodesSet map[*node]bool) {
-	for node := range allNodesSet {
-		//依照本身标记恢复
-		node.Up.Down = node
-		node.Down.Up = node
-		node.Left.Right = node
-		node.Right.Left = node
-
-		//恢复header计数
-		danceLink.Headers[node.ColNum].arg++
-	}
-
 }
 
 // 删除元素,并返回备份
