@@ -42,3 +42,4 @@
 | 35 | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | [search-insert-position.go](search-insert-position/search-insert-position.go) | O(log(n)) | 二分查找 |  |
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | [valid-sudoku.go](valid-sudoku/valid-sudoku.go) | O(n) | 位操作判重 |  |
 | 37 | [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) | [sudoku-solver.go](sudoku-solver/sudoku-solver.go) |  | DanceLink X算法，来自本人项目[sudoku-solver](https://github.com/smilelc3/sudoku-solver) |  |
+| 38 | [Count and Say](https://leetcode.com/problems/count-and-say/) | [count-and-say.go](count-and-say/count-and-say.go) |  | 递归 + strings.Builder加速 |  |
