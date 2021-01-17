@@ -44,3 +44,5 @@
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | [valid-sudoku.go](valid-sudoku/valid-sudoku.go) | O(n) | 位操作判重 |  |
 | 37 | [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) | [sudoku-solver.go](sudoku-solver/sudoku-solver.go) |  | DanceLink X算法，来自本人项目[sudoku-solver](https://github.com/smilelc3/sudoku-solver) |  |
 | 38 | [Count and Say](https://leetcode.com/problems/count-and-say/) | [count-and-say.go](count-and-say/count-and-say.go) |  | 递归 + strings.Builder加速 |  |
+| 39 | [Combination Sum](https://leetcode.com/problems/combination-sum/) | [combination-sum.go](combination-sum/combination-sum.go) |  | DFS剪枝 |  |
+| 40 | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) | [combination-sum-ii.go](combination-sum-ii/combination-sum-ii.go) |  | DFS+Map判重 |  |
