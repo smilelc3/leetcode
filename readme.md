@@ -47,3 +47,4 @@
 | 39 | [Combination Sum](https://leetcode.com/problems/combination-sum/) | [combination-sum.go](combination-sum/combination-sum.go) |  | DFS |  |
 | 40 | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) | [combination-sum-ii.go](combination-sum-ii/combination-sum-ii.go) |  | DFS+剪枝 |  |
 | 41 | [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) | [first-missing-positive.go](first-missing-positive/first-missing-positive.go) | O(n) | 判 nums[idx]=nums[nums[idx]-1] | O(1) |
+| 42 | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | [trapping-rain-water.go](trapping-rain-water/trapping-rain-water.go) | O(n) | 不下降子数组 |  |
