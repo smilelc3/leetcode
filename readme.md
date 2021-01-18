@@ -46,4 +46,4 @@
 | 38 | [Count and Say](https://leetcode.com/problems/count-and-say/) | [count-and-say.go](count-and-say/count-and-say.go) |  | 递归 + strings.Builder加速 |  |
 | 39 | [Combination Sum](https://leetcode.com/problems/combination-sum/) | [combination-sum.go](combination-sum/combination-sum.go) |  | DFS |  |
 | 40 | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) | [combination-sum-ii.go](combination-sum-ii/combination-sum-ii.go) |  | DFS+剪枝 |  |
-| 41 | [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) | [generate-parentheses.go](generate-parentheses/generate-parentheses.go) | O(n) | 判 nums[idx]=nums[nums[idx]-1] | O(1) |
+| 41 | [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) | [first-missing-positive.go](first-missing-positive/first-missing-positive.go) | O(n) | 判 nums[idx]=nums[nums[idx]-1] | O(1) |
