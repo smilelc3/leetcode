@@ -51,3 +51,6 @@
 | 43 | [Multiply Strings](https://leetcode.com/problems/multiply-strings/) | [multiply-strings.go](multiply-strings/multiply-strings.go) | O(n+m) | 模拟乘法 |  |
 | 44 | [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/) | [wildcard-matching.go](wildcard-matching/wildcard-matching.go) | O(n) | 双指针 |  |
 | 45 | [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | [jump-game-ii.go](jump-game-ii/jump-game-ii.go) | O(n) | 二次扩展 | O(1) |
+| 46 | [Permutations](https://leetcode.com/problems/permutations/) | [permutations.go](permutations/permutations.go) |  | 全排列 |  |
+| 47 | [Permutations II](https://leetcode.com/problems/permutations-ii/) | [permutations-ii.go](permutations-ii/permutations-ii.go) |  | 不重复全排列 |  |
+| 50 | [Pow(x, n)](https://leetcode.com/problems/powx-n/) | [powx-n.go](powx-n/powx-n.go) | O(log(n)) | 快速幂 |  |
