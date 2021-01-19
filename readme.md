@@ -49,3 +49,4 @@
 | 41 | [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) | [first-missing-positive.go](first-missing-positive/first-missing-positive.go) | O(n) | 判 nums[idx]=nums[nums[idx]-1] | O(1) |
 | 42 | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | [trapping-rain-water.go](trapping-rain-water/trapping-rain-water.go) | O(n) | 不下降子数组 |  |
 | 43 | [Multiply Strings](https://leetcode.com/problems/multiply-strings/) | [multiply-strings.go](multiply-strings/multiply-strings.go) | O(n+m) | 模拟乘法 |  |
+| 44 | [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/) | [wildcard-matching.go](wildcard-matching/wildcard-matching.go) | O(n) | 双指针 |  |
