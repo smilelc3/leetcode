@@ -24,7 +24,7 @@ func isMatchDP(s string, p string) bool {
 	// 避免空串匹配***的情况
 	for j := 0; j < len(p); j++ {
 		if p[j] == '*' {
-			dp[0][j+1] = dp[0][j]
+			dp[0][j+1] = dp[0][j] // 与前一个状态一致
 		}
 	}
 
@@ -42,11 +42,9 @@ func isMatchDP(s string, p string) bool {
 		for j := 0; j < len(p); j++ {
 			if s[i] == p[j] {
 				dp[i+1][j+1] = dp[i][j] // s[i] == p[j] 该状态等于前一个状态
-			}
-			if p[j] == '?' {
+			} else if p[j] == '?' {
 				dp[i+1][j+1] = dp[i][j] // p[j] == '?', 可匹配任何单个字符，该状态等于前一个状态
-			}
-			if p[j] == '*' {
+			} else if p[j] == '*' {
 				// '*' 可匹配任何字符序列（包括空串）
 				dp[i+1][j+1] = dp[i+1][j+1] || dp[i][j+1]
 				dp[i+1][j+1] = dp[i+1][j+1] || dp[i][j]
@@ -59,29 +57,26 @@ func isMatchDP(s string, p string) bool {
 }
 
 func isMatchTwoPointer(s string, p string) bool {
+	// 这题缺陷在于只要出现*号，该*号到下一次出现 ?或* s串和p串之间的字符都无意义
 	i, j := 0, 0
 	iStar, jStar := -1, -1
 	for i < len(s) {
-		//case 1, characters are matched
-		if j < len(p) && (s[i] == p[j] || p[j] == '?') {
+		if j < len(p) && (s[i] == p[j] || p[j] == '?') { // 情况一 可直接匹配
 			i++
 			j++
-			//case 2, character is *
-		} else if j < len(p) && p[j] == '*' {
-			iStar = i //remember the * match position
+		} else if j < len(p) && p[j] == '*' { // 情况二 当前p处理的是*
+			iStar = i // 记录*出现时的指针位置
 			jStar = j
-			j++ //just move j to next position, i stays on the current position as * matches with empty sequence
-			//case 3, characters are not matched and iStar != -1 (means found * already)
-		} else if iStar >= 0 {
-			j = jStar + 1 //move j back to last position, redo the matching process
+			j++ // 继续处理p的下一个，s保持当前位置，认为*匹配空串
+		} else if iStar >= 0 { // 情况三，当前什么都不匹配，但是之前存在的*, 字符都无意义,直接s往后继续移动，直到遇到下一次*或者？
+			j = jStar + 1
+			i = iStar + 1
 			iStar++
-			i = iStar //redo the matching process from next i position
-			//case 4, couldn't match
-		} else {
+		} else { // 情况四，啥都不匹配
 			return false
 		}
 	}
-	//handle p ending with * case
+	//p指针不到最后时需要保证当前指向之后都为*
 	for j < len(p) {
 		if p[j] != '*' {
 			return false
@@ -89,5 +84,5 @@ func isMatchTwoPointer(s string, p string) bool {
 			j++
 		}
 	}
-	return j == len(p)
+	return true
 }
