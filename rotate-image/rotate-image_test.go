@@ -44,3 +44,20 @@ func TestRotateExample4(t *testing.T) {
 		t.Error("right ans = ", rightAns, ", current ans = ", ans)
 	}
 }
+
+func TestMatrixMulMyTest0(t *testing.T) {
+	a := [][]float64{
+		{1, 2},
+		{3, 4},
+		{5, 6},
+	}
+	b := [][]float64{
+		{1, 2, 3},
+		{3, 4, 1},
+	}
+	ans := matrixMul(a, b)
+	rightAns := [][]float64{{7, 10, 5}, {15, 22, 13}, {23, 34, 21}}
+	if !reflect.DeepEqual(ans, rightAns) {
+		t.Error("right ans = ", rightAns, ", current ans = ", ans)
+	}
+}
