@@ -9,8 +9,8 @@ func myPow(x float64, n int) float64 {
 	} else if n == 1 {
 		return x
 	} else if n&1 == 1 {
-		return myPow(x*x, n/2) * x
+		return myPow(x*x, n>>1) * x
 	} else {
-		return myPow(x*x, n/2)
+		return myPow(x*x, n>>1)
 	}
 }
