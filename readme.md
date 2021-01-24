@@ -57,3 +57,4 @@
 | 48 | [Rotate Image](https://leetcode.com/problems/rotate-image/) | [rotate-image.go](rotate-image/rotate-image.go) | O(n^2) | 图像处理：旋转变换矩阵 | O(1) |
 | 49 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | [group-anagrams.go](group-anagrams/group-anagrams.go) | O(m*n) | HashMap+桶排序思想 |  |
 | 50 | [Pow(x, n)](https://leetcode.com/problems/powx-n/) | [powx-n.go](powx-n/powx-n.go) | O(log(n)) | 快速幂 |  |
+| 51 | [N-Queens](https://leetcode.com/problems/n-queens/) | [n-queens.go](n-queens/n-queens.go) | O(n^n) | 回溯+位操作加速 |  |
