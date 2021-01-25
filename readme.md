@@ -59,3 +59,4 @@
 | 50 | [Pow(x, n)](https://leetcode.com/problems/powx-n/) | [powx-n.go](powx-n/powx-n.go) | O(log(n)) | 快速幂 |  |
 | 51 | [N-Queens](https://leetcode.com/problems/n-queens/) | [n-queens.go](n-queens/n-queens.go) | O(n^n) | 回溯+位操作加速 |  |
 | 52 | [N-Queens II](https://leetcode.com/problems/n-queens-ii/) | [n-queens-ii.go](n-queens-ii/n-queens-ii.go) | O(1) | 打表 | O(1) |
+| 53 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [maximum-subarray.go](maximum-subarray/maximum-subarray.go) | O(n) | 最大和子串 | O(1) |
