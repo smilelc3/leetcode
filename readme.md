@@ -61,3 +61,4 @@
 | 52 | [N-Queens II](https://leetcode.com/problems/n-queens-ii/) | [n-queens-ii.go](n-queens-ii/n-queens-ii.go) | O(1) | 打表 | O(1) |
 | 53 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [maximum-subarray.go](maximum-subarray/maximum-subarray.go) | O(n) | 最大和子串 | O(1) |
 | 54 | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) | [spiral-matrix.go](spiral-matrix/spiral-matrix.go) | O(m*n) | 模拟 |  |
+| 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | [jump-game.go](jump-game/jump-game.go) | O(n) | 二次扩展 | O(1) |

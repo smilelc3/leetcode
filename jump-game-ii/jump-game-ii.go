@@ -12,7 +12,7 @@ func jump(nums []int) int {
 
 // extent jump
 func jumpExtent(nums []int) int {
-	if len(nums) == 1 {
+	if len(nums) <= 1 {
 		return 0
 	}
 	step := 0
