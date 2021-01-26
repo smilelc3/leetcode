@@ -5,14 +5,13 @@ func spiralOrder(matrix [][]int) []int {
 		return []int{}
 	}
 	width := len(matrix[0])
-	heigth := len(matrix)
+	height := len(matrix)
 
-	order := make([]int, width*heigth)
+	order := make([]int, width*height)
 
 	for i, row := range matrix {
 		for j, num := range row {
 			// nums(i,j)
-
 		}
 	}
 	return order
