@@ -63,3 +63,4 @@
 | 54 | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) | [spiral-matrix.go](spiral-matrix/spiral-matrix.go) | O(m*n) | 模拟 |  |
 | 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | [jump-game.go](jump-game/jump-game.go) | O(n) | 二次扩展 | O(1) |
 | 56 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | [merge-intervals.go](merge-intervals/merge-intervals.go) | O(nlog(n)) | slice排序 |  |
+| 57 | [Insert Interval](https://leetcode.com/problems/insert-interval/) | [insert-interval.go](insert-interval/insert-interval.go) | O(n) | 模拟 |  |
