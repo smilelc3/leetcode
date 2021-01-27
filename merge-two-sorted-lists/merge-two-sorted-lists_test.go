@@ -1,6 +1,9 @@
 package merge_two_sorted_lists
 
-import "testing"
+import (
+	. "leetcode-go/built-in-class"
+	"testing"
+)
 
 func TestMergeTwoListsExample1(t *testing.T) {
 	l1 := &ListNode{Val: 1}

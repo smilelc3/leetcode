@@ -1,17 +1,6 @@
 package add_two_numbers
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import . "leetcode-go/built-in-class"
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	ansLink := new(ListNode)

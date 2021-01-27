@@ -1,17 +1,6 @@
 package reverse_nodes_in_k_group
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import . "leetcode-go/built-in-class"
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
 	// space cost O(1)

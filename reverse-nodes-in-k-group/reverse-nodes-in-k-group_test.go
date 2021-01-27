@@ -1,6 +1,9 @@
 package reverse_nodes_in_k_group
 
-import "testing"
+import (
+	. "leetcode-go/built-in-class"
+	"testing"
+)
 
 func TestReverseKGroupExample1(t *testing.T) {
 	head := &ListNode{Val: 1}

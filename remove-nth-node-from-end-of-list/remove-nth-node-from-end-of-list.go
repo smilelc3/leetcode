@@ -1,17 +1,6 @@
 package remove_nth_node_from_end_of_list
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import . "leetcode-go/built-in-class"
 
 func removeNthFromEndNormal(head *ListNode, n int) *ListNode {
 	var pNodesArray []*ListNode

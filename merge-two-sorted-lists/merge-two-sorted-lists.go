@@ -1,17 +1,6 @@
 package merge_two_sorted_lists
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import . "leetcode-go/built-in-class"
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	// Both l1 and l2 are sorted in non-decreasing order.

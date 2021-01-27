@@ -2,18 +2,7 @@ package merge_k_sorted_lists
 
 import "math"
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import . "leetcode-go/built-in-class"
 
 func mergeKLists(lists []*ListNode) *ListNode {
 	// method 1 递归 250ms  O(lists.length * max(lists[i].length))

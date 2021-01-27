@@ -1,17 +1,6 @@
 package swap_nodes_in_pairs
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import . "leetcode-go/built-in-class"
 
 func swapPairs(head *ListNode) *ListNode {
 	var preNode, aNode, bNode *ListNode

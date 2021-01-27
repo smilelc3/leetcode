@@ -1,6 +1,9 @@
 package swap_nodes_in_pairs
 
-import "testing"
+import (
+	. "leetcode-go/built-in-class"
+	"testing"
+)
 
 func TestSwapPairsExample1(t *testing.T) {
 	head := &ListNode{Val: 1}
