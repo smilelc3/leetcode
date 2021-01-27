@@ -66,3 +66,4 @@
 | 57 | [Insert Interval](https://leetcode.com/problems/insert-interval/) | [insert-interval.go](insert-interval/insert-interval.go) | O(n) | 模拟 |  |
 | 58 | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) | [length-of-last-word.go](length-of-last-word/length-of-last-word.go) | O(n) | 找首次非后导空格符 |  |
 | 59 | [Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/) | [spiral-matrix-ii.go](spiral-matrix-ii/spiral-matrix-ii.go) | O(n^2) | 模拟 |  |
+| 60 | [Permutation Sequence](https://leetcode.com/problems/permutation-sequence/) | [permutation-sequence.go](permutation-sequence/permutation-sequence.go) | O(n) | 规律+递归 |  |
