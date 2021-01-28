@@ -71,3 +71,4 @@
 | 62 | [Unique Paths](https://leetcode.com/problems/unique-paths/) | [unique-paths.go](unique-paths/unique-paths.go) | O(m*n) | DP | O(min(m,n)) |
 | 63 | [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) | [unique-paths-ii.go](unique-paths-ii/unique-paths-ii.go) | O(m*n) | DP | O(min(m,n)) |
 | 64 | [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) | [minimum-path-sum.go](minimum-path-sum/minimum-path-sum.go) | O(m*n) | DP |  |
+| 65 | [Valid Number](https://leetcode.com/problems/valid-number/) | [valid-number.go](valid-number/valid-number.go) | O(n) | 确定有限状态自动机DFA |  |
