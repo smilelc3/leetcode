@@ -75,3 +75,4 @@
 | 66 | [Plus One](https://leetcode.com/problems/plus-one/) | [plus-one.go](plus-one/plus-one.go) | O(n) | 模拟进位 |  |
 | 67 | [Add Binary](https://leetcode.com/problems/add-binary/) | [add-binary.go](add-binary/add-binary.go) | O(n) | 模拟二进制加法 |  |
 | 68 | [Text Justification](https://leetcode.com/problems/text-justification/) | [text-justification.go](text-justification/text-justification.go) | O(m*n) | 格式控制 |  |
+| 69 | [Sqrt(x)](https://leetcode.com/problems/sqrtx/) | [sqrtx.go](sqrtx/sqrtx.go) | O(log(n)) | 二叉搜索树 | O(1) |
