@@ -77,3 +77,4 @@
 | 68 | [Text Justification](https://leetcode.com/problems/text-justification/) | [text-justification.go](text-justification/text-justification.go) | O(m*n) | 格式控制 |  |
 | 69 | [Sqrt(x)](https://leetcode.com/problems/sqrtx/) | [sqrtx.go](sqrtx/sqrtx.go) | O(log(n)) | 二叉搜索树 | O(1) |
 | 70 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [climbing-stairs.go](climbing-stairs/climbing-stairs.go) | O(n) | 斐波那契数列(递推) | O(1) |
+| 71 | [Simplify Path](https://leetcode.com/problems/simplify-path/) | [simplify-path.go](simplify-path/simplify-path.go) | O(n) | 栈 |  |
