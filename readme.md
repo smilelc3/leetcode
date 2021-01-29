@@ -78,3 +78,4 @@
 | 69 | [Sqrt(x)](https://leetcode.com/problems/sqrtx/) | [sqrtx.go](sqrtx/sqrtx.go) | O(log(n)) | 二叉搜索树 | O(1) |
 | 70 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [climbing-stairs.go](climbing-stairs/climbing-stairs.go) | O(n) | 斐波那契数列(递推) | O(1) |
 | 71 | [Simplify Path](https://leetcode.com/problems/simplify-path/) | [simplify-path.go](simplify-path/simplify-path.go) | O(n) | 栈 |  |
+| 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | [set-matrix-zeroes.go](set-matrix-zeroes/set-matrix-zeroes.go) | O(m*n) | 表头标记 | O(1) |
