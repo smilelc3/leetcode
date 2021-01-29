@@ -23,7 +23,7 @@
 | 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [longest-common-prefix.go](longest-common-prefix/longest-common-prefix.go) | O(n*m) | if模拟 |  |
 | 15 | [3Sum](https://leetcode.com/problems/3sum/) | [3sum.go](3sum/3sum.go) | O(n^2) | two-pointer |  |
 | 16 | [3Sum Closest](https://leetcode.com/problems/3sum-closest/) | [3sum-closest.go](3sum-closest/3sum-closest.go) | O(n^2) | two-pointer |  |
-| 17 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | [letter-combinations-of-a-phone-number.go](letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.go) | O(4^n) |  |  |
+| 17 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | [letter-combinations-of-a-phone-number.go](letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.go) | O(4^n) | 循环 |  |
 | 18 | [4Sum](https://leetcode.com/problems/4sum/) | [4sum.go](4sum/4sum.go) | O(n^3) | two-pointer |  |
 | 19 | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | [remove-nth-node-from-end-of-list.go](remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.go) | O(n) | 循环数组(one pass) |  |
 | 20 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | [valid-parentheses.go](valid-parentheses/valid-parentheses.go) | O(n) | 栈 |  |
