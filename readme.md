@@ -81,3 +81,4 @@
 | 72 | [Edit Distance](https://leetcode.com/problems/edit-distance/) | [edit-distance.go](edit-distance/edit-distance.go) | O(m*n) | 编辑距离DP | O(m*n) |
 | 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | [set-matrix-zeroes.go](set-matrix-zeroes/set-matrix-zeroes.go) | O(m*n) | 表头标记 | O(1) |
 | 74 | [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | [search-a-2d-matrix.go](search-a-2d-matrix/search-a-2d-matrix.go) | O(log(m*n)) | 二分查找 | O(1) |
+| 75 | [Sort Colors](https://leetcode.com/problems/sort-colors/) | [sort-colors.go](sort-colors/sort-colors.go) | O(n) | 桶排序 | O(1) |
