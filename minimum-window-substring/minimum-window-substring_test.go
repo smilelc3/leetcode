@@ -69,13 +69,34 @@ func TestMinWindowTest3(test *testing.T) {
 	}
 }
 
-func BenchmarkMinWindowTest3(b *testing.B) {
+func TestMinWindowTest4(test *testing.T) {
+	s := "aa"
+	t := "aa"
+	ans := minWindow(s, t)
+	rightAns := "aa"
+	if ans != rightAns {
+		test.Error("right ans = ", rightAns, ", current ans = ", ans)
+	}
+}
+
+func BenchmarkMinWindowV1Test3(b *testing.B) {
 	sBytes, _ := ioutil.ReadFile("test3s.txt")
 	s := string(sBytes)
 	tBytes, _ := ioutil.ReadFile("test3t.txt")
 	t := string(tBytes)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		minWindow(s, t)
+		minWindowV1(s, t)
+	}
+}
+
+func BenchmarkMinWindowV2Test3(b *testing.B) {
+	sBytes, _ := ioutil.ReadFile("test3s.txt")
+	s := string(sBytes)
+	tBytes, _ := ioutil.ReadFile("test3t.txt")
+	t := string(tBytes)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		minWindowV2(s, t)
 	}
 }
