@@ -2,6 +2,7 @@ package combinations
 
 import (
 	"reflect"
+	"sort"
 	"testing"
 )
 
@@ -16,9 +17,24 @@ func TestCombineExample1(t *testing.T) {
 		{1, 2},
 		{1, 3},
 		{1, 4}}
+	sort.Slice(ans, func(i, j int) bool {
+		return lessCombination(ans[i], ans[j])
+	})
+	sort.Slice(rightAns, func(i, j int) bool {
+		return lessCombination(rightAns[i], rightAns[j])
+	})
 	if !reflect.DeepEqual(ans, rightAns) {
 		t.Error("right ans = ", rightAns, ", current ans = ", ans)
 	}
+}
+
+func lessCombination(combinationA []int, combinationB []int) bool {
+	for idx := 0; idx < len(combinationA); idx++ {
+		if combinationA[idx] != combinationB[idx] {
+			return combinationA[idx] < combinationB[idx]
+		}
+	}
+	return false
 }
 
 func TestCombineExample2(t *testing.T) {
