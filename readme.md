@@ -85,3 +85,4 @@
 | 76 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | [minimum-window-substring.go](minimum-window-substring/minimum-window-substring.go) | O(n) | 滑动窗口+数组代替HashMap优化 |  |
 | 77 | [Combinations](https://leetcode.com/problems/combinations/) | [combinations.go](combinations/combinations.go) | O((n-k)!) | 排列：递归 |  |
 | 78 | [Subsets](https://leetcode.com/problems/subsets/) | [subsets.go](subsets/subsets.go) | O(2^n) | 全子集：递归 |  |
+| 79 | [Word Search](https://leetcode.com/problems/word-search/) | [word-search.go](word-search/word-search.go) |  | DFS |  |
