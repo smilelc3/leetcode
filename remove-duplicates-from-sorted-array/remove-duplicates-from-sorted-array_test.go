@@ -13,7 +13,6 @@ func TestRemoveDuplicatesExample1(t *testing.T) {
 			t.Error("location = ", idx, "right ans = ", rightAns, ", current ans = ", nums)
 		}
 	}
-
 }
 
 func TestRemoveDuplicatesExample2(t *testing.T) {
@@ -25,7 +24,6 @@ func TestRemoveDuplicatesExample2(t *testing.T) {
 			t.Error("location = ", idx, "right ans = ", rightAns, ", current ans = ", nums)
 		}
 	}
-
 }
 
 func TestRemoveDuplicatesTest0(t *testing.T) {
@@ -34,5 +32,4 @@ func TestRemoveDuplicatesTest0(t *testing.T) {
 	if ansLen != 0 {
 		t.Error("removeDuplicates([]) length is 0, your ans = ", ansLen)
 	}
-
 }
