@@ -87,3 +87,4 @@
 | 78 | [Subsets](https://leetcode.com/problems/subsets/) | [subsets.go](subsets/subsets.go) | O(2^n) | 全子集：递归 |  |
 | 79 | [Word Search](https://leetcode.com/problems/word-search/) | [word-search.go](word-search/word-search.go) |  | DFS |  |
 | 80 | [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | [remove-duplicates-from-sorted-array-ii.go](remove-duplicates-from-sorted-array-ii/remove-duplicates-from-sorted-array-ii.go) | O(n) | 遍历 | O(1) |
+| 81 | [Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) | [remove-duplicates-from-sorted-array-ii.go](remove-duplicates-from-sorted-array-ii/remove-duplicates-from-sorted-array-ii.go) | O(n) | 二分搜索 |  |
