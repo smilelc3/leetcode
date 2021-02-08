@@ -95,7 +95,7 @@
 | 83 | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) | [remove-duplicates-from-sorted-list.go](remove-duplicates-from-sorted-list/remove-duplicates-from-sorted-list.go) | O(n) | 保证pNode.Val != pNode.Next.Val |  |
 | 84 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | [largest-rectangle-in-histogram.go](largest-rectangle-in-histogram/largest-rectangle-in-histogram.go) | O(n) | 单调栈 |  |
 | 85 | [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) | [maximal-rectangle.go](maximal-rectangle/maximal-rectangle.go) | O(m*n) | 转换为直方图求最大矩形：单调栈 |  |
-| 86 | [Partition List](https://leetcode.com/problems/partition-list/) | [partition-list.go](partition-list/partition-list.go) | O(n) | 双指针 |  |
+| 86 | [Partition List](https://leetcode.com/problems/partition-list/) | [partition-list.go](partition-list/partition-list.go) | O(n) | 双指针 | O(1) |
 
 
 ## 补充
