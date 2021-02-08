@@ -8,7 +8,7 @@ func largestRectangleArea(heights []int) int {
 	//return largestRectangleAreaStackHW(heights)
 
 	// method 3: O(n) height.idx stack
-	return largestRectangleAreaStackIdx(heights)
+	return LargestRectangleAreaStackIdx(heights)
 }
 
 func largestRectangleAreaDoubleLoop(heights []int) int {
@@ -82,7 +82,7 @@ func max(x, y int) int {
 	}
 }
 
-func largestRectangleAreaStackIdx(heights []int) int {
+func LargestRectangleAreaStackIdx(heights []int) int {
 	var barIdxStack []int
 	maxArea := 0
 	// 人为追加末尾0高度的bar,便于保证stack清空
