@@ -95,9 +95,10 @@
 | 83 | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) | [remove-duplicates-from-sorted-list.go](remove-duplicates-from-sorted-list/remove-duplicates-from-sorted-list.go) | O(n) | 保证pNode.Val != pNode.Next.Val |  |
 | 84 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | [largest-rectangle-in-histogram.go](largest-rectangle-in-histogram/largest-rectangle-in-histogram.go) | O(n) | 单调栈 |  |
 | 85 | [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) | [maximal-rectangle.go](maximal-rectangle/maximal-rectangle.go) | O(m*n) | 转换为直方图求最大矩形：单调栈 |  |
+| 86 | [Partition List](https://leetcode.com/problems/partition-list/) | [partition-list.go](partition-list/partition-list.go) | O(n) | 双指针 |  |
 
 
 ## 补充
 * [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) 存在`DFS`和`Dance Link X`两种解法，虽然DFS对简单数独（LeetCode测试样例）处理更快，但是Dance Link X在复杂数独的求解速度远远优于DFS，故采用后者。
 * [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)  若使用`HashMap`，在频繁调用时候性能欠佳，因题目给出key仅为英文字母，所以采用了固定数组来统计出现次数。
-* [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)  借助单调栈实现O(n)算法，且已尽可能优化。但是测试样例存在bug，即使使用提交页面提供的0ms代码，在当前测试样例下，至少也有80ms耗时，与本人结果一致，怀疑存在后期加入其他复杂测试样例。
+* [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)  借助单调栈实现O(n)算法，且已尽可能优化。但是测试样例存在[bug](https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues/2295) ，即使使用提交页面提供的0ms代码，在当前测试样例下，至少也有80ms耗时，与本人结果一致，怀疑存在后期加入其他复杂测试样例。
