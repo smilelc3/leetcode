@@ -100,6 +100,7 @@
 | 87 | [Scramble String](https://leetcode.com/problems/scramble-string/) | [scramble-string.go](scramble-string/scramble-string.go) |  | 分治 |  |
 | 88 | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | [merge-sorted-array.go](merge-sorted-array/merge-sorted-array.go) | O(n) | 从后向前遍历 |  |
 | 89 | [Gray Code](https://leetcode.com/problems/gray-code/) | [gray-code.go](gray-code/gray-code.go) | O(2^n) | 格雷码 |  |
+| 90 | [Subsets II](https://leetcode.com/problems/subsets-ii/) | [subsets-ii.go](subsets-ii/subsets-ii.go) | O(2^n) | 去重全子集：递归 |  |
 
 
 
@@ -112,4 +113,4 @@
 * [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)  借助单调栈实现O(n)
   算法，且已尽可能优化。但是测试样例存在[bug](https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues/2295)
   ，即使使用提交页面提供的0ms代码，在当前测试样例下，至少也有80ms耗时，与本人结果一致，怀疑存在后期加入其他复杂测试样例。
-* [89. Gray Code](https://leetcode.com/problems/gray-code/)  已做到时间+空间最优解，运算全部位运算，还是存在做不到0ms解。
+* [89. Gray Code](https://leetcode.com/problems/gray-code/)  已做到时间+空间最优解，运算全部位运算，不论golang还是C++都做不到0ms解或则最优空间。
