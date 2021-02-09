@@ -98,6 +98,7 @@
 | 85 | [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) | [maximal-rectangle.go](maximal-rectangle/maximal-rectangle.go) | O(m*n) | 转换为直方图求最大矩形：单调栈 |  |
 | 86 | [Partition List](https://leetcode.com/problems/partition-list/) | [partition-list.go](partition-list/partition-list.go) | O(n) | 双指针 | O(1) |
 | 87 | [Scramble String](https://leetcode.com/problems/scramble-string/) | [scramble-string.go](scramble-string/scramble-string.go) |  | 分治 |  |
+| 88 | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | [merge-sorted-array.go](merge-sorted-array/merge-sorted-array.go) | O(n) | 从后向前遍历 |  |
 
 
 
