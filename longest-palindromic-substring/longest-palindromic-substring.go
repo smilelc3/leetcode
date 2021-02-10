@@ -1,5 +1,7 @@
 package longest_palindromic_substring
 
+import . "leetcode-go/built-in"
+
 func longestPalindrome(s string) string {
 	if s == "" { // 空字符直接返回
 		return ""
@@ -24,7 +26,7 @@ func longestPalindrome(s string) string {
 		if i >= R {
 			P[i] = 1
 		} else {
-			P[i] = min(R-i, P[2*C-i])
+			P[i] = Min(R-i, P[2*C-i])
 
 		}
 		for i+P[i] < len(manacherString) && i-P[i] >= 0 {
@@ -48,11 +50,4 @@ func longestPalindrome(s string) string {
 	//manacherStringLongestPalindrome := manacherString[maxRi-(maxR-1) : maxRi+(maxR-1)+1]
 	//return strings.Replace(manacherStringLongestPalindrome, "#", "", -1)
 	return s[(maxRi-(maxR-1))/2 : (maxRi+(maxR-1)+1)/2]
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
 }

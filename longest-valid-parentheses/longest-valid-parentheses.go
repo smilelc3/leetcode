@@ -1,5 +1,7 @@
 package longest_valid_parentheses
 
+import . "leetcode-go/built-in"
+
 func longestValidParentheses(s string) int {
 	//
 	maxlength := 0
@@ -45,20 +47,12 @@ func longestValidParentheses(s string) int {
 	connLength := 0 // 连续最长
 	for _, num := range char2NumStack {
 		if num == 0 || num == 1 {
-			maxlength = max(maxlength, connLength)
+			maxlength = Max(maxlength, connLength)
 			connLength = 0
 		} else {
 			connLength += num
 		}
 	}
-	maxlength = max(maxlength, connLength)
+	maxlength = Max(maxlength, connLength)
 	return maxlength
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	} else {
-		return y
-	}
 }

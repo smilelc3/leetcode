@@ -1,5 +1,7 @@
 package insert_interval
 
+import . "leetcode-go/built-in"
+
 func insert(intervals [][]int, newInterval []int) [][]int {
 	if len(intervals) == 0 || len(intervals[0]) == 0 {
 		return [][]int{newInterval}
@@ -51,21 +53,5 @@ func isTwoIntervalMix(itv1, itv2 []int) bool {
 }
 
 func mergeTwoInterval(itv1, itv2 []int) []int {
-	return []int{min(itv1[0], itv2[0]), max(itv1[1], itv2[1])}
-}
-
-func max(x int, y int) int {
-	if x > y {
-		return x
-	} else {
-		return y
-	}
-}
-
-func min(x int, y int) int {
-	if x > y {
-		return y
-	} else {
-		return x
-	}
+	return []int{Min(itv1[0], itv2[0]), Max(itv1[1], itv2[1])}
 }

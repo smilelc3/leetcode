@@ -1,5 +1,7 @@
 package largest_rectangle_in_histogram
 
+import . "leetcode-go/built-in"
+
 func largestRectangleArea(heights []int) int {
 	// method 1: O(n^2)
 	//return largestRectangleAreaDoubleLoop(heights)
@@ -54,7 +56,7 @@ func largestRectangleAreaStackHW(heights []int) int {
 				// 更新curMinHeight
 				totWidth += popBar.width
 				// 更新maxArea
-				maxArea = max(maxArea, popBar.height*totWidth)
+				maxArea = Max(maxArea, popBar.height*totWidth)
 
 			}
 			// push 之前的元素汇总+新元素
@@ -74,14 +76,6 @@ func largestRectangleAreaStackHW(heights []int) int {
 	return maxArea
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	} else {
-		return y
-	}
-}
-
 func LargestRectangleAreaStackIdx(heights []int) int {
 	var barIdxStack []int
 	maxArea := 0
@@ -95,9 +89,9 @@ func LargestRectangleAreaStackIdx(heights []int) int {
 			barIdxStack = barIdxStack[:len(barIdxStack)-1]
 			// 更新maxArea
 			if len(barIdxStack) == 0 { // pop弹出的bar,是之前最矮的
-				maxArea = max(maxArea, idx*heights[popIdx])
+				maxArea = Max(maxArea, idx*heights[popIdx])
 			} else { // idx-barIdxStack[len(barIdxStack)-1]-1 计算的是pop出来的宽度
-				maxArea = max(maxArea, (idx-barIdxStack[len(barIdxStack)-1]-1)*heights[popIdx])
+				maxArea = Max(maxArea, (idx-barIdxStack[len(barIdxStack)-1]-1)*heights[popIdx])
 			}
 		} else {
 			// push 当前的bar的idx，继续下一个

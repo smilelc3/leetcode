@@ -2,6 +2,8 @@ package median_of_two_sorted_arrays
 
 // https://www.cnblogs.com/grandyang/p/4465932.html
 
+import . "leetcode-go/built-in"
+
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	m := len(nums1)
 	n := len(nums2)
@@ -53,24 +55,8 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 		} else if L2 > R1 {
 			right = mid2 - 1
 		} else {
-			return (float64(max(L1, L2)) + float64(min(R1, R2))) / 2
+			return (float64(Max(L1, L2)) + float64(Min(R1, R2))) / 2
 		}
 	}
 	return -1
-}
-
-func min(a int, b int) int {
-	if a > b {
-		return b
-	} else {
-		return a
-	}
-}
-
-func max(a int, b int) int {
-	if a > b {
-		return a
-	} else {
-		return b
-	}
 }

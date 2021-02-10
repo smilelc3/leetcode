@@ -1,6 +1,7 @@
 package three_sum_closest
 
 import (
+	. "leetcode-go/built-in"
 	"math"
 	"sort"
 )
@@ -16,7 +17,7 @@ func threeSumClosest(nums []int, target int) int {
 		right := len(nums) - 1
 		for left < right {
 			curSum := num + nums[left] + nums[right]
-			if abs(curSum-target) < abs(threeSum-target) {
+			if Abs(curSum-target) < Abs(threeSum-target) {
 				threeSum = curSum
 			}
 			if curSum > target {
@@ -29,12 +30,4 @@ func threeSumClosest(nums []int, target int) int {
 		}
 	}
 	return threeSum
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	} else {
-		return x
-	}
 }

@@ -1,5 +1,6 @@
 package jump_game_ii
 
+import . "leetcode-go/built-in"
 import "math"
 
 func jump(nums []int) int {
@@ -61,16 +62,8 @@ func jumpDP(nums []int) int {
 			if nextIdx >= len(nums) {
 				break
 			}
-			dp[nextIdx] = min(dp[nextIdx], dp[idx]+1)
+			dp[nextIdx] = Min(dp[nextIdx], dp[idx]+1)
 		}
 	}
 	return dp[len(dp)-1]
-}
-
-func min(x int, y int) int {
-	if x > y {
-		return y
-	} else {
-		return x
-	}
 }

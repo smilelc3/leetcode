@@ -1,6 +1,7 @@
 package merge_intervals
 
 import (
+	. "leetcode-go/built-in"
 	"sort"
 )
 
@@ -18,7 +19,7 @@ func merge(intervals [][]int) [][]int {
 
 	for idx := 1; idx < len(intervals); idx++ {
 		if curInterval[1] >= intervals[idx][0] {
-			curInterval[1] = max(intervals[idx][1], curInterval[1])
+			curInterval[1] = Max(intervals[idx][1], curInterval[1])
 		} else {
 			ans = append(ans, []int{curInterval[0], curInterval[1]})
 			curInterval = intervals[idx]
@@ -26,12 +27,4 @@ func merge(intervals [][]int) [][]int {
 	}
 	ans = append(ans, curInterval)
 	return ans
-}
-
-func max(x int, y int) int {
-	if x > y {
-		return x
-	} else {
-		return y
-	}
 }

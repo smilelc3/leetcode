@@ -1,5 +1,7 @@
 package edit_distance
 
+import . "leetcode-go/built-in"
+
 func minDistance(word1 string, word2 string) int {
 	// dp[i][j] 表示word1[0,i-1] 与 word2[0,j-1] 的最小编辑距离
 	// TODO: 可继续优化空间复杂度
@@ -21,22 +23,14 @@ func minDistance(word1 string, word2 string) int {
 
 	for i := 1; i <= len(word1); i++ {
 		for j := 1; j <= len(word2); j++ {
-			minDelete := min(dp[i][j-1]+1, dp[i-1][j]+1)
+			minDelete := Min(dp[i][j-1]+1, dp[i-1][j]+1)
 			minReplace := dp[i-1][j-1]
 			if word1Runes[i-1] != word2Runes[j-1] {
 				minReplace++
 			}
-			dp[i][j] = min(minReplace, minDelete)
+			dp[i][j] = Min(minReplace, minDelete)
 		}
 	}
 
 	return dp[len(word1)][len(word2)]
-}
-
-func min(x, y int) int {
-	if x > y {
-		return y
-	} else {
-		return x
-	}
 }
