@@ -1,6 +1,6 @@
 package merge_two_sorted_lists
 
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	// Both l1 and l2 are sorted in non-decreasing order.

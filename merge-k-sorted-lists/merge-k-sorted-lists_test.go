@@ -1,7 +1,7 @@
 package merge_k_sorted_lists
 
 import "testing"
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func TestMergeKListsExample1(t *testing.T) {
 	l1 := &ListNode{Val: 1}

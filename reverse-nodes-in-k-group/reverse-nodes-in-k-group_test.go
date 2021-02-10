@@ -1,7 +1,7 @@
 package reverse_nodes_in_k_group
 
 import (
-	. "leetcode-go/built-in-class"
+	. "leetcode-go/built-in"
 	"testing"
 )
 

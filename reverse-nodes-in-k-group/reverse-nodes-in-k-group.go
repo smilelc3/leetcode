@@ -1,6 +1,6 @@
 package reverse_nodes_in_k_group
 
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
 	// space cost O(1)

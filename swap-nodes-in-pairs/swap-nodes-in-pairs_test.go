@@ -1,7 +1,7 @@
 package swap_nodes_in_pairs
 
 import (
-	. "leetcode-go/built-in-class"
+	. "leetcode-go/built-in"
 	"testing"
 )
 

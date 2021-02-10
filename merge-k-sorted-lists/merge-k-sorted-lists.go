@@ -2,7 +2,7 @@ package merge_k_sorted_lists
 
 import "math"
 
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func mergeKLists(lists []*ListNode) *ListNode {
 	// method 1 递归 250ms  O(lists.length * max(lists[i].length))

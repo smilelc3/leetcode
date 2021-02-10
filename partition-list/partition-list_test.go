@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 )
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func TestPartitionExample1(t *testing.T) {
 	head := &ListNode{Val: 1}

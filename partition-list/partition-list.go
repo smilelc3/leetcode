@@ -1,6 +1,6 @@
 package partition_list
 
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func partition(head *ListNode, x int) *ListNode {
 	var greaterHead, greaterTail *ListNode

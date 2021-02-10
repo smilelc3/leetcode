@@ -1,7 +1,7 @@
 package merge_two_sorted_lists
 
 import (
-	. "leetcode-go/built-in-class"
+	. "leetcode-go/built-in"
 	"testing"
 )
 

@@ -1,6 +1,6 @@
 package rotate_list
 
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func rotateRight(head *ListNode, k int) *ListNode {
 	if head == nil {

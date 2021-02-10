@@ -1,7 +1,7 @@
 package remove_duplicates_from_sorted_list
 
 import (
-	. "leetcode-go/built-in-class"
+	. "leetcode-go/built-in"
 	"reflect"
 	"testing"
 )

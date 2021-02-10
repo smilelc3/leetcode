@@ -1,7 +1,7 @@
 package rotate_list
 
 import (
-	. "leetcode-go/built-in-class"
+	. "leetcode-go/built-in"
 	"reflect"
 	"testing"
 )

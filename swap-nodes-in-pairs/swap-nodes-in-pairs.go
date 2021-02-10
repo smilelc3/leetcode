@@ -1,6 +1,6 @@
 package swap_nodes_in_pairs
 
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func swapPairs(head *ListNode) *ListNode {
 	var preNode, aNode, bNode *ListNode

@@ -1,6 +1,6 @@
 package remove_nth_node_from_end_of_list
 
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func removeNthFromEndNormal(head *ListNode, n int) *ListNode {
 	var pNodesArray []*ListNode

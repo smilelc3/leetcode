@@ -1,6 +1,6 @@
 package add_two_numbers
 
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	ansLink := new(ListNode)

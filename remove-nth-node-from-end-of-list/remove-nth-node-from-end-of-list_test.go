@@ -1,7 +1,7 @@
 package remove_nth_node_from_end_of_list
 
 import (
-	. "leetcode-go/built-in-class"
+	. "leetcode-go/built-in"
 	"testing"
 )
 

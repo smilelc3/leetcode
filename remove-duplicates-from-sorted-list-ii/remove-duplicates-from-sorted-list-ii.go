@@ -1,6 +1,6 @@
 package remove_duplicates_from_sorted_list_ii
 
-import . "leetcode-go/built-in-class"
+import . "leetcode-go/built-in"
 
 func deleteDuplicates(head *ListNode) *ListNode {
 	pNode := head

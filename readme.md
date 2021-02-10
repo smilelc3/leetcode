@@ -102,6 +102,7 @@
 | 89 | [Gray Code](https://leetcode.com/problems/gray-code/) | [gray-code.go](gray-code/gray-code.go) | O(2^n) | 格雷码 |  |
 | 90 | [Subsets II](https://leetcode.com/problems/subsets-ii/) | [subsets-ii.go](subsets-ii/subsets-ii.go) | O(2^n) | 去重全子集：递归 |  |
 | 91 | [Decode Ways](https://leetcode.com/problems/decode-ways/) | [decode-ways.go](decode-ways/decode-ways.go) | O(n) | 斐波那契变形+状态压缩 | O(1) |
+| 92 | [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) | [reverse-linked-list-ii.go](reverse-linked-list-ii/reverse-linked-list-ii.go) | O(n) |  单链表部分翻转 | O(1) |
 
 
 

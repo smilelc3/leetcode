@@ -1,7 +1,7 @@
 package add_two_numbers
 
 import (
-	. "leetcode-go/built-in-class"
+	. "leetcode-go/built-in"
 	"testing"
 )
 
