@@ -31,6 +31,9 @@ func partition(head *ListNode, x int) *ListNode {
 	// connect two link
 	if LessTail != nil {
 		LessTail.Next = greaterHead
+		if greaterTail != nil {
+			greaterTail.Next = nil
+		}
 		return LessHead
 	} else {
 		return greaterHead
