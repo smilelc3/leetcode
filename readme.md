@@ -104,6 +104,7 @@
 | 91 | [Decode Ways](https://leetcode.com/problems/decode-ways/) | [decode-ways.go](decode-ways/decode-ways.go) | O(n) | 斐波那契变形+状态压缩 | O(1) |
 | 92 | [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) | [reverse-linked-list-ii.go](reverse-linked-list-ii/reverse-linked-list-ii.go) | O(n) |  单链表部分翻转 | O(1) |
 | 93 | [Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/) | [restore-ip-addresses.go](restore-ip-addresses/restore-ip-addresses.go) |  |  DFS |  |
+| 94 | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | [binary-tree-inorder-traversal.go](binary-tree-inorder-traversal/binary-tree-inorder-traversal.go) | O(N) | 中序遍历 |  |
 
 ## 补充
 
