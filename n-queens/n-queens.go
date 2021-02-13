@@ -30,25 +30,25 @@ func NQueuesBackTrack(row int, n int, colExistQueue uint16, slashExistQueue [2]u
 			if row+1 == n {
 				back := make([]string, n)
 				copy(back, cur)
-				tempRune := []rune(back[row])
-				tempRune[col] = 'Q'
-				back[row] = string(tempRune)
+				tempBytes := []byte(back[row])
+				tempBytes[col] = 'Q'
+				back[row] = string(tempBytes)
 				*pSave = append(*pSave, back)
 				return
 			}
 			colExistQueue |= 1 << col
 			slashExistQueue[0] |= 1 << (row + col)
 			slashExistQueue[1] |= 1 << (row - col + n - 1)
-			tempRune := []rune(cur[row])
-			tempRune[col] = 'Q'
-			cur[row] = string(tempRune)
+			tempBytes := []byte(cur[row])
+			tempBytes[col] = 'Q'
+			cur[row] = string(tempBytes)
 
 			NQueuesBackTrack(row+1, n, colExistQueue, slashExistQueue, cur, pSave)
 
 			// resume
-			tempRune = []rune(cur[row])
-			tempRune[col] = '.'
-			cur[row] = string(tempRune)
+			tempBytes = []byte(cur[row])
+			tempBytes[col] = '.'
+			cur[row] = string(tempBytes)
 			colExistQueue = colExistQueue ^ (1 << col)
 			slashExistQueue[0] ^= 1 << (row + col)
 			slashExistQueue[1] ^= 1 << (row - col + n - 1)

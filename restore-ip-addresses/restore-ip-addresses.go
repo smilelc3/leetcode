@@ -5,15 +5,15 @@ import (
 )
 
 func restoreIpAddresses(s string) []string {
-	sRunes := []rune(s)
+	sBytes := []byte(s)
 
 	var addresses []string
-	deepFirstSearchIp(sRunes, 0, make([]int, 0, 3), &addresses)
+	deepFirstSearchIp(sBytes, 0, make([]int, 0, 3), &addresses)
 
 	return addresses
 }
 
-func deepFirstSearchIp(str []rune, next int, dotIdxes []int, pStorage *[]string) {
+func deepFirstSearchIp(str []byte, next int, dotIdxes []int, pStorage *[]string) {
 	if len(dotIdxes) == 3 {
 		address := string(str[:dotIdxes[0]+1]) + "."
 		address += string(str[dotIdxes[0]+1:dotIdxes[1]+1]) + "."
@@ -39,7 +39,7 @@ func deepFirstSearchIp(str []rune, next int, dotIdxes []int, pStorage *[]string)
 	}
 }
 
-func isLegal8Bit(str []rune) bool {
+func isLegal8Bit(str []byte) bool {
 	if len(str) == 0 {
 		return false
 	}

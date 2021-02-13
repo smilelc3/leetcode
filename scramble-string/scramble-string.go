@@ -3,20 +3,20 @@ package scramble_string
 import "sort"
 
 func isScramble(s1 string, s2 string) bool {
-	s1Runes := []rune(s1)
-	s2Runes := []rune(s2)
+	s1Bytes := []byte(s1)
+	s2Bytes := []byte(s2)
 
-	return isScrambleRecursion(s1Runes, s2Runes)
+	return isScrambleRecursion(s1Bytes, s2Bytes)
 }
 
-func isScrambleRecursion(s1 []rune, s2 []rune) bool {
+func isScrambleRecursion(s1 []byte, s2 []byte) bool {
 	if len(s1) != len(s2) {
 		return false
 	}
 	isSameStr := true
 
-	s1Copy := make([]rune, len(s1))
-	s2Copy := make([]rune, len(s2))
+	s1Copy := make([]byte, len(s1))
+	s2Copy := make([]byte, len(s2))
 
 	copy(s1Copy, s1)
 	copy(s2Copy, s2)

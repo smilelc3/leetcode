@@ -73,7 +73,7 @@ func TestRestoreIpAddressesTest0(t *testing.T) {
 }
 
 func TestIsLegal8BitMyTest0(t *testing.T) {
-	str := []rune("1113")
+	str := []byte("1113")
 	ans := isLegal8Bit(str)
 	rightAns := false
 	if ans != rightAns {
@@ -82,7 +82,7 @@ func TestIsLegal8BitMyTest0(t *testing.T) {
 }
 
 func TestIsLegal8BitMyTest1(t *testing.T) {
-	str := []rune("99")
+	str := []byte("99")
 	ans := isLegal8Bit(str)
 	rightAns := true
 	if ans != rightAns {
