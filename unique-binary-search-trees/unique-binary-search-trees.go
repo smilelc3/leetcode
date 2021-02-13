@@ -7,7 +7,7 @@ func numTrees(n int) int {
 	//return numTreesDP(n)
 
 	// version 2: formula
-	return numTreesFormula(n)
+	return int(numTreesFormula(n))
 }
 
 func numTreesDP(n int) int {
@@ -21,16 +21,18 @@ func numTreesDP(n int) int {
 	return dp[n]
 }
 
-func numTreesFormula(n int) int {
+func numTreesFormula(n int) int64 {
 	// 卡特兰数公式
 	// $F(n) = C_{2n}^{n}-C_{2n}^{n+1} = \frac{C_{2n}^{n}}{n+1}$
-	return int(comb(2*n, n) / int64(n+1))
+	ans := comb(2*n, n)
+	ans.Div(ans, big.NewInt(int64(n+1)))
+	return ans.Int64()
 }
 
-func comb(n, k int) int64 {
+func comb(n, k int) *big.Int {
 	ans := fac(n)
 	ans.Div(ans, fac(k)).Div(ans, fac(n-k))
-	return ans.Int64()
+	return ans
 }
 
 func fac(n int) *big.Int {
