@@ -2,12 +2,11 @@ package three_sum_closest
 
 import (
 	. "leetcode-go/built-in"
-	"math"
 	"sort"
 )
 
 func threeSumClosest(nums []int, target int) int {
-	threeSum := math.MaxInt32
+	threeSum := MaxInt
 	sort.Ints(nums)
 	for idx, num := range nums {
 		if idx > 0 && num == nums[idx-1] {

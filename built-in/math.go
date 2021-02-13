@@ -23,3 +23,6 @@ func Min(x int, y int) int {
 		return x
 	}
 }
+
+const MaxInt = int(^uint(0) >> 1)
+const MinInt = ^MaxInt

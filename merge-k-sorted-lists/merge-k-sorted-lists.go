@@ -1,7 +1,5 @@
 package merge_k_sorted_lists
 
-import "math"
-
 import . "leetcode-go/built-in"
 
 func mergeKLists(lists []*ListNode) *ListNode {
@@ -54,7 +52,7 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 func mergeKListsWithBacktrack(lists []*ListNode) *ListNode {
 	var mergeHead *ListNode
 	if !isListsAllNil(lists) {
-		minNode := &ListNode{Val: math.MaxInt32}
+		minNode := &ListNode{Val: MaxInt}
 		minIdx := -1
 		for idx, node := range lists {
 			if node != nil && node.Val < minNode.Val {
