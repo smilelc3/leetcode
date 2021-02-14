@@ -75,7 +75,7 @@
 | 62 | [Unique Paths](https://leetcode.com/problems/unique-paths/) | [unique-paths.go](unique-paths/unique-paths.go) | O(m*n) | DP+滚动数组 | O(min(m,n)) |
 | 63 | [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) | [unique-paths-ii.go](unique-paths-ii/unique-paths-ii.go) | O(m*n) | DP+滚动数组 | O(min(m,n)) |
 | 64 | [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) | [minimum-path-sum.go](minimum-path-sum/minimum-path-sum.go) | O(m*n) | DP |  |
-| 65 | [Valid Number](https://leetcode.com/problems/valid-number/) | [valid-number.go](valid-number/valid-number.go) | O(n) | 确定有限状态自动机DFA |  |
+| 65 | [Valid Number](https://leetcode.com/problems/valid-number/) | [valid-number.go](valid-number/valid-number.go) | O(n) | 确定有限状态自动机DFA | O(1) |
 | 66 | [Plus One](https://leetcode.com/problems/plus-one/) | [plus-one.go](plus-one/plus-one.go) | O(n) | 模拟进位 |  |
 | 67 | [Add Binary](https://leetcode.com/problems/add-binary/) | [add-binary.go](add-binary/add-binary.go) | O(n) | 模拟二进制加法 |  |
 | 68 | [Text Justification](https://leetcode.com/problems/text-justification/) | [text-justification.go](text-justification/text-justification.go) | O(m*n) | 格式控制 |  |
