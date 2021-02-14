@@ -29,7 +29,7 @@ func TestIsInterleaveExample3(t *testing.T) {
 	s2 := ""
 	s3 := ""
 	ans := isInterleave(s1, s2, s3)
-	rightAns := false
+	rightAns := true
 	if ans != rightAns {
 		t.Error("right ans = ", rightAns, ", current ans = ", ans)
 	}
