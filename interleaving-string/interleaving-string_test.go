@@ -37,7 +37,7 @@ func TestIsInterleaveExample3(t *testing.T) {
 	}
 }
 
-func BenchmarkIisInterleaveDPWithRollArrayExample2(b *testing.B) {
+func BenchmarkIisInterleaveDPWithRollArrayMyTest0(b *testing.B) {
 	s1 := "aabccaabccaabccaabcc"
 	s2 := "dbbcadbbcadbbcadbbca"
 	s3 := "aadbbbacccaadbbbacccaadbbbacccaadbbbaccc"
@@ -46,7 +46,7 @@ func BenchmarkIisInterleaveDPWithRollArrayExample2(b *testing.B) {
 	}
 }
 
-func BenchmarkIisInterleaveDPWithRollArrayAndStaCompExample2(b *testing.B) {
+func BenchmarkIisInterleaveDPWithRollArrayAndStaCompMyTest0(b *testing.B) {
 	s1 := "aabccaabccaabccaabcc"
 	s2 := "dbbcadbbcadbbcadbbca"
 	s3 := "aadbbbacccaadbbbacccaadbbbacccaadbbbaccc"
