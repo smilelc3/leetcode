@@ -1,14 +1,19 @@
 package interleaving_string
 
+import . "leetcode-go/built-in"
+
 func isInterleave(s1 string, s2 string, s3 string) bool {
-	// original DP space O(mn)
+	// original DP. space O(mn)
 	//return isInterleaveDP(s1,s2,s3)
 
-	// dp rolling array space O(min(m,n))
 	if len(s1) > len(s2) {
 		s1, s2 = s2, s1
 	}
-	return isInterleaveDPWithRollArray(s1, s2, s3)
+	// dp rolling array. space O(min(m,n))
+	//return isInterleaveDPWithRollArray(s1, s2, s3)
+
+	// dp rolling array + state compression. space O(1)
+	return isInterleaveDPWithRollArrayAndStaComp(s1, s2, s3)
 }
 
 func isInterleaveDP(s1 string, s2 string, s3 string) bool {
@@ -70,7 +75,7 @@ func isInterleaveDPWithRollArray(less string, more string, mix string) bool {
 	}
 
 	// 以下确保less,more均不为空串
-	// dp[i][j] 表示less[:i]与more[:j]组合是否匹配mix[0:i+j]
+	// dp[i] 表示less[:i]与more[:j]组合是否匹配mix[0:i+j]
 	dp := make([]bool, len(less)+1)
 	lessBytes, moreBytes, mixBytes := []byte(less), []byte(more), []byte(mix)
 
@@ -91,4 +96,41 @@ func isInterleaveDPWithRollArray(less string, more string, mix string) bool {
 		}
 	}
 	return dp[len(less)]
+}
+
+func isInterleaveDPWithRollArrayAndStaComp(less string, more string, mix string) bool {
+	// 长度不等直接返回false
+	if len(less)+len(more) != len(mix) {
+		return false
+	}
+	// 排除空字串特殊情况
+	if less == "" {
+		return more == mix
+	} else if more == "" {
+		return less == mix
+	}
+
+	// 以下确保less,more均不为空串
+	// dp[i] 表示less[:i]与more[:j]组合是否匹配mix[0:i+j]
+	dp := NewBoolStaComp(len(less) + 1)
+
+	lessBytes, moreBytes, mixBytes := []byte(less), []byte(more), []byte(mix)
+
+	// 初始化
+	dp.SetStateTrue(0)
+	for idx := 1; idx <= len(less); idx++ {
+		if lessBytes[idx-1] == mixBytes[idx-1] {
+			dp.SetState(idx, dp.GetState(idx-1))
+		}
+	}
+
+	for i := 1; i <= len(more); i++ {
+		for j := 0; j <= len(less); j++ {
+			dp.SetState(j, dp.GetState(j) && moreBytes[i-1] == mixBytes[i+j-1])
+			if j > 0 && lessBytes[j-1] == mixBytes[i+j-1] {
+				dp.SetState(j, dp.GetState(j) || dp.GetState(j-1))
+			}
+		}
+	}
+	return dp.GetState(len(less))
 }

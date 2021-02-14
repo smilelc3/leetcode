@@ -1,6 +1,8 @@
 package interleaving_string
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestIsInterleaveExample1(t *testing.T) {
 	s1 := "aabcc"
@@ -32,5 +34,23 @@ func TestIsInterleaveExample3(t *testing.T) {
 	rightAns := true
 	if ans != rightAns {
 		t.Error("right ans = ", rightAns, ", current ans = ", ans)
+	}
+}
+
+func BenchmarkIisInterleaveDPWithRollArrayExample2(b *testing.B) {
+	s1 := "aabccaabccaabccaabcc"
+	s2 := "dbbcadbbcadbbcadbbca"
+	s3 := "aadbbbacccaadbbbacccaadbbbacccaadbbbaccc"
+	for idx := 0; idx < b.N; idx++ {
+		_ = isInterleaveDPWithRollArray(s1, s2, s3)
+	}
+}
+
+func BenchmarkIisInterleaveDPWithRollArrayAndStaCompExample2(b *testing.B) {
+	s1 := "aabccaabccaabccaabcc"
+	s2 := "dbbcadbbcadbbcadbbca"
+	s3 := "aadbbbacccaadbbbacccaadbbbacccaadbbbaccc"
+	for idx := 0; idx < b.N; idx++ {
+		_ = isInterleaveDPWithRollArrayAndStaComp(s1, s2, s3)
 	}
 }
