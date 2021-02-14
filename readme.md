@@ -104,13 +104,13 @@
 | 91 | [Decode Ways](https://leetcode.com/problems/decode-ways/) | [decode-ways.go](decode-ways/decode-ways.go) | O(n) | 斐波那契变形+状态压缩 | O(1) |
 | 92 | [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) | [reverse-linked-list-ii.go](reverse-linked-list-ii/reverse-linked-list-ii.go) | O(n) |  单链表部分翻转 | O(1) |
 | 93 | [Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/) | [restore-ip-addresses.go](restore-ip-addresses/restore-ip-addresses.go) |  |  DFS |  |
-| 94 | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | [binary-tree-inorder-traversal.go](binary-tree-inorder-traversal/binary-tree-inorder-traversal.go) | O(N) | 中序遍历 |  |
+| 94 | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | [binary-tree-inorder-traversal.go](binary-tree-inorder-traversal/binary-tree-inorder-traversal.go) | O(N) | 中序遍历(Morris遍历) | O(1) |
 | 95 | [Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii/) | [unique-binary-search-trees-ii.go](unique-binary-search-trees-ii/unique-binary-search-trees-ii.go) |  | 异构二叉搜索树 |  |
 | 96 | [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/) | [unique-binary-search-trees.go](unique-binary-search-trees/unique-binary-search-trees.go) | O(1) | 卡特兰数 | O(1) |
 | 97 | [Interleaving String](https://leetcode.com/problems/interleaving-string/) | [interleaving-string.go](interleaving-string/interleaving-string.go) | O(mn) | DP+滚动数组+状态压缩 | O(1) |
 | 98 | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) | [validate-binary-search-tree.go](validate-binary-search-tree/validate-binary-search-tree.go) | O(n) | 判定二叉搜索树 |  |
+| 99 | [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/) | [recover-binary-search-tree.go](recover-binary-search-tree/recover-binary-search-tree.go) | O(n) | Morris中序遍历 | O(1) |
 | 100 | [Same Tree](https://leetcode.com/problems/same-tree/) | [same-tree.go](same-tree/same-tree.go) | O(n) | 树的遍历 |  |
-
 
 ## 补充
 
