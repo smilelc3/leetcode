@@ -6,6 +6,36 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// 给定nums构建Tree
+func GenTreeByNums(nums []int, nilNum int) *TreeNode {
+	if len(nums) == 0 || nums[0] == nilNum {
+		return nil
+	}
+	root := &TreeNode{Val: nums[0]}
+	nums = nums[1:]
+	queueNode := []*TreeNode{root} // 维护上一层包含空节点的所有节点（父节点）
+	for len(nums) != 0 {
+		numPreLevelNodes := len(queueNode)
+		for idx := 0; idx < numPreLevelNodes; idx++ {
+			if nums[2*idx] != nilNum {
+				queueNode[idx].Left = &TreeNode{Val: nums[2*idx]}
+				queueNode = append(queueNode, queueNode[idx].Left)
+			} else {
+				queueNode = append(queueNode, nil)
+			}
+			if nums[2*idx+1] != nilNum {
+				queueNode[idx].Right = &TreeNode{Val: nums[2*idx+1]}
+				queueNode = append(queueNode, queueNode[idx].Right)
+			} else {
+				queueNode = append(queueNode, nil)
+			}
+		}
+		queueNode = queueNode[numPreLevelNodes:]
+		nums = nums[numPreLevelNodes*2:]
+	}
+	return root
+}
+
 // 先序遍历(Morris遍历)
 func PreorderTraversalMorris(root *TreeNode, visitFunc func(node *TreeNode)) {
 	// 1. 如果cur无左子树，cur向右移动（cur=cur.right）
@@ -114,6 +144,7 @@ func PostorderTraversalMorris(root *TreeNode, visitFunc func(node *TreeNode)) {
 	visitEdge(root, visitFunc)
 }
 
+// 访问边界
 func visitEdge(node *TreeNode, visitFunc func(node *TreeNode)) {
 	tail := reverseEdge(node)
 	cur := tail
