@@ -44,3 +44,31 @@ func TestMaxDepthExample4(t *testing.T) {
 		t.Error("right ans = ", rightAns, ", current ans = ", ans)
 	}
 }
+
+func BenchmarkMaxDepthExample1(b *testing.B) {
+	nums := []int{3, 9, 20, -1, -1, 15, 7}
+	root := GenTreeByNums(nums, -1)
+	b.ResetTimer()
+	for idx := 0; idx < b.N; idx++ {
+		_ = maxDepth(root)
+	}
+
+}
+
+func BenchmarkDfsDepthExample1(b *testing.B) {
+	nums := []int{3, 9, 20, -1, -1, 15, 7}
+	root := GenTreeByNums(nums, -1)
+	b.ResetTimer()
+	for idx := 0; idx < b.N; idx++ {
+		_ = dfsDepth(root, 0)
+	}
+}
+
+func BenchmarkBfsDepthExample1(b *testing.B) {
+	nums := []int{3, 9, 20, -1, -1, 15, 7}
+	root := GenTreeByNums(nums, -1)
+	b.ResetTimer()
+	for idx := 0; idx < b.N; idx++ {
+		_ = bfsDepth(root)
+	}
+}

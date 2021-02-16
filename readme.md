@@ -114,7 +114,7 @@
 | 101 | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) | [symmetric-tree.go](symmetric-tree/symmetric-tree.go) | O(n) | 相同层子树递归比较 | O(n) |
 | 102 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [binary-tree-level-order-traversal.go](binary-tree-level-order-traversal/binary-tree-level-order-traversal.go) | O(n) | 二叉树层级遍历 | O(log(n)) |
 | 103 | [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | [binary-tree-zigzag-level-order-traversal.go](binary-tree-zigzag-level-order-traversal/binary-tree-zigzag-level-order-traversal.go) | O(n) | 二叉树层级遍历 | O(log(n)) |
-| 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [maximum-depth-of-binary-tree.go](maximum-depth-of-binary-tree/maximum-depth-of-binary-tree.go) | O(n) | DFS | O(n) |
+| 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [maximum-depth-of-binary-tree.go](maximum-depth-of-binary-tree/maximum-depth-of-binary-tree.go) | O(n) | DFS+BFS | O(n) |
 
 ## 补充
 
