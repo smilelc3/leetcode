@@ -21,16 +21,7 @@ func splitNumber2RealAndImag(t string) (int, int) {
 	// a+-bi
 	// -a+bi
 	// -a+-bi
-
-	tBytes := []byte(t)
-	isTRealNeg := tBytes[0] == '-'
-	tImagSignIdx := 0
-
-	if isTRealNeg {
-		tImagSignIdx = strings.Index(t[1:], "+") + 1
-	} else {
-		tImagSignIdx = strings.Index(t, "+")
-	}
+	tImagSignIdx := strings.Index(t, "+")
 
 	tReal, _ := strconv.Atoi(t[:tImagSignIdx])
 
