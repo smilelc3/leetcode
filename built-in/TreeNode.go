@@ -17,13 +17,13 @@ func GenTreeByNums(nums []int, nilNum int) *TreeNode {
 	for len(nums) != 0 {
 		numPreLevelNodes := len(queueNode)
 		for idx := 0; idx < numPreLevelNodes; idx++ {
-			if nums[2*idx] != nilNum {
+			if 2*idx < len(nums) && nums[2*idx] != nilNum {
 				queueNode[idx].Left = &TreeNode{Val: nums[2*idx]}
 				queueNode = append(queueNode, queueNode[idx].Left)
 			} else {
 				queueNode = append(queueNode, nil)
 			}
-			if nums[2*idx+1] != nilNum {
+			if 2*idx+1 < len(nums) && nums[2*idx+1] != nilNum {
 				queueNode[idx].Right = &TreeNode{Val: nums[2*idx+1]}
 				queueNode = append(queueNode, queueNode[idx].Right)
 			} else {
@@ -31,7 +31,7 @@ func GenTreeByNums(nums []int, nilNum int) *TreeNode {
 			}
 		}
 		queueNode = queueNode[numPreLevelNodes:]
-		nums = nums[numPreLevelNodes*2:]
+		nums = nums[Min(numPreLevelNodes*2, len(nums)):]
 	}
 	return root
 }

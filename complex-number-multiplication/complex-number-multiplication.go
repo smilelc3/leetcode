@@ -10,6 +10,7 @@ func complexNumberMultiply(a string, b string) string {
 	aReal, aImag := splitNumber2RealAndImag(a)
 	bReal, bImag := splitNumber2RealAndImag(b)
 
+	// 第二步，交叉相乘
 	ansRealStr := strconv.Itoa(aReal*bReal - aImag*bImag)
 	ansImagStr := strconv.Itoa(aReal*bImag + aImag*bReal)
 
