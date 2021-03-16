@@ -9,6 +9,7 @@ include_directories(built-in)
 
 add_subdirectory(built-in)
 add_subdirectory(balanced-binary-tree)
+add_subdirectory(gray-code)
 
 
 
