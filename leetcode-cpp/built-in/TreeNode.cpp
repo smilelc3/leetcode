@@ -11,25 +11,29 @@ TreeNode *GenTreeByNums(std::vector<int> &nums, int nullNum) {
     }
     auto root = new TreeNode{nums[0]};
     nums.erase(nums.begin());
-    auto queueNode = std::vector<TreeNode *>{root}; // 维护上一层包含空节点的所有节点（父节点）
+    auto preLevelNode = std::vector<TreeNode *>{root}; // 维护上一层所有非空父节点
     while (!nums.empty()) {
-        int numPreLevelNodes = queueNode.size();
+        int numPreLevelNodes = preLevelNode.size();
+        int numsIdx = 0;
         for (int idx = 0; idx < numPreLevelNodes; idx++) {
-            if (2 * idx < nums.size() and nums[2 * idx] != nullNum) {
-                queueNode[idx]->left = new TreeNode{nums[2 * idx]};
-                queueNode.push_back(queueNode[idx]->left);
-            } else {
-                queueNode.push_back(nullptr);
+            if (numsIdx < nums.size()) {
+                if (nums[numsIdx] != nullNum) {
+                    preLevelNode[idx]->left = new TreeNode{nums[numsIdx]};
+                    preLevelNode.push_back(preLevelNode[idx]->left);
+                }
+                numsIdx++;
             }
-            if (2 * idx + 1 < nums.size() and nums[2 * idx + 1] != nullNum) {
-                queueNode[idx]->right = new TreeNode{nums[2 * idx + 1]};
-                queueNode.push_back(queueNode[idx]->right);
-            } else {
-                queueNode.push_back(nullptr);
+            if (numsIdx < nums.size()) {
+                if (nums[numsIdx] != nullNum) {
+                    preLevelNode[idx]->right = new TreeNode{nums[numsIdx]};
+                    preLevelNode.push_back(preLevelNode[idx]->right);
+                }
+                numsIdx++;
             }
+
         }
-        queueNode.erase(queueNode.begin(), queueNode.begin() + numPreLevelNodes);
-        nums.erase(nums.begin(), nums.begin() + std::min(numPreLevelNodes * 2, int(nums.size())));
+        preLevelNode.erase(preLevelNode.begin(), preLevelNode.begin() + numPreLevelNodes);
+        nums.erase(nums.begin(), nums.begin() + numsIdx);
     }
     return root;
 }

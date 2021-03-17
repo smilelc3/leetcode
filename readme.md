@@ -117,7 +117,7 @@
 | 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [maximum-depth-of-binary-tree.go](leetcode-go/maximum-depth-of-binary-tree/maximum-depth-of-binary-tree.go) | O(n) | DFS+BFS | O(n) |
 | 110 | [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) | [balanced-binary-tree.cpp](leetcode-cpp/balanced-binary-tree/balanced-binary-tree.cpp) | O(n) | 判平衡二叉树：递归 |  |
 | 111 | [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) | [minimum-depth-of-binary-tree.cpp](leetcode-cpp/minimum-depth-of-binary-tree/minimum-depth-of-binary-tree.cpp) |       O(n)       | 二叉树最小深度：DFS+剪枝 | |
-| 112 | [Path Sum](https://leetcode.com/problems/path-sum/) | [path-sum.cpp](leetcode-cpp/path-sum/path-sum.cpp) | O(n) | DFS遍历树 | |
+| 112 | [Path Sum](https://leetcode.com/problems/path-sum/) | [path-sum.cpp](leetcode-cpp/path-sum-ii/path-sum-ii.cpp) | O(n) | DFS遍历树 | |
 | 136 | [Single Number](https://leetcode.com/problems/single-number/) | [single-number.cpp](leetcode-cpp/single-number/single-number.cpp) | O(n) | 异或判重 | O(1) |
 | 137 | [Single Number II](https://leetcode.com/problems/single-number-ii/) | [single-number-ii.cpp](leetcode-cpp/single-number-ii/single-number-ii.cpp) | O(n) | 位操作模拟三进制 | O(1) |
 | 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | [linked-list-cycle.go](leetcode-go/linked-list-cycle/linked-list-cycle.go) [linked-list-cycle.cpp](leetcode-cpp/linked-list-cycle/linked-list-cycle.cpp) | O(n) | 链表判环：快慢指针 | O(1) |

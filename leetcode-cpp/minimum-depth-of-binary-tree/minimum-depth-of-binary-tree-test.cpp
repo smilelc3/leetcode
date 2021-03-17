@@ -11,6 +11,15 @@ namespace {
         int rightAns = 2;
         ASSERT_EQ(ans, rightAns);
     }
+
+    TEST(minDepthTest, Example2) {
+        auto nums = std::vector<int>{2, -1, 3, -1, 4, -1, 5, -1, 6};
+        TreeNode *root = GenTreeByNums(nums, -1);
+        auto sol = Solution();
+        int ans = sol.minDepth(root);
+        int rightAns = 5;
+        ASSERT_EQ(ans, rightAns);
+    }
 }
 
 

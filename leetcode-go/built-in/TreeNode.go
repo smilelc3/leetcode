@@ -13,25 +13,28 @@ func GenTreeByNums(nums []int, nilNum int) *TreeNode {
 	}
 	root := &TreeNode{Val: nums[0]}
 	nums = nums[1:]
-	queueNode := []*TreeNode{root} // 维护上一层包含空节点的所有节点（父节点）
+	preLevelNode := []*TreeNode{root} // 维护上一层所有非空父节点
 	for len(nums) != 0 {
-		numPreLevelNodes := len(queueNode)
+		numPreLevelNodes := len(preLevelNode)
+		numsIdx := 0
 		for idx := 0; idx < numPreLevelNodes; idx++ {
-			if 2*idx < len(nums) && nums[2*idx] != nilNum {
-				queueNode[idx].Left = &TreeNode{Val: nums[2*idx]}
-				queueNode = append(queueNode, queueNode[idx].Left)
-			} else {
-				queueNode = append(queueNode, nil)
+			if numsIdx < len(nums) {
+				if nums[numsIdx] != nilNum {
+					preLevelNode[idx].Left = &TreeNode{Val: nums[numsIdx]}
+					preLevelNode = append(preLevelNode, preLevelNode[idx].Left)
+				}
+				numsIdx++
 			}
-			if 2*idx+1 < len(nums) && nums[2*idx+1] != nilNum {
-				queueNode[idx].Right = &TreeNode{Val: nums[2*idx+1]}
-				queueNode = append(queueNode, queueNode[idx].Right)
-			} else {
-				queueNode = append(queueNode, nil)
+			if numsIdx < len(nums) {
+				if nums[numsIdx] != nilNum {
+					preLevelNode[idx].Right = &TreeNode{Val: nums[numsIdx]}
+					preLevelNode = append(preLevelNode, preLevelNode[idx].Right)
+				}
+				numsIdx++
 			}
 		}
-		queueNode = queueNode[numPreLevelNodes:]
-		nums = nums[Min(numPreLevelNodes*2, len(nums)):]
+		preLevelNode = preLevelNode[numPreLevelNodes:]
+		nums = nums[numsIdx:]
 	}
 	return root
 }
