@@ -7,10 +7,10 @@ enable_testing()
 
 include_directories(built-in)
 
-add_subdirectory(built-in)
 add_subdirectory(balanced-binary-tree)
+add_subdirectory(built-in)
 add_subdirectory(gray-code)
-
+add_subdirectory(linked-list-cycle)
 
 
 
