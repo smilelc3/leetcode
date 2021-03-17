@@ -11,6 +11,7 @@ add_subdirectory(balanced-binary-tree)
 add_subdirectory(built-in)
 add_subdirectory(gray-code)
 add_subdirectory(linked-list-cycle)
+add_subdirectory(minimum-depth-of-binary-tree)
 add_subdirectory(path-sum)
 
 
