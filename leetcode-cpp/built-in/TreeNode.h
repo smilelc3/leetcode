@@ -21,7 +21,7 @@ struct TreeNode {
 
 
 // 通过vector<int>构建Tree
-TreeNode *GenTreeByNums(std::vector<int> &, int);
+TreeNode *GenTreeByNums(std::vector<int> &nums, int nullNum);
 
 
 #endif //LEETCODE_CPP_TREENODE_H

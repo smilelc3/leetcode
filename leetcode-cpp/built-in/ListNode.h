@@ -16,6 +16,6 @@ struct ListNode {
     ListNode(int val) : val(val), next(nullptr) {}
 };
 
-ListNode *GenLinksByNums(std::vector<int> &);
+ListNode *GenLinksByNums(std::vector<int> &nums);
 
 #endif //LEETCODE_LISTNODE_H

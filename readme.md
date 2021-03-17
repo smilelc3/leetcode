@@ -116,6 +116,7 @@
 | 103 | [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | [binary-tree-zigzag-level-order-traversal.go](leetcode-go/binary-tree-zigzag-level-order-traversal/binary-tree-zigzag-level-order-traversal.go) | O(n) | 二叉树层级遍历 | O(log(n)) |
 | 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [maximum-depth-of-binary-tree.go](leetcode-go/maximum-depth-of-binary-tree/maximum-depth-of-binary-tree.go) | O(n) | DFS+BFS | O(n) |
 | 110 | [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) | [alanced-binary-tree.cpp](leetcode-cpp/balanced-binary-tree/balanced-binary-tree.cpp) | O(n) | 判平衡二叉树：递归 |  |
+| 112 | [Path Sum]([Path Sum - LeetCode](https://leetcode.com/problems/path-sum/)) | [path-sum.cpp](leetcode-cpp/path-sum/path-sum.cpp) | O(n) | DFS遍历树 | |
 | 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | [linked-list-cycle.go](leetcode-go/linked-list-cycle/linked-list-cycle.go) [linked-list-cycle.cpp](leetcode-cpp/linked-list-cycle/linked-list-cycle.cpp) | O(n) | 链表判环：快慢指针 | O(1) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
 
