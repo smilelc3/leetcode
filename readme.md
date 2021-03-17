@@ -1,7 +1,7 @@
 # leetcode自由刷题
 
 ## 说明
-* 代码由C++14或者golang编写，可根据文件后缀判断。C++单元测试使用[Gtest](https://github.com/google/googletest) 框架，go单元测试使用自带test工具；
+* 代码由C++14或者golang编写，可根据文件后缀判断。C++单元测试使用[Gtest](https://github.com/google/googletest)框架，go单元测试使用自带test工具；
 * 全部代码解法**均为时间最优解**，在某些题的代码中，包含多个可AC方法，最终也只采用最优时间解；
 * 每个题单独创建以题名为命名的文件夹(package)，下含有源码与单元测试代码，均通过测试；
 * 某些题目未给出时间复杂度，其原因多在于存在回溯操作，难以正确估计实际时间复杂度；
@@ -116,7 +116,7 @@
 | 103 | [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | [binary-tree-zigzag-level-order-traversal.go](leetcode-go/binary-tree-zigzag-level-order-traversal/binary-tree-zigzag-level-order-traversal.go) | O(n) | 二叉树层级遍历 | O(log(n)) |
 | 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [maximum-depth-of-binary-tree.go](leetcode-go/maximum-depth-of-binary-tree/maximum-depth-of-binary-tree.go) | O(n) | DFS+BFS | O(n) |
 | 110 | [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) | [alanced-binary-tree.cpp](leetcode-cpp/balanced-binary-tree/balanced-binary-tree.cpp) | O(n) | 判平衡二叉树：递归 |  |
-| 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | [linked-list-cycle.go](leetcode-go/linked-list-cycle/linked-list-cycle.go) | O(n) | 链表判环：快慢指针 | O(1) |
+| 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | [linked-list-cycle.go](leetcode-go/linked-list-cycle/linked-list-cycle.go) [linked-list-cycle.cpp](leetcode-cpp/linked-list-cycle/linked-list-cycle.cpp) | O(n) | 链表判环：快慢指针 | O(1) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
 
 ## 补充
