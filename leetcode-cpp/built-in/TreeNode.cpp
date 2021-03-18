@@ -38,3 +38,19 @@ TreeNode *GenTreeByNums(std::vector<int> &nums, int nullNum) {
     return root;
 }
 
+
+bool isSameTree(TreeNode *root1, TreeNode *root2) {
+    if (root1 == nullptr) {
+        return root2 == nullptr;
+    }
+    if (root1->val != root2->val) {
+        return false;
+    }
+    if (root1->left != nullptr) {
+        return  root2->left != nullptr and isSameTree(root1->left, root2->left);
+    }
+    if (root1->right != nullptr) {
+        return  root2->right != nullptr and isSameTree(root1->right, root2->right);
+    }
+    return true;
+}
