@@ -9,6 +9,7 @@ include_directories(built-in)
 
 add_subdirectory(balanced-binary-tree)
 add_subdirectory(built-in)
+add_subdirectory(built-in/googletest-release-1.10.0)
 add_subdirectory(flatten-binary-tree-to-linked-list)
 add_subdirectory(gray-code)
 add_subdirectory(linked-list-cycle)
