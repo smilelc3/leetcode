@@ -120,6 +120,7 @@
 | 112 | [Path Sum](https://leetcode.com/problems/path-sum/) | [path-sum.cpp](leetcode-cpp/path-sum-ii/path-sum-ii.cpp) | O(n) | DFS遍历树 | |
 | 136 | [Single Number](https://leetcode.com/problems/single-number/) | [single-number.cpp](leetcode-cpp/single-number/single-number.cpp) | O(n) | 异或判重 | O(1) |
 | 137 | [Single Number II](https://leetcode.com/problems/single-number-ii/) | [single-number-ii.cpp](leetcode-cpp/single-number-ii/single-number-ii.cpp) | O(n) | 位操作模拟三进制 | O(1) |
+| 139 | [Word Break](https://leetcode.com/problems/word-break/) | [word-break.cpp](leetcode-cpp/word-break/word-break.cpp) | O(n^2) | HashMap + DP | O(n) |
 | 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | [linked-list-cycle.go](leetcode-go/linked-list-cycle/linked-list-cycle.go) [linked-list-cycle.cpp](leetcode-cpp/linked-list-cycle/linked-list-cycle.cpp) | O(n) | 链表判环：快慢指针 | O(1) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
 
