@@ -22,7 +22,6 @@ ListNode *GenLinksByNums(std::vector<int> &nums);
 // TEST 判断两棵树是否相等
 bool isSameList(ListNode *head1, ListNode *head2);
 
-
 // 判断是否链表存在环
 bool isLinkHasCycle(ListNode *head);
 
