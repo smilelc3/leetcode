@@ -120,6 +120,7 @@
 | 112 | [Path Sum](https://leetcode.com/problems/path-sum/) | [path-sum.cpp](leetcode-cpp/path-sum-ii/path-sum-ii.cpp) | O(n) | DFS遍历树 | |
 | 118 | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) | [pascals-triangle.cpp](leetcode-cpp/pascals-triangle/pascals-triangle.cpp) | O(n^2) | 构建帕斯卡三角 | O(n^2) |
 | 119 | [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) | [pascals-triangle-ii.cpp](leetcode-cpp/pascals-triangle-ii/pascals-triangle-ii.cpp) | O(n^2) | 构建帕斯卡三角单行 | O(n) |
+| 120 | [Triangle](https://leetcode.com/problems/triangle/) | [triangle.cpp](leetcode-cpp/triangle/triangle.cpp) | O(n^2) | DP+滚动数组 | O(n) |
 | 121 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [best-time-to-buy-and-sell-stock.cpp](leetcode-cpp/best-time-to-buy-and-sell-stock/best-time-to-buy-and-sell-stock.cpp) | O(n) | 维护前驱最小 | O(1) |
 | 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [longest-consecutive-sequence.cpp](leetcode-cpp/longest-consecutive-sequence/longest-consecutive-sequence.cpp) | O(n) | HashMap | O(n) |
 | 136 | [Single Number](https://leetcode.com/problems/single-number/) | [single-number.cpp](leetcode-cpp/single-number/single-number.cpp) | O(n) | 异或判重 | O(1) |
