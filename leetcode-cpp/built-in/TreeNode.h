@@ -23,7 +23,4 @@ struct TreeNode {
 // 通过vector<int>构建Tree
 TreeNode *GenTreeByNums(std::vector<int> &nums, int nullNum);
 
-// TEST 判断两棵树是否相等
-bool isSameTree(TreeNode *root1, TreeNode *root2);
-
 #endif //LEETCODE_CPP_TREENODE_H
