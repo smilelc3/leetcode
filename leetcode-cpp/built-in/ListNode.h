@@ -13,7 +13,7 @@ struct ListNode {
     int val;
     ListNode *next;
 
-    ListNode(int val) : val(val), next(nullptr) {}
+    explicit ListNode(int val) : val(val), next(nullptr) {}
 };
 
 // 通过vector<int>构建List
