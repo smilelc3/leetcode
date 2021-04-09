@@ -12,6 +12,7 @@ add_subdirectory(built-in/googletest-release-1.10.0)
 
 
 add_subdirectory(balanced-binary-tree)
+add_subdirectory(best-time-to-buy-and-sell-stock)
 add_subdirectory(built-in)
 add_subdirectory(flatten-binary-tree-to-linked-list)
 add_subdirectory(gray-code)
