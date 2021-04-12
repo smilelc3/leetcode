@@ -14,15 +14,15 @@ public:
             indexMap[inorder[idx]] = idx;
         }
 
-        return rebuildTree(preorder, 0, preorder.size(),
-                           inorder, 0, inorder.size());
+        return rebuildTreeByPreorderAndInorder(preorder, 0, preorder.size(),
+                                               inorder, 0, inorder.size());
     }
 
 private:
      std::unordered_map<int, int> indexMap;
 
-     TreeNode *rebuildTree(std::vector<int> &preorder, int preorderStart, int preorderEnd,
-                                 std::vector<int> &inorder, int inorderStart, int inorderEnd) {
+     TreeNode *rebuildTreeByPreorderAndInorder(std::vector<int> &preorder, int preorderStart, int preorderEnd,
+                                               std::vector<int> &inorder, int inorderStart, int inorderEnd) {
         if (preorderStart == preorderEnd or inorderStart == inorderEnd) {
             return nullptr;
         }
@@ -35,12 +35,12 @@ private:
         int leftSubtreeSize = inorderRootIdx - inorderStart;
 
         // 重构左子树
-        root->left = rebuildTree(preorder, preorderStart + 1, preorderStart + leftSubtreeSize + 1,
-                                 inorder, inorderStart, inorderRootIdx);
+        root->left = rebuildTreeByPreorderAndInorder(preorder, preorderStart + 1, preorderStart + leftSubtreeSize + 1,
+                                                     inorder, inorderStart, inorderRootIdx);
 
         // 重构右子树
-        root->right = rebuildTree(preorder, preorderStart + leftSubtreeSize + 1, preorderEnd,
-                                  inorder, inorderRootIdx + 1, inorderEnd);
+        root->right = rebuildTreeByPreorderAndInorder(preorder, preorderStart + leftSubtreeSize + 1, preorderEnd,
+                                                      inorder, inorderRootIdx + 1, inorderEnd);
         return root;
     }
 
