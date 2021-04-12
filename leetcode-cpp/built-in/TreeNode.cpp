@@ -39,6 +39,9 @@ TreeNode *GenTreeByNums(const std::vector<int> &numsConst, int nullNum) {
     return root;
 }
 
+TreeNode *GenTreeByNums(const std::vector<int> &nums) {
+    return GenTreeByNums(nums, -1);
+}
 
 bool isSameTree(TreeNode const *root1, TreeNode const *root2) {
     if (root1 == nullptr) {
