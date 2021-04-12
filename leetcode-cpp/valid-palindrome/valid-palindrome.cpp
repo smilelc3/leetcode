@@ -2,7 +2,7 @@
 // Created by smile on 2021/4/9.
 //
 #include <string>
-
+#include <cstdint>
 
 class Solution {
 public:

@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include "ListNode.h"
 
-ListNode *GenLinksByNums(std::vector<int> &nums) {
+ListNode *GenLinksByNums(const std::vector<int> &nums) {
     ListNode *head, *preNode;
     for (int idx = 0; idx < nums.size(); idx++) {
         auto curNode = new ListNode{nums[idx]};
@@ -19,7 +19,7 @@ ListNode *GenLinksByNums(std::vector<int> &nums) {
     return head;
 }
 
-bool isSameList(ListNode *head1, ListNode *head2) {
+bool isSameList(const ListNode *head1, const ListNode *head2) {
     // 判定是否存在环
     if (isLinkHasCycle(head1) or isLinkHasCycle(head2)) {
         throw std::length_error("Link exist Cycle");
@@ -42,7 +42,7 @@ bool isSameList(ListNode *head1, ListNode *head2) {
 }
 
 // TEST 判链表是否存在环
-bool isLinkHasCycle(ListNode *head) {
+bool isLinkHasCycle(const ListNode *head) {
     if (head == nullptr || head->next == nullptr || head->next->next == nullptr) {
         return false;
     }

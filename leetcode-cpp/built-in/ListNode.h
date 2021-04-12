@@ -17,12 +17,12 @@ struct ListNode {
 };
 
 // 通过vector<int>构建List
-ListNode *GenLinksByNums(std::vector<int> &nums);
+ListNode *GenLinksByNums(const std::vector<int> &nums);
 
 // TEST 判断两棵树是否相等
-bool isSameList(ListNode *head1, ListNode *head2);
+bool isSameList(ListNode const *head1, ListNode const *head2);
 
 // 判断是否链表存在环
-bool isLinkHasCycle(ListNode *head);
+bool isLinkHasCycle(ListNode const *head);
 
 #endif //LEETCODE_LISTNODE_H

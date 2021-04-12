@@ -5,10 +5,11 @@
 # include <vector>
 #include <iostream>
 
-TreeNode *GenTreeByNums(std::vector<int> &nums, int nullNum) {
-    if (nums.empty() || nums[0] == nullNum) {
+TreeNode *GenTreeByNums(const std::vector<int> &numsConst, int nullNum) {
+    if (numsConst.empty() || numsConst[0] == nullNum) {
         return nullptr;
     }
+    auto nums = std::vector<int>(numsConst.begin(), numsConst.end());
     auto root = new TreeNode{nums[0]};
     nums.erase(nums.begin());
     auto preLevelNode = std::vector<TreeNode *>{root}; // 维护上一层所有非空父节点
@@ -39,7 +40,7 @@ TreeNode *GenTreeByNums(std::vector<int> &nums, int nullNum) {
 }
 
 
-bool isSameTree(TreeNode *root1, TreeNode *root2) {
+bool isSameTree(TreeNode const *root1, TreeNode const *root2) {
     if (root1 == nullptr) {
         return root2 == nullptr;
     }
