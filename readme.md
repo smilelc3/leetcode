@@ -122,7 +122,10 @@
 | 109 | [Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/) | [convert-sorted-list-to-binary-search-tree.cpp](leetcode-cpp/convert-sorted-list-to-binary-search-tree/convert-sorted-list-to-binary-search-tree.cpp) | O(n) | 有序链表转BTS:分治 | O(n) |
 | 110 | [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) | [balanced-binary-tree.cpp](leetcode-cpp/balanced-binary-tree/balanced-binary-tree.cpp) | O(n) | 判平衡二叉树：递归 |  |
 | 111 | [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) | [minimum-depth-of-binary-tree.cpp](leetcode-cpp/minimum-depth-of-binary-tree/minimum-depth-of-binary-tree.cpp) |       O(n)       | 二叉树最小深度：DFS+剪枝 | |
-| 112 | [Path Sum](https://leetcode.com/problems/path-sum/) | [path-sum.cpp](leetcode-cpp/path-sum-ii/path-sum-ii.cpp) | O(n) | DFS遍历树 | |
+| 112 | [Path Sum](https://leetcode.com/problems/path-sum/) | [path-sum.cpp](leetcode-cpp/path-sum/path-sum.cpp) | O(n) | DFS遍历树 | O(1) |
+| 113 | [Path Sum II](https://leetcode.com/problems/path-sum-ii/) | [path-sum-ii.cpp](leetcode-cpp/path-sum-ii/path-sum-ii.cpp) | O(n) | DFS遍历树+记录路径 | O(n) |
+| 114 | [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) | [flatten-binary-tree-to-linked-list.cpp](leetcode-cpp/flatten-binary-tree-to-linked-list/flatten-binary-tree-to-linked-list.cpp) | ? | ? | ? |
+| 115 | [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) | [leetcode-cpp/distinct-subsequences/distinct-subsequences.cpp](leetcode-cpp/distinct-subsequences/distinct-subsequences.cpp) | O(n^2) | DP+滚动数组 | O(n) |
 | 118 | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) | [pascals-triangle.cpp](leetcode-cpp/pascals-triangle/pascals-triangle.cpp) | O(n^2) | 构建帕斯卡三角 | O(n^2) |
 | 119 | [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) | [pascals-triangle-ii.cpp](leetcode-cpp/pascals-triangle-ii/pascals-triangle-ii.cpp) | O(n^2) | 构建帕斯卡三角单行 | O(n) |
 | 120 | [Triangle](https://leetcode.com/problems/triangle/) | [triangle.cpp](leetcode-cpp/triangle/triangle.cpp) | O(n^2) | DP+滚动数组 | O(n) |
