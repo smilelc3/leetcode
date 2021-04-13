@@ -1,18 +1,19 @@
 //
 // Created by smile on 2021/3/16.
 //
-#include "TreeNode.h"
-
 #include <vector>
+#include "TreeNode.h"
 
 class Solution {
 public:
     std::vector<int> ans;
-
     void flatten(TreeNode *root) {
-       flattenMethod1(root);
-    }
+        // 方法一 先序遍历记录访问节点，再构造答案 time: O(n) space: O(n)
+        //flattenMethod1(root);
 
+        // 方法二 直接修改原二叉树
+        flattenMethod2(root);
+    }
 
     // 方法一 先序遍历记录访问节点，再构造答案 time: O(n) space: O(n)
     void flattenMethod1(TreeNode *root) {
@@ -47,4 +48,34 @@ public:
             }
         }
     }
+
+
+    void flattenMethod2(TreeNode *root) {
+        getPreOrderTailNode(root);
+    }
+
+    TreeNode *getPreOrderTailNode(TreeNode *pNode) {
+        if (pNode == nullptr) {
+            return pNode;
+        }
+        auto leftNode = pNode->left;
+        auto rightNode = pNode->right;
+        auto tailNode = pNode;
+
+        pNode->left = nullptr;
+        pNode->right = nullptr;
+
+        if (leftNode != nullptr) {
+
+            tailNode->right = leftNode;
+            tailNode = getPreOrderTailNode(leftNode);
+        }
+        if (rightNode != nullptr) {
+
+            tailNode->right = rightNode;
+            tailNode = getPreOrderTailNode(rightNode);
+        }
+        return tailNode;
+    }
+
 };

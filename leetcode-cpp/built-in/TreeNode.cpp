@@ -44,17 +44,15 @@ TreeNode *GenTreeByNums(const std::vector<int> &nums) {
 }
 
 bool isSameTree(TreeNode const *root1, TreeNode const *root2) {
-    if (root1 == nullptr) {
-        return root2 == nullptr;
-    }
-    if (root1->val != root2->val) {
+    if (root1 == nullptr and root2 == nullptr) {
+        return true;
+    } else if (root1 != nullptr and root2 != nullptr) {
+        if (root1->val != root2->val) {
+            return false;
+        }
+        return isSameTree(root1->left, root2->left) and isSameTree(root1->right, root2->right);
+    } else {
         return false;
     }
-    if (root1->left != nullptr) {
-        return  root2->left != nullptr and isSameTree(root1->left, root2->left);
-    }
-    if (root1->right != nullptr) {
-        return  root2->right != nullptr and isSameTree(root1->right, root2->right);
-    }
-    return true;
 }
+
