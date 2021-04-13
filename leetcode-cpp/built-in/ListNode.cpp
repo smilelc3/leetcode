@@ -5,7 +5,7 @@
 #include "ListNode.h"
 
 ListNode *GenLinksByNums(const std::vector<int> &nums) {
-    ListNode *head, *preNode;
+    ListNode *head = nullptr, *preNode;
     for (int idx = 0; idx < nums.size(); idx++) {
         auto curNode = new ListNode{nums[idx]};
         if (idx == 0 || preNode == nullptr) {
