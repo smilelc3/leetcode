@@ -11,14 +11,21 @@ namespace {
     TEST(maxProfitTest, Example1) {
         auto prices = std::vector<int>{7, 1, 5, 3, 6, 4};
         int ans = (new Solution)->maxProfit(prices);
-        int rightAns = 5;
+        int rightAns = 7;
         ASSERT_EQ(ans, rightAns);
     }
 
     TEST(maxProfitTest, Example2) {
-        auto prices = std::vector<int>{7, 1, 5, 3, 6, 4};
+        auto prices = std::vector<int>{1, 2, 3, 4, 5};
         int ans = (new Solution)->maxProfit(prices);
-        int rightAns = 5;
+        int rightAns = 4;
+        ASSERT_EQ(ans, rightAns);
+    }
+
+    TEST(maxProfitTest, Example3) {
+        auto prices = std::vector<int>{7, 6, 4, 3, 1};
+        int ans = (new Solution)->maxProfit(prices);
+        int rightAns = 0;
         ASSERT_EQ(ans, rightAns);
     }
 }
