@@ -39,8 +39,34 @@ TreeNode *GenTreeByNums(const std::vector<int> &numsConst, int nullNum) {
     return root;
 }
 
-TreeNode *GenTreeByNums(const std::vector<int> &nums) {
-    return GenTreeByNums(nums, -1);
+TreeNode *GenTreeByNums(const std::vector<int> &numsConst) {
+    if (numsConst.empty()) {
+        return nullptr;
+    }
+    auto nums = std::vector<int>(numsConst.begin(), numsConst.end());
+    auto root = new TreeNode{nums[0]};
+    nums.erase(nums.begin());
+    auto preLevelNode = std::vector<TreeNode *>{root}; // 维护上一层所有非空父节点
+    while (!nums.empty()) {
+        int numPreLevelNodes = preLevelNode.size();
+        int numsIdx = 0;
+        for (int idx = 0; idx < numPreLevelNodes; idx++) {
+            if (numsIdx < nums.size()) {
+                preLevelNode[idx]->left = new TreeNode{nums[numsIdx]};
+                preLevelNode.push_back(preLevelNode[idx]->left);
+                numsIdx++;
+            }
+            if (numsIdx < nums.size()) {
+                preLevelNode[idx]->right = new TreeNode{nums[numsIdx]};
+                preLevelNode.push_back(preLevelNode[idx]->right);
+                numsIdx++;
+            }
+
+        }
+        preLevelNode.erase(preLevelNode.begin(), preLevelNode.begin() + numPreLevelNodes);
+        nums.erase(nums.begin(), nums.begin() + numsIdx);
+    }
+    return root;
 }
 
 bool isSameTree(TreeNode const *root1, TreeNode const *root2) {

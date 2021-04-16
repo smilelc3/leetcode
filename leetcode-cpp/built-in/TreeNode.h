@@ -22,6 +22,7 @@ struct TreeNode {
 
 // 通过vector<int>构建Tree
 TreeNode *GenTreeByNums(const std::vector<int> &nums, int nullNum);
+
 TreeNode *GenTreeByNums(const std::vector<int> &nums);
 
 // 通过判断两棵树是否相等

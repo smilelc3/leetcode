@@ -57,5 +57,5 @@ INSTANTIATE_TEST_SUITE_P(MultiplesOf33,
 // gtest-param-test_test.h
 INSTANTIATE_TEST_SUITE_P(Sequence2,
                          InstantiationInMultipleTranslationUnitsTest,
-                         Values(42*3, 42*4, 42*5));
+                         Values(42 * 3, 42 * 4, 42 * 5));
 
