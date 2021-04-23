@@ -132,10 +132,11 @@
 | 121 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [best-time-to-buy-and-sell-stock.cpp](leetcode-cpp/best-time-to-buy-and-sell-stock/best-time-to-buy-and-sell-stock.cpp) | O(n) | 维护前驱最小 | O(1) |
 | 122 | [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) | [best-time-to-buy-and-sell-stock-ii.cpp](leetcode-cpp/best-time-to-buy-and-sell-stock-ii/best-time-to-buy-and-sell-stock-ii.cpp) | O(n) | 贪心 | O(1) |
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [valid-palindrome.cpp](leetcode-cpp/valid-palindrome/valid-palindrome.cpp) | O(n) | 判断回文字串 | O(1) |
+| 127 | [Word Ladder](https://leetcode.com/problems/word-ladder/) | [valid-palindrome.cpp](leetcode-cpp/valid-palindrome/valid-palindrome.cpp) | O(n) | 判断回文字串 | O(1) |
 | 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [longest-consecutive-sequence.cpp](leetcode-cpp/longest-consecutive-sequence/longest-consecutive-sequence.cpp) | O(n) | HashMap | O(n) |
 | 136 | [Single Number](https://leetcode.com/problems/single-number/) | [single-number.cpp](leetcode-cpp/single-number/single-number.cpp) | O(n) | 异或判重 | O(1) |
 | 137 | [Single Number II](https://leetcode.com/problems/single-number-ii/) | [single-number-ii.cpp](leetcode-cpp/single-number-ii/single-number-ii.cpp) | O(n) | 位操作模拟三进制 | O(1) |
-| 139 | [Word Break](https://leetcode.com/problems/word-break/) | [word-break.cpp](leetcode-cpp/word-break/word-break.cpp) | O(n^2) | HashMap + DP | O(n) |
+| 139 | [Word Break](https://leetcode.com/problems/word-break/) | [word-ladder.cpp](leetcode-cpp/word-ladder/word-ladder.cpp) | O(n*26^(l/2)) | 双向BFS | O(n) |
 | 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | [linked-list-cycle.go](leetcode-go/linked-list-cycle/linked-list-cycle.go) [linked-list-cycle.cpp](leetcode-cpp/linked-list-cycle/linked-list-cycle.cpp) | O(n) | 链表判环：快慢指针 | O(1) |
 | 148 | [Sort List](https://leetcode.com/problems/sort-list/) | [sort-list.cpp](leetcode-cpp/sort-list/sort-list.cpp) | O(nlog(n)) | 单链表归并排序 | O(1) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
