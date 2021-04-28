@@ -10,7 +10,7 @@ namespace {
     TEST(ladderLengthTest, Example1) {
         std::string beginWord = "hit", endWord = "cog";
         std::vector<std::string> wordList = {"hot", "dot", "dog", "lot", "log", "cog"};
-        auto ans = (new Solution)->ladderLength(beginWord, endWord, wordList);
+        auto ans = Solution().ladderLength(beginWord, endWord, wordList);
         auto rightAns = 5;
         ASSERT_EQ(ans, rightAns);
     }
@@ -19,7 +19,7 @@ namespace {
     TEST(ladderLengthTest, Example2) {
         std::string beginWord = "hit", endWord = "cog";
         std::vector<std::string> wordList = {"hot", "dot", "dog", "lot", "log"};
-        auto ans = (new Solution)->ladderLength(beginWord, endWord, wordList);
+        auto ans = Solution().ladderLength(beginWord, endWord, wordList);
         auto rightAns = 0;
         ASSERT_EQ(ans, rightAns);
     }

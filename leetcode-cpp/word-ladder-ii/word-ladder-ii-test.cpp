@@ -10,7 +10,7 @@ namespace {
     TEST(findLaddershTest, Example1) {
         std::string beginWord = "hit", endWord = "cog";
         std::vector<std::string> wordList = {"hot", "dot", "dog", "lot", "log", "cog"};
-        auto ans = (new Solution)->findLadders(beginWord, endWord, wordList);
+        auto ans = Solution().findLadders(beginWord, endWord, wordList);
         decltype(ans) rightAns = {{"hit", "hot", "dot", "dog", "cog"},
                                   {"hit", "hot", "lot", "log", "cog"}};
         ASSERT_EQ(ans, rightAns);
@@ -20,7 +20,7 @@ namespace {
     TEST(findLaddersTest, Example2) {
         std::string beginWord = "hit", endWord = "cog";
         std::vector<std::string> wordList = {"hot", "dot", "dog", "lot", "log"};
-        auto ans = (new Solution)->findLadders(beginWord, endWord, wordList);
+        auto ans = Solution().findLadders(beginWord, endWord, wordList);
         decltype(ans) rightAns = {};
         ASSERT_EQ(ans, rightAns);
     }

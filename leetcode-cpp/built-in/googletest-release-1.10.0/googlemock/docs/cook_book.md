@@ -2653,7 +2653,7 @@ have to use functors instead.
 Support for move-only function arguments was only introduced to gMock in April
 
 2017. In older code, you may encounter the following workaround for the lack of this feature (it is no longer necessary
-      - we're including it just for reference):
+    - we're including it just for reference):
 
 ```cpp
 class MockBuzzer : public Buzzer {

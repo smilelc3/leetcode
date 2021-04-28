@@ -5,7 +5,7 @@
 namespace {
     TEST(flattenTest, Example1) {
         auto root = GenTreeByNums({1, 2, 5, 3, 4, -1, 6}, -1);
-        (new Solution)->flatten(root);
+        Solution().flatten(root);
         auto rightAns = GenTreeByNums({1, -1, 2, -1, 3, -1, 4, -1, 5, -1, 6}, -1);
         EXPECT_TRUE(isSameTree(root, rightAns));
     }
@@ -13,21 +13,21 @@ namespace {
 
     TEST(flattenTest, Example2) {
         auto root = GenTreeByNums({});
-        (new Solution)->flatten(root);
+        Solution().flatten(root);
         auto rightAns = GenTreeByNums({});
         EXPECT_TRUE(isSameTree(root, rightAns));
     }
 
     TEST(flattenTest, Example3) {
         auto root = GenTreeByNums({0});
-        (new Solution)->flatten(root);
+        Solution().flatten(root);
         auto rightAns = GenTreeByNums({0});
         EXPECT_TRUE(isSameTree(root, rightAns));
     }
 
     TEST(flattenTest, Test0) {
         auto root = GenTreeByNums({1, 2, 5, 3, 4, -1, 6}, -1);
-        (new Solution)->flatten(root);
+        Solution().flatten(root);
         auto rightAns = GenTreeByNums({1, -1, 2, -1, 3, -1, 4, -1, 5, -1, 6}, -1);
         EXPECT_TRUE(isSameTree(root, rightAns));
     }

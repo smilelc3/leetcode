@@ -9,7 +9,7 @@
 
 class Solution {
 public:
-    TreeNode* sortedListToBST(ListNode* head) {
+    TreeNode *sortedListToBST(ListNode *head) {
         std::vector<int> nums;
         auto pNode = head;
         while (pNode != nullptr) {

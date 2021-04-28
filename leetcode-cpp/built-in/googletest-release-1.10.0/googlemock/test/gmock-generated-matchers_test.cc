@@ -782,7 +782,7 @@ variable;
 TEST(MatcherPMacroTest, WorksWhenExplicitlyInstantiatedWithReference) {
     UncopyableFoo foo1('1'), foo2('2');
     const Matcher<const UncopyableFoo &> m =
-    ReferencesUncopyable <
+            ReferencesUncopyable <
     const UncopyableFoo&>(foo1);
 
     EXPECT_TRUE(m.Matches(foo1));
@@ -825,7 +825,7 @@ variable2;
 TEST(MatcherPnMacroTest, WorksWhenExplicitlyInstantiatedWithReferences) {
     UncopyableFoo foo1('1'), foo2('2'), foo3('3');
     const Matcher<const UncopyableFoo &> m =
-    ReferencesAnyOf <
+            ReferencesAnyOf <
     const UncopyableFoo&, const UncopyableFoo&>(foo1, foo2);
 
     EXPECT_TRUE(m.Matches(foo1));
@@ -837,7 +837,7 @@ TEST(MatcherPnMacroTest,
      GeneratesCorretDescriptionWhenExplicitlyInstantiatedWithReferences) {
     UncopyableFoo foo1('1'), foo2('2');
     const Matcher<const UncopyableFoo &> m =
-    ReferencesAnyOf <
+            ReferencesAnyOf <
     const UncopyableFoo&, const UncopyableFoo&>(foo1, foo2);
 
     // We don't want the addresses of the parameters printed, as most

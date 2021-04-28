@@ -16,10 +16,10 @@ public:
                 if (j == 0) {
                     dp[j] += triangle[i][j];
                 } else if (j == i) {
-                    dp[j] = dp[j-1] + triangle[i][j];
+                    dp[j] = dp[j - 1] + triangle[i][j];
                 } else {
                     // 0 < j < i
-                    dp[j] = std::min(dp[j], dp[j-1]) + triangle[i][j];
+                    dp[j] = std::min(dp[j], dp[j - 1]) + triangle[i][j];
                 }
             }
         }

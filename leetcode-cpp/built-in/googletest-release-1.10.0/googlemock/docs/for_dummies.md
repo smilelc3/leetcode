@@ -479,7 +479,9 @@ EXPECT_CALL(turtle, Forward(10))  // #2
 ```
 
 If `Forward(10)` is called three times in a row, the third time it will be an error, as the last matching expectation (
-#2) has been saturated. If, however, the third `Forward(10)` call is replaced by `Forward(20)`, then it would be OK, as
+
+# 2) has been saturated. If, however, the third `Forward(10)` call is replaced by `Forward(20)`, then it would be OK, as
+
 now #1 will be the matching expectation.
 
 **Note:** Why does gMock search for a match in the *reverse* order of the expectations? The reason is that this allows a

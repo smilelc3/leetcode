@@ -39,10 +39,11 @@ gmock_output_test.py
 
 """
 
-from io import open  # pylint: disable=redefined-builtin, g-importing-member
 import os
 import re
 import sys
+from io import open  # pylint: disable=redefined-builtin, g-importing-member
+
 import gmock_test_utils
 
 # The flag for generating the golden file

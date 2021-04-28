@@ -46,9 +46,9 @@ public:
             std::tie(leftIsBalanced, leftDepth) = getTreeMaxDepthAndIsBalanced(root->left);
             std::tie(rightIsBalanced, rightDepth) = getTreeMaxDepthAndIsBalanced(root->right);
             if (std::abs(leftDepth - rightDepth) <= 1 and leftIsBalanced and rightIsBalanced) {
-                return {true, std::max(leftDepth, rightDepth)+1};
+                return {true, std::max(leftDepth, rightDepth) + 1};
             } else {
-                return {false, std::max(leftDepth, rightDepth)+1};
+                return {false, std::max(leftDepth, rightDepth) + 1};
             }
         }
     }

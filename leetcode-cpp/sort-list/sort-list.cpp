@@ -30,7 +30,7 @@ private:
             }
         } else if (head1 != nullptr) {
             return head1;
-        }else {
+        } else {
             // head2 != nullptr
             return head2;
         }

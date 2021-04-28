@@ -8,7 +8,7 @@
 
 class Solution {
 public:
-    static int ladderLength(std::string &beginWord, std::string &endWord, std::vector<std::string> &wordList) {
+    int ladderLength(std::string &beginWord, std::string &endWord, std::vector<std::string> &wordList) {
         std::unordered_set<std::string> dict(wordList.begin(), wordList.end());
         if (dict.find(endWord) == dict.end()) {
             return 0;

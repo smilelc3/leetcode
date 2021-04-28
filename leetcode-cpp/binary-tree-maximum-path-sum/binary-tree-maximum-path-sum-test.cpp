@@ -8,15 +8,15 @@
 
 namespace {
     TEST(maxPathSumTest, Example1) {
-        auto root = GenTreeByNums(std::vector<int>{1, 2, 3});
-        auto ans = (new Solution)->maxPathSum(root);
+        auto root = GenTreeByNums({1, 2, 3});
+        auto ans = Solution().maxPathSum(root);
         auto rightAns = 6;
         ASSERT_EQ(ans, rightAns);
     }
 
     TEST(maxPathSumTest, Example2) {
-        auto root = GenTreeByNums(std::vector<int>{-10, 9, 20, -1, -1, 15, 7}, -1);
-        auto ans = (new Solution)->maxPathSum(root);
+        auto root = GenTreeByNums({-10, 9, 20, -1, -1, 15, 7}, -1);
+        auto ans = Solution().maxPathSum(root);
         auto rightAns = 42;
         ASSERT_EQ(ans, rightAns);
     }

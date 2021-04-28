@@ -21,7 +21,7 @@ add_executable(${EXEC} ${SOURCES})
 
 
 # GTest needs threading support
-find_package (Threads)
+find_package(Threads)
 target_link_libraries(${EXEC} gtest ${CMAKE_THREAD_LIBS_INIT})
 
 # Add built in source

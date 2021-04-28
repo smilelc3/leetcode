@@ -8,7 +8,7 @@
 
 class Solution {
 public:
-     TreeNode *buildTree(std::vector<int> &preorder, std::vector<int> &inorder) {
+    TreeNode *buildTree(std::vector<int> &preorder, std::vector<int> &inorder) {
 
         for (auto idx = 0; idx < inorder.size(); idx++) {
             indexMap[inorder[idx]] = idx;
@@ -19,10 +19,10 @@ public:
     }
 
 private:
-     std::unordered_map<int, int> indexMap;
+    std::unordered_map<int, int> indexMap;
 
-     TreeNode *rebuildTreeByPreorderAndInorder(std::vector<int> &preorder, int preorderStart, int preorderEnd,
-                                               std::vector<int> &inorder, int inorderStart, int inorderEnd) {
+    TreeNode *rebuildTreeByPreorderAndInorder(std::vector<int> &preorder, int preorderStart, int preorderEnd,
+                                              std::vector<int> &inorder, int inorderStart, int inorderEnd) {
         if (preorderStart == preorderEnd or inorderStart == inorderEnd) {
             return nullptr;
         }

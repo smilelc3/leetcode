@@ -10,7 +10,7 @@ public:
     static int maxProfit(std::vector<int> &prices) {
         int maxProfitVal = 0;
         int preMinPrice = std::numeric_limits<int>::max();
-        for (int & price : prices) {
+        for (int &price : prices) {
             maxProfitVal = std::max(maxProfitVal, price - preMinPrice);
             preMinPrice = std::min(preMinPrice, price);
         }
