@@ -7,7 +7,7 @@
 
 class Solution {
 public:
-    int maxPathSum(TreeNode *root) {
+    int maxPathSum(const TreeNode *root) {
         maxPathSumDFS(root);
         return res;
     }
@@ -15,7 +15,7 @@ public:
 private:
     int res = INT_MIN;
 
-    int maxPathSumDFS(TreeNode *pNode) {
+    int maxPathSumDFS(const TreeNode *pNode) {
         if (pNode == nullptr) {
             return 0;
         }
