@@ -34,11 +34,11 @@ public:
 class Solution {
 public:
     // 无向图的复制
-    Node *cloneGraph(Node* const node) {
+    Node *cloneGraph(Node *const node) {
         if (node == nullptr) {
             return nullptr;
         }
-        std::queue<Node*> nodeQueue;
+        std::queue<Node *> nodeQueue;
         nodeQueue.emplace(node);
         auto nodeCopy = new Node(node->val);
         rawNode2CpyNodeMap[node] = nodeCopy;
