@@ -26,6 +26,20 @@ namespace {
         std::vector<int> rightAns = {1};
         ASSERT_EQ(ans, rightAns);
     }
+
+    TEST(postorderTraversalTest, Example4) {
+        auto root = GenTreeByNums({1,2});
+        auto ans = Solution().postorderTraversal(root);
+        std::vector<int> rightAns = {2,1};
+        ASSERT_EQ(ans, rightAns);
+    }
+
+    TEST(postorderTraversalTest, Example5) {
+        auto root = GenTreeByNums({1,-1,2},-1);
+        auto ans = Solution().postorderTraversal(root);
+        std::vector<int> rightAns = {2,1};
+        ASSERT_EQ(ans, rightAns);
+    }
 }
 
 
