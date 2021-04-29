@@ -7,11 +7,12 @@
 class Solution {
 public:
     void reorderList(ListNode *head) {
-        if (head == nullptr) {
+        if (head == nullptr or head->next == nullptr) {
             return;
         }
-        auto mid = head, tail = head;
+        ListNode *mid = head, *tail = head, *preMid = nullptr;
         while (tail->next != nullptr) {
+            preMid = mid;
             mid = mid->next;
             tail = tail->next;
             if (tail->next != nullptr) {
@@ -19,10 +20,22 @@ public:
             }
         }
         // 从 mid -> tail reverse
-        reverseList(head);
-        // 从 [head, mid) + [tail,mid] 构建新链表
-        bool isReverseOrder = false;
-
+        preMid->next = nullptr;
+        reverseList(mid);
+        // 从 [head, mid) + [tail, mid] 构建新链表
+        ListNode *pNode = head;
+        head = head->next;
+        while (tail != nullptr) {
+            // len([tail, mid]) >= len([head, mid))  不用判断 tail != nullptr
+            pNode->next = tail;
+            pNode = pNode->next;
+            tail = tail->next;
+            if (head != nullptr) {
+                pNode->next = head;
+                pNode = pNode->next;
+                head = head->next;
+            }
+        }
     }
 
 private:
