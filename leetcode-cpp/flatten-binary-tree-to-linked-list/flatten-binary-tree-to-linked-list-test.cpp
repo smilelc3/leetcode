@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include <vector>
 #include "flatten-binary-tree-to-linked-list.cpp"
 
 namespace {
