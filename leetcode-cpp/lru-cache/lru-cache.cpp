@@ -7,7 +7,6 @@
 #include <stdexcept>
 
 class LRUCache {
-
 private:
     std::list<std::pair<int, int>> cache;   // 存keys的顺序
     std::unordered_map<int, decltype(cache.begin())> cacheMap;
@@ -22,14 +21,15 @@ public:
     }
 
     int get(int key) {
-        try {
-            auto res = cacheMap.at(key);
-            // 移动到链表首位
-            cache.splice(cache.begin(), cache, res);
-            return res->second;        // 返回迭代器指向的值
-        } catch (const std::out_of_range &) {
+        // 不使用try catch进行处理，会变慢
+        auto iter = cacheMap.find(key);
+        if (iter == cacheMap.end()) {
             return -1;
         }
+        // 移动到链表首位
+        cache.splice(cache.begin(), cache, iter->second);
+        return iter->second->second;        // 返回迭代器指向的值
+
     }
 
     void put(int key, int value) {
