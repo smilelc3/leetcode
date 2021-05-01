@@ -7,8 +7,8 @@
 #include "lru-cache.cpp"
 
 namespace {
-    TEST(longestConsecutiveTest, Example1) {
-        auto *lRUCache = new LRUCache(2);
+    TEST(LRUCacheTest, Example1) {
+        auto lRUCache = new LRUCache(2);
         lRUCache->put(1, 1);    // cache is {1=1}
         lRUCache->put(2, 2);    // cache is {1=1, 2=2}
 
@@ -19,6 +19,20 @@ namespace {
         EXPECT_EQ(-1, lRUCache->get(1));           // return -1 (not found)
         EXPECT_EQ(3, lRUCache->get(3));           // return 3
         EXPECT_EQ(4, lRUCache->get(4));              // return 4
+    }
+
+    TEST(LRUCacheTest, Example2) {
+        auto lRUCache = new LRUCache(2);
+        lRUCache->put(1, 0);
+        lRUCache->put(2, 2);
+
+        EXPECT_EQ(0, lRUCache->get(1));
+        lRUCache->put(3, 3);
+        EXPECT_EQ(-1, lRUCache->get(2));
+        lRUCache->put(4, 4);
+        EXPECT_EQ(-1, lRUCache->get(1));
+        EXPECT_EQ(3, lRUCache->get(3));
+        EXPECT_EQ(4, lRUCache->get(4));
     }
 }
 
