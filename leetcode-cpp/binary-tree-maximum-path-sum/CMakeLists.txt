@@ -28,5 +28,4 @@ target_link_libraries(${EXEC} gtest ${CMAKE_THREAD_LIBS_INIT})
 target_link_libraries(${EXEC} built-in)
 
 # Run test
-#enable_testing()
 add_test(${EXEC} ${EXEC})

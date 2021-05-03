@@ -9,7 +9,7 @@ include_directories(built-in)
 
 
 add_subdirectory(built-in/googletest-release-1.10.0)
-
+add_subdirectory(built-in/benchmark-1.5.3)
 
 add_subdirectory(balanced-binary-tree)
 add_subdirectory(best-time-to-buy-and-sell-stock)

@@ -1,32 +1,29 @@
 # only for cmake --version >= 3.5.1
 cmake_minimum_required(VERSION 3.5.1)
 
-# project name
-project(max-points-on-a-line)
-
-# creates the variable EXEC and sets it to hello
+# 创建EXEC变量，可以用${EXEC}获取
 set(EXEC max-points-on-a-line)
-
-# set the C++14 standard
+# project名
+project(${EXEC})
+# 设置 C++14 标准
 set(CMAKE_CXX_STANDARD 14)
-
-# I../includes
-#include_directories(includes)
-
-# puts all .cpp files inside src to the SOURCES variable
-file(GLOB SOURCES *.cpp)
-
-# compiles the files defined by SOURCES to generate the executable defined by EXEC
-add_executable(${EXEC} ${SOURCES})
+# Google Test/Benchmark 需要 Threads 库支持
+find_package(Threads REQUIRED)
 
 
-# GTest needs threading support
-find_package(Threads)
+# 编译test代码
+add_executable(${EXEC} max-points-on-a-line-test.cpp)
 target_link_libraries(${EXEC} gtest ${CMAKE_THREAD_LIBS_INIT})
-
-# Add built in source
+# 添加built-in库依赖
 target_link_libraries(${EXEC} built-in)
-
-# Run test
-#enable_testing()
+# 运行测试
 add_test(${EXEC} ${EXEC})
+
+
+
+# 编译benchmark代码
+add_executable(${EXEC}-benchmark ${EXEC}-benchmark.cpp)
+# 添加 google benchmark 依赖
+target_link_libraries(${EXEC}-benchmark benchmark)
+# 添加built-in库依赖
+target_link_libraries(${EXEC} built-in)

@@ -8,6 +8,10 @@
 class Solution {
 public:
     int maxPoints(std::vector<std::vector<int>> &points) {
+        return maxPointsMethod1(points);
+    }
+
+    int maxPointsMethod1(std::vector<std::vector<int>> &points) {
         //  time: O(n^2) space: O(n^2)
         std::vector<std::vector<bool>> hasVisit(points.size(), std::vector<bool>(points.size(), false));
         int maxPointNum = 0;
@@ -35,6 +39,7 @@ public:
         }
         return maxPointNum;
     }
+
 
     constexpr inline bool isTreePointsOnSameLine(std::pair<int, int> a, decltype(a) b, decltype(a) c) {
         return b.first * c.second + a.second * c.first + a.first * b.second ==
