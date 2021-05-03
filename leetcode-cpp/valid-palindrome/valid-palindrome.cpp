@@ -11,7 +11,7 @@ public:
         if (s.empty()) {
             return ans;
         }
-        int64_t left = 0, right = s.length() - 1;
+        uint64_t left = 0, right = s.length() - 1;
         while (left < right) {
             if (not(isalpha(s[left]) or isalnum(s[left]))) {
                 left++;
