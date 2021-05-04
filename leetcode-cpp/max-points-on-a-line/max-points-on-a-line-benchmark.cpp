@@ -3,6 +3,7 @@
 //
 
 #include <benchmark/benchmark.h>
+#include "TreeNode.h"
 #include "max-points-on-a-line.cpp"
 
 // method1 : time: O(n^2) space: O(n^2)
