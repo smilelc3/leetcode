@@ -1,51 +1,23 @@
-# only for cmake --version >= 3.5.1
 cmake_minimum_required(VERSION 3.5.1)
 
 project(leetcode-cpp)
 
+# 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
 enable_testing()
-
+# 引入build-in依赖
 include_directories(built-in)
 
-
+# 添加Google gtest/benchmark 项目
 add_subdirectory(built-in/googletest-release-1.10.0)
 add_subdirectory(built-in/benchmark-1.5.3)
 
-add_subdirectory(balanced-binary-tree)
-add_subdirectory(best-time-to-buy-and-sell-stock)
-add_subdirectory(best-time-to-buy-and-sell-stock-ii)
-add_subdirectory(binary-tree-level-order-traversal-ii)
-add_subdirectory(binary-tree-maximum-path-sum)
-add_subdirectory(binary-tree-postorder-traversal)
-add_subdirectory(binary-tree-preorder-traversal)
-add_subdirectory(built-in)
-add_subdirectory(clone-graph)
-add_subdirectory(construct-binary-tree-from-inorder-and-postorder-traversal)
-add_subdirectory(construct-binary-tree-from-preorder-and-inorder-traversal)
-add_subdirectory(convert-sorted-array-to-binary-search-tree)
-add_subdirectory(convert-sorted-list-to-binary-search-tree)
-add_subdirectory(distinct-subsequences)
-add_subdirectory(evaluate-reverse-polish-notation)
-add_subdirectory(flatten-binary-tree-to-linked-list)
-add_subdirectory(gas-station)
-add_subdirectory(gray-code)
-add_subdirectory(linked-list-cycle)
-add_subdirectory(linked-list-cycle-ii)
-add_subdirectory(longest-consecutive-sequence)
-add_subdirectory(lru-cache)
-add_subdirectory(max-points-on-a-line)
-add_subdirectory(minimum-depth-of-binary-tree)
-add_subdirectory(pascals-triangle)
-add_subdirectory(pascals-triangle-ii)
-add_subdirectory(path-sum)
-add_subdirectory(path-sum-ii)
-add_subdirectory(reorder-list)
-add_subdirectory(reverse-linked-list)
-add_subdirectory(single-number)
-add_subdirectory(single-number-ii)
-add_subdirectory(sort-list)
-add_subdirectory(triangle)
-add_subdirectory(valid-palindrome)
-add_subdirectory(word-break)
-add_subdirectory(word-ladder)
-add_subdirectory(word-ladder-ii)
+
+# 生成所有子目录到变量 SUBDIRS
+file(GLOB SUBDIRS RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
+# 遍历所有子目录，如果子目录下存在 CMakeLists.txt 文件，add_subdirectory
+foreach (SUBDIR ${SUBDIRS})
+    if (EXISTS ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/CMakeLists.txt)
+        message(STATUS "found target: ${SUBDIR}")
+        add_subdirectory(${SUBDIR})
+    endif ()
+endforeach ()

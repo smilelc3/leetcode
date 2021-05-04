@@ -92,17 +92,21 @@ namespace {
         int initially_allocated_;
     };
 
-    TEST(ListenersTest, DoesNotLeak) {
-        Water *water = new Water;
-        delete water;
-    }
+    TEST(ListenersTest, DoesNotLeak
+    ) {
+    Water *water = new Water;
+    delete
+    water;
+}
 
 // This should fail when the --check_for_leaks command line flag is
 // specified.
-    TEST(ListenersTest, LeaksWater) {
-        Water *water = new Water;
-        EXPECT_TRUE(water != nullptr);
-    }
+TEST(ListenersTest, LeaksWater
+) {
+Water *water = new Water;
+EXPECT_TRUE(water
+!= nullptr);
+}
 }  // namespace
 
 int main(int argc, char **argv) {

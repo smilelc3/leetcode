@@ -118,33 +118,53 @@ namespace {
 // instead of TEST.
 
 // Tests the default c'tor.
-    TEST_F(QueueTestSmpl3, DefaultConstructor) {
-        // You can access data in the test fixture here.
-        EXPECT_EQ(0u, q0_.Size());
-    }
+    TEST_F(QueueTestSmpl3, DefaultConstructor
+    ) {
+    // You can access data in the test fixture here.
+    EXPECT_EQ(0u, q0_.
+
+    Size()
+
+    );
+}
 
 // Tests Dequeue().
-    TEST_F(QueueTestSmpl3, Dequeue) {
-        int *n = q0_.Dequeue();
-        EXPECT_TRUE(n == nullptr);
+TEST_F(QueueTestSmpl3, Dequeue
+) {
+int *n = q0_.Dequeue();
+EXPECT_TRUE(n
+== nullptr);
 
-        n = q1_.Dequeue();
-        ASSERT_TRUE(n != nullptr);
-        EXPECT_EQ(1, *n);
-        EXPECT_EQ(0u, q1_.Size());
-        delete n;
+n = q1_.Dequeue();
+ASSERT_TRUE(n
+!= nullptr);
+EXPECT_EQ(1, *n);
+EXPECT_EQ(0u, q1_.
 
-        n = q2_.Dequeue();
-        ASSERT_TRUE(n != nullptr);
-        EXPECT_EQ(2, *n);
-        EXPECT_EQ(1u, q2_.Size());
-        delete n;
-    }
+Size()
+
+);
+delete
+n;
+
+n = q2_.Dequeue();
+ASSERT_TRUE(n
+!= nullptr);
+EXPECT_EQ(2, *n);
+EXPECT_EQ(1u, q2_.
+
+Size()
+
+);
+delete
+n;
+}
 
 // Tests the Queue::Map() function.
-    TEST_F(QueueTestSmpl3, Map) {
-        MapTester(&q0_);
-        MapTester(&q1_);
-        MapTester(&q2_);
-    }
+TEST_F(QueueTestSmpl3, Map
+) {
+MapTester(&q0_);
+MapTester(&q1_);
+MapTester(&q2_);
+}
 }  // namespace

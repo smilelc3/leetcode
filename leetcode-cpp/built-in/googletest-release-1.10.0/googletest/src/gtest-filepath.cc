@@ -41,8 +41,10 @@
 # include <io.h>
 
 #else
+
 # include <limits.h>
 # include <climits>  // Some Linux distributions define PATH_MAX here.
+
 #endif  // GTEST_OS_WINDOWS_MOBILE
 
 #include "gtest/internal/gtest-string.h"
@@ -61,22 +63,22 @@ namespace testing {
     namespace internal {
 
 #if GTEST_OS_WINDOWS
-// On Windows, '\\' is the standard path separator, but many tools and the
-// Windows API also accept '/' as an alternate path separator. Unless otherwise
-// noted, a file path can contain either kind of path separators, or a mixture
-// of them.
-        const char kPathSeparator = '\\';
-        const char kAlternatePathSeparator = '/';
-        const char kAlternatePathSeparatorString[] = "/";
+        // On Windows, '\\' is the standard path separator, but many tools and the
+        // Windows API also accept '/' as an alternate path separator. Unless otherwise
+        // noted, a file path can contain either kind of path separators, or a mixture
+        // of them.
+                const char kPathSeparator = '\\';
+                const char kAlternatePathSeparator = '/';
+                const char kAlternatePathSeparatorString[] = "/";
 # if GTEST_OS_WINDOWS_MOBILE
-        // Windows CE doesn't have a current directory. You should not use
-        // the current directory in tests on Windows CE, but this at least
-        // provides a reasonable fallback.
-        const char kCurrentDirectoryString[] = "\\";
-        // Windows CE doesn't define INVALID_FILE_ATTRIBUTES
-        const DWORD kInvalidFileAttributes = 0xffffffff;
+                // Windows CE doesn't have a current directory. You should not use
+                // the current directory in tests on Windows CE, but this at least
+                // provides a reasonable fallback.
+                const char kCurrentDirectoryString[] = "\\";
+                // Windows CE doesn't define INVALID_FILE_ATTRIBUTES
+                const DWORD kInvalidFileAttributes = 0xffffffff;
 # else
-        const char kCurrentDirectoryString[] = ".\\";
+                const char kCurrentDirectoryString[] = ".\\";
 # endif  // GTEST_OS_WINDOWS_MOBILE
 #else
         const char kPathSeparator = '/';
@@ -103,8 +105,8 @@ namespace testing {
             char cwd[GTEST_PATH_MAX_ + 1] = {'\0'};
             return FilePath(_getcwd(cwd, sizeof(cwd)) == nullptr ? "" : cwd);
 #else
-            char cwd[GTEST_PATH_MAX_ + 1] = { '\0' };
-            char* result = getcwd(cwd, sizeof(cwd));
+            char cwd[GTEST_PATH_MAX_ + 1] = {'\0'};
+            char *result = getcwd(cwd, sizeof(cwd));
 # if GTEST_OS_NACL
             // getcwd will likely fail in NaCl due to the sandbox, so return something
             // reasonable. The user may have provided a shim implementation for getcwd,
@@ -226,7 +228,7 @@ namespace testing {
             const FilePath &path(IsRootDirectory() ? *this :
                                  RemoveTrailingPathSeparator());
 #else
-            const FilePath& path(*this);
+            const FilePath &path(*this);
 #endif
 
 #if GTEST_OS_WINDOWS_MOBILE

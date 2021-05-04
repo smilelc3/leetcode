@@ -32,7 +32,7 @@ public:
                         numsStack.emplace(first / second);
                         break;
                     case '^':
-                        numsStack.emplace(std::pow(first,second));
+                        numsStack.emplace(std::pow(first, second));
                         break;
                     case '%':
                         numsStack.emplace(first % second);

@@ -5,35 +5,39 @@
 The `compare.py` can be used to compare the result of benchmarks.
 
 ### Dependencies
+
 The utility relies on the [scipy](https://www.scipy.org) package which can be installed using pip:
+
 ```bash
 pip3 install -r requirements.txt
 ```
 
 ### Displaying aggregates only
 
-The switch `-a` / `--display_aggregates_only` can be used to control the
-displayment of the normal iterations vs the aggregates. When passed, it will
-be passthrough to the benchmark binaries to be run, and will be accounted for
-in the tool itself; only the aggregates will be displayed, but not normal runs.
-It only affects the display, the separate runs will still be used to calculate
-the U test.
+The switch `-a` / `--display_aggregates_only` can be used to control the displayment of the normal iterations vs the
+aggregates. When passed, it will be passthrough to the benchmark binaries to be run, and will be accounted for in the
+tool itself; only the aggregates will be displayed, but not normal runs. It only affects the display, the separate runs
+will still be used to calculate the U test.
 
 ### Modes of operation
 
 There are three modes of operation:
 
-1. Just compare two benchmarks
-The program is invoked like:
+1. Just compare two benchmarks The program is invoked like:
 
 ``` bash
 $ compare.py benchmarks <benchmark_baseline> <benchmark_contender> [benchmark options]...
 ```
-Where `<benchmark_baseline>` and `<benchmark_contender>` either specify a benchmark executable file, or a JSON output file. The type of the input file is automatically detected. If a benchmark executable is specified then the benchmark is run to obtain the results. Otherwise the results are simply loaded from the output file.
 
-`[benchmark options]` will be passed to the benchmarks invocations. They can be anything that binary accepts, be it either normal `--benchmark_*` parameters, or some custom parameters your binary takes.
+Where `<benchmark_baseline>` and `<benchmark_contender>` either specify a benchmark executable file, or a JSON output
+file. The type of the input file is automatically detected. If a benchmark executable is specified then the benchmark is
+run to obtain the results. Otherwise the results are simply loaded from the output file.
+
+`[benchmark options]` will be passed to the benchmarks invocations. They can be anything that binary accepts, be it
+either normal `--benchmark_*` parameters, or some custom parameters your binary takes.
 
 Example output:
+
 ```
 $ ./compare.py benchmarks ./a.out ./a.out
 RUNNING: ./a.out --benchmark_out=/tmp/tmprBT5nW
@@ -83,22 +87,28 @@ BM_copy/1024           +0.0035         +0.0028         25169         25257      
 BM_copy/8192           +0.0191         +0.0194        201165        205013        201112        205010
 ```
 
-What it does is for the every benchmark from the first run it looks for the benchmark with exactly the same name in the second run, and then compares the results. If the names differ, the benchmark is omitted from the diff.
-As you can note, the values in `Time` and `CPU` columns are calculated as `(new - old) / |old|`.
+What it does is for the every benchmark from the first run it looks for the benchmark with exactly the same name in the
+second run, and then compares the results. If the names differ, the benchmark is omitted from the diff. As you can note,
+the values in `Time` and `CPU` columns are calculated as `(new - old) / |old|`.
 
-2. Compare two different filters of one benchmark
-The program is invoked like:
+2. Compare two different filters of one benchmark The program is invoked like:
 
 ``` bash
 $ compare.py filters <benchmark> <filter_baseline> <filter_contender> [benchmark options]...
 ```
-Where `<benchmark>` either specify a benchmark executable file, or a JSON output file. The type of the input file is automatically detected. If a benchmark executable is specified then the benchmark is run to obtain the results. Otherwise the results are simply loaded from the output file.
 
-Where `<filter_baseline>` and `<filter_contender>` are the same regex filters that you would pass to the `[--benchmark_filter=<regex>]` parameter of the benchmark binary.
+Where `<benchmark>` either specify a benchmark executable file, or a JSON output file. The type of the input file is
+automatically detected. If a benchmark executable is specified then the benchmark is run to obtain the results.
+Otherwise the results are simply loaded from the output file.
 
-`[benchmark options]` will be passed to the benchmarks invocations. They can be anything that binary accepts, be it either normal `--benchmark_*` parameters, or some custom parameters your binary takes.
+Where `<filter_baseline>` and `<filter_contender>` are the same regex filters that you would pass to
+the `[--benchmark_filter=<regex>]` parameter of the benchmark binary.
+
+`[benchmark options]` will be passed to the benchmarks invocations. They can be anything that binary accepts, be it
+either normal `--benchmark_*` parameters, or some custom parameters your binary takes.
 
 Example output:
+
 ```
 $ ./compare.py filters ./a.out BM_memcpy BM_copy
 RUNNING: ./a.out --benchmark_filter=BM_memcpy --benchmark_out=/tmp/tmpBWKk0k
@@ -133,23 +143,30 @@ Benchmark                               Time             CPU      Time Old      
 [BM_memcpy vs. BM_copy]/8192       +308.1664       +308.2898           657        202986           656        202990
 ```
 
-As you can see, it applies filter to the benchmarks, both when running the benchmark, and before doing the diff. And to make the diff work, the matches are replaced with some common string. Thus, you can compare two different benchmark families within one benchmark binary.
-As you can note, the values in `Time` and `CPU` columns are calculated as `(new - old) / |old|`.
+As you can see, it applies filter to the benchmarks, both when running the benchmark, and before doing the diff. And to
+make the diff work, the matches are replaced with some common string. Thus, you can compare two different benchmark
+families within one benchmark binary. As you can note, the values in `Time` and `CPU` columns are calculated
+as `(new - old) / |old|`.
 
 3. Compare filter one from benchmark one to filter two from benchmark two:
-The program is invoked like:
+   The program is invoked like:
 
 ``` bash
 $ compare.py filters <benchmark_baseline> <filter_baseline> <benchmark_contender> <filter_contender> [benchmark options]...
 ```
 
-Where `<benchmark_baseline>` and `<benchmark_contender>` either specify a benchmark executable file, or a JSON output file. The type of the input file is automatically detected. If a benchmark executable is specified then the benchmark is run to obtain the results. Otherwise the results are simply loaded from the output file.
+Where `<benchmark_baseline>` and `<benchmark_contender>` either specify a benchmark executable file, or a JSON output
+file. The type of the input file is automatically detected. If a benchmark executable is specified then the benchmark is
+run to obtain the results. Otherwise the results are simply loaded from the output file.
 
-Where `<filter_baseline>` and `<filter_contender>` are the same regex filters that you would pass to the `[--benchmark_filter=<regex>]` parameter of the benchmark binary.
+Where `<filter_baseline>` and `<filter_contender>` are the same regex filters that you would pass to
+the `[--benchmark_filter=<regex>]` parameter of the benchmark binary.
 
-`[benchmark options]` will be passed to the benchmarks invocations. They can be anything that binary accepts, be it either normal `--benchmark_*` parameters, or some custom parameters your binary takes.
+`[benchmark options]` will be passed to the benchmarks invocations. They can be anything that binary accepts, be it
+either normal `--benchmark_*` parameters, or some custom parameters your binary takes.
 
 Example output:
+
 ```
 $ ./compare.py benchmarksfiltered ./a.out BM_memcpy ./a.out BM_copy
 RUNNING: ./a.out --benchmark_filter=BM_memcpy --benchmark_out=/tmp/tmp_FvbYg
@@ -183,21 +200,19 @@ Benchmark                               Time             CPU      Time Old      
 [BM_memcpy vs. BM_copy]/1024       +221.5903       +221.4790           120         26679           120         26666
 [BM_memcpy vs. BM_copy]/8192       +322.9059       +323.0096           664        215068           664        215053
 ```
-This is a mix of the previous two modes, two (potentially different) benchmark binaries are run, and a different filter is applied to each one.
-As you can note, the values in `Time` and `CPU` columns are calculated as `(new - old) / |old|`.
+
+This is a mix of the previous two modes, two (potentially different) benchmark binaries are run, and a different filter
+is applied to each one. As you can note, the values in `Time` and `CPU` columns are calculated as `(new - old) / |old|`.
 
 ### U test
 
 If there is a sufficient repetition count of the benchmarks, the tool can do
-a [U Test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test), of the
-null hypothesis that it is equally likely that a randomly selected value from
-one sample will be less than or greater than a randomly selected value from a
-second sample.
+a [U Test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test), of the null hypothesis that it is equally likely
+that a randomly selected value from one sample will be less than or greater than a randomly selected value from a second
+sample.
 
-If the calculated p-value is below this value is lower than the significance
-level alpha, then the result is said to be statistically significant and the
-null hypothesis is rejected. Which in other words means that the two benchmarks
-aren't identical.
+If the calculated p-value is below this value is lower than the significance level alpha, then the result is said to be
+statistically significant and the null hypothesis is rejected. Which in other words means that the two benchmarks aren't
+identical.
 
-**WARNING**: requires **LARGE** (no less than 9) number of repetitions to be
-meaningful!
+**WARNING**: requires **LARGE** (no less than 9) number of repetitions to be meaningful!

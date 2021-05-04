@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 # 获取当前目录到变量 CURRENT_FOLDER
-string(REGEX REPLACE ".*/\(.*\)" "\\1" CURRENT_FOLDER  ${CMAKE_CURRENT_SOURCE_DIR})
+string(REGEX REPLACE ".*/\(.*\)" "\\1" CURRENT_FOLDER ${CMAKE_CURRENT_SOURCE_DIR})
 # project名
 project(${CURRENT_FOLDER})
 # 设置 C++14 标准
@@ -11,7 +11,7 @@ find_package(Threads REQUIRED)
 
 
 # 检测test代码
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.cpp)
+if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.cpp)
     # 编译test代码
     # 长文件限制
     add_executable(construct-binary-tree-from-in-post-test ${CURRENT_FOLDER}-test.cpp)
@@ -20,17 +20,17 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.cpp)
     target_link_libraries(construct-binary-tree-from-in-post-test built-in)
     # 运行测试
     add_test(${CURRENT_FOLDER} construct-binary-tree-from-in-post-test)
-else()
+else ()
     message(STATUS "${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.cpp source file not found! -> skip test")
-endif()
+endif ()
 
 
 # 检测benchmark代码
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-benchmark.cpp)
+if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-benchmark.cpp)
     # 编译benchmark代码
     add_executable(${CURRENT_FOLDER}-benchmark ${CURRENT_FOLDER}-benchmark.cpp)
     # 添加 google benchmark 依赖
     target_link_libraries(${CURRENT_FOLDER}-benchmark benchmark ${CMAKE_THREAD_LIBS_INIT})
     # 添加built-in库依赖
     target_link_libraries(${CURRENT_FOLDER}-benchmark built-in)
-endif()
+endif ()

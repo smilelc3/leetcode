@@ -54,7 +54,7 @@
 
 #if GTEST_OS_LINUX
 
-                                                                                                                        # define GTEST_HAS_GETTIMEOFDAY_ 1
+# define GTEST_HAS_GETTIMEOFDAY_ 1
 
 # include <fcntl.h>  // NOLINT
 # include <limits.h>  // NOLINT
@@ -118,10 +118,12 @@
 #endif
 
 #if GTEST_CAN_STREAM_RESULTS_
-                                                                                                                        # include <arpa/inet.h>  // NOLINT
+
+# include <arpa/inet.h>  // NOLINT
 # include <netdb.h>  // NOLINT
 # include <sys/socket.h>  // NOLINT
 # include <sys/types.h>  // NOLINT
+
 #endif
 
 #include "src/gtest-internal-inl.h"
@@ -1947,16 +1949,16 @@ AssertionResult CmpHelper##op_name(const char* expr1, const char* expr2, \
 #if GTEST_OS_WINDOWS
             return _wcsicmp(lhs, rhs) == 0;
 #elif GTEST_OS_LINUX && !GTEST_OS_LINUX_ANDROID
-                                                                                                                                    return wcscasecmp(lhs, rhs) == 0;
+            return wcscasecmp(lhs, rhs) == 0;
 #else
-  // Android, Mac OS X and Cygwin don't define wcscasecmp.
-  // Other unknown OSes may not define it either.
-  wint_t left, right;
-  do {
-    left = towlower(static_cast<wint_t>(*lhs++));
-    right = towlower(static_cast<wint_t>(*rhs++));
-  } while (left && left == right);
-  return left == right;
+            // Android, Mac OS X and Cygwin don't define wcscasecmp.
+            // Other unknown OSes may not define it either.
+            wint_t left, right;
+            do {
+              left = towlower(static_cast<wint_t>(*lhs++));
+              right = towlower(static_cast<wint_t>(*rhs++));
+            } while (left && left == right);
+            return left == right;
 #endif  // OS selector
         }
 
@@ -4423,70 +4425,70 @@ void TestEventRepeater::Name(const Type& parameter) { \
 
 #if GTEST_CAN_STREAM_RESULTS_
 
-                                                                                                                                // Checks if str contains '=', '&', '%' or '\n' characters. If yes,
+        // Checks if str contains '=', '&', '%' or '\n' characters. If yes,
 // replaces them by "%xx" where xx is their hexadecimal value. For
 // example, replaces "=" with "%3D".  This algorithm is O(strlen(str))
 // in both time and space -- important as the input str may contain an
 // arbitrarily long test failure message and stack trace.
-std::string StreamingListener::UrlEncode(const char* str) {
-  std::string result;
-  result.reserve(strlen(str) + 1);
-  for (char ch = *str; ch != '\0'; ch = *++str) {
-    switch (ch) {
-      case '%':
-      case '=':
-      case '&':
-      case '\n':
-        result.append("%" + String::FormatByte(static_cast<unsigned char>(ch)));
-        break;
-      default:
-        result.push_back(ch);
-        break;
-    }
-  }
-  return result;
-}
+        std::string StreamingListener::UrlEncode(const char *str) {
+            std::string result;
+            result.reserve(strlen(str) + 1);
+            for (char ch = *str; ch != '\0'; ch = *++str) {
+                switch (ch) {
+                    case '%':
+                    case '=':
+                    case '&':
+                    case '\n':
+                        result.append("%" + String::FormatByte(static_cast<unsigned char>(ch)));
+                        break;
+                    default:
+                        result.push_back(ch);
+                        break;
+                }
+            }
+            return result;
+        }
 
-void StreamingListener::SocketWriter::MakeConnection() {
-  GTEST_CHECK_(sockfd_ == -1)
-      << "MakeConnection() can't be called when there is already a connection.";
+        void StreamingListener::SocketWriter::MakeConnection() {
+            GTEST_CHECK_(sockfd_ == -1)
+                        << "MakeConnection() can't be called when there is already a connection.";
 
-  addrinfo hints;
-  memset(&hints, 0, sizeof(hints));
-  hints.ai_family = AF_UNSPEC;    // To allow both IPv4 and IPv6 addresses.
-  hints.ai_socktype = SOCK_STREAM;
-  addrinfo* servinfo = nullptr;
+            addrinfo hints;
+            memset(&hints, 0, sizeof(hints));
+            hints.ai_family = AF_UNSPEC;    // To allow both IPv4 and IPv6 addresses.
+            hints.ai_socktype = SOCK_STREAM;
+            addrinfo *servinfo = nullptr;
 
-  // Use the getaddrinfo() to get a linked list of IP addresses for
-  // the given host name.
-  const int error_num = getaddrinfo(
-      host_name_.c_str(), port_num_.c_str(), &hints, &servinfo);
-  if (error_num != 0) {
-    GTEST_LOG_(WARNING) << "stream_result_to: getaddrinfo() failed: "
-                        << gai_strerror(error_num);
-  }
+            // Use the getaddrinfo() to get a linked list of IP addresses for
+            // the given host name.
+            const int error_num = getaddrinfo(
+                    host_name_.c_str(), port_num_.c_str(), &hints, &servinfo);
+            if (error_num != 0) {
+                GTEST_LOG_(WARNING) << "stream_result_to: getaddrinfo() failed: "
+                                    << gai_strerror(error_num);
+            }
 
-  // Loop through all the results and connect to the first we can.
-  for (addrinfo* cur_addr = servinfo; sockfd_ == -1 && cur_addr != nullptr;
-       cur_addr = cur_addr->ai_next) {
-    sockfd_ = socket(
-        cur_addr->ai_family, cur_addr->ai_socktype, cur_addr->ai_protocol);
-    if (sockfd_ != -1) {
-      // Connect the client socket to the server socket.
-      if (connect(sockfd_, cur_addr->ai_addr, cur_addr->ai_addrlen) == -1) {
-        close(sockfd_);
-        sockfd_ = -1;
-      }
-    }
-  }
+            // Loop through all the results and connect to the first we can.
+            for (addrinfo *cur_addr = servinfo; sockfd_ == -1 && cur_addr != nullptr;
+                 cur_addr = cur_addr->ai_next) {
+                sockfd_ = socket(
+                        cur_addr->ai_family, cur_addr->ai_socktype, cur_addr->ai_protocol);
+                if (sockfd_ != -1) {
+                    // Connect the client socket to the server socket.
+                    if (connect(sockfd_, cur_addr->ai_addr, cur_addr->ai_addrlen) == -1) {
+                        close(sockfd_);
+                        sockfd_ = -1;
+                    }
+                }
+            }
 
-  freeaddrinfo(servinfo);  // all done with this structure
+            freeaddrinfo(servinfo);  // all done with this structure
 
-  if (sockfd_ == -1) {
-    GTEST_LOG_(WARNING) << "stream_result_to: failed to connect to "
-                        << host_name_ << ":" << port_num_;
-  }
-}
+            if (sockfd_ == -1) {
+                GTEST_LOG_(WARNING) << "stream_result_to: failed to connect to "
+                                    << host_name_ << ":" << port_num_;
+            }
+        }
 
 // End of class Streaming Listener
 #endif  // GTEST_CAN_STREAM_RESULTS__
@@ -4886,13 +4888,13 @@ void StreamingListener::SocketWriter::MakeConnection() {
 #elif (!defined(__native_client__)) && \
     ((defined(__clang__) || defined(__GNUC__)) && \
      (defined(__x86_64__) || defined(__i386__)))
-                                                                                                                                        // with clang/gcc we can achieve the same effect on x86 by invoking int3
-      asm("int3");
+                // with clang/gcc we can achieve the same effect on x86 by invoking int3
+                asm("int3");
 #else
-      // Dereference nullptr through a volatile pointer to prevent the compiler
-      // from removing. We use this rather than abort() or __builtin_trap() for
-      // portability: some debuggers don't correctly trap abort().
-      *static_cast<volatile int*>(nullptr) = 1;
+                // Dereference nullptr through a volatile pointer to prevent the compiler
+                // from removing. We use this rather than abort() or __builtin_trap() for
+                // portability: some debuggers don't correctly trap abort().
+                *static_cast<volatile int*>(nullptr) = 1;
 #endif  // GTEST_OS_WINDOWS
             } else if (GTEST_FLAG(throw_on_failure)) {
 #if GTEST_HAS_EXCEPTIONS
@@ -5163,21 +5165,23 @@ void StreamingListener::SocketWriter::MakeConnection() {
         }
 
 #if GTEST_CAN_STREAM_RESULTS_
-                                                                                                                                // Initializes event listeners for streaming test results in string form.
+
+        // Initializes event listeners for streaming test results in string form.
 // Must not be called before InitGoogleTest.
-void UnitTestImpl::ConfigureStreamingOutput() {
-  const std::string& target = GTEST_FLAG(stream_result_to);
-  if (!target.empty()) {
-    const size_t pos = target.find(':');
-    if (pos != std::string::npos) {
-      listeners()->Append(new StreamingListener(target.substr(0, pos),
-                                                target.substr(pos+1)));
-    } else {
-      GTEST_LOG_(WARNING) << "unrecognized streaming target \"" << target
-                          << "\" ignored.";
-    }
-  }
-}
+        void UnitTestImpl::ConfigureStreamingOutput() {
+            const std::string &target = GTEST_FLAG(stream_result_to);
+            if (!target.empty()) {
+                const size_t pos = target.find(':');
+                if (pos != std::string::npos) {
+                    listeners()->Append(new StreamingListener(target.substr(0, pos),
+                                                              target.substr(pos + 1)));
+                } else {
+                    GTEST_LOG_(WARNING) << "unrecognized streaming target \"" << target
+                                        << "\" ignored.";
+                }
+            }
+        }
+
 #endif  // GTEST_CAN_STREAM_RESULTS_
 
 // Performs initialization dependent upon flag values obtained in
@@ -5210,8 +5214,8 @@ void UnitTestImpl::ConfigureStreamingOutput() {
                 ConfigureXmlOutput();
 
 #if GTEST_CAN_STREAM_RESULTS_
-                                                                                                                                        // Configures listeners for streaming test results to the specified server.
-    ConfigureStreamingOutput();
+                // Configures listeners for streaming test results to the specified server.
+                ConfigureStreamingOutput();
 #endif  // GTEST_CAN_STREAM_RESULTS_
 
 #if GTEST_HAS_ABSL
@@ -5992,13 +5996,13 @@ void UnitTestImpl::ConfigureStreamingOutput() {
                 "      file name. @YFILE_PATH@D defaults to @Gtest_detail.xml@D.\n"
                 # if GTEST_CAN_STREAM_RESULTS_
                 "  @G--" GTEST_FLAG_PREFIX_ "stream_result_to=@YHOST@G:@YPORT@D\n"
-"      Stream test results to the given server.\n"
+                "      Stream test results to the given server.\n"
                 # endif  // GTEST_CAN_STREAM_RESULTS_
                 "\n"
                 "Assertion Behavior:\n"
                 # if GTEST_HAS_DEATH_TEST && !GTEST_OS_WINDOWS
                 "  @G--" GTEST_FLAG_PREFIX_ "death_test_style=@Y(@Gfast@Y|@Gthreadsafe@Y)@D\n"
-"      Set the default death test style.\n"
+                "      Set the default death test style.\n"
                 # endif  // GTEST_HAS_DEATH_TEST && !GTEST_OS_WINDOWS
                 "  @G--" GTEST_FLAG_PREFIX_ "break_on_failure@D\n"
                 "      Turn assertion failures into debugger break-points.\n"
@@ -6234,9 +6238,9 @@ void UnitTestImpl::ConfigureStreamingOutput() {
         else
             return std::string(temp_dir) + "\\";
 #elif GTEST_OS_LINUX_ANDROID
-                                                                                                                                return "/sdcard/";
+        return "/sdcard/";
 #else
-  return "/tmp/";
+        return "/tmp/";
 #endif  // GTEST_OS_WINDOWS_MOBILE
     }
 

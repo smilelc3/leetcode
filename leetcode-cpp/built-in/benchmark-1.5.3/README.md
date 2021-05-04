@@ -9,7 +9,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/u0qsyp7t1tk7cpxs/branch/master?svg=true)](https://ci.appveyor.com/project/google/benchmark/branch/master)
 [![Coverage Status](https://coveralls.io/repos/google/benchmark/badge.svg)](https://coveralls.io/r/google/benchmark)
 
-
 A library to benchmark code snippets, similar to unit tests. Example:
 
 ```c++
@@ -32,7 +31,8 @@ To get started, see [Requirements](#requirements) and
 [Installation](#installation). See [Usage](#usage) for a full example and the
 [User Guide](#user-guide) for a more comprehensive feature overview.
 
-It may also help to read the [Google Test documentation](https://github.com/google/googletest/blob/master/docs/primer.md)
+It may also help to read
+the [Google Test documentation](https://github.com/google/googletest/blob/master/docs/primer.md)
 as some of the structural aspects of the APIs are similar.
 
 ### Resources
@@ -47,8 +47,8 @@ IRC channel: [freenode](https://freenode.net) #googlebenchmark
 
 ## Requirements
 
-The library can be used with C++03. However, it requires C++11 to build,
-including compiler and standard library support.
+The library can be used with C++03. However, it requires C++11 to build, including compiler and standard library
+support.
 
 The following minimum versions are required to build the library:
 
@@ -61,11 +61,9 @@ See [Platform-Specific Build Instructions](#platform-specific-build-instructions
 
 ## Installation
 
-This describes the installation process using cmake. As pre-requisites, you'll
-need git and cmake installed.
+This describes the installation process using cmake. As pre-requisites, you'll need git and cmake installed.
 
-_See [dependencies.md](dependencies.md) for more details regarding supported
-versions of build tools._
+_See [dependencies.md](dependencies.md) for more details regarding supported versions of build tools._
 
 ```bash
 # Check out the library.
@@ -83,8 +81,9 @@ $ cmake -E chdir "build" cmake -DCMAKE_BUILD_TYPE=Release ../
 # Build the library.
 $ cmake --build "build" --config Release
 ```
-This builds the `benchmark` and `benchmark_main` libraries and tests.
-On a unix system, the build directory should now look something like this:
+
+This builds the `benchmark` and `benchmark_main` libraries and tests. On a unix system, the build directory should now
+look something like this:
 
 ```
 /benchmark
@@ -108,54 +107,46 @@ If you want to install the library globally, also run:
 sudo cmake --build "build" --config Release --target install
 ```
 
-Note that Google Benchmark requires Google Test to build and run the tests. This
-dependency can be provided two ways:
+Note that Google Benchmark requires Google Test to build and run the tests. This dependency can be provided two ways:
 
 * Checkout the Google Test sources into `benchmark/googletest` as above.
-* Otherwise, if `-DBENCHMARK_DOWNLOAD_DEPENDENCIES=ON` is specified during
-  configuration, the library will automatically download and build any required
-  dependencies.
+* Otherwise, if `-DBENCHMARK_DOWNLOAD_DEPENDENCIES=ON` is specified during configuration, the library will automatically
+  download and build any required dependencies.
 
 If you do not wish to build and run the tests, add `-DBENCHMARK_ENABLE_GTEST_TESTS=OFF`
 to `CMAKE_ARGS`.
 
 ### Debug vs Release
 
-By default, benchmark builds as a debug library. You will see a warning in the
-output when this is the case. To build it as a release library instead, add
-`-DCMAKE_BUILD_TYPE=Release` when generating the build system files, as shown
-above. The use of `--config Release` in build commands is needed to properly
-support multi-configuration tools (like Visual Studio for example) and can be
+By default, benchmark builds as a debug library. You will see a warning in the output when this is the case. To build it
+as a release library instead, add
+`-DCMAKE_BUILD_TYPE=Release` when generating the build system files, as shown above. The use of `--config Release` in
+build commands is needed to properly support multi-configuration tools (like Visual Studio for example) and can be
 skipped for other build systems (like Makefile).
 
-To enable link-time optimisation, also add `-DBENCHMARK_ENABLE_LTO=true` when
-generating the build system files.
+To enable link-time optimisation, also add `-DBENCHMARK_ENABLE_LTO=true` when generating the build system files.
 
-If you are using gcc, you might need to set `GCC_AR` and `GCC_RANLIB` cmake
-cache variables, if autodetection fails.
+If you are using gcc, you might need to set `GCC_AR` and `GCC_RANLIB` cmake cache variables, if autodetection fails.
 
 If you are using clang, you may need to set `LLVMAR_EXECUTABLE`,
 `LLVMNM_EXECUTABLE` and `LLVMRANLIB_EXECUTABLE` cmake cache variables.
 
 ### Stable and Experimental Library Versions
 
-The main branch contains the latest stable version of the benchmarking library;
-the API of which can be considered largely stable, with source breaking changes
-being made only upon the release of a new major version.
+The main branch contains the latest stable version of the benchmarking library; the API of which can be considered
+largely stable, with source breaking changes being made only upon the release of a new major version.
 
 Newer, experimental, features are implemented and tested on the
-[`v2` branch](https://github.com/google/benchmark/tree/v2). Users who wish
-to use, test, and provide feedback on the new features are encouraged to try
-this branch. However, this branch provides no stability guarantees and reserves
-the right to change and break the API at any time.
+[`v2` branch](https://github.com/google/benchmark/tree/v2). Users who wish to use, test, and provide feedback on the new
+features are encouraged to try this branch. However, this branch provides no stability guarantees and reserves the right
+to change and break the API at any time.
 
 ## Usage
 
 ### Basic usage
 
-Define a function that executes the code to measure, register it as a benchmark
-function using the `BENCHMARK` macro, and ensure an appropriate `main` function
-is available:
+Define a function that executes the code to measure, register it as a benchmark function using the `BENCHMARK` macro,
+and ensure an appropriate `main` function is available:
 
 ```c++
 #include <benchmark/benchmark.h>
@@ -179,8 +170,7 @@ BENCHMARK_MAIN();
 ```
 
 To run the benchmark, compile and link against the `benchmark` library
-(libbenchmark.a/.so). If you followed the build steps above, this library will 
-be under the build directory you created.
+(libbenchmark.a/.so). If you followed the build steps above, this library will be under the build directory you created.
 
 ```bash
 # Example on linux after running the build steps above. Assumes the
@@ -199,18 +189,20 @@ flag for option information or see the guide below.
 
 If using CMake, it is recommended to link against the project-provided
 `benchmark::benchmark` and `benchmark::benchmark_main` targets using
-`target_link_libraries`.
-It is possible to use ```find_package``` to import an installed version of the
-library.
+`target_link_libraries`. It is possible to use ```find_package``` to import an installed version of the library.
+
 ```cmake
 find_package(benchmark REQUIRED)
 ```
-Alternatively, ```add_subdirectory``` will incorporate the library directly in
-to one's CMake project.
+
+Alternatively, ```add_subdirectory``` will incorporate the library directly in to one's CMake project.
+
 ```cmake
 add_subdirectory(benchmark)
 ```
+
 Either way, link to the library as follows.
+
 ```cmake
 target_link_libraries(MyTarget benchmark::benchmark)
 ```
@@ -219,17 +211,17 @@ target_link_libraries(MyTarget benchmark::benchmark)
 
 ### Building with GCC
 
-When the library is built using GCC it is necessary to link with the pthread
-library due to how GCC implements `std::thread`. Failing to link to pthread will
-lead to runtime exceptions (unless you're using libc++), not linker errors. See
-[issue #67](https://github.com/google/benchmark/issues/67) for more details. You
-can link to pthread by adding `-pthread` to your linker command. Note, you can
-also use `-lpthread`, but there are potential issues with ordering of command
-line parameters if you use that.
+When the library is built using GCC it is necessary to link with the pthread library due to how GCC
+implements `std::thread`. Failing to link to pthread will lead to runtime exceptions (unless you're using libc++), not
+linker errors. See
+[issue #67](https://github.com/google/benchmark/issues/67) for more details. You can link to pthread by
+adding `-pthread` to your linker command. Note, you can also use `-lpthread`, but there are potential issues with
+ordering of command line parameters if you use that.
 
 ### Building with Visual Studio 2015 or 2017
 
-The `shlwapi` library (`-lshlwapi`) is required to support a call to `CPUInfo` which reads the registry. Either add `shlwapi.lib` under `[ Configuration Properties > Linker > Input ]`, or use the following:
+The `shlwapi` library (`-lshlwapi`) is required to support a call to `CPUInfo` which reads the registry. Either
+add `shlwapi.lib` under `[ Configuration Properties > Linker > Input ]`, or use the following:
 
 ```
 // Alternatively, can add libraries using linker options.
@@ -244,6 +236,7 @@ The `shlwapi` library (`-lshlwapi`) is required to support a call to `CPUInfo` w
 ```
 
 Can also use the graphical version of CMake:
+
 * Open `CMake GUI`.
 * Under `Where to build the binaries`, same path as source plus `build`.
 * Under `CMAKE_INSTALL_PREFIX`, same path as source plus `install`.
@@ -256,8 +249,7 @@ See instructions for building with Visual Studio. Once built, right click on the
 
 ### Building on Solaris
 
-If you're running benchmarks on solaris, you'll want the kstat library linked in
-too (`-lkstat`).
+If you're running benchmarks on solaris, you'll want the kstat library linked in too (`-lkstat`).
 
 ## User Guide
 
@@ -318,12 +310,10 @@ too (`-lkstat`).
 
 The library supports multiple output formats. Use the
 `--benchmark_format=<console|json|csv>` flag (or set the
-`BENCHMARK_FORMAT=<console|json|csv>` environment variable) to set
-the format type. `console` is the default format.
+`BENCHMARK_FORMAT=<console|json|csv>` environment variable) to set the format type. `console` is the default format.
 
-The Console format is intended to be a human readable format. By default
-the format generates color output. Context is output on stderr and the
-tabular data on stdout. Example tabular output looks like:
+The Console format is intended to be a human readable format. By default the format generates color output. Context is
+output on stderr and the tabular data on stdout. Example tabular output looks like:
 
 ```
 Benchmark                               Time(ns)    CPU(ns) Iterations
@@ -333,11 +323,9 @@ BM_SetInsert/1024/8                        32065      32913      21375  949.487k
 BM_SetInsert/1024/10                       33157      33648      21431  1.13369MB/s   290.225k items/s
 ```
 
-The JSON format outputs human readable json split into two top level attributes.
-The `context` attribute contains information about the run in general, including
-information about the CPU and the date.
-The `benchmarks` attribute contains a list of every benchmark run. Example json
-output looks like:
+The JSON format outputs human readable json split into two top level attributes. The `context` attribute contains
+information about the run in general, including information about the CPU and the date. The `benchmarks` attribute
+contains a list of every benchmark run. Example json output looks like:
 
 ```json
 {
@@ -377,8 +365,8 @@ output looks like:
 }
 ```
 
-The CSV format outputs comma-separated values. The `context` is output on stderr
-and the CSV itself on stdout. Example CSV output looks like:
+The CSV format outputs comma-separated values. The `context` is output on stderr and the CSV itself on stdout. Example
+CSV output looks like:
 
 ```
 name,iterations,real_time,cpu_time,bytes_per_second,items_per_second,label
@@ -394,10 +382,8 @@ name,iterations,real_time,cpu_time,bytes_per_second,items_per_second,label
 Write benchmark results to a file with the `--benchmark_out=<filename>` option
 (or set `BENCHMARK_OUT`). Specify the output format with
 `--benchmark_out_format={json|console|csv}` (or set
-`BENCHMARK_OUT_FORMAT={json|console|csv}`). Note that the 'csv' reporter is
-deprecated and the saved `.csv` file 
-[is not parsable](https://github.com/google/benchmark/issues/794) by csv 
-parsers.
+`BENCHMARK_OUT_FORMAT={json|console|csv}`). Note that the 'csv' reporter is deprecated and the saved `.csv` file
+[is not parsable](https://github.com/google/benchmark/issues/794) by csv parsers.
 
 Specifying `--benchmark_out` does not suppress the console output.
 
@@ -405,21 +391,18 @@ Specifying `--benchmark_out` does not suppress the console output.
 
 ### Running Benchmarks
 
-Benchmarks are executed by running the produced binaries. Benchmarks binaries,
-by default, accept options that may be specified either through their command
-line interface or by setting environment variables before execution. For every
+Benchmarks are executed by running the produced binaries. Benchmarks binaries, by default, accept options that may be
+specified either through their command line interface or by setting environment variables before execution. For every
 `--option_flag=<value>` CLI switch, a corresponding environment variable
-`OPTION_FLAG=<value>` exist and is used as default if set (CLI switches always
- prevails). A complete list of CLI options is available running benchmarks
- with the `--help` switch.
+`OPTION_FLAG=<value>` exist and is used as default if set (CLI switches always prevails). A complete list of CLI options
+is available running benchmarks with the `--help` switch.
 
 <a name="running-a-subset-of-benchmarks" />
 
 ### Running a Subset of Benchmarks
 
 The `--benchmark_filter=<regex>` option (or `BENCHMARK_FILTER=<regex>`
-environment variable) can be used to only run the benchmarks that match
-the specified `<regex>`. For example:
+environment variable) can be used to only run the benchmarks that match the specified `<regex>`. For example:
 
 ```bash
 $ ./run_benchmarks.x --benchmark_filter=BM_memcpy/32
@@ -437,42 +420,36 @@ BM_memcpy/32k       1834 ns       1837 ns     357143
 
 ### Result comparison
 
-It is possible to compare the benchmarking results.
-See [Additional Tooling Documentation](docs/tools.md)
+It is possible to compare the benchmarking results. See [Additional Tooling Documentation](docs/tools.md)
 
 <a name="runtime-and-reporting-considerations" />
 
 ### Runtime and Reporting Considerations
 
-When the benchmark binary is executed, each benchmark function is run serially.
-The number of iterations to run is determined dynamically by running the
-benchmark a few times and measuring the time taken and ensuring that the
-ultimate result will be statistically stable. As such, faster benchmark
-functions will be run for more iterations than slower benchmark functions, and
-the number of iterations is thus reported.
+When the benchmark binary is executed, each benchmark function is run serially. The number of iterations to run is
+determined dynamically by running the benchmark a few times and measuring the time taken and ensuring that the ultimate
+result will be statistically stable. As such, faster benchmark functions will be run for more iterations than slower
+benchmark functions, and the number of iterations is thus reported.
 
-In all cases, the number of iterations for which the benchmark is run is
-governed by the amount of time the benchmark takes. Concretely, the number of
-iterations is at least one, not more than 1e9, until CPU time is greater than
-the minimum time, or the wallclock time is 5x minimum time. The minimum time is
-set per benchmark by calling `MinTime` on the registered benchmark object.
+In all cases, the number of iterations for which the benchmark is run is governed by the amount of time the benchmark
+takes. Concretely, the number of iterations is at least one, not more than 1e9, until CPU time is greater than the
+minimum time, or the wallclock time is 5x minimum time. The minimum time is set per benchmark by calling `MinTime` on
+the registered benchmark object.
 
-Average timings are then reported over the iterations run. If multiple
-repetitions are requested using the `--benchmark_repetitions` command-line
-option, or at registration time, the benchmark function will be run several
+Average timings are then reported over the iterations run. If multiple repetitions are requested using
+the `--benchmark_repetitions` command-line option, or at registration time, the benchmark function will be run several
 times and statistical results across these repetitions will also be reported.
 
-As well as the per-benchmark entries, a preamble in the report will include
-information about the machine on which the benchmarks are run.
+As well as the per-benchmark entries, a preamble in the report will include information about the machine on which the
+benchmarks are run.
 
 <a name="passing-arguments" />
 
 ### Passing Arguments
 
-Sometimes a family of benchmarks can be implemented with just one routine that
-takes an extra argument to specify which one of the family of benchmarks to
-run. For example, the following code defines a family of benchmarks for
-measuring the speed of `memcpy()` calls of different lengths:
+Sometimes a family of benchmarks can be implemented with just one routine that takes an extra argument to specify which
+one of the family of benchmarks to run. For example, the following code defines a family of benchmarks for measuring the
+speed of `memcpy()` calls of different lengths:
 
 ```c++
 static void BM_memcpy(benchmark::State& state) {
@@ -489,17 +466,15 @@ static void BM_memcpy(benchmark::State& state) {
 BENCHMARK(BM_memcpy)->Arg(8)->Arg(64)->Arg(512)->Arg(1<<10)->Arg(8<<10);
 ```
 
-The preceding code is quite repetitive, and can be replaced with the following
-short-hand. The following invocation will pick a few appropriate arguments in
-the specified range and will generate a benchmark for each such argument.
+The preceding code is quite repetitive, and can be replaced with the following short-hand. The following invocation will
+pick a few appropriate arguments in the specified range and will generate a benchmark for each such argument.
 
 ```c++
 BENCHMARK(BM_memcpy)->Range(8, 8<<10);
 ```
 
-By default the arguments in the range are generated in multiples of eight and
-the command above selects [ 8, 64, 512, 4k, 8k ]. In the following code the
-range multiplier is changed to multiples of two.
+By default the arguments in the range are generated in multiples of eight and the command above
+selects [ 8, 64, 512, 4k, 8k ]. In the following code the range multiplier is changed to multiples of two.
 
 ```c++
 BENCHMARK(BM_memcpy)->RangeMultiplier(2)->Range(8, 8<<10);
@@ -507,9 +482,8 @@ BENCHMARK(BM_memcpy)->RangeMultiplier(2)->Range(8, 8<<10);
 
 Now arguments generated are [ 8, 16, 32, 64, 128, 256, 512, 1024, 2k, 4k, 8k ].
 
-The preceding code shows a method of defining a sparse range.  The following
-example shows a method of defining a dense range. It is then used to benchmark
-the performance of `std::vector` initialization for uniformly increasing sizes.
+The preceding code shows a method of defining a sparse range. The following example shows a method of defining a dense
+range. It is then used to benchmark the performance of `std::vector` initialization for uniformly increasing sizes.
 
 ```c++
 static void BM_DenseRange(benchmark::State& state) {
@@ -524,9 +498,8 @@ BENCHMARK(BM_DenseRange)->DenseRange(0, 1024, 128);
 
 Now arguments generated are [ 0, 128, 256, 384, 512, 640, 768, 896, 1024 ].
 
-You might have a benchmark that depends on two or more inputs. For example, the
-following code defines a family of benchmarks for measuring the speed of set
-insertion.
+You might have a benchmark that depends on two or more inputs. For example, the following code defines a family of
+benchmarks for measuring the speed of set insertion.
 
 ```c++
 static void BM_SetInsert(benchmark::State& state) {
@@ -550,18 +523,15 @@ BENCHMARK(BM_SetInsert)
     ->Args({8<<10, 512});
 ```
 
-The preceding code is quite repetitive, and can be replaced with the following
-short-hand. The following macro will pick a few appropriate arguments in the
-product of the two specified ranges and will generate a benchmark for each such
-pair.
+The preceding code is quite repetitive, and can be replaced with the following short-hand. The following macro will pick
+a few appropriate arguments in the product of the two specified ranges and will generate a benchmark for each such pair.
 
 ```c++
 BENCHMARK(BM_SetInsert)->Ranges({{1<<10, 8<<10}, {128, 512}});
 ```
 
-Some benchmarks may require specific argument values that cannot be expressed
-with `Ranges`. In this case, `ArgsProduct` offers the ability to generate a
-benchmark input for each combination in the product of the supplied vectors.
+Some benchmarks may require specific argument values that cannot be expressed with `Ranges`. In this case, `ArgsProduct`
+offers the ability to generate a benchmark input for each combination in the product of the supplied vectors.
 
 ```c++
 BENCHMARK(BM_SetInsert)
@@ -582,10 +552,9 @@ BENCHMARK(BM_SetInsert)
     ->Args({8<<10, 80});
 ```
 
-For more complex patterns of inputs, passing a custom function to `Apply` allows
-programmatic specification of an arbitrary set of arguments on which to run the
-benchmark. The following example enumerates a dense range on one parameter,
-and a sparse range on the second.
+For more complex patterns of inputs, passing a custom function to `Apply` allows programmatic specification of an
+arbitrary set of arguments on which to run the benchmark. The following example enumerates a dense range on one
+parameter, and a sparse range on the second.
 
 ```c++
 static void CustomArguments(benchmark::internal::Benchmark* b) {
@@ -598,12 +567,11 @@ BENCHMARK(BM_SetInsert)->Apply(CustomArguments);
 
 #### Passing Arbitrary Arguments to a Benchmark
 
-In C++11 it is possible to define a benchmark that takes an arbitrary number
-of extra arguments. The `BENCHMARK_CAPTURE(func, test_case_name, ...args)`
-macro creates a benchmark that invokes `func`  with the `benchmark::State` as
-the first argument followed by the specified `args...`.
-The `test_case_name` is appended to the name of the benchmark and
-should describe the values passed.
+In C++11 it is possible to define a benchmark that takes an arbitrary number of extra arguments.
+The `BENCHMARK_CAPTURE(func, test_case_name, ...args)`
+macro creates a benchmark that invokes `func`  with the `benchmark::State` as the first argument followed by the
+specified `args...`. The `test_case_name` is appended to the name of the benchmark and should describe the values
+passed.
 
 ```c++
 template <class ...ExtraArgs>
@@ -615,16 +583,15 @@ void BM_takes_args(benchmark::State& state, ExtraArgs&&... extra_args) {
 BENCHMARK_CAPTURE(BM_takes_args, int_string_test, 42, std::string("abc"));
 ```
 
-Note that elements of `...args` may refer to global variables. Users should
-avoid modifying global state inside of a benchmark.
+Note that elements of `...args` may refer to global variables. Users should avoid modifying global state inside of a
+benchmark.
 
 <a name="asymptotic-complexity" />
 
 ### Calculating Asymptotic Complexity (Big O)
 
-Asymptotic complexity might be calculated for a family of benchmarks. The
-following code will calculate the coefficient for the high-order term in the
-running time and the normalized root-mean square error of string comparison.
+Asymptotic complexity might be calculated for a family of benchmarks. The following code will calculate the coefficient
+for the high-order term in the running time and the normalized root-mean square error of string comparison.
 
 ```c++
 static void BM_StringCompare(benchmark::State& state) {
@@ -639,16 +606,15 @@ BENCHMARK(BM_StringCompare)
     ->RangeMultiplier(2)->Range(1<<10, 1<<18)->Complexity(benchmark::oN);
 ```
 
-As shown in the following invocation, asymptotic complexity might also be
-calculated automatically.
+As shown in the following invocation, asymptotic complexity might also be calculated automatically.
 
 ```c++
 BENCHMARK(BM_StringCompare)
     ->RangeMultiplier(2)->Range(1<<10, 1<<18)->Complexity();
 ```
 
-The following code will specify asymptotic complexity with a lambda function,
-that might be used to customize high-order term calculation.
+The following code will specify asymptotic complexity with a lambda function, that might be used to customize high-order
+term calculation.
 
 ```c++
 BENCHMARK(BM_StringCompare)->RangeMultiplier(2)
@@ -665,8 +631,7 @@ You can change the benchmark's name as follows:
 BENCHMARK(BM_memcpy)->Name("memcpy")->RangeMultiplier(2)->Range(8, 8<<10);
 ```
 
-The invocation will execute the benchmark as before using `BM_memcpy` but changes
-the prefix in the report to `memcpy`.
+The invocation will execute the benchmark as before using `BM_memcpy` but changes the prefix in the report to `memcpy`.
 
 <a name="templated-benchmarks" />
 
@@ -709,8 +674,7 @@ Three macros are provided for adding benchmark templates.
 ### Fixtures
 
 Fixture tests are created by first defining a type that derives from
-`::benchmark::Fixture` and then creating/registering the tests using the
-following macros:
+`::benchmark::Fixture` and then creating/registering the tests using the following macros:
 
 * `BENCHMARK_F(ClassName, Method)`
 * `BENCHMARK_DEFINE_F(ClassName, Method)`
@@ -776,8 +740,8 @@ BENCHMARK_REGISTER_F(MyFixture, DoubleTest)->Threads(2);
 
 ### Custom Counters
 
-You can add your own counters with user-defined names. The example below
-will add columns "Foo", "Bar" and "Baz" in its output:
+You can add your own counters with user-defined names. The example below will add columns "Foo", "Bar" and "Baz" in its
+output:
 
 ```c++
 static void UserCountersExample1(benchmark::State& state) {
@@ -791,20 +755,17 @@ static void UserCountersExample1(benchmark::State& state) {
 }
 ```
 
-The `state.counters` object is a `std::map` with `std::string` keys
-and `Counter` values. The latter is a `double`-like class, via an implicit
-conversion to `double&`. Thus you can use all of the standard arithmetic
-assignment operators (`=,+=,-=,*=,/=`) to change the value of each counter.
+The `state.counters` object is a `std::map` with `std::string` keys and `Counter` values. The latter is a `double`-like
+class, via an implicit conversion to `double&`. Thus you can use all of the standard arithmetic assignment
+operators (`=,+=,-=,*=,/=`) to change the value of each counter.
 
-In multithreaded benchmarks, each counter is set on the calling thread only.
-When the benchmark finishes, the counters from each thread will be summed;
-the resulting sum is the value which will be shown for the benchmark.
+In multithreaded benchmarks, each counter is set on the calling thread only. When the benchmark finishes, the counters
+from each thread will be summed; the resulting sum is the value which will be shown for the benchmark.
 
 The `Counter` constructor accepts three parameters: the value as a `double`
-; a bit flag which allows you to show counters as rates, and/or as per-thread
-iteration, and/or as per-thread averages, and/or iteration invariants,
-and/or finally inverting the result; and a flag specifying the 'unit' - i.e.
-is 1k a 1000 (default, `benchmark::Counter::OneK::kIs1000`), or 1024
+; a bit flag which allows you to show counters as rates, and/or as per-thread iteration, and/or as per-thread averages,
+and/or iteration invariants, and/or finally inverting the result; and a flag specifying the 'unit' - i.e. is 1k a 1000 (
+default, `benchmark::Counter::OneK::kIs1000`), or 1024
 (`benchmark::Counter::OneK::kIs1024`)?
 
 ```c++
@@ -846,11 +807,10 @@ When you're compiling in C++11 mode or later you can use `insert()` with
 
 #### Counter Reporting
 
-When using the console reporter, by default, user counters are printed at
-the end after the table, the same way as ``bytes_processed`` and
-``items_processed``. This is best for cases in which there are few counters,
-or where there are only a couple of lines per benchmark. Here's an example of
-the default output:
+When using the console reporter, by default, user counters are printed at the end after the table, the same way
+as ``bytes_processed`` and
+``items_processed``. This is best for cases in which there are few counters, or where there are only a couple of lines
+per benchmark. Here's an example of the default output:
 
 ```
 ------------------------------------------------------------------------------
@@ -872,12 +832,10 @@ BM_CalculatePiRange/64         609 ns        609 ns    1140647 3.15746
 BM_CalculatePiRange/512       4900 ns       4901 ns     142696 3.14355
 ```
 
-If this doesn't suit you, you can print each counter as a table column by
-passing the flag `--benchmark_counters_tabular=true` to the benchmark
-application. This is best for cases in which there are a lot of counters, or
-a lot of lines per individual benchmark. Note that this will trigger a
-reprinting of the table header any time the counter set changes between
-individual benchmarks. Here's an example of corresponding output when
+If this doesn't suit you, you can print each counter as a table column by passing the
+flag `--benchmark_counters_tabular=true` to the benchmark application. This is best for cases in which there are a lot
+of counters, or a lot of lines per individual benchmark. Note that this will trigger a reprinting of the table header
+any time the counter set changes between individual benchmarks. Here's an example of corresponding output when
 `--benchmark_counters_tabular=true` is passed:
 
 ```
@@ -909,19 +867,17 @@ BM_CalculatePi/threads:8      2255 ns       9943 ns      70936
 ```
 
 Note above the additional header printed when the benchmark changes from
-``BM_UserCounter`` to ``BM_Factorial``. This is because ``BM_Factorial`` does
-not have the same counter set as ``BM_UserCounter``.
+``BM_UserCounter`` to ``BM_Factorial``. This is because ``BM_Factorial`` does not have the same counter set
+as ``BM_UserCounter``.
 
 <a name="multithreaded-benchmarks"/>
 
 ### Multithreaded Benchmarks
 
-In a multithreaded test (benchmark invoked by multiple threads simultaneously),
-it is guaranteed that none of the threads will start until all have reached
-the start of the benchmark loop, and all will have finished before any thread
+In a multithreaded test (benchmark invoked by multiple threads simultaneously), it is guaranteed that none of the
+threads will start until all have reached the start of the benchmark loop, and all will have finished before any thread
 exits the benchmark loop. (This behavior is also provided by the `KeepRunning()`
-API) As such, any global setup or teardown can be wrapped in a check against the thread
-index:
+API) As such, any global setup or teardown can be wrapped in a check against the thread index:
 
 ```c++
 static void BM_MultiThreaded(benchmark::State& state) {
@@ -938,9 +894,8 @@ static void BM_MultiThreaded(benchmark::State& state) {
 BENCHMARK(BM_MultiThreaded)->Threads(2);
 ```
 
-If the benchmarked code itself uses threads and you want to compare it to
-single-threaded code, you may want to use real-time ("wallclock") measurements
-for latency comparisons:
+If the benchmarked code itself uses threads and you want to compare it to single-threaded code, you may want to use
+real-time ("wallclock") measurements for latency comparisons:
 
 ```c++
 BENCHMARK(BM_test)->Range(8, 8<<10)->UseRealTime();
@@ -952,10 +907,9 @@ Without `UseRealTime`, CPU time is used by default.
 
 ### CPU Timers
 
-By default, the CPU timer only measures the time spent by the main thread.
-If the benchmark itself uses threads internally, this measurement may not
-be what you are looking for. Instead, there is a way to measure the total
-CPU usage of the process, by all the threads.
+By default, the CPU timer only measures the time spent by the main thread. If the benchmark itself uses threads
+internally, this measurement may not be what you are looking for. Instead, there is a way to measure the total CPU usage
+of the process, by all the threads.
 
 ```c++
 void callee(int i);
@@ -997,9 +951,8 @@ BENCHMARK(BM_OpenMP)->Range(8, 8<<10)->MeasureProcessCPUTime()->UseRealTime();
 #### Controlling Timers
 
 Normally, the entire duration of the work loop (`for (auto _ : state) {}`)
-is measured. But sometimes, it is necessary to do some work inside of
-that loop, every iteration, but without counting that time to the benchmark time.
-That is possible, although it is not recommended, since it has high overhead.
+is measured. But sometimes, it is necessary to do some work inside of that loop, every iteration, but without counting
+that time to the benchmark time. That is possible, although it is not recommended, since it has high overhead.
 
 ```c++
 static void BM_SetInsert_With_Timer_Control(benchmark::State& state) {
@@ -1020,19 +973,15 @@ BENCHMARK(BM_SetInsert_With_Timer_Control)->Ranges({{1<<10, 8<<10}, {128, 512}})
 
 ### Manual Timing
 
-For benchmarking something for which neither CPU time nor real-time are
-correct or accurate enough, completely manual timing is supported using
-the `UseManualTime` function.
+For benchmarking something for which neither CPU time nor real-time are correct or accurate enough, completely manual
+timing is supported using the `UseManualTime` function.
 
 When `UseManualTime` is used, the benchmarked code must call
-`SetIterationTime` once per iteration of the benchmark loop to
-report the manually measured time.
+`SetIterationTime` once per iteration of the benchmark loop to report the manually measured time.
 
-An example use case for this is benchmarking GPU execution (e.g. OpenCL
-or CUDA kernels, OpenGL or Vulkan or Direct3D draw calls), which cannot
-be accurately measured using CPU time or real-time. Instead, they can be
-measured accurately using a dedicated API, and these measurement results
-can be reported back with `SetIterationTime`.
+An example use case for this is benchmarking GPU execution (e.g. OpenCL or CUDA kernels, OpenGL or Vulkan or Direct3D
+draw calls), which cannot be accurately measured using CPU time or real-time. Instead, they can be measured accurately
+using a dedicated API, and these measurement results can be reported back with `SetIterationTime`.
 
 ```c++
 static void BM_ManualTiming(benchmark::State& state) {
@@ -1061,9 +1010,8 @@ BENCHMARK(BM_ManualTiming)->Range(1, 1<<17)->UseManualTime();
 
 ### Setting the Time Unit
 
-If a benchmark runs a few milliseconds it may be hard to visually compare the
-measured times, since the output data is given in nanoseconds per default. In
-order to manually set the time unit, you can specify it manually:
+If a benchmark runs a few milliseconds it may be hard to visually compare the measured times, since the output data is
+given in nanoseconds per default. In order to manually set the time unit, you can specify it manually:
 
 ```c++
 BENCHMARK(BM_test)->Unit(benchmark::kMillisecond);
@@ -1073,8 +1021,8 @@ BENCHMARK(BM_test)->Unit(benchmark::kMillisecond);
 
 ### Preventing Optimization
 
-To prevent a value or expression from being optimized away by the compiler
-the `benchmark::DoNotOptimize(...)` and `benchmark::ClobberMemory()`
+To prevent a value or expression from being optimized away by the compiler the `benchmark::DoNotOptimize(...)`
+and `benchmark::ClobberMemory()`
 functions can be used.
 
 ```c++
@@ -1088,14 +1036,12 @@ static void BM_test(benchmark::State& state) {
 }
 ```
 
-`DoNotOptimize(<expr>)` forces the  *result* of `<expr>` to be stored in either
-memory or a register. For GNU based compilers it acts as read/write barrier
-for global memory. More specifically it forces the compiler to flush pending
+`DoNotOptimize(<expr>)` forces the  *result* of `<expr>` to be stored in either memory or a register. For GNU based
+compilers it acts as read/write barrier for global memory. More specifically it forces the compiler to flush pending
 writes to memory and reload any other values as necessary.
 
 Note that `DoNotOptimize(<expr>)` does not prevent optimizations on `<expr>`
-in any way. `<expr>` may even be removed entirely when the result is already
-known. For example:
+in any way. `<expr>` may even be removed entirely when the result is already known. For example:
 
 ```c++
   /* Example 1: `<expr>` is removed entirely. */
@@ -1110,11 +1056,10 @@ known. For example:
 ```
 
 The second tool for preventing optimizations is `ClobberMemory()`. In essence
-`ClobberMemory()` forces the compiler to perform all pending writes to global
-memory. Memory managed by block scope objects must be "escaped" using
+`ClobberMemory()` forces the compiler to perform all pending writes to global memory. Memory managed by block scope
+objects must be "escaped" using
 `DoNotOptimize(...)` before it can be clobbered. In the below example
-`ClobberMemory()` prevents the call to `v.push_back(42)` from being optimized
-away.
+`ClobberMemory()` prevents the call to `v.push_back(42)` from being optimized away.
 
 ```c++
 static void BM_vector_push_back(benchmark::State& state) {
@@ -1134,40 +1079,32 @@ Note that `ClobberMemory()` is only available for GNU or MSVC based compilers.
 
 ### Statistics: Reporting the Mean, Median and Standard Deviation of Repeated Benchmarks
 
-By default each benchmark is run once and that single result is reported.
-However benchmarks are often noisy and a single result may not be representative
-of the overall behavior. For this reason it's possible to repeatedly rerun the
+By default each benchmark is run once and that single result is reported. However benchmarks are often noisy and a
+single result may not be representative of the overall behavior. For this reason it's possible to repeatedly rerun the
 benchmark.
 
 The number of runs of each benchmark is specified globally by the
 `--benchmark_repetitions` flag or on a per benchmark basis by calling
-`Repetitions` on the registered benchmark object. When a benchmark is run more
-than once the mean, median and standard deviation of the runs will be reported.
+`Repetitions` on the registered benchmark object. When a benchmark is run more than once the mean, median and standard
+deviation of the runs will be reported.
 
 Additionally the `--benchmark_report_aggregates_only={true|false}`,
 `--benchmark_display_aggregates_only={true|false}` flags or
-`ReportAggregatesOnly(bool)`, `DisplayAggregatesOnly(bool)` functions can be
-used to change how repeated tests are reported. By default the result of each
-repeated run is reported. When `report aggregates only` option is `true`,
-only the aggregates (i.e. mean, median and standard deviation, maybe complexity
-measurements if they were requested) of the runs is reported, to both the
-reporters - standard output (console), and the file.
-However when only the `display aggregates only` option is `true`,
-only the aggregates are displayed in the standard output, while the file
-output still contains everything.
-Calling `ReportAggregatesOnly(bool)` / `DisplayAggregatesOnly(bool)` on a
-registered benchmark object overrides the value of the appropriate flag for that
-benchmark.
+`ReportAggregatesOnly(bool)`, `DisplayAggregatesOnly(bool)` functions can be used to change how repeated tests are
+reported. By default the result of each repeated run is reported. When `report aggregates only` option is `true`, only
+the aggregates (i.e. mean, median and standard deviation, maybe complexity measurements if they were requested) of the
+runs is reported, to both the reporters - standard output (console), and the file. However when only
+the `display aggregates only` option is `true`, only the aggregates are displayed in the standard output, while the file
+output still contains everything. Calling `ReportAggregatesOnly(bool)` / `DisplayAggregatesOnly(bool)` on a registered
+benchmark object overrides the value of the appropriate flag for that benchmark.
 
 <a name="custom-statistics" />
 
 ### Custom Statistics
 
-While having mean, median and standard deviation is nice, this may not be
-enough for everyone. For example you may want to know what the largest
-observation is, e.g. because you have some real-time constraints. This is easy.
-The following code will specify a custom statistic to be calculated, defined
-by a lambda function.
+While having mean, median and standard deviation is nice, this may not be enough for everyone. For example you may want
+to know what the largest observation is, e.g. because you have some real-time constraints. This is easy. The following
+code will specify a custom statistic to be calculated, defined by a lambda function.
 
 ```c++
 void BM_spin_empty(benchmark::State& state) {
@@ -1189,20 +1126,19 @@ BENCHMARK(BM_spin_empty)
 
 ### Using RegisterBenchmark(name, fn, args...)
 
-The `RegisterBenchmark(name, func, args...)` function provides an alternative
-way to create and register benchmarks.
-`RegisterBenchmark(name, func, args...)` creates, registers, and returns a
-pointer to a new benchmark with the specified `name` that invokes
+The `RegisterBenchmark(name, func, args...)` function provides an alternative way to create and register benchmarks.
+`RegisterBenchmark(name, func, args...)` creates, registers, and returns a pointer to a new benchmark with the
+specified `name` that invokes
 `func(st, args...)` where `st` is a `benchmark::State` object.
 
-Unlike the `BENCHMARK` registration macros, which can only be used at the global
-scope, the `RegisterBenchmark` can be called anywhere. This allows for
-benchmark tests to be registered programmatically.
+Unlike the `BENCHMARK` registration macros, which can only be used at the global scope, the `RegisterBenchmark` can be
+called anywhere. This allows for benchmark tests to be registered programmatically.
 
-Additionally `RegisterBenchmark` allows any callable object to be registered
-as a benchmark. Including capturing lambdas and function objects.
+Additionally `RegisterBenchmark` allows any callable object to be registered as a benchmark. Including capturing lambdas
+and function objects.
 
 For Example:
+
 ```c++
 auto BM_test = [](benchmark::State& st, auto Inputs) { /* ... */ };
 
@@ -1218,18 +1154,15 @@ int main(int argc, char** argv) {
 
 ### Exiting with an Error
 
-When errors caused by external influences, such as file I/O and network
-communication, occur within a benchmark the
-`State::SkipWithError(const char* msg)` function can be used to skip that run
-of benchmark and report the error. Note that only future iterations of the
-`KeepRunning()` are skipped. For the ranged-for version of the benchmark loop
-Users must explicitly exit the loop, otherwise all iterations will be performed.
-Users may explicitly return to exit the benchmark immediately.
+When errors caused by external influences, such as file I/O and network communication, occur within a benchmark the
+`State::SkipWithError(const char* msg)` function can be used to skip that run of benchmark and report the error. Note
+that only future iterations of the
+`KeepRunning()` are skipped. For the ranged-for version of the benchmark loop Users must explicitly exit the loop,
+otherwise all iterations will be performed. Users may explicitly return to exit the benchmark immediately.
 
-The `SkipWithError(...)` function may be used at any point within the benchmark,
-including before and after the benchmark loop. Moreover, if `SkipWithError(...)`
-has been used, it is not required to reach the benchmark loop and one may return
-from the benchmark function early.
+The `SkipWithError(...)` function may be used at any point within the benchmark, including before and after the
+benchmark loop. Moreover, if `SkipWithError(...)`
+has been used, it is not required to reach the benchmark loop and one may return from the benchmark function early.
 
 For example:
 
@@ -1266,12 +1199,13 @@ static void BM_test_ranged_fo(benchmark::State & state) {
   }
 }
 ```
+
 <a name="a-faster-keep-running-loop" />
 
 ### A Faster KeepRunning Loop
 
-In C++11 mode, a ranged-based for loop should be used in preference to
-the `KeepRunning` loop for running the benchmarks. For example:
+In C++11 mode, a ranged-based for loop should be used in preference to the `KeepRunning` loop for running the
+benchmarks. For example:
 
 ```c++
 static void BM_Fast(benchmark::State &state) {
@@ -1282,10 +1216,9 @@ static void BM_Fast(benchmark::State &state) {
 BENCHMARK(BM_Fast);
 ```
 
-The reason the ranged-for loop is faster than using `KeepRunning`, is
-because `KeepRunning` requires a memory load and store of the iteration count
-ever iteration, whereas the ranged-for variant is able to keep the iteration count
-in a register.
+The reason the ranged-for loop is faster than using `KeepRunning`, is because `KeepRunning` requires a memory load and
+store of the iteration count ever iteration, whereas the ranged-for variant is able to keep the iteration count in a
+register.
 
 For example, an empty inner loop of using the ranged-based for method looks like:
 
@@ -1321,8 +1254,7 @@ Compared to an empty `KeepRunning` loop, which looks like:
 .LoopEnd:
 ```
 
-Unless C++03 compatibility is required, the ranged-for variant of writing
-the benchmark loop should be preferred.
+Unless C++03 compatibility is required, the ranged-for variant of writing the benchmark loop should be preferred.
 
 <a name="disabling-cpu-frequency-scaling" />
 

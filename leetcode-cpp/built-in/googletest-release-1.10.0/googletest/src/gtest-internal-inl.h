@@ -52,8 +52,10 @@
 #include "gtest/internal/gtest-port.h"
 
 #if GTEST_CAN_STREAM_RESULTS_
+
 # include <arpa/inet.h>  // NOLINT
 # include <netdb.h>  // NOLINT
+
 #endif
 
 #if GTEST_OS_WINDOWS
@@ -819,9 +821,11 @@ namespace testing {
             void ConfigureXmlOutput();
 
 #if GTEST_CAN_STREAM_RESULTS_
+
             // Initializes the event listener for streaming test results to a socket.
             // Must not be called before InitGoogleTest.
             void ConfigureStreamingOutput();
+
 #endif
 
             // Performs initialization dependent upon flag values obtained in
@@ -974,32 +978,32 @@ namespace testing {
 
 #if GTEST_USES_SIMPLE_RE
 
-// Internal helper functions for implementing the simple regular
-// expression matcher.
-        GTEST_API_ bool IsInSet(char ch, const char *str);
+        // Internal helper functions for implementing the simple regular
+        // expression matcher.
+                GTEST_API_ bool IsInSet(char ch, const char *str);
 
-        GTEST_API_ bool IsAsciiDigit(char ch);
+                GTEST_API_ bool IsAsciiDigit(char ch);
 
-        GTEST_API_ bool IsAsciiPunct(char ch);
+                GTEST_API_ bool IsAsciiPunct(char ch);
 
-        GTEST_API_ bool IsRepeat(char ch);
+                GTEST_API_ bool IsRepeat(char ch);
 
-        GTEST_API_ bool IsAsciiWhiteSpace(char ch);
+                GTEST_API_ bool IsAsciiWhiteSpace(char ch);
 
-        GTEST_API_ bool IsAsciiWordChar(char ch);
+                GTEST_API_ bool IsAsciiWordChar(char ch);
 
-        GTEST_API_ bool IsValidEscape(char ch);
+                GTEST_API_ bool IsValidEscape(char ch);
 
-        GTEST_API_ bool AtomMatchesChar(bool escaped, char pattern, char ch);
+                GTEST_API_ bool AtomMatchesChar(bool escaped, char pattern, char ch);
 
-        GTEST_API_ bool ValidateRegex(const char *regex);
+                GTEST_API_ bool ValidateRegex(const char *regex);
 
-        GTEST_API_ bool MatchRegexAtHead(const char *regex, const char *str);
+                GTEST_API_ bool MatchRegexAtHead(const char *regex, const char *str);
 
-        GTEST_API_ bool MatchRepetitionAndRegexAtHead(
-                bool escaped, char ch, char repeat, const char *regex, const char *str);
+                GTEST_API_ bool MatchRepetitionAndRegexAtHead(
+                        bool escaped, char ch, char repeat, const char *regex, const char *str);
 
-        GTEST_API_ bool MatchRegexAnywhere(const char *regex, const char *str);
+                GTEST_API_ bool MatchRegexAnywhere(const char *regex, const char *str);
 
 #endif  // GTEST_USES_SIMPLE_RE
 
@@ -1088,151 +1092,151 @@ namespace testing {
 
         // Streams test results to the given port on the given host machine.
         class StreamingListener : public EmptyTestEventListener {
-         public:
-          // Abstract base class for writing strings to a socket.
-          class AbstractSocketWriter {
-           public:
-            virtual ~AbstractSocketWriter() {}
+        public:
+            // Abstract base class for writing strings to a socket.
+            class AbstractSocketWriter {
+            public:
+                virtual ~AbstractSocketWriter() {}
 
-            // Sends a string to the socket.
-            virtual void Send(const std::string& message) = 0;
+                // Sends a string to the socket.
+                virtual void Send(const std::string &message) = 0;
 
-            // Closes the socket.
-            virtual void CloseConnection() {}
+                // Closes the socket.
+                virtual void CloseConnection() {}
 
-            // Sends a string and a newline to the socket.
-            void SendLn(const std::string& message) { Send(message + "\n"); }
-          };
+                // Sends a string and a newline to the socket.
+                void SendLn(const std::string &message) { Send(message + "\n"); }
+            };
 
-          // Concrete class for actually writing strings to a socket.
-          class SocketWriter : public AbstractSocketWriter {
-           public:
-            SocketWriter(const std::string& host, const std::string& port)
-                : sockfd_(-1), host_name_(host), port_num_(port) {
-              MakeConnection();
+            // Concrete class for actually writing strings to a socket.
+            class SocketWriter : public AbstractSocketWriter {
+            public:
+                SocketWriter(const std::string &host, const std::string &port)
+                        : sockfd_(-1), host_name_(host), port_num_(port) {
+                    MakeConnection();
+                }
+
+                ~SocketWriter() override {
+                    if (sockfd_ != -1)
+                        CloseConnection();
+                }
+
+                // Sends a string to the socket.
+                void Send(const std::string &message) override {
+                    GTEST_CHECK_(sockfd_ != -1)
+                                << "Send() can be called only when there is a connection.";
+
+                    const auto len = static_cast<size_t>(message.length());
+                    if (write(sockfd_, message.c_str(), len) != static_cast<ssize_t>(len)) {
+                        GTEST_LOG_(WARNING)
+                                << "stream_result_to: failed to stream to "
+                                << host_name_ << ":" << port_num_;
+                    }
+                }
+
+            private:
+                // Creates a client socket and connects to the server.
+                void MakeConnection();
+
+                // Closes the socket.
+                void CloseConnection() override {
+                    GTEST_CHECK_(sockfd_ != -1)
+                                << "CloseConnection() can be called only when there is a connection.";
+
+                    close(sockfd_);
+                    sockfd_ = -1;
+                }
+
+                int sockfd_;  // socket file descriptor
+                const std::string host_name_;
+                const std::string port_num_;
+
+                GTEST_DISALLOW_COPY_AND_ASSIGN_(SocketWriter);
+            };  // class SocketWriter
+
+            // Escapes '=', '&', '%', and '\n' characters in str as "%xx".
+            static std::string UrlEncode(const char *str);
+
+            StreamingListener(const std::string &host, const std::string &port)
+                    : socket_writer_(new SocketWriter(host, port)) {
+                Start();
             }
 
-            ~SocketWriter() override {
-              if (sockfd_ != -1)
-                CloseConnection();
+            explicit StreamingListener(AbstractSocketWriter *socket_writer)
+                    : socket_writer_(socket_writer) { Start(); }
+
+            void OnTestProgramStart(const UnitTest & /* unit_test */) override {
+                SendLn("event=TestProgramStart");
             }
 
-            // Sends a string to the socket.
-            void Send(const std::string& message) override {
-              GTEST_CHECK_(sockfd_ != -1)
-                  << "Send() can be called only when there is a connection.";
+            void OnTestProgramEnd(const UnitTest &unit_test) override {
+                // Note that Google Test current only report elapsed time for each
+                // test iteration, not for the entire test program.
+                SendLn("event=TestProgramEnd&passed=" + FormatBool(unit_test.Passed()));
 
-              const auto len = static_cast<size_t>(message.length());
-              if (write(sockfd_, message.c_str(), len) != static_cast<ssize_t>(len)) {
-                GTEST_LOG_(WARNING)
-                    << "stream_result_to: failed to stream to "
-                    << host_name_ << ":" << port_num_;
-              }
+                // Notify the streaming server to stop.
+                socket_writer_->CloseConnection();
             }
 
-           private:
-            // Creates a client socket and connects to the server.
-            void MakeConnection();
-
-            // Closes the socket.
-            void CloseConnection() override {
-              GTEST_CHECK_(sockfd_ != -1)
-                  << "CloseConnection() can be called only when there is a connection.";
-
-              close(sockfd_);
-              sockfd_ = -1;
+            void OnTestIterationStart(const UnitTest & /* unit_test */,
+                                      int iteration) override {
+                SendLn("event=TestIterationStart&iteration=" +
+                       StreamableToString(iteration));
             }
 
-            int sockfd_;  // socket file descriptor
-            const std::string host_name_;
-            const std::string port_num_;
+            void OnTestIterationEnd(const UnitTest &unit_test,
+                                    int /* iteration */) override {
+                SendLn("event=TestIterationEnd&passed=" +
+                       FormatBool(unit_test.Passed()) + "&elapsed_time=" +
+                       StreamableToString(unit_test.elapsed_time()) + "ms");
+            }
 
-            GTEST_DISALLOW_COPY_AND_ASSIGN_(SocketWriter);
-          };  // class SocketWriter
+            // Note that "event=TestCaseStart" is a wire format and has to remain
+            // "case" for compatibilty
+            void OnTestCaseStart(const TestCase &test_case) override {
+                SendLn(std::string("event=TestCaseStart&name=") + test_case.name());
+            }
 
-          // Escapes '=', '&', '%', and '\n' characters in str as "%xx".
-          static std::string UrlEncode(const char* str);
+            // Note that "event=TestCaseEnd" is a wire format and has to remain
+            // "case" for compatibilty
+            void OnTestCaseEnd(const TestCase &test_case) override {
+                SendLn("event=TestCaseEnd&passed=" + FormatBool(test_case.Passed()) +
+                       "&elapsed_time=" + StreamableToString(test_case.elapsed_time()) +
+                       "ms");
+            }
 
-          StreamingListener(const std::string& host, const std::string& port)
-              : socket_writer_(new SocketWriter(host, port)) {
-            Start();
-          }
+            void OnTestStart(const TestInfo &test_info) override {
+                SendLn(std::string("event=TestStart&name=") + test_info.name());
+            }
 
-          explicit StreamingListener(AbstractSocketWriter* socket_writer)
-              : socket_writer_(socket_writer) { Start(); }
+            void OnTestEnd(const TestInfo &test_info) override {
+                SendLn("event=TestEnd&passed=" +
+                       FormatBool((test_info.result())->Passed()) +
+                       "&elapsed_time=" +
+                       StreamableToString((test_info.result())->elapsed_time()) + "ms");
+            }
 
-          void OnTestProgramStart(const UnitTest& /* unit_test */) override {
-            SendLn("event=TestProgramStart");
-          }
+            void OnTestPartResult(const TestPartResult &test_part_result) override {
+                const char *file_name = test_part_result.file_name();
+                if (file_name == nullptr) file_name = "";
+                SendLn("event=TestPartResult&file=" + UrlEncode(file_name) +
+                       "&line=" + StreamableToString(test_part_result.line_number()) +
+                       "&message=" + UrlEncode(test_part_result.message()));
+            }
 
-          void OnTestProgramEnd(const UnitTest& unit_test) override {
-            // Note that Google Test current only report elapsed time for each
-            // test iteration, not for the entire test program.
-            SendLn("event=TestProgramEnd&passed=" + FormatBool(unit_test.Passed()));
+        private:
+            // Sends the given message and a newline to the socket.
+            void SendLn(const std::string &message) { socket_writer_->SendLn(message); }
 
-            // Notify the streaming server to stop.
-            socket_writer_->CloseConnection();
-          }
+            // Called at the start of streaming to notify the receiver what
+            // protocol we are using.
+            void Start() { SendLn("gtest_streaming_protocol_version=1.0"); }
 
-          void OnTestIterationStart(const UnitTest& /* unit_test */,
-                                    int iteration) override {
-            SendLn("event=TestIterationStart&iteration=" +
-                   StreamableToString(iteration));
-          }
+            std::string FormatBool(bool value) { return value ? "1" : "0"; }
 
-          void OnTestIterationEnd(const UnitTest& unit_test,
-                                  int /* iteration */) override {
-            SendLn("event=TestIterationEnd&passed=" +
-                   FormatBool(unit_test.Passed()) + "&elapsed_time=" +
-                   StreamableToString(unit_test.elapsed_time()) + "ms");
-          }
+            const std::unique_ptr<AbstractSocketWriter> socket_writer_;
 
-          // Note that "event=TestCaseStart" is a wire format and has to remain
-          // "case" for compatibilty
-          void OnTestCaseStart(const TestCase& test_case) override {
-            SendLn(std::string("event=TestCaseStart&name=") + test_case.name());
-          }
-
-          // Note that "event=TestCaseEnd" is a wire format and has to remain
-          // "case" for compatibilty
-          void OnTestCaseEnd(const TestCase& test_case) override {
-            SendLn("event=TestCaseEnd&passed=" + FormatBool(test_case.Passed()) +
-                   "&elapsed_time=" + StreamableToString(test_case.elapsed_time()) +
-                   "ms");
-          }
-
-          void OnTestStart(const TestInfo& test_info) override {
-            SendLn(std::string("event=TestStart&name=") + test_info.name());
-          }
-
-          void OnTestEnd(const TestInfo& test_info) override {
-            SendLn("event=TestEnd&passed=" +
-                   FormatBool((test_info.result())->Passed()) +
-                   "&elapsed_time=" +
-                   StreamableToString((test_info.result())->elapsed_time()) + "ms");
-          }
-
-          void OnTestPartResult(const TestPartResult& test_part_result) override {
-            const char* file_name = test_part_result.file_name();
-            if (file_name == nullptr) file_name = "";
-            SendLn("event=TestPartResult&file=" + UrlEncode(file_name) +
-                   "&line=" + StreamableToString(test_part_result.line_number()) +
-                   "&message=" + UrlEncode(test_part_result.message()));
-          }
-
-         private:
-          // Sends the given message and a newline to the socket.
-          void SendLn(const std::string& message) { socket_writer_->SendLn(message); }
-
-          // Called at the start of streaming to notify the receiver what
-          // protocol we are using.
-          void Start() { SendLn("gtest_streaming_protocol_version=1.0"); }
-
-          std::string FormatBool(bool value) { return value ? "1" : "0"; }
-
-          const std::unique_ptr<AbstractSocketWriter> socket_writer_;
-
-          GTEST_DISALLOW_COPY_AND_ASSIGN_(StreamingListener);
+            GTEST_DISALLOW_COPY_AND_ASSIGN_(StreamingListener);
         };  // class StreamingListener
 
 #endif  // GTEST_CAN_STREAM_RESULTS_

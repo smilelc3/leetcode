@@ -40,10 +40,12 @@
 #include "gtest/internal/gtest-port.h"
 
 #if GTEST_OS_LINUX
+
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <unistd.h>
+
 #endif  // GTEST_OS_LINUX
 
 #if GTEST_HAS_EXCEPTIONS
@@ -469,14 +471,14 @@ namespace testing {
 
 #if GTEST_OS_WINDOWS
 
-// Predicate-formatters for implementing the HRESULT checking macros
-// {ASSERT|EXPECT}_HRESULT_{SUCCEEDED|FAILED}
-// We pass a long instead of HRESULT to avoid causing an
-// include dependency for the HRESULT type.
-        GTEST_API_ AssertionResult IsHRESULTSuccess(const char *expr,
-                                                    long hr);  // NOLINT
-        GTEST_API_ AssertionResult IsHRESULTFailure(const char *expr,
-                                                    long hr);  // NOLINT
+        // Predicate-formatters for implementing the HRESULT checking macros
+        // {ASSERT|EXPECT}_HRESULT_{SUCCEEDED|FAILED}
+        // We pass a long instead of HRESULT to avoid causing an
+        // include dependency for the HRESULT type.
+                GTEST_API_ AssertionResult IsHRESULTSuccess(const char *expr,
+                                                            long hr);  // NOLINT
+                GTEST_API_ AssertionResult IsHRESULTFailure(const char *expr,
+                                                            long hr);  // NOLINT
 
 #endif  // GTEST_OS_WINDOWS
 

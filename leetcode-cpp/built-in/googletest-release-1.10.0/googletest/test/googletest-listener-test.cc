@@ -228,19 +228,23 @@ namespace testing {
             void TearDown() override { g_events->push_back("ListenerTest::TearDown"); }
         };
 
-        TEST_F(ListenerTest, DoesFoo) {
-            // Test execution order within a test case is not guaranteed so we are not
-            // recording the test name.
-            g_events->push_back("ListenerTest::* Test Body");
-            SUCCEED();  // Triggers OnTestPartResult.
-        }
+        TEST_F(ListenerTest, DoesFoo
+        ) {
+        // Test execution order within a test case is not guaranteed so we are not
+        // recording the test name.
+        g_events->push_back("ListenerTest::* Test Body");
 
-        TEST_F(ListenerTest, DoesBar) {
-            g_events->push_back("ListenerTest::* Test Body");
-            SUCCEED();  // Triggers OnTestPartResult.
-        }
+        SUCCEED();  // Triggers OnTestPartResult.
+    }
 
-    }  // namespace internal
+    TEST_F(ListenerTest, DoesBar
+    ) {
+    g_events->push_back("ListenerTest::* Test Body");
+
+    SUCCEED();  // Triggers OnTestPartResult.
+}
+
+}  // namespace internal
 
 }  // namespace testing
 
@@ -262,7 +266,7 @@ void VerifyResults(const std::vector<std::string> &data,
     size_t i = 0;
     for (; i < shorter_size; ++i) {
         ASSERT_STREQ(expected_data[i], data[i].c_str())
-                                    << "at position " << i;
+                << "at position " << i;
     }
 
     // Prints extra elements in the actual data.
@@ -287,7 +291,7 @@ int main(int argc, char **argv) {
     AddGlobalTestEnvironment(new EnvironmentInvocationCatcher);
 
     GTEST_CHECK_(events.size() == 0)
-                << "AddGlobalTestEnvironment should not generate any events itself.";
+            << "AddGlobalTestEnvironment should not generate any events itself.";
 
     ::testing::GTEST_FLAG(repeat) = 2;
     int ret_val = RUN_ALL_TESTS();

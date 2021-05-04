@@ -39,6 +39,7 @@ protected:
     void TearDown() override { RecordProperty("TearDownProp", 1); }
 };
 
-TEST_F(PropertyOne, TestSomeProperties) {
-    RecordProperty("TestSomeProperty", 1);
+TEST_F(PropertyOne, TestSomeProperties
+) {
+RecordProperty("TestSomeProperty", 1);
 }

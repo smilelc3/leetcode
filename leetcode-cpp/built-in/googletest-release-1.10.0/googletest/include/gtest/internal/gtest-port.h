@@ -354,6 +354,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 // mentioned above.
 # include <unistd.h>
 # include <strings.h>
+
 #endif  // GTEST_OS_WINDOWS
 
 #if GTEST_OS_LINUX_ANDROID
@@ -553,6 +554,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 
 // For timespec and nanosleep, used below.
 # include <time.h>  // NOLINT
+
 #endif
 
 // Determines whether clone(2) is supported.
@@ -1167,16 +1169,18 @@ namespace testing {
 // Defines synchronization primitives.
 #if GTEST_IS_THREADSAFE
 # if GTEST_HAS_PTHREAD
+
         // Sleeps for (roughly) n milliseconds.  This function is only for testing
         // Google Test's own constructs.  Don't use it in user tests, either
         // directly or indirectly.
         inline void SleepMilliseconds(int n) {
-          const timespec time = {
-            0,                  // 0 seconds.
-            n * 1000L * 1000L,  // And n ms.
-          };
-          nanosleep(&time, nullptr);
+            const timespec time = {
+                    0,                  // 0 seconds.
+                    n * 1000L * 1000L,  // And n ms.
+            };
+            nanosleep(&time, nullptr);
         }
+
 # endif  // GTEST_HAS_PTHREAD
 
 # if GTEST_HAS_NOTIFICATION_
@@ -1184,6 +1188,7 @@ namespace testing {
         // Nothing to do here.
 
 # elif GTEST_HAS_PTHREAD
+
         // Allows a controller thread to pause execution of newly created
         // threads until notified.  Instances of this class must be created
         // and destroyed in the controller thread.
@@ -1191,40 +1196,41 @@ namespace testing {
         // This class is only for testing Google Test's own constructs. Do not
         // use it in user tests, either directly or indirectly.
         class Notification {
-         public:
-          Notification() : notified_(false) {
-            GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&mutex_, nullptr));
-          }
-          ~Notification() {
-            pthread_mutex_destroy(&mutex_);
-          }
-
-          // Notifies all threads created with this notification to start. Must
-          // be called from the controller thread.
-          void Notify() {
-            pthread_mutex_lock(&mutex_);
-            notified_ = true;
-            pthread_mutex_unlock(&mutex_);
-          }
-
-          // Blocks until the controller thread notifies. Must be called from a test
-          // thread.
-          void WaitForNotification() {
-            for (;;) {
-              pthread_mutex_lock(&mutex_);
-              const bool notified = notified_;
-              pthread_mutex_unlock(&mutex_);
-              if (notified)
-                break;
-              SleepMilliseconds(10);
+        public:
+            Notification() : notified_(false) {
+                GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&mutex_, nullptr));
             }
-          }
 
-         private:
-          pthread_mutex_t mutex_;
-          bool notified_;
+            ~Notification() {
+                pthread_mutex_destroy(&mutex_);
+            }
 
-          GTEST_DISALLOW_COPY_AND_ASSIGN_(Notification);
+            // Notifies all threads created with this notification to start. Must
+            // be called from the controller thread.
+            void Notify() {
+                pthread_mutex_lock(&mutex_);
+                notified_ = true;
+                pthread_mutex_unlock(&mutex_);
+            }
+
+            // Blocks until the controller thread notifies. Must be called from a test
+            // thread.
+            void WaitForNotification() {
+                for (;;) {
+                    pthread_mutex_lock(&mutex_);
+                    const bool notified = notified_;
+                    pthread_mutex_unlock(&mutex_);
+                    if (notified)
+                        break;
+                    SleepMilliseconds(10);
+                }
+            }
+
+        private:
+            pthread_mutex_t mutex_;
+            bool notified_;
+
+            GTEST_DISALLOW_COPY_AND_ASSIGN_(Notification);
         };
 
 # elif GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_PHONE && !GTEST_OS_WINDOWS_RT
@@ -1297,9 +1303,10 @@ namespace testing {
         // non-templated base class for ThreadWithParam allows us to bypass this
         // problem.
         class ThreadWithParamBase {
-         public:
-          virtual ~ThreadWithParamBase() {}
-          virtual void Run() = 0;
+        public:
+            virtual ~ThreadWithParamBase() {}
+
+            virtual void Run() = 0;
         };
 
         // pthread_create() accepts a pointer to a function type with the C linkage.
@@ -1308,9 +1315,9 @@ namespace testing {
         // example, SunStudio) treat them as different types.  Since class methods
         // cannot be defined with C-linkage we need to define a free C-function to
         // pass into pthread_create().
-        extern "C" inline void* ThreadFuncWithCLinkage(void* thread) {
-          static_cast<ThreadWithParamBase*>(thread)->Run();
-          return nullptr;
+        extern "C" inline void *ThreadFuncWithCLinkage(void *thread) {
+            static_cast<ThreadWithParamBase *>(thread)->Run();
+            return nullptr;
         }
 
         // Helper class for testing Google Test's multi-threading constructs.
@@ -1325,48 +1332,50 @@ namespace testing {
         //
         // These classes are only for testing Google Test's own constructs. Do
         // not use them in user tests, either directly or indirectly.
-        template <typename T>
+        template<typename T>
         class ThreadWithParam : public ThreadWithParamBase {
-         public:
-          typedef void UserThreadFunc(T);
+        public:
+            typedef void UserThreadFunc(T);
 
-          ThreadWithParam(UserThreadFunc* func, T param, Notification* thread_can_start)
-              : func_(func),
-                param_(param),
-                thread_can_start_(thread_can_start),
-                finished_(false) {
-            ThreadWithParamBase* const base = this;
-            // The thread can be created only after all fields except thread_
-            // have been initialized.
-            GTEST_CHECK_POSIX_SUCCESS_(
-                pthread_create(&thread_, nullptr, &ThreadFuncWithCLinkage, base));
-          }
-          ~ThreadWithParam() override { Join(); }
-
-          void Join() {
-            if (!finished_) {
-              GTEST_CHECK_POSIX_SUCCESS_(pthread_join(thread_, nullptr));
-              finished_ = true;
+            ThreadWithParam(UserThreadFunc *func, T param, Notification *thread_can_start)
+                    : func_(func),
+                      param_(param),
+                      thread_can_start_(thread_can_start),
+                      finished_(false) {
+                ThreadWithParamBase *const base = this;
+                // The thread can be created only after all fields except thread_
+                // have been initialized.
+                GTEST_CHECK_POSIX_SUCCESS_(
+                        pthread_create(&thread_, nullptr, &ThreadFuncWithCLinkage, base));
             }
-          }
 
-          void Run() override {
-            if (thread_can_start_ != nullptr) thread_can_start_->WaitForNotification();
-            func_(param_);
-          }
+            ~ThreadWithParam() override { Join(); }
 
-         private:
-          UserThreadFunc* const func_;  // User-supplied thread function.
-          const T param_;  // User-supplied parameter to the thread function.
-          // When non-NULL, used to block execution until the controller thread
-          // notifies.
-          Notification* const thread_can_start_;
-          bool finished_;  // true if and only if we know that the thread function has
-                           // finished.
-          pthread_t thread_;  // The native thread object.
+            void Join() {
+                if (!finished_) {
+                    GTEST_CHECK_POSIX_SUCCESS_(pthread_join(thread_, nullptr));
+                    finished_ = true;
+                }
+            }
 
-          GTEST_DISALLOW_COPY_AND_ASSIGN_(ThreadWithParam);
+            void Run() override {
+                if (thread_can_start_ != nullptr) thread_can_start_->WaitForNotification();
+                func_(param_);
+            }
+
+        private:
+            UserThreadFunc *const func_;  // User-supplied thread function.
+            const T param_;  // User-supplied parameter to the thread function.
+            // When non-NULL, used to block execution until the controller thread
+            // notifies.
+            Notification *const thread_can_start_;
+            bool finished_;  // true if and only if we know that the thread function has
+            // finished.
+            pthread_t thread_;  // The native thread object.
+
+            GTEST_DISALLOW_COPY_AND_ASSIGN_(ThreadWithParam);
         };
+
 # endif  // !GTEST_OS_WINDOWS && GTEST_HAS_PTHREAD ||
         // GTEST_HAS_MUTEX_AND_THREAD_LOCAL_
 
@@ -1376,65 +1385,65 @@ namespace testing {
 
 # elif GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_PHONE && !GTEST_OS_WINDOWS_RT
 
-// Mutex implements mutex on Windows platforms.  It is used in conjunction
-// with class MutexLock:
-//
-//   Mutex mutex;
-//   ...
-//   MutexLock lock(&mutex);  // Acquires the mutex and releases it at the
-//                            // end of the current scope.
-//
-// A static Mutex *must* be defined or declared using one of the following
-// macros:
-//   GTEST_DEFINE_STATIC_MUTEX_(g_some_mutex);
-//   GTEST_DECLARE_STATIC_MUTEX_(g_some_mutex);
-//
-// (A non-static Mutex is defined/declared in the usual way).
-        class GTEST_API_ Mutex {
-        public:
-            enum MutexType {
-                kStatic = 0, kDynamic = 1
-            };
-            // We rely on kStaticMutex being 0 as it is to what the linker initializes
-            // type_ in static mutexes.  critical_section_ will be initialized lazily
-            // in ThreadSafeLazyInit().
-            enum StaticConstructorSelector {
-                kStaticMutex = 0
-            };
+        // Mutex implements mutex on Windows platforms.  It is used in conjunction
+        // with class MutexLock:
+        //
+        //   Mutex mutex;
+        //   ...
+        //   MutexLock lock(&mutex);  // Acquires the mutex and releases it at the
+        //                            // end of the current scope.
+        //
+        // A static Mutex *must* be defined or declared using one of the following
+        // macros:
+        //   GTEST_DEFINE_STATIC_MUTEX_(g_some_mutex);
+        //   GTEST_DECLARE_STATIC_MUTEX_(g_some_mutex);
+        //
+        // (A non-static Mutex is defined/declared in the usual way).
+                class GTEST_API_ Mutex {
+                public:
+                    enum MutexType {
+                        kStatic = 0, kDynamic = 1
+                    };
+                    // We rely on kStaticMutex being 0 as it is to what the linker initializes
+                    // type_ in static mutexes.  critical_section_ will be initialized lazily
+                    // in ThreadSafeLazyInit().
+                    enum StaticConstructorSelector {
+                        kStaticMutex = 0
+                    };
 
-            // This constructor intentionally does nothing.  It relies on type_ being
-            // statically initialized to 0 (effectively setting it to kStatic) and on
-            // ThreadSafeLazyInit() to lazily initialize the rest of the members.
-            explicit Mutex(StaticConstructorSelector /*dummy*/) {}
+                    // This constructor intentionally does nothing.  It relies on type_ being
+                    // statically initialized to 0 (effectively setting it to kStatic) and on
+                    // ThreadSafeLazyInit() to lazily initialize the rest of the members.
+                    explicit Mutex(StaticConstructorSelector /*dummy*/) {}
 
-            Mutex();
+                    Mutex();
 
-            ~Mutex();
+                    ~Mutex();
 
-            void Lock();
+                    void Lock();
 
-            void Unlock();
+                    void Unlock();
 
-            // Does nothing if the current thread holds the mutex. Otherwise, crashes
-            // with high probability.
-            void AssertHeld();
+                    // Does nothing if the current thread holds the mutex. Otherwise, crashes
+                    // with high probability.
+                    void AssertHeld();
 
-        private:
-            // Initializes owner_thread_id_ and critical_section_ in static mutexes.
-            void ThreadSafeLazyInit();
+                private:
+                    // Initializes owner_thread_id_ and critical_section_ in static mutexes.
+                    void ThreadSafeLazyInit();
 
-            // Per https://blogs.msdn.microsoft.com/oldnewthing/20040223-00/?p=40503,
-            // we assume that 0 is an invalid value for thread IDs.
-            unsigned int owner_thread_id_;
+                    // Per https://blogs.msdn.microsoft.com/oldnewthing/20040223-00/?p=40503,
+                    // we assume that 0 is an invalid value for thread IDs.
+                    unsigned int owner_thread_id_;
 
-            // For static mutexes, we rely on these members being initialized to zeros
-            // by the linker.
-            MutexType type_;
-            long critical_section_init_phase_;  // NOLINT
-            GTEST_CRITICAL_SECTION *critical_section_;
+                    // For static mutexes, we rely on these members being initialized to zeros
+                    // by the linker.
+                    MutexType type_;
+                    long critical_section_init_phase_;  // NOLINT
+                    GTEST_CRITICAL_SECTION *critical_section_;
 
-            GTEST_DISALLOW_COPY_AND_ASSIGN_(Mutex);
-        };
+                    GTEST_DISALLOW_COPY_AND_ASSIGN_(Mutex);
+                };
 
 # define GTEST_DECLARE_STATIC_MUTEX_(mutex) \
     extern ::testing::internal::Mutex mutex
@@ -1442,159 +1451,367 @@ namespace testing {
 # define GTEST_DEFINE_STATIC_MUTEX_(mutex) \
     ::testing::internal::Mutex mutex(::testing::internal::Mutex::kStaticMutex)
 
-// We cannot name this class MutexLock because the ctor declaration would
-// conflict with a macro named MutexLock, which is defined on some
-// platforms. That macro is used as a defensive measure to prevent against
-// inadvertent misuses of MutexLock like "MutexLock(&mu)" rather than
-// "MutexLock l(&mu)".  Hence the typedef trick below.
+        // We cannot name this class MutexLock because the ctor declaration would
+        // conflict with a macro named MutexLock, which is defined on some
+        // platforms. That macro is used as a defensive measure to prevent against
+        // inadvertent misuses of MutexLock like "MutexLock(&mu)" rather than
+        // "MutexLock l(&mu)".  Hence the typedef trick below.
+                class GTestMutexLock {
+                public:
+                    explicit GTestMutexLock(Mutex *mutex)
+                            : mutex_(mutex) { mutex_->Lock(); }
+
+                    ~GTestMutexLock() { mutex_->Unlock(); }
+
+                private:
+                    Mutex *const mutex_;
+
+                    GTEST_DISALLOW_COPY_AND_ASSIGN_(GTestMutexLock);
+                };
+
+                typedef GTestMutexLock MutexLock;
+
+        // Base class for ValueHolder<T>.  Allows a caller to hold and delete a value
+        // without knowing its type.
+                class ThreadLocalValueHolderBase {
+                public:
+                    virtual ~ThreadLocalValueHolderBase() {}
+                };
+
+        // Provides a way for a thread to send notifications to a ThreadLocal
+        // regardless of its parameter type.
+                class ThreadLocalBase {
+                public:
+                    // Creates a new ValueHolder<T> object holding a default value passed to
+                    // this ThreadLocal<T>'s constructor and returns it.  It is the caller's
+                    // responsibility not to call this when the ThreadLocal<T> instance already
+                    // has a value on the current thread.
+                    virtual ThreadLocalValueHolderBase *NewValueForCurrentThread() const = 0;
+
+                protected:
+                    ThreadLocalBase() {}
+
+                    virtual ~ThreadLocalBase() {}
+
+                private:
+                    GTEST_DISALLOW_COPY_AND_ASSIGN_(ThreadLocalBase);
+                };
+
+        // Maps a thread to a set of ThreadLocals that have values instantiated on that
+        // thread and notifies them when the thread exits.  A ThreadLocal instance is
+        // expected to persist until all threads it has values on have terminated.
+                class GTEST_API_ ThreadLocalRegistry {
+                public:
+                    // Registers thread_local_instance as having value on the current thread.
+                    // Returns a value that can be used to identify the thread from other threads.
+                    static ThreadLocalValueHolderBase *GetValueOnCurrentThread(
+                            const ThreadLocalBase *thread_local_instance);
+
+                    // Invoked when a ThreadLocal instance is destroyed.
+                    static void OnThreadLocalDestroyed(
+                            const ThreadLocalBase *thread_local_instance);
+                };
+
+                class GTEST_API_ ThreadWithParamBase {
+                public:
+                    void Join();
+
+                protected:
+                    class Runnable {
+                    public:
+                        virtual ~Runnable() {}
+
+                        virtual void Run() = 0;
+                    };
+
+                    ThreadWithParamBase(Runnable *runnable, Notification *thread_can_start);
+
+                    virtual ~ThreadWithParamBase();
+
+                private:
+                    AutoHandle thread_;
+                };
+
+        // Helper class for testing Google Test's multi-threading constructs.
+                template<typename T>
+                class ThreadWithParam : public ThreadWithParamBase {
+                public:
+                    typedef void UserThreadFunc(T);
+
+                    ThreadWithParam(UserThreadFunc *func, T param, Notification *thread_can_start)
+                            : ThreadWithParamBase(new RunnableImpl(func, param), thread_can_start) {
+                    }
+
+                    virtual ~ThreadWithParam() {}
+
+                private:
+                    class RunnableImpl : public Runnable {
+                    public:
+                        RunnableImpl(UserThreadFunc *func, T param)
+                                : func_(func),
+                                  param_(param) {
+                        }
+
+                        virtual ~RunnableImpl() {}
+
+                        virtual void Run() {
+                            func_(param_);
+                        }
+
+                    private:
+                        UserThreadFunc *const func_;
+                        const T param_;
+
+                        GTEST_DISALLOW_COPY_AND_ASSIGN_(RunnableImpl);
+                    };
+
+                    GTEST_DISALLOW_COPY_AND_ASSIGN_(ThreadWithParam);
+                };
+
+        // Implements thread-local storage on Windows systems.
+        //
+        //   // Thread 1
+        //   ThreadLocal<int> tl(100);  // 100 is the default value for each thread.
+        //
+        //   // Thread 2
+        //   tl.set(150);  // Changes the value for thread 2 only.
+        //   EXPECT_EQ(150, tl.get());
+        //
+        //   // Thread 1
+        //   EXPECT_EQ(100, tl.get());  // In thread 1, tl has the original value.
+        //   tl.set(200);
+        //   EXPECT_EQ(200, tl.get());
+        //
+        // The template type argument T must have a public copy constructor.
+        // In addition, the default ThreadLocal constructor requires T to have
+        // a public default constructor.
+        //
+        // The users of a TheadLocal instance have to make sure that all but one
+        // threads (including the main one) using that instance have exited before
+        // destroying it. Otherwise, the per-thread objects managed for them by the
+        // ThreadLocal instance are not guaranteed to be destroyed on all platforms.
+        //
+        // Google Test only uses global ThreadLocal objects.  That means they
+        // will die after main() has returned.  Therefore, no per-thread
+        // object managed by Google Test will be leaked as long as all threads
+        // using Google Test have exited when main() returns.
+                template<typename T>
+                class ThreadLocal : public ThreadLocalBase {
+                public:
+                    ThreadLocal() : default_factory_(new DefaultValueHolderFactory()) {}
+
+                    explicit ThreadLocal(const T &value)
+                            : default_factory_(new InstanceValueHolderFactory(value)) {}
+
+                    ~ThreadLocal() { ThreadLocalRegistry::OnThreadLocalDestroyed(this); }
+
+                    T *pointer() { return GetOrCreateValue(); }
+
+                    const T *pointer() const { return GetOrCreateValue(); }
+
+                    const T &get() const { return *pointer(); }
+
+                    void set(const T &value) { *pointer() = value; }
+
+                private:
+                    // Holds a value of T.  Can be deleted via its base class without the caller
+                    // knowing the type of T.
+                    class ValueHolder : public ThreadLocalValueHolderBase {
+                    public:
+                        ValueHolder() : value_() {}
+
+                        explicit ValueHolder(const T &value) : value_(value) {}
+
+                        T *pointer() { return &value_; }
+
+                    private:
+                        T value_;
+                        GTEST_DISALLOW_COPY_AND_ASSIGN_(ValueHolder);
+                    };
+
+
+                    T *GetOrCreateValue() const {
+                        return static_cast<ValueHolder *>(
+                                ThreadLocalRegistry::GetValueOnCurrentThread(this))->pointer();
+                    }
+
+                    virtual ThreadLocalValueHolderBase *NewValueForCurrentThread() const {
+                        return default_factory_->MakeNewHolder();
+                    }
+
+                    class ValueHolderFactory {
+                    public:
+                        ValueHolderFactory() {}
+
+                        virtual ~ValueHolderFactory() {}
+
+                        virtual ValueHolder *MakeNewHolder() const = 0;
+
+                    private:
+                        GTEST_DISALLOW_COPY_AND_ASSIGN_(ValueHolderFactory);
+                    };
+
+                    class DefaultValueHolderFactory : public ValueHolderFactory {
+                    public:
+                        DefaultValueHolderFactory() {}
+
+                        virtual ValueHolder *MakeNewHolder() const { return new ValueHolder(); }
+
+                    private:
+                        GTEST_DISALLOW_COPY_AND_ASSIGN_(DefaultValueHolderFactory);
+                    };
+
+                    class InstanceValueHolderFactory : public ValueHolderFactory {
+                    public:
+                        explicit InstanceValueHolderFactory(const T &value) : value_(value) {}
+
+                        virtual ValueHolder *MakeNewHolder() const {
+                            return new ValueHolder(value_);
+                        }
+
+                    private:
+                        const T value_;  // The value for each thread.
+
+                        GTEST_DISALLOW_COPY_AND_ASSIGN_(InstanceValueHolderFactory);
+                    };
+
+                    std::unique_ptr<ValueHolderFactory> default_factory_;
+
+                    GTEST_DISALLOW_COPY_AND_ASSIGN_(ThreadLocal);
+                };
+
+# elif GTEST_HAS_PTHREAD
+
+        // MutexBase and Mutex implement mutex on pthreads-based platforms.
+        class MutexBase {
+        public:
+            // Acquires this mutex.
+            void Lock() {
+                GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_lock(&mutex_));
+                owner_ = pthread_self();
+                has_owner_ = true;
+            }
+
+            // Releases this mutex.
+            void Unlock() {
+                // Since the lock is being released the owner_ field should no longer be
+                // considered valid. We don't protect writing to has_owner_ here, as it's
+                // the caller's responsibility to ensure that the current thread holds the
+                // mutex when this is called.
+                has_owner_ = false;
+                GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_unlock(&mutex_));
+            }
+
+            // Does nothing if the current thread holds the mutex. Otherwise, crashes
+            // with high probability.
+            void AssertHeld() const {
+                GTEST_CHECK_(has_owner_ && pthread_equal(owner_, pthread_self()))
+                            << "The current thread is not holding the mutex @" << this;
+            }
+
+            // A static mutex may be used before main() is entered.  It may even
+            // be used before the dynamic initialization stage.  Therefore we
+            // must be able to initialize a static mutex object at link time.
+            // This means MutexBase has to be a POD and its member variables
+            // have to be public.
+        public:
+            pthread_mutex_t mutex_;  // The underlying pthread mutex.
+            // has_owner_ indicates whether the owner_ field below contains a valid thread
+            // ID and is therefore safe to inspect (e.g., to use in pthread_equal()). All
+            // accesses to the owner_ field should be protected by a check of this field.
+            // An alternative might be to memset() owner_ to all zeros, but there's no
+            // guarantee that a zero'd pthread_t is necessarily invalid or even different
+            // from pthread_self().
+            bool has_owner_;
+            pthread_t owner_;  // The thread holding the mutex.
+        };
+
+        // Forward-declares a static mutex.
+#  define GTEST_DECLARE_STATIC_MUTEX_(mutex) \
+     extern ::testing::internal::MutexBase mutex
+
+        // Defines and statically (i.e. at link time) initializes a static mutex.
+        // The initialization list here does not explicitly initialize each field,
+        // instead relying on default initialization for the unspecified fields. In
+        // particular, the owner_ field (a pthread_t) is not explicitly initialized.
+        // This allows initialization to work whether pthread_t is a scalar or struct.
+        // The flag -Wmissing-field-initializers must not be specified for this to work.
+#define GTEST_DEFINE_STATIC_MUTEX_(mutex) \
+  ::testing::internal::MutexBase mutex = {PTHREAD_MUTEX_INITIALIZER, false, 0}
+
+        // The Mutex class can only be used for mutexes created at runtime. It
+        // shares its API with MutexBase otherwise.
+        class Mutex : public MutexBase {
+        public:
+            Mutex() {
+                GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&mutex_, nullptr));
+                has_owner_ = false;
+            }
+
+            ~Mutex() {
+                GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_destroy(&mutex_));
+            }
+
+        private:
+            GTEST_DISALLOW_COPY_AND_ASSIGN_(Mutex);
+        };
+
+        // We cannot name this class MutexLock because the ctor declaration would
+        // conflict with a macro named MutexLock, which is defined on some
+        // platforms. That macro is used as a defensive measure to prevent against
+        // inadvertent misuses of MutexLock like "MutexLock(&mu)" rather than
+        // "MutexLock l(&mu)".  Hence the typedef trick below.
         class GTestMutexLock {
         public:
-            explicit GTestMutexLock(Mutex *mutex)
+            explicit GTestMutexLock(MutexBase *mutex)
                     : mutex_(mutex) { mutex_->Lock(); }
 
             ~GTestMutexLock() { mutex_->Unlock(); }
 
         private:
-            Mutex *const mutex_;
+            MutexBase *const mutex_;
 
             GTEST_DISALLOW_COPY_AND_ASSIGN_(GTestMutexLock);
         };
 
         typedef GTestMutexLock MutexLock;
 
-// Base class for ValueHolder<T>.  Allows a caller to hold and delete a value
-// without knowing its type.
+        // Helpers for ThreadLocal.
+
+        // pthread_key_create() requires DeleteThreadLocalValue() to have
+        // C-linkage.  Therefore it cannot be templatized to access
+        // ThreadLocal<T>.  Hence the need for class
+        // ThreadLocalValueHolderBase.
         class ThreadLocalValueHolderBase {
         public:
             virtual ~ThreadLocalValueHolderBase() {}
         };
 
-// Provides a way for a thread to send notifications to a ThreadLocal
-// regardless of its parameter type.
-        class ThreadLocalBase {
-        public:
-            // Creates a new ValueHolder<T> object holding a default value passed to
-            // this ThreadLocal<T>'s constructor and returns it.  It is the caller's
-            // responsibility not to call this when the ThreadLocal<T> instance already
-            // has a value on the current thread.
-            virtual ThreadLocalValueHolderBase *NewValueForCurrentThread() const = 0;
+        // Called by pthread to delete thread-local data stored by
+        // pthread_setspecific().
+        extern "C" inline void DeleteThreadLocalValue(void *value_holder) {
+            delete static_cast<ThreadLocalValueHolderBase *>(value_holder);
+        }
 
-        protected:
-            ThreadLocalBase() {}
-
-            virtual ~ThreadLocalBase() {}
-
-        private:
-            GTEST_DISALLOW_COPY_AND_ASSIGN_(ThreadLocalBase);
-        };
-
-// Maps a thread to a set of ThreadLocals that have values instantiated on that
-// thread and notifies them when the thread exits.  A ThreadLocal instance is
-// expected to persist until all threads it has values on have terminated.
-        class GTEST_API_ ThreadLocalRegistry {
-        public:
-            // Registers thread_local_instance as having value on the current thread.
-            // Returns a value that can be used to identify the thread from other threads.
-            static ThreadLocalValueHolderBase *GetValueOnCurrentThread(
-                    const ThreadLocalBase *thread_local_instance);
-
-            // Invoked when a ThreadLocal instance is destroyed.
-            static void OnThreadLocalDestroyed(
-                    const ThreadLocalBase *thread_local_instance);
-        };
-
-        class GTEST_API_ ThreadWithParamBase {
-        public:
-            void Join();
-
-        protected:
-            class Runnable {
-            public:
-                virtual ~Runnable() {}
-
-                virtual void Run() = 0;
-            };
-
-            ThreadWithParamBase(Runnable *runnable, Notification *thread_can_start);
-
-            virtual ~ThreadWithParamBase();
-
-        private:
-            AutoHandle thread_;
-        };
-
-// Helper class for testing Google Test's multi-threading constructs.
+        // Implements thread-local storage on pthreads-based systems.
         template<typename T>
-        class ThreadWithParam : public ThreadWithParamBase {
+        class GTEST_API_ ThreadLocal {
         public:
-            typedef void UserThreadFunc(T);
-
-            ThreadWithParam(UserThreadFunc *func, T param, Notification *thread_can_start)
-                    : ThreadWithParamBase(new RunnableImpl(func, param), thread_can_start) {
-            }
-
-            virtual ~ThreadWithParam() {}
-
-        private:
-            class RunnableImpl : public Runnable {
-            public:
-                RunnableImpl(UserThreadFunc *func, T param)
-                        : func_(func),
-                          param_(param) {
-                }
-
-                virtual ~RunnableImpl() {}
-
-                virtual void Run() {
-                    func_(param_);
-                }
-
-            private:
-                UserThreadFunc *const func_;
-                const T param_;
-
-                GTEST_DISALLOW_COPY_AND_ASSIGN_(RunnableImpl);
-            };
-
-            GTEST_DISALLOW_COPY_AND_ASSIGN_(ThreadWithParam);
-        };
-
-// Implements thread-local storage on Windows systems.
-//
-//   // Thread 1
-//   ThreadLocal<int> tl(100);  // 100 is the default value for each thread.
-//
-//   // Thread 2
-//   tl.set(150);  // Changes the value for thread 2 only.
-//   EXPECT_EQ(150, tl.get());
-//
-//   // Thread 1
-//   EXPECT_EQ(100, tl.get());  // In thread 1, tl has the original value.
-//   tl.set(200);
-//   EXPECT_EQ(200, tl.get());
-//
-// The template type argument T must have a public copy constructor.
-// In addition, the default ThreadLocal constructor requires T to have
-// a public default constructor.
-//
-// The users of a TheadLocal instance have to make sure that all but one
-// threads (including the main one) using that instance have exited before
-// destroying it. Otherwise, the per-thread objects managed for them by the
-// ThreadLocal instance are not guaranteed to be destroyed on all platforms.
-//
-// Google Test only uses global ThreadLocal objects.  That means they
-// will die after main() has returned.  Therefore, no per-thread
-// object managed by Google Test will be leaked as long as all threads
-// using Google Test have exited when main() returns.
-        template<typename T>
-        class ThreadLocal : public ThreadLocalBase {
-        public:
-            ThreadLocal() : default_factory_(new DefaultValueHolderFactory()) {}
+            ThreadLocal()
+                    : key_(CreateKey()), default_factory_(new DefaultValueHolderFactory()) {}
 
             explicit ThreadLocal(const T &value)
-                    : default_factory_(new InstanceValueHolderFactory(value)) {}
+                    : key_(CreateKey()),
+                      default_factory_(new InstanceValueHolderFactory(value)) {}
 
-            ~ThreadLocal() { ThreadLocalRegistry::OnThreadLocalDestroyed(this); }
+            ~ThreadLocal() {
+                // Destroys the managed object for the current thread, if any.
+                DeleteThreadLocalValue(pthread_getspecific(key_));
+
+                // Releases resources associated with the key.  This will *not*
+                // delete managed objects for other threads.
+                GTEST_CHECK_POSIX_SUCCESS_(pthread_key_delete(key_));
+            }
 
             T *pointer() { return GetOrCreateValue(); }
 
@@ -1605,8 +1822,7 @@ namespace testing {
             void set(const T &value) { *pointer() = value; }
 
         private:
-            // Holds a value of T.  Can be deleted via its base class without the caller
-            // knowing the type of T.
+            // Holds a value of type T.
             class ValueHolder : public ThreadLocalValueHolderBase {
             public:
                 ValueHolder() : value_() {}
@@ -1620,14 +1836,26 @@ namespace testing {
                 GTEST_DISALLOW_COPY_AND_ASSIGN_(ValueHolder);
             };
 
-
-            T *GetOrCreateValue() const {
-                return static_cast<ValueHolder *>(
-                        ThreadLocalRegistry::GetValueOnCurrentThread(this))->pointer();
+            static pthread_key_t CreateKey() {
+                pthread_key_t key;
+                // When a thread exits, DeleteThreadLocalValue() will be called on
+                // the object managed for that thread.
+                GTEST_CHECK_POSIX_SUCCESS_(
+                        pthread_key_create(&key, &DeleteThreadLocalValue));
+                return key;
             }
 
-            virtual ThreadLocalValueHolderBase *NewValueForCurrentThread() const {
-                return default_factory_->MakeNewHolder();
+            T *GetOrCreateValue() const {
+                ThreadLocalValueHolderBase *const holder =
+                        static_cast<ThreadLocalValueHolderBase *>(pthread_getspecific(key_));
+                if (holder != nullptr) {
+                    return CheckedDowncastToActualType<ValueHolder>(holder)->pointer();
+                }
+
+                ValueHolder *const new_holder = default_factory_->MakeNewHolder();
+                ThreadLocalValueHolderBase *const holder_base = new_holder;
+                GTEST_CHECK_POSIX_SUCCESS_(pthread_setspecific(key_, holder_base));
+                return new_holder->pointer();
             }
 
             class ValueHolderFactory {
@@ -1666,220 +1894,11 @@ namespace testing {
                 GTEST_DISALLOW_COPY_AND_ASSIGN_(InstanceValueHolderFactory);
             };
 
+            // A key pthreads uses for looking up per-thread values.
+            const pthread_key_t key_;
             std::unique_ptr<ValueHolderFactory> default_factory_;
 
             GTEST_DISALLOW_COPY_AND_ASSIGN_(ThreadLocal);
-        };
-
-# elif GTEST_HAS_PTHREAD
-
-        // MutexBase and Mutex implement mutex on pthreads-based platforms.
-        class MutexBase {
-         public:
-          // Acquires this mutex.
-          void Lock() {
-            GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_lock(&mutex_));
-            owner_ = pthread_self();
-            has_owner_ = true;
-          }
-
-          // Releases this mutex.
-          void Unlock() {
-            // Since the lock is being released the owner_ field should no longer be
-            // considered valid. We don't protect writing to has_owner_ here, as it's
-            // the caller's responsibility to ensure that the current thread holds the
-            // mutex when this is called.
-            has_owner_ = false;
-            GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_unlock(&mutex_));
-          }
-
-          // Does nothing if the current thread holds the mutex. Otherwise, crashes
-          // with high probability.
-          void AssertHeld() const {
-            GTEST_CHECK_(has_owner_ && pthread_equal(owner_, pthread_self()))
-                << "The current thread is not holding the mutex @" << this;
-          }
-
-          // A static mutex may be used before main() is entered.  It may even
-          // be used before the dynamic initialization stage.  Therefore we
-          // must be able to initialize a static mutex object at link time.
-          // This means MutexBase has to be a POD and its member variables
-          // have to be public.
-         public:
-          pthread_mutex_t mutex_;  // The underlying pthread mutex.
-          // has_owner_ indicates whether the owner_ field below contains a valid thread
-          // ID and is therefore safe to inspect (e.g., to use in pthread_equal()). All
-          // accesses to the owner_ field should be protected by a check of this field.
-          // An alternative might be to memset() owner_ to all zeros, but there's no
-          // guarantee that a zero'd pthread_t is necessarily invalid or even different
-          // from pthread_self().
-          bool has_owner_;
-          pthread_t owner_;  // The thread holding the mutex.
-        };
-
-        // Forward-declares a static mutex.
-#  define GTEST_DECLARE_STATIC_MUTEX_(mutex) \
-     extern ::testing::internal::MutexBase mutex
-
-        // Defines and statically (i.e. at link time) initializes a static mutex.
-        // The initialization list here does not explicitly initialize each field,
-        // instead relying on default initialization for the unspecified fields. In
-        // particular, the owner_ field (a pthread_t) is not explicitly initialized.
-        // This allows initialization to work whether pthread_t is a scalar or struct.
-        // The flag -Wmissing-field-initializers must not be specified for this to work.
-#define GTEST_DEFINE_STATIC_MUTEX_(mutex) \
-  ::testing::internal::MutexBase mutex = {PTHREAD_MUTEX_INITIALIZER, false, 0}
-
-        // The Mutex class can only be used for mutexes created at runtime. It
-        // shares its API with MutexBase otherwise.
-        class Mutex : public MutexBase {
-         public:
-          Mutex() {
-            GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&mutex_, nullptr));
-            has_owner_ = false;
-          }
-          ~Mutex() {
-            GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_destroy(&mutex_));
-          }
-
-         private:
-          GTEST_DISALLOW_COPY_AND_ASSIGN_(Mutex);
-        };
-
-        // We cannot name this class MutexLock because the ctor declaration would
-        // conflict with a macro named MutexLock, which is defined on some
-        // platforms. That macro is used as a defensive measure to prevent against
-        // inadvertent misuses of MutexLock like "MutexLock(&mu)" rather than
-        // "MutexLock l(&mu)".  Hence the typedef trick below.
-        class GTestMutexLock {
-         public:
-          explicit GTestMutexLock(MutexBase* mutex)
-              : mutex_(mutex) { mutex_->Lock(); }
-
-          ~GTestMutexLock() { mutex_->Unlock(); }
-
-         private:
-          MutexBase* const mutex_;
-
-          GTEST_DISALLOW_COPY_AND_ASSIGN_(GTestMutexLock);
-        };
-
-        typedef GTestMutexLock MutexLock;
-
-        // Helpers for ThreadLocal.
-
-        // pthread_key_create() requires DeleteThreadLocalValue() to have
-        // C-linkage.  Therefore it cannot be templatized to access
-        // ThreadLocal<T>.  Hence the need for class
-        // ThreadLocalValueHolderBase.
-        class ThreadLocalValueHolderBase {
-         public:
-          virtual ~ThreadLocalValueHolderBase() {}
-        };
-
-        // Called by pthread to delete thread-local data stored by
-        // pthread_setspecific().
-        extern "C" inline void DeleteThreadLocalValue(void* value_holder) {
-          delete static_cast<ThreadLocalValueHolderBase*>(value_holder);
-        }
-
-        // Implements thread-local storage on pthreads-based systems.
-        template <typename T>
-        class GTEST_API_ ThreadLocal {
-         public:
-          ThreadLocal()
-              : key_(CreateKey()), default_factory_(new DefaultValueHolderFactory()) {}
-          explicit ThreadLocal(const T& value)
-              : key_(CreateKey()),
-                default_factory_(new InstanceValueHolderFactory(value)) {}
-
-          ~ThreadLocal() {
-            // Destroys the managed object for the current thread, if any.
-            DeleteThreadLocalValue(pthread_getspecific(key_));
-
-            // Releases resources associated with the key.  This will *not*
-            // delete managed objects for other threads.
-            GTEST_CHECK_POSIX_SUCCESS_(pthread_key_delete(key_));
-          }
-
-          T* pointer() { return GetOrCreateValue(); }
-          const T* pointer() const { return GetOrCreateValue(); }
-          const T& get() const { return *pointer(); }
-          void set(const T& value) { *pointer() = value; }
-
-         private:
-          // Holds a value of type T.
-          class ValueHolder : public ThreadLocalValueHolderBase {
-           public:
-            ValueHolder() : value_() {}
-            explicit ValueHolder(const T& value) : value_(value) {}
-
-            T* pointer() { return &value_; }
-
-           private:
-            T value_;
-            GTEST_DISALLOW_COPY_AND_ASSIGN_(ValueHolder);
-          };
-
-          static pthread_key_t CreateKey() {
-            pthread_key_t key;
-            // When a thread exits, DeleteThreadLocalValue() will be called on
-            // the object managed for that thread.
-            GTEST_CHECK_POSIX_SUCCESS_(
-                pthread_key_create(&key, &DeleteThreadLocalValue));
-            return key;
-          }
-
-          T* GetOrCreateValue() const {
-            ThreadLocalValueHolderBase* const holder =
-                static_cast<ThreadLocalValueHolderBase*>(pthread_getspecific(key_));
-            if (holder != nullptr) {
-              return CheckedDowncastToActualType<ValueHolder>(holder)->pointer();
-            }
-
-            ValueHolder* const new_holder = default_factory_->MakeNewHolder();
-            ThreadLocalValueHolderBase* const holder_base = new_holder;
-            GTEST_CHECK_POSIX_SUCCESS_(pthread_setspecific(key_, holder_base));
-            return new_holder->pointer();
-          }
-
-          class ValueHolderFactory {
-           public:
-            ValueHolderFactory() {}
-            virtual ~ValueHolderFactory() {}
-            virtual ValueHolder* MakeNewHolder() const = 0;
-
-           private:
-            GTEST_DISALLOW_COPY_AND_ASSIGN_(ValueHolderFactory);
-          };
-
-          class DefaultValueHolderFactory : public ValueHolderFactory {
-           public:
-            DefaultValueHolderFactory() {}
-            virtual ValueHolder* MakeNewHolder() const { return new ValueHolder(); }
-
-           private:
-            GTEST_DISALLOW_COPY_AND_ASSIGN_(DefaultValueHolderFactory);
-          };
-
-          class InstanceValueHolderFactory : public ValueHolderFactory {
-           public:
-            explicit InstanceValueHolderFactory(const T& value) : value_(value) {}
-            virtual ValueHolder* MakeNewHolder() const {
-              return new ValueHolder(value_);
-            }
-
-           private:
-            const T value_;  // The value for each thread.
-
-            GTEST_DISALLOW_COPY_AND_ASSIGN_(InstanceValueHolderFactory);
-          };
-
-          // A key pthreads uses for looking up per-thread values.
-          const pthread_key_t key_;
-          std::unique_ptr<ValueHolderFactory> default_factory_;
-
-          GTEST_DISALLOW_COPY_AND_ASSIGN_(ThreadLocal);
         };
 
 # endif  // GTEST_HAS_MUTEX_AND_THREAD_LOCAL_
@@ -1941,8 +1960,8 @@ namespace testing {
 #if GTEST_OS_WINDOWS
 # define GTEST_PATH_SEP_ "\\"
 # define GTEST_HAS_ALT_PATH_SEP_ 1
-// The biggest signed integer type the compiler supports.
-        typedef __int64 BiggestInt;
+        // The biggest signed integer type the compiler supports.
+                typedef __int64 BiggestInt;
 #else
 # define GTEST_PATH_SEP_ "/"
 # define GTEST_HAS_ALT_PATH_SEP_ 0
@@ -2063,15 +2082,21 @@ namespace testing {
 
             typedef struct stat StatStruct;
 
-            inline int FileNo(FILE* file) { return fileno(file); }
+            inline int FileNo(FILE *file) { return fileno(file); }
+
             inline int IsATTY(int fd) { return isatty(fd); }
-            inline int Stat(const char* path, StatStruct* buf) { return stat(path, buf); }
-            inline int StrCaseCmp(const char* s1, const char* s2) {
-              return strcasecmp(s1, s2);
+
+            inline int Stat(const char *path, StatStruct *buf) { return stat(path, buf); }
+
+            inline int StrCaseCmp(const char *s1, const char *s2) {
+                return strcasecmp(s1, s2);
             }
-            inline char* StrDup(const char* src) { return strdup(src); }
-            inline int RmDir(const char* dir) { return rmdir(dir); }
-            inline bool IsDir(const StatStruct& st) { return S_ISDIR(st.st_mode); }
+
+            inline char *StrDup(const char *src) { return strdup(src); }
+
+            inline int RmDir(const char *dir) { return rmdir(dir); }
+
+            inline bool IsDir(const StatStruct &st) { return S_ISDIR(st.st_mode); }
 
 #endif  // GTEST_OS_WINDOWS
 

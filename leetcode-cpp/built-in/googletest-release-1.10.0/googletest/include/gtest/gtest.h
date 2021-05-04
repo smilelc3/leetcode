@@ -2270,15 +2270,15 @@ GTEST_API_ AssertionResult CmpHelper##op_name(\
 
 #if GTEST_OS_WINDOWS
 
-// Macros that test for HRESULT failure and success, these are only useful
-// on Windows, and rely on Windows SDK macros and APIs to compile.
-//
-//    * {ASSERT|EXPECT}_HRESULT_{SUCCEEDED|FAILED}(expr)
-//
-// When expr unexpectedly fails or succeeds, Google Test prints the
-// expected result and the actual result with both a human-readable
-// string representation of the error, if available, as well as the
-// hex result code.
+    // Macros that test for HRESULT failure and success, these are only useful
+    // on Windows, and rely on Windows SDK macros and APIs to compile.
+    //
+    //    * {ASSERT|EXPECT}_HRESULT_{SUCCEEDED|FAILED}(expr)
+    //
+    // When expr unexpectedly fails or succeeds, Google Test prints the
+    // expected result and the actual result with both a human-readable
+    // string representation of the error, if available, as well as the
+    // hex result code.
 # define EXPECT_HRESULT_SUCCEEDED(expr) \
     EXPECT_PRED_FORMAT1(::testing::internal::IsHRESULTSuccess, (expr))
 

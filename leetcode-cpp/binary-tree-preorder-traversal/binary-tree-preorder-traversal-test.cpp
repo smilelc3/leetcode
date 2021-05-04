@@ -9,7 +9,7 @@ namespace {
     TEST(preorderTraversalTest, Example1) {
         auto root = GenTreeByNums({1, -1, 2, 3}, -1);
         auto ans = Solution().preorderTraversal(root);
-        std::vector<int> rightAns = {1,2,3};
+        std::vector<int> rightAns = {1, 2, 3};
         ASSERT_EQ(ans, rightAns);
     }
 
@@ -28,16 +28,16 @@ namespace {
     }
 
     TEST(preorderTraversalTest, Example4) {
-        auto root = GenTreeByNums({1,2});
+        auto root = GenTreeByNums({1, 2});
         auto ans = Solution().preorderTraversal(root);
-        std::vector<int> rightAns{1,2};
+        std::vector<int> rightAns{1, 2};
         ASSERT_EQ(ans, rightAns);
     }
 
     TEST(preorderTraversalTest, Example5) {
-        auto root = GenTreeByNums({1,-1,2},-1);
+        auto root = GenTreeByNums({1, -1, 2}, -1);
         auto ans = Solution().preorderTraversal(root);
-        std::vector<int> rightAns{1,2};
+        std::vector<int> rightAns{1, 2};
         ASSERT_EQ(ans, rightAns);
     }
 

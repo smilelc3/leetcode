@@ -38,7 +38,9 @@ public:
     void SetUp() override { GTEST_SKIP() << "Skipping the entire environment"; }
 };
 
-TEST(Test, AlwaysFails) { EXPECT_EQ(true, false); }
+TEST(Test, AlwaysFails
+) {
+EXPECT_EQ(true, false); }
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);

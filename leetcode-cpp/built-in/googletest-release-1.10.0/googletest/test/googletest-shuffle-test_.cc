@@ -48,57 +48,95 @@ namespace {
     class A : public Test {
     };
 
-    TEST_F(A, A) {}
+    TEST_F(A, A
+    ) {
+}
 
-    TEST_F(A, B) {}
+TEST_F(A, B
+) {
+}
 
-    TEST(ADeathTest, A) {}
+TEST(ADeathTest, A
+) {
+}
 
-    TEST(ADeathTest, B) {}
+TEST(ADeathTest, B
+) {
+}
 
-    TEST(ADeathTest, C) {}
+TEST(ADeathTest, C
+) {
+}
 
-    TEST(B, A) {}
+TEST(B, A
+) {
+}
 
-    TEST(B, B) {}
+TEST(B, B
+) {
+}
 
-    TEST(B, C) {}
+TEST(B, C
+) {
+}
 
-    TEST(B, DISABLED_D) {}
+TEST(B, DISABLED_D
+) {
+}
 
-    TEST(B, DISABLED_E) {}
+TEST(B, DISABLED_E
+) {
+}
 
-    TEST(BDeathTest, A) {}
+TEST(BDeathTest, A
+) {
+}
 
-    TEST(BDeathTest, B) {}
+TEST(BDeathTest, B
+) {
+}
 
-    TEST(C, A) {}
+TEST(C, A
+) {
+}
 
-    TEST(C, B) {}
+TEST(C, B
+) {
+}
 
-    TEST(C, C) {}
+TEST(C, C
+) {
+}
 
-    TEST(C, DISABLED_D) {}
+TEST(C, DISABLED_D
+) {
+}
 
-    TEST(CDeathTest, A) {}
+TEST(CDeathTest, A
+) {
+}
 
-    TEST(DISABLED_D, A) {}
+TEST(DISABLED_D, A
+) {
+}
 
-    TEST(DISABLED_D, DISABLED_B) {}
+TEST(DISABLED_D, DISABLED_B
+) {
+}
 
 // This printer prints the full test names only, starting each test
 // iteration with a "----" marker.
-    class TestNamePrinter : public EmptyTestEventListener {
-    public:
-        void OnTestIterationStart(const UnitTest & /* unit_test */,
-                                  int /* iteration */) override {
-            printf("----\n");
-        }
+class TestNamePrinter : public EmptyTestEventListener {
+public:
+    void OnTestIterationStart(const UnitTest & /* unit_test */,
+                              int /* iteration */) override {
+        printf("----\n");
+    }
 
-        void OnTestStart(const TestInfo &test_info) override {
-            printf("%s.%s\n", test_info.test_case_name(), test_info.name());
-        }
-    };
+    void OnTestStart(const TestInfo &test_info) override {
+        printf("%s.%s\n", test_info.test_case_name(), test_info.name());
+    }
+};
 
 }  // namespace
 

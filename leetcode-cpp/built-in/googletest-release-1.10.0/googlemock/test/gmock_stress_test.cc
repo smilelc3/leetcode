@@ -202,39 +202,57 @@ namespace testing {
         }
 
 // Tests using Google Mock constructs in many threads concurrently.
-        TEST(StressTest, CanUseGMockWithThreads) {
-            void (*test_routines[])(Dummy dummy) = {
-                    &TestConcurrentMockObjects,
-                    &TestConcurrentCallsOnSameObject,
-                    &TestPartiallyOrderedExpectationsWithThreads,
-            };
+        TEST(StressTest, CanUseGMockWithThreads
+        ) {
+        void (*test_routines[])(Dummy dummy) = {
+                &TestConcurrentMockObjects,
+                &TestConcurrentCallsOnSameObject,
+                &TestPartiallyOrderedExpectationsWithThreads,
+        };
 
-            const int kRoutines = sizeof(test_routines) / sizeof(test_routines[0]);
-            const int kCopiesOfEachRoutine = kMaxTestThreads / kRoutines;
-            const int kTestThreads = kCopiesOfEachRoutine * kRoutines;
-            ThreadWithParam<Dummy> *threads[kTestThreads] = {};
-            for (int i = 0; i < kTestThreads; i++) {
-                // Creates a thread to run the test function.
-                threads[i] = new ThreadWithParam<Dummy>(test_routines[i % kRoutines],
-                                                        Dummy(), nullptr);
-                GTEST_LOG_(INFO) << "Thread #" << i << " running . . .";
-            }
+        const int kRoutines = sizeof(test_routines) / sizeof(test_routines[0]);
+        const int kCopiesOfEachRoutine = kMaxTestThreads / kRoutines;
+        const int kTestThreads = kCopiesOfEachRoutine * kRoutines;
+        ThreadWithParam<Dummy> *threads[kTestThreads] = {};
+        for (
+        int i = 0;
+        i<kTestThreads;
+        i++) {
+        // Creates a thread to run the test function.
+        threads[i] = new
+        ThreadWithParam<Dummy>(test_routines[i % kRoutines],
+                Dummy(),
+        nullptr);
+        GTEST_LOG_(INFO)
+        << "Thread #" << i << " running . . .";
+    }
 
-            // At this point, we have many threads running.
-            for (int i = 0; i < kTestThreads; i++) {
-                JoinAndDelete(threads[i]);
-            }
+    // At this point, we have many threads running.
+    for (
+    int i = 0;
+    i<kTestThreads;
+    i++) {
+    JoinAndDelete(threads[i]);
+}
 
-            // Ensures that the correct number of failures have been reported.
-            const TestInfo *const info = UnitTest::GetInstance()->current_test_info();
-            const TestResult &result = *info->result();
-            const int kExpectedFailures = (3 * kRepeat + 1) * kCopiesOfEachRoutine;
-            GTEST_CHECK_(kExpectedFailures == result.total_part_count())
-                        << "Expected " << kExpectedFailures << " failures, but got "
-                        << result.total_part_count();
-        }
+// Ensures that the correct number of failures have been reported.
+const TestInfo *const info = UnitTest::GetInstance()->current_test_info();
+const TestResult &result = *info->result();
+const int kExpectedFailures = (3 * kRepeat + 1) * kCopiesOfEachRoutine;
+GTEST_CHECK_(kExpectedFailures
+== result.
 
-    }  // namespace
+total_part_count()
+
+)
+<< "Expected " << kExpectedFailures << " failures, but got "
+<< result.
+
+total_part_count();
+
+}
+
+}  // namespace
 }  // namespace testing
 
 int main(int argc, char **argv) {

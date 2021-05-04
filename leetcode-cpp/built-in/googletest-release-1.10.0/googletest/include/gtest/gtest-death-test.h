@@ -201,16 +201,20 @@ namespace testing {
     };
 
 # if !GTEST_OS_WINDOWS && !GTEST_OS_FUCHSIA
+
     // Tests that an exit code describes an exit due to termination by a
     // given signal.
     // GOOGLETEST_CM0006 DO NOT DELETE
     class GTEST_API_ KilledBySignal {
-     public:
-      explicit KilledBySignal(int signum);
-      bool operator()(int exit_status) const;
-     private:
-      const int signum_;
+    public:
+        explicit KilledBySignal(int signum);
+
+        bool operator()(int exit_status) const;
+
+    private:
+        const int signum_;
     };
+
 # endif  // !GTEST_OS_WINDOWS
 
 // EXPECT_DEBUG_DEATH asserts that the given statements die in debug mode.

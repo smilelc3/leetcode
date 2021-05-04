@@ -8,9 +8,7 @@ from distutils import sysconfig
 import setuptools
 from setuptools.command import build_ext
 
-
 HERE = os.path.dirname(os.path.abspath(__file__))
-
 
 IS_WINDOWS = sys.platform.startswith("win")
 
@@ -18,7 +16,7 @@ IS_WINDOWS = sys.platform.startswith("win")
 def _get_version():
     """Parse the version string from __init__.py."""
     with open(
-        os.path.join(HERE, "bindings", "python", "google_benchmark", "__init__.py")
+            os.path.join(HERE, "bindings", "python", "google_benchmark", "__init__.py")
     ) as init_file:
         try:
             version_line = next(

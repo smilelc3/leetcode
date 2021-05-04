@@ -39,13 +39,15 @@ namespace {
         return std::string(info.param);
     }
 
-    TEST_P(DummyTest, Dummy) {
-    }
+    TEST_P(DummyTest, Dummy
+    ) {
+}
 
-    INSTANTIATE_TEST_SUITE_P(DuplicateTestNames,
-                             DummyTest,
-                             ::testing::Values("a", "b", "a", "c"),
-                             StringParamTestSuffix);
+INSTANTIATE_TEST_SUITE_P(DuplicateTestNames,
+        DummyTest,
+        ::testing::Values("a", "b", "a", "c"),
+        StringParamTestSuffix
+);
 }  // namespace
 
 int main(int argc, char *argv[]) {

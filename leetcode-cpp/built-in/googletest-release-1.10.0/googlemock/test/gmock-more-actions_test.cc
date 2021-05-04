@@ -226,476 +226,647 @@ namespace testing {
         };
 
 // Tests using Invoke() with a nullary function.
-        TEST(InvokeTest, Nullary) {
-            Action<int()> a = Invoke(Nullary);  // NOLINT
-            EXPECT_EQ(1, a.Perform(std::make_tuple()));
-        }
+        TEST(InvokeTest, Nullary
+        ) {
+        Action<int()> a = Invoke(Nullary);  // NOLINT
+        EXPECT_EQ(1, a.
+
+        Perform (std::make_tuple())
+
+        );
+    }
 
 // Tests using Invoke() with a unary function.
-        TEST(InvokeTest, Unary) {
-            Action<bool(int)> a = Invoke(Unary);  // NOLINT
-            EXPECT_FALSE(a.Perform(std::make_tuple(1)));
-            EXPECT_TRUE(a.Perform(std::make_tuple(-1)));
-        }
+    TEST(InvokeTest, Unary
+    ) {
+    Action<bool(int)> a = Invoke(Unary);  // NOLINT
+    EXPECT_FALSE(a
+    .
+    Perform(std::make_tuple(1)
+    ));
+    EXPECT_TRUE(a
+    .
+    Perform(std::make_tuple(-1)
+    ));
+}
 
 // Tests using Invoke() with a binary function.
-        TEST(InvokeTest, Binary) {
-            Action<const char *(const char *, short)> a = Invoke(Binary);  // NOLINT
-            const char *p = "Hello";
-            EXPECT_EQ(p + 2, a.Perform(std::make_tuple(p, Short(2))));
-        }
+TEST(InvokeTest, Binary
+) {
+Action<const char *(const char *, short)> a = Invoke(Binary);  // NOLINT
+const char *p = "Hello";
+EXPECT_EQ(p
++ 2, a.
+Perform(std::make_tuple(p, Short(2))
+));
+}
 
 // Tests using Invoke() with a ternary function.
-        TEST(InvokeTest, Ternary) {
-            Action<int(int, char, short)> a = Invoke(Ternary);  // NOLINT
-            EXPECT_EQ(6, a.Perform(std::make_tuple(1, '\2', Short(3))));
-        }
+TEST(InvokeTest, Ternary
+) {
+Action<int(int, char, short)> a = Invoke(Ternary);  // NOLINT
+EXPECT_EQ(6, a.
+Perform(std::make_tuple(1, '\2', Short(3))
+));
+}
 
 // Tests using Invoke() with a 4-argument function.
-        TEST(InvokeTest, FunctionThatTakes4Arguments) {
-            Action<int(int, int, int, int)> a = Invoke(SumOf4);  // NOLINT
-            EXPECT_EQ(1234, a.Perform(std::make_tuple(1000, 200, 30, 4)));
-        }
+TEST(InvokeTest, FunctionThatTakes4Arguments
+) {
+Action<int(int, int, int, int)> a = Invoke(SumOf4);  // NOLINT
+EXPECT_EQ(1234, a.
+Perform(std::make_tuple(1000, 200, 30, 4)
+));
+}
 
 // Tests using Invoke() with a 5-argument function.
-        TEST(InvokeTest, FunctionThatTakes5Arguments) {
-            Action<int(int, int, int, int, int)> a = Invoke(SumOf5);  // NOLINT
-            EXPECT_EQ(12345, a.Perform(std::make_tuple(10000, 2000, 300, 40, 5)));
-        }
+TEST(InvokeTest, FunctionThatTakes5Arguments
+) {
+Action<int(int, int, int, int, int)> a = Invoke(SumOf5);  // NOLINT
+EXPECT_EQ(12345, a.
+Perform(std::make_tuple(10000, 2000, 300, 40, 5)
+));
+}
 
 // Tests using Invoke() with a 6-argument function.
-        TEST(InvokeTest, FunctionThatTakes6Arguments) {
-            Action<int(int, int, int, int, int, int)> a = Invoke(SumOf6);  // NOLINT
-            EXPECT_EQ(123456,
-                      a.Perform(std::make_tuple(100000, 20000, 3000, 400, 50, 6)));
-        }
+TEST(InvokeTest, FunctionThatTakes6Arguments
+) {
+Action<int(int, int, int, int, int, int)> a = Invoke(SumOf6);  // NOLINT
+EXPECT_EQ(123456,
+a.
+Perform(std::make_tuple(100000, 20000, 3000, 400, 50, 6)
+));
+}
 
 // A helper that turns the type of a C-string literal from const
 // char[N] to const char*.
-        inline const char *CharPtr(const char *s) { return s; }
+inline const char *CharPtr(const char *s) { return s; }
 
 // Tests using Invoke() with a 7-argument function.
-        TEST(InvokeTest, FunctionThatTakes7Arguments) {
-            Action<std::string(const char *, const char *, const char *, const char *,
-                               const char *, const char *, const char *)>
-                    a = Invoke(Concat7);
-            EXPECT_EQ("1234567",
-                      a.Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
-                                                CharPtr("4"), CharPtr("5"), CharPtr("6"),
-                                                CharPtr("7"))));
-        }
+TEST(InvokeTest, FunctionThatTakes7Arguments
+) {
+Action<std::string(const char *, const char *, const char *, const char *,
+                   const char *, const char *, const char *)>
+        a = Invoke(Concat7);
+EXPECT_EQ("1234567",
+a.
+Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
+                        CharPtr("4"), CharPtr("5"), CharPtr("6"),
+                        CharPtr("7"))
+));
+}
 
 // Tests using Invoke() with a 8-argument function.
-        TEST(InvokeTest, FunctionThatTakes8Arguments) {
-            Action<std::string(const char *, const char *, const char *, const char *,
-                               const char *, const char *, const char *, const char *)>
-                    a = Invoke(Concat8);
-            EXPECT_EQ("12345678",
-                      a.Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
-                                                CharPtr("4"), CharPtr("5"), CharPtr("6"),
-                                                CharPtr("7"), CharPtr("8"))));
-        }
+TEST(InvokeTest, FunctionThatTakes8Arguments
+) {
+Action<std::string(const char *, const char *, const char *, const char *,
+                   const char *, const char *, const char *, const char *)>
+        a = Invoke(Concat8);
+EXPECT_EQ("12345678",
+a.
+Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
+                        CharPtr("4"), CharPtr("5"), CharPtr("6"),
+                        CharPtr("7"), CharPtr("8"))
+));
+}
 
 // Tests using Invoke() with a 9-argument function.
-        TEST(InvokeTest, FunctionThatTakes9Arguments) {
-            Action<std::string(const char *, const char *, const char *, const char *,
-                               const char *, const char *, const char *, const char *,
-                               const char *)>
-                    a = Invoke(Concat9);
-            EXPECT_EQ("123456789", a.Perform(std::make_tuple(
-                    CharPtr("1"), CharPtr("2"), CharPtr("3"),
-                    CharPtr("4"), CharPtr("5"), CharPtr("6"),
-                    CharPtr("7"), CharPtr("8"), CharPtr("9"))));
-        }
+TEST(InvokeTest, FunctionThatTakes9Arguments
+) {
+Action<std::string(const char *, const char *, const char *, const char *,
+                   const char *, const char *, const char *, const char *,
+                   const char *)>
+        a = Invoke(Concat9);
+EXPECT_EQ("123456789", a.
+Perform(std::make_tuple(
+        CharPtr("1"), CharPtr("2"), CharPtr("3"),
+        CharPtr("4"), CharPtr("5"), CharPtr("6"),
+        CharPtr("7"), CharPtr("8"), CharPtr("9"))
+));
+}
 
 // Tests using Invoke() with a 10-argument function.
-        TEST(InvokeTest, FunctionThatTakes10Arguments) {
-            Action<std::string(const char *, const char *, const char *, const char *,
-                               const char *, const char *, const char *, const char *,
-                               const char *, const char *)>
-                    a = Invoke(Concat10);
-            EXPECT_EQ("1234567890",
-                      a.Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
-                                                CharPtr("4"), CharPtr("5"), CharPtr("6"),
-                                                CharPtr("7"), CharPtr("8"), CharPtr("9"),
-                                                CharPtr("0"))));
-        }
+TEST(InvokeTest, FunctionThatTakes10Arguments
+) {
+Action<std::string(const char *, const char *, const char *, const char *,
+                   const char *, const char *, const char *, const char *,
+                   const char *, const char *)>
+        a = Invoke(Concat10);
+EXPECT_EQ("1234567890",
+a.
+Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
+                        CharPtr("4"), CharPtr("5"), CharPtr("6"),
+                        CharPtr("7"), CharPtr("8"), CharPtr("9"),
+                        CharPtr("0"))
+));
+}
 
 // Tests using Invoke() with functions with parameters declared as Unused.
-        TEST(InvokeTest, FunctionWithUnusedParameters) {
-            Action<int(int, int, double, const std::string &)> a1 = Invoke(SumOfFirst2);
-            std::tuple<int, int, double, std::string> dummy =
-                    std::make_tuple(10, 2, 5.6, std::string("hi"));
-            EXPECT_EQ(12, a1.Perform(dummy));
+TEST(InvokeTest, FunctionWithUnusedParameters
+) {
+Action<int(int, int, double, const std::string &)> a1 = Invoke(SumOfFirst2);
+std::tuple<int, int, double, std::string> dummy =
+        std::make_tuple(10, 2, 5.6, std::string("hi"));
+EXPECT_EQ(12, a1.
+Perform(dummy)
+);
 
-            Action<int(int, int, bool, int *)> a2 =
-                    Invoke(SumOfFirst2);
-            EXPECT_EQ(
-                    23, a2.Perform(std::make_tuple(20, 3, true, static_cast<int *>(nullptr))));
-        }
+Action<int(int, int, bool, int *)> a2 =
+        Invoke(SumOfFirst2);
+EXPECT_EQ(
+23, a2.
+Perform(std::make_tuple(20, 3, true, static_cast<int *>(nullptr))
+));
+}
 
 // Tests using Invoke() with methods with parameters declared as Unused.
-        TEST(InvokeTest, MethodWithUnusedParameters) {
-            Foo foo;
-            Action<int(std::string, bool, int, int)> a1 = Invoke(&foo, &Foo::SumOfLast2);
-            EXPECT_EQ(12, a1.Perform(std::make_tuple(CharPtr("hi"), true, 10, 2)));
+TEST(InvokeTest, MethodWithUnusedParameters
+) {
+Foo foo;
+Action<int(std::string, bool, int, int)> a1 = Invoke(&foo, &Foo::SumOfLast2);
+EXPECT_EQ(12, a1.
+Perform(std::make_tuple(CharPtr("hi"), true, 10, 2)
+));
 
-            Action<int(char, double, int, int)> a2 =
-                    Invoke(&foo, &Foo::SumOfLast2);
-            EXPECT_EQ(23, a2.Perform(std::make_tuple('a', 2.5, 20, 3)));
-        }
+Action<int(char, double, int, int)> a2 =
+        Invoke(&foo, &Foo::SumOfLast2);
+EXPECT_EQ(23, a2.
+Perform(std::make_tuple('a', 2.5, 20, 3)
+));
+}
 
 // Tests using Invoke() with a functor.
-        TEST(InvokeTest, Functor) {
-            Action<long(long, int)> a = Invoke(plus<long>());  // NOLINT
-            EXPECT_EQ(3L, a.Perform(std::make_tuple(1, 2)));
-        }
+TEST(InvokeTest, Functor
+) {
+Action<long(long, int)> a = Invoke(plus<long>());  // NOLINT
+EXPECT_EQ(3L, a.
+Perform(std::make_tuple(1, 2)
+));
+}
 
 // Tests using Invoke(f) as an action of a compatible type.
-        TEST(InvokeTest, FunctionWithCompatibleType) {
-            Action<long(int, short, char, bool)> a = Invoke(SumOf4);  // NOLINT
-            EXPECT_EQ(4321, a.Perform(std::make_tuple(4000, Short(300), Char(20), true)));
-        }
+TEST(InvokeTest, FunctionWithCompatibleType
+) {
+Action<long(int, short, char, bool)> a = Invoke(SumOf4);  // NOLINT
+EXPECT_EQ(4321, a.
+Perform(std::make_tuple(4000, Short(300), Char(20), true)
+));
+}
 
 // Tests using Invoke() with an object pointer and a method pointer.
 
 // Tests using Invoke() with a nullary method.
-        TEST(InvokeMethodTest, Nullary) {
-            Foo foo;
-            Action<int()> a = Invoke(&foo, &Foo::Nullary);  // NOLINT
-            EXPECT_EQ(123, a.Perform(std::make_tuple()));
-        }
+TEST(InvokeMethodTest, Nullary
+) {
+Foo foo;
+Action<int()> a = Invoke(&foo, &Foo::Nullary);  // NOLINT
+EXPECT_EQ(123, a.
+
+Perform (std::make_tuple())
+
+);
+}
 
 // Tests using Invoke() with a unary method.
-        TEST(InvokeMethodTest, Unary) {
-            Foo foo;
-            Action<short(long)> a = Invoke(&foo, &Foo::Unary);  // NOLINT
-            EXPECT_EQ(4123, a.Perform(std::make_tuple(4000)));
-        }
+TEST(InvokeMethodTest, Unary
+) {
+Foo foo;
+Action<short(long)> a = Invoke(&foo, &Foo::Unary);  // NOLINT
+EXPECT_EQ(4123, a.
+Perform(std::make_tuple(4000)
+));
+}
 
 // Tests using Invoke() with a binary method.
-        TEST(InvokeMethodTest, Binary) {
-            Foo foo;
-            Action<std::string(const std::string &, char)> a = Invoke(&foo, &Foo::Binary);
-            std::string s("Hell");
-            std::tuple<std::string, char> dummy = std::make_tuple(s, 'o');
-            EXPECT_EQ("Hello", a.Perform(dummy));
-        }
+TEST(InvokeMethodTest, Binary
+) {
+Foo foo;
+Action<std::string(const std::string &, char)> a = Invoke(&foo, &Foo::Binary);
+std::string s("Hell");
+std::tuple<std::string, char> dummy = std::make_tuple(s, 'o');
+EXPECT_EQ("Hello", a.
+Perform(dummy)
+);
+}
 
 // Tests using Invoke() with a ternary method.
-        TEST(InvokeMethodTest, Ternary) {
-            Foo foo;
-            Action<int(int, bool, char)> a = Invoke(&foo, &Foo::Ternary);  // NOLINT
-            EXPECT_EQ(1124, a.Perform(std::make_tuple(1000, true, Char(1))));
-        }
+TEST(InvokeMethodTest, Ternary
+) {
+Foo foo;
+Action<int(int, bool, char)> a = Invoke(&foo, &Foo::Ternary);  // NOLINT
+EXPECT_EQ(1124, a.
+Perform(std::make_tuple(1000, true, Char(1))
+));
+}
 
 // Tests using Invoke() with a 4-argument method.
-        TEST(InvokeMethodTest, MethodThatTakes4Arguments) {
-            Foo foo;
-            Action<int(int, int, int, int)> a = Invoke(&foo, &Foo::SumOf4);  // NOLINT
-            EXPECT_EQ(1357, a.Perform(std::make_tuple(1000, 200, 30, 4)));
-        }
+TEST(InvokeMethodTest, MethodThatTakes4Arguments
+) {
+Foo foo;
+Action<int(int, int, int, int)> a = Invoke(&foo, &Foo::SumOf4);  // NOLINT
+EXPECT_EQ(1357, a.
+Perform(std::make_tuple(1000, 200, 30, 4)
+));
+}
 
 // Tests using Invoke() with a 5-argument method.
-        TEST(InvokeMethodTest, MethodThatTakes5Arguments) {
-            Foo foo;
-            Action<int(int, int, int, int, int)> a = Invoke(&foo, &Foo::SumOf5);  // NOLINT
-            EXPECT_EQ(12345, a.Perform(std::make_tuple(10000, 2000, 300, 40, 5)));
-        }
+TEST(InvokeMethodTest, MethodThatTakes5Arguments
+) {
+Foo foo;
+Action<int(int, int, int, int, int)> a = Invoke(&foo, &Foo::SumOf5);  // NOLINT
+EXPECT_EQ(12345, a.
+Perform(std::make_tuple(10000, 2000, 300, 40, 5)
+));
+}
 
 // Tests using Invoke() with a 6-argument method.
-        TEST(InvokeMethodTest, MethodThatTakes6Arguments) {
-            Foo foo;
-            Action<int(int, int, int, int, int, int)> a =  // NOLINT
-                    Invoke(&foo, &Foo::SumOf6);
-            EXPECT_EQ(123456,
-                      a.Perform(std::make_tuple(100000, 20000, 3000, 400, 50, 6)));
-        }
+TEST(InvokeMethodTest, MethodThatTakes6Arguments
+) {
+Foo foo;
+Action<int(int, int, int, int, int, int)> a =  // NOLINT
+        Invoke(&foo, &Foo::SumOf6);
+EXPECT_EQ(123456,
+a.
+Perform(std::make_tuple(100000, 20000, 3000, 400, 50, 6)
+));
+}
 
 // Tests using Invoke() with a 7-argument method.
-        TEST(InvokeMethodTest, MethodThatTakes7Arguments) {
-            Foo foo;
-            Action<std::string(const char *, const char *, const char *, const char *,
-                               const char *, const char *, const char *)>
-                    a = Invoke(&foo, &Foo::Concat7);
-            EXPECT_EQ("1234567",
-                      a.Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
-                                                CharPtr("4"), CharPtr("5"), CharPtr("6"),
-                                                CharPtr("7"))));
-        }
+TEST(InvokeMethodTest, MethodThatTakes7Arguments
+) {
+Foo foo;
+Action<std::string(const char *, const char *, const char *, const char *,
+                   const char *, const char *, const char *)>
+        a = Invoke(&foo, &Foo::Concat7);
+EXPECT_EQ("1234567",
+a.
+Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
+                        CharPtr("4"), CharPtr("5"), CharPtr("6"),
+                        CharPtr("7"))
+));
+}
 
 // Tests using Invoke() with a 8-argument method.
-        TEST(InvokeMethodTest, MethodThatTakes8Arguments) {
-            Foo foo;
-            Action<std::string(const char *, const char *, const char *, const char *,
-                               const char *, const char *, const char *, const char *)>
-                    a = Invoke(&foo, &Foo::Concat8);
-            EXPECT_EQ("12345678",
-                      a.Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
-                                                CharPtr("4"), CharPtr("5"), CharPtr("6"),
-                                                CharPtr("7"), CharPtr("8"))));
-        }
+TEST(InvokeMethodTest, MethodThatTakes8Arguments
+) {
+Foo foo;
+Action<std::string(const char *, const char *, const char *, const char *,
+                   const char *, const char *, const char *, const char *)>
+        a = Invoke(&foo, &Foo::Concat8);
+EXPECT_EQ("12345678",
+a.
+Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
+                        CharPtr("4"), CharPtr("5"), CharPtr("6"),
+                        CharPtr("7"), CharPtr("8"))
+));
+}
 
 // Tests using Invoke() with a 9-argument method.
-        TEST(InvokeMethodTest, MethodThatTakes9Arguments) {
-            Foo foo;
-            Action<std::string(const char *, const char *, const char *, const char *,
-                               const char *, const char *, const char *, const char *,
-                               const char *)>
-                    a = Invoke(&foo, &Foo::Concat9);
-            EXPECT_EQ("123456789", a.Perform(std::make_tuple(
-                    CharPtr("1"), CharPtr("2"), CharPtr("3"),
-                    CharPtr("4"), CharPtr("5"), CharPtr("6"),
-                    CharPtr("7"), CharPtr("8"), CharPtr("9"))));
-        }
+TEST(InvokeMethodTest, MethodThatTakes9Arguments
+) {
+Foo foo;
+Action<std::string(const char *, const char *, const char *, const char *,
+                   const char *, const char *, const char *, const char *,
+                   const char *)>
+        a = Invoke(&foo, &Foo::Concat9);
+EXPECT_EQ("123456789", a.
+Perform(std::make_tuple(
+        CharPtr("1"), CharPtr("2"), CharPtr("3"),
+        CharPtr("4"), CharPtr("5"), CharPtr("6"),
+        CharPtr("7"), CharPtr("8"), CharPtr("9"))
+));
+}
 
 // Tests using Invoke() with a 10-argument method.
-        TEST(InvokeMethodTest, MethodThatTakes10Arguments) {
-            Foo foo;
-            Action<std::string(const char *, const char *, const char *, const char *,
-                               const char *, const char *, const char *, const char *,
-                               const char *, const char *)>
-                    a = Invoke(&foo, &Foo::Concat10);
-            EXPECT_EQ("1234567890",
-                      a.Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
-                                                CharPtr("4"), CharPtr("5"), CharPtr("6"),
-                                                CharPtr("7"), CharPtr("8"), CharPtr("9"),
-                                                CharPtr("0"))));
-        }
+TEST(InvokeMethodTest, MethodThatTakes10Arguments
+) {
+Foo foo;
+Action<std::string(const char *, const char *, const char *, const char *,
+                   const char *, const char *, const char *, const char *,
+                   const char *, const char *)>
+        a = Invoke(&foo, &Foo::Concat10);
+EXPECT_EQ("1234567890",
+a.
+Perform(std::make_tuple(CharPtr("1"), CharPtr("2"), CharPtr("3"),
+                        CharPtr("4"), CharPtr("5"), CharPtr("6"),
+                        CharPtr("7"), CharPtr("8"), CharPtr("9"),
+                        CharPtr("0"))
+));
+}
 
 // Tests using Invoke(f) as an action of a compatible type.
-        TEST(InvokeMethodTest, MethodWithCompatibleType) {
-            Foo foo;
-            Action<long(int, short, char, bool)> a =  // NOLINT
-                    Invoke(&foo, &Foo::SumOf4);
-            EXPECT_EQ(4444, a.Perform(std::make_tuple(4000, Short(300), Char(20), true)));
-        }
+TEST(InvokeMethodTest, MethodWithCompatibleType
+) {
+Foo foo;
+Action<long(int, short, char, bool)> a =  // NOLINT
+        Invoke(&foo, &Foo::SumOf4);
+EXPECT_EQ(4444, a.
+Perform(std::make_tuple(4000, Short(300), Char(20), true)
+));
+}
 
 // Tests using WithoutArgs with an action that takes no argument.
-        TEST(WithoutArgsTest, NoArg) {
-            Action<int(int n)> a = WithoutArgs(Invoke(Nullary));  // NOLINT
-            EXPECT_EQ(1, a.Perform(std::make_tuple(2)));
-        }
+TEST(WithoutArgsTest, NoArg
+) {
+Action<int(int n)> a = WithoutArgs(Invoke(Nullary));  // NOLINT
+EXPECT_EQ(1, a.
+Perform(std::make_tuple(2)
+));
+}
 
 // Tests using WithArg with an action that takes 1 argument.
-        TEST(WithArgTest, OneArg) {
-            Action<bool(double x, int n)> b = WithArg<1>(Invoke(Unary));  // NOLINT
-            EXPECT_TRUE(b.Perform(std::make_tuple(1.5, -1)));
-            EXPECT_FALSE(b.Perform(std::make_tuple(1.5, 1)));
-        }
+TEST(WithArgTest, OneArg
+) {
+Action<bool(double x, int n)> b = WithArg<1>(Invoke(Unary));  // NOLINT
+EXPECT_TRUE(b
+.
+Perform(std::make_tuple(1.5, -1)
+));
+EXPECT_FALSE(b
+.
+Perform(std::make_tuple(1.5, 1)
+));
+}
 
-        TEST(ReturnArgActionTest, WorksForOneArgIntArg0) {
-            const Action<int(int)> a = ReturnArg<0>();
-            EXPECT_EQ(5, a.Perform(std::make_tuple(5)));
-        }
+TEST(ReturnArgActionTest, WorksForOneArgIntArg0
+) {
+const Action<int(int)> a = ReturnArg<0>();
+EXPECT_EQ(5, a.
+Perform(std::make_tuple(5)
+));
+}
 
-        TEST(ReturnArgActionTest, WorksForMultiArgBoolArg0) {
-            const Action<bool(bool, bool, bool)> a = ReturnArg<0>();
-            EXPECT_TRUE(a.Perform(std::make_tuple(true, false, false)));
-        }
+TEST(ReturnArgActionTest, WorksForMultiArgBoolArg0
+) {
+const Action<bool(bool, bool, bool)> a = ReturnArg<0>();
+EXPECT_TRUE(a
+.
+Perform(std::make_tuple(true, false, false)
+));
+}
 
-        TEST(ReturnArgActionTest, WorksForMultiArgStringArg2) {
-            const Action<std::string(int, int, std::string, int)> a = ReturnArg<2>();
-            EXPECT_EQ("seven", a.Perform(std::make_tuple(5, 6, std::string("seven"), 8)));
-        }
+TEST(ReturnArgActionTest, WorksForMultiArgStringArg2
+) {
+const Action<std::string(int, int, std::string, int)> a = ReturnArg<2>();
+EXPECT_EQ("seven", a.
+Perform(std::make_tuple(5, 6, std::string("seven"), 8)
+));
+}
 
-        TEST(SaveArgActionTest, WorksForSameType) {
-            int result = 0;
-            const Action<void(int n)> a1 = SaveArg<0>(&result);
-            a1.Perform(std::make_tuple(5));
-            EXPECT_EQ(5, result);
-        }
+TEST(SaveArgActionTest, WorksForSameType
+) {
+int result = 0;
+const Action<void(int n)> a1 = SaveArg<0>(&result);
+a1.
+Perform(std::make_tuple(5)
+);
+EXPECT_EQ(5, result);
+}
 
-        TEST(SaveArgActionTest, WorksForCompatibleType) {
-            int result = 0;
-            const Action<void(bool, char)> a1 = SaveArg<1>(&result);
-            a1.Perform(std::make_tuple(true, 'a'));
-            EXPECT_EQ('a', result);
-        }
+TEST(SaveArgActionTest, WorksForCompatibleType
+) {
+int result = 0;
+const Action<void(bool, char)> a1 = SaveArg<1>(&result);
+a1.
+Perform(std::make_tuple(true, 'a')
+);
+EXPECT_EQ('a', result);
+}
 
-        TEST(SaveArgPointeeActionTest, WorksForSameType) {
-            int result = 0;
-            const int value = 5;
-            const Action<void(const int *)> a1 = SaveArgPointee<0>(&result);
-            a1.Perform(std::make_tuple(&value));
-            EXPECT_EQ(5, result);
-        }
+TEST(SaveArgPointeeActionTest, WorksForSameType
+) {
+int result = 0;
+const int value = 5;
+const Action<void(const int *)> a1 = SaveArgPointee<0>(&result);
+a1.
+Perform(std::make_tuple(&value)
+);
+EXPECT_EQ(5, result);
+}
 
-        TEST(SaveArgPointeeActionTest, WorksForCompatibleType) {
-            int result = 0;
-            char value = 'a';
-            const Action<void(bool, char *)> a1 = SaveArgPointee<1>(&result);
-            a1.Perform(std::make_tuple(true, &value));
-            EXPECT_EQ('a', result);
-        }
+TEST(SaveArgPointeeActionTest, WorksForCompatibleType
+) {
+int result = 0;
+char value = 'a';
+const Action<void(bool, char *)> a1 = SaveArgPointee<1>(&result);
+a1.
+Perform(std::make_tuple(true, &value)
+);
+EXPECT_EQ('a', result);
+}
 
-        TEST(SetArgRefereeActionTest, WorksForSameType) {
-            int value = 0;
-            const Action<void(int &)> a1 = SetArgReferee<0>(1);
-            a1.Perform(std::tuple<int &>(value));
-            EXPECT_EQ(1, value);
-        }
+TEST(SetArgRefereeActionTest, WorksForSameType
+) {
+int value = 0;
+const Action<void(int &)> a1 = SetArgReferee<0>(1);
+a1.
+Perform(std::tuple<int &>(value)
+);
+EXPECT_EQ(1, value);
+}
 
-        TEST(SetArgRefereeActionTest, WorksForCompatibleType) {
-            int value = 0;
-            const Action<void(int, int &)> a1 = SetArgReferee<1>('a');
-            a1.Perform(std::tuple<int, int &>(0, value));
-            EXPECT_EQ('a', value);
-        }
+TEST(SetArgRefereeActionTest, WorksForCompatibleType
+) {
+int value = 0;
+const Action<void(int, int &)> a1 = SetArgReferee<1>('a');
+a1.
+Perform(std::tuple<int, int &>(0, value)
+);
+EXPECT_EQ('a', value);
+}
 
-        TEST(SetArgRefereeActionTest, WorksWithExtraArguments) {
-            int value = 0;
-            const Action<void(bool, int, int &, const char *)> a1 = SetArgReferee<2>('a');
-            a1.Perform(std::tuple<bool, int, int &, const char *>(true, 0, value, "hi"));
-            EXPECT_EQ('a', value);
-        }
+TEST(SetArgRefereeActionTest, WorksWithExtraArguments
+) {
+int value = 0;
+const Action<void(bool, int, int &, const char *)> a1 = SetArgReferee<2>('a');
+a1.
+Perform(std::tuple<bool, int, int &, const char *>(true, 0, value, "hi")
+);
+EXPECT_EQ('a', value);
+}
 
 // A class that can be used to verify that its destructor is called: it will set
 // the bool provided to the constructor to true when destroyed.
-        class DeletionTester {
-        public:
-            explicit DeletionTester(bool *is_deleted)
-                    : is_deleted_(is_deleted) {
-                // Make sure the bit is set to false.
-                *is_deleted_ = false;
-            }
+class DeletionTester {
+public:
+    explicit DeletionTester(bool *is_deleted)
+            : is_deleted_(is_deleted) {
+        // Make sure the bit is set to false.
+        *is_deleted_ = false;
+    }
 
-            ~DeletionTester() {
-                *is_deleted_ = true;
-            }
+    ~DeletionTester() {
+        *is_deleted_ = true;
+    }
 
-        private:
-            bool *is_deleted_;
-        };
+private:
+    bool *is_deleted_;
+};
 
-        TEST(DeleteArgActionTest, OneArg) {
-            bool is_deleted = false;
-            DeletionTester *t = new DeletionTester(&is_deleted);
-            const Action<void(DeletionTester *)> a1 = DeleteArg<0>();      // NOLINT
-            EXPECT_FALSE(is_deleted);
-            a1.Perform(std::make_tuple(t));
-            EXPECT_TRUE(is_deleted);
-        }
+TEST(DeleteArgActionTest, OneArg
+) {
+bool is_deleted = false;
+DeletionTester *t = new DeletionTester(&is_deleted);
+const Action<void(DeletionTester *)> a1 = DeleteArg<0>();      // NOLINT
+EXPECT_FALSE(is_deleted);
+a1.
+Perform(std::make_tuple(t)
+);
+EXPECT_TRUE(is_deleted);
+}
 
-        TEST(DeleteArgActionTest, TenArgs) {
-            bool is_deleted = false;
-            DeletionTester *t = new DeletionTester(&is_deleted);
-            const Action<void(bool, int, int, const char *, bool,
-                              int, int, int, int, DeletionTester *)> a1 = DeleteArg<9>();
-            EXPECT_FALSE(is_deleted);
-            a1.Perform(std::make_tuple(true, 5, 6, CharPtr("hi"), false, 7, 8, 9, 10, t));
-            EXPECT_TRUE(is_deleted);
-        }
+TEST(DeleteArgActionTest, TenArgs
+) {
+bool is_deleted = false;
+DeletionTester *t = new DeletionTester(&is_deleted);
+const Action<void(bool, int, int, const char *, bool,
+                  int, int, int, int, DeletionTester *)> a1 = DeleteArg<9>();
+EXPECT_FALSE(is_deleted);
+a1.
+Perform(std::make_tuple(true, 5, 6, CharPtr("hi"), false, 7, 8, 9, 10, t)
+);
+EXPECT_TRUE(is_deleted);
+}
 
 #if GTEST_HAS_EXCEPTIONS
 
-        TEST(ThrowActionTest, ThrowsGivenExceptionInVoidFunction) {
-            const Action<void(int n)> a = Throw('a');
-            EXPECT_THROW(a.Perform(std::make_tuple(0)), char);
-        }
+TEST(ThrowActionTest, ThrowsGivenExceptionInVoidFunction) {
+    const Action<void(int n)> a = Throw('a');
+    EXPECT_THROW(a.Perform(std::make_tuple(0)), char);
+}
 
-        class MyException {
-        };
+class MyException {
+};
 
-        TEST(ThrowActionTest, ThrowsGivenExceptionInNonVoidFunction) {
-            const Action<double(char ch)> a = Throw(MyException());
-            EXPECT_THROW(a.Perform(std::make_tuple('0')), MyException);
-        }
+TEST(ThrowActionTest, ThrowsGivenExceptionInNonVoidFunction) {
+    const Action<double(char ch)> a = Throw(MyException());
+    EXPECT_THROW(a.Perform(std::make_tuple('0')), MyException);
+}
 
-        TEST(ThrowActionTest, ThrowsGivenExceptionInNullaryFunction) {
-            const Action<double()> a = Throw(MyException());
-            EXPECT_THROW(a.Perform(std::make_tuple()), MyException);
-        }
+TEST(ThrowActionTest, ThrowsGivenExceptionInNullaryFunction) {
+    const Action<double()> a = Throw(MyException());
+    EXPECT_THROW(a.Perform(std::make_tuple()), MyException);
+}
 
 #endif  // GTEST_HAS_EXCEPTIONS
 
 // Tests that SetArrayArgument<N>(first, last) sets the elements of the array
 // pointed to by the N-th (0-based) argument to values in range [first, last).
-        TEST(SetArrayArgumentTest, SetsTheNthArray) {
-            typedef void MyFunction(bool, int *, char *);
-            int numbers[] = {1, 2, 3};
-            Action<MyFunction> a = SetArrayArgument<1>(numbers, numbers + 3);
+TEST(SetArrayArgumentTest, SetsTheNthArray
+) {
+typedef void MyFunction(bool, int *, char *);
 
-            int n[4] = {};
-            int *pn = n;
-            char ch[4] = {};
-            char *pch = ch;
-            a.Perform(std::make_tuple(true, pn, pch));
-            EXPECT_EQ(1, n[0]);
-            EXPECT_EQ(2, n[1]);
-            EXPECT_EQ(3, n[2]);
-            EXPECT_EQ(0, n[3]);
-            EXPECT_EQ('\0', ch[0]);
-            EXPECT_EQ('\0', ch[1]);
-            EXPECT_EQ('\0', ch[2]);
-            EXPECT_EQ('\0', ch[3]);
+int numbers[] = {1, 2, 3};
+Action <MyFunction> a = SetArrayArgument<1>(numbers, numbers + 3);
 
-            // Tests first and last are iterators.
-            std::string letters = "abc";
-            a = SetArrayArgument<2>(letters.begin(), letters.end());
-            std::fill_n(n, 4, 0);
-            std::fill_n(ch, 4, '\0');
-            a.Perform(std::make_tuple(true, pn, pch));
-            EXPECT_EQ(0, n[0]);
-            EXPECT_EQ(0, n[1]);
-            EXPECT_EQ(0, n[2]);
-            EXPECT_EQ(0, n[3]);
-            EXPECT_EQ('a', ch[0]);
-            EXPECT_EQ('b', ch[1]);
-            EXPECT_EQ('c', ch[2]);
-            EXPECT_EQ('\0', ch[3]);
-        }
+int n[4] = {};
+int *pn = n;
+char ch[4] = {};
+char *pch = ch;
+a.
+Perform(std::make_tuple(true, pn, pch)
+);
+EXPECT_EQ(1, n[0]);
+EXPECT_EQ(2, n[1]);
+EXPECT_EQ(3, n[2]);
+EXPECT_EQ(0, n[3]);
+EXPECT_EQ('\0', ch[0]);
+EXPECT_EQ('\0', ch[1]);
+EXPECT_EQ('\0', ch[2]);
+EXPECT_EQ('\0', ch[3]);
+
+// Tests first and last are iterators.
+std::string letters = "abc";
+a = SetArrayArgument<2>(letters.begin(), letters.end());
+std::fill_n(n,
+4, 0);
+std::fill_n(ch,
+4, '\0');
+a.
+Perform(std::make_tuple(true, pn, pch)
+);
+EXPECT_EQ(0, n[0]);
+EXPECT_EQ(0, n[1]);
+EXPECT_EQ(0, n[2]);
+EXPECT_EQ(0, n[3]);
+EXPECT_EQ('a', ch[0]);
+EXPECT_EQ('b', ch[1]);
+EXPECT_EQ('c', ch[2]);
+EXPECT_EQ('\0', ch[3]);
+}
 
 // Tests SetArrayArgument<N>(first, last) where first == last.
-        TEST(SetArrayArgumentTest, SetsTheNthArrayWithEmptyRange) {
-            typedef void MyFunction(bool, int *);
-            int numbers[] = {1, 2, 3};
-            Action<MyFunction> a = SetArrayArgument<1>(numbers, numbers);
+TEST(SetArrayArgumentTest, SetsTheNthArrayWithEmptyRange
+) {
+typedef void MyFunction(bool, int *);
 
-            int n[4] = {};
-            int *pn = n;
-            a.Perform(std::make_tuple(true, pn));
-            EXPECT_EQ(0, n[0]);
-            EXPECT_EQ(0, n[1]);
-            EXPECT_EQ(0, n[2]);
-            EXPECT_EQ(0, n[3]);
-        }
+int numbers[] = {1, 2, 3};
+Action <MyFunction> a = SetArrayArgument<1>(numbers, numbers);
+
+int n[4] = {};
+int *pn = n;
+a.
+Perform(std::make_tuple(true, pn)
+);
+EXPECT_EQ(0, n[0]);
+EXPECT_EQ(0, n[1]);
+EXPECT_EQ(0, n[2]);
+EXPECT_EQ(0, n[3]);
+}
 
 // Tests SetArrayArgument<N>(first, last) where *first is convertible
 // (but not equal) to the argument type.
-        TEST(SetArrayArgumentTest, SetsTheNthArrayWithConvertibleType) {
-            typedef void MyFunction(bool, int *);
-            char chars[] = {97, 98, 99};
-            Action<MyFunction> a = SetArrayArgument<1>(chars, chars + 3);
+TEST(SetArrayArgumentTest, SetsTheNthArrayWithConvertibleType
+) {
+typedef void MyFunction(bool, int *);
 
-            int codes[4] = {111, 222, 333, 444};
-            int *pcodes = codes;
-            a.Perform(std::make_tuple(true, pcodes));
-            EXPECT_EQ(97, codes[0]);
-            EXPECT_EQ(98, codes[1]);
-            EXPECT_EQ(99, codes[2]);
-            EXPECT_EQ(444, codes[3]);
-        }
+char chars[] = {97, 98, 99};
+Action <MyFunction> a = SetArrayArgument<1>(chars, chars + 3);
+
+int codes[4] = {111, 222, 333, 444};
+int *pcodes = codes;
+a.
+Perform(std::make_tuple(true, pcodes)
+);
+EXPECT_EQ(97, codes[0]);
+EXPECT_EQ(98, codes[1]);
+EXPECT_EQ(99, codes[2]);
+EXPECT_EQ(444, codes[3]);
+}
 
 // Test SetArrayArgument<N>(first, last) with iterator as argument.
-        TEST(SetArrayArgumentTest, SetsTheNthArrayWithIteratorArgument) {
-            typedef void MyFunction(bool, std::back_insert_iterator<std::string>);
-            std::string letters = "abc";
-            Action<MyFunction> a = SetArrayArgument<1>(letters.begin(), letters.end());
+TEST(SetArrayArgumentTest, SetsTheNthArrayWithIteratorArgument
+) {
+typedef void MyFunction(bool, std::back_insert_iterator<std::string>);
 
-            std::string s;
-            a.Perform(std::make_tuple(true, back_inserter(s)));
-            EXPECT_EQ(letters, s);
-        }
+std::string letters = "abc";
+Action <MyFunction> a = SetArrayArgument<1>(letters.begin(), letters.end());
 
-        TEST(ReturnPointeeTest, Works) {
-            int n = 42;
-            const Action<int()> a = ReturnPointee(&n);
-            EXPECT_EQ(42, a.Perform(std::make_tuple()));
+std::string s;
+a.
+Perform(std::make_tuple(true, back_inserter(s))
+);
+EXPECT_EQ(letters, s
+);
+}
 
-            n = 43;
-            EXPECT_EQ(43, a.Perform(std::make_tuple()));
-        }
+TEST(ReturnPointeeTest, Works
+) {
+int n = 42;
+const Action<int()> a = ReturnPointee(&n);
+EXPECT_EQ(42, a.
 
-    }  // namespace gmock_generated_actions_test
+Perform (std::make_tuple())
+
+);
+
+n = 43;
+EXPECT_EQ(43, a.
+
+Perform (std::make_tuple())
+
+);
+}
+
+}  // namespace gmock_generated_actions_test
 }  // namespace testing

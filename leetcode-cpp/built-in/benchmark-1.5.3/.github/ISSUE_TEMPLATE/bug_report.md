@@ -1,7 +1,5 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: "[BUG]"
+name: Bug report about: Create a report to help us improve title: "[BUG]"
 labels: ''
 assignees: ''
 
@@ -12,11 +10,13 @@ A clear and concise description of what the bug is.
 
 **System**
 Which OS, compiler, and compiler version are you using:
-  - OS: 
-  - Compiler and version: 
+
+- OS:
+- Compiler and version:
 
 **To reproduce**
 Steps to reproduce the behavior:
+
 1. sync to commit ...
 2. cmake/bazel...
 3. make ...

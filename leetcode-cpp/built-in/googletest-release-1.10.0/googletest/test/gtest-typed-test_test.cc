@@ -468,7 +468,9 @@ namespace library2 {
 // that library at all and consequently complain about missing entry
 // point defined in that library (fatal error LNK1561: entry point
 // must be defined). This dummy test keeps gtest_main linked in.
-TEST(DummyTest, TypedTestsAreNotSupportedOnThisPlatform) {}
+TEST(DummyTest, TypedTestsAreNotSupportedOnThisPlatform
+) {
+}
 
 #if _MSC_VER
 GTEST_DISABLE_MSC_WARNINGS_POP_()  //  4127

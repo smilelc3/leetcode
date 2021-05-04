@@ -84,128 +84,139 @@ namespace {
 
     int g_should_fail_count = 0;
 
-    TEST(FooTest, ShouldFail) {
-        g_should_fail_count++;
-        EXPECT_EQ(0, 1) << "Expected failure.";
-    }
+    TEST(FooTest, ShouldFail
+    ) {
+    g_should_fail_count++;
+    EXPECT_EQ(0, 1) << "Expected failure.";
+}
 
 // A test that should pass.
 
-    int g_should_pass_count = 0;
+int g_should_pass_count = 0;
 
-    TEST(FooTest, ShouldPass) {
-        g_should_pass_count++;
-    }
+TEST(FooTest, ShouldPass
+) {
+g_should_pass_count++;
+}
 
 // A test that contains a thread-safe death test and a fast death
 // test.  It should pass.
 
-    int g_death_test_count = 0;
+int g_death_test_count = 0;
 
-    TEST(BarDeathTest, ThreadSafeAndFast) {
-        g_death_test_count++;
+TEST(BarDeathTest, ThreadSafeAndFast
+) {
+g_death_test_count++;
 
-        GTEST_FLAG(death_test_style) = "threadsafe";
-        EXPECT_DEATH_IF_SUPPORTED(::testing::internal::posix::Abort(), "");
+GTEST_FLAG(death_test_style) = "threadsafe";
 
-        GTEST_FLAG(death_test_style) = "fast";
-        EXPECT_DEATH_IF_SUPPORTED(::testing::internal::posix::Abort(), "");
-    }
+EXPECT_DEATH_IF_SUPPORTED(::testing::internal::posix::Abort(),
 
-    int g_param_test_count = 0;
+"");
 
-    const int kNumberOfParamTests = 10;
+GTEST_FLAG(death_test_style) = "fast";
 
-    class MyParamTest : public testing::TestWithParam<int> {
-    };
+EXPECT_DEATH_IF_SUPPORTED(::testing::internal::posix::Abort(),
 
-    TEST_P(MyParamTest, ShouldPass) {
-        GTEST_CHECK_INT_EQ_(g_param_test_count % kNumberOfParamTests, GetParam());
-        g_param_test_count++;
-    }
+"");
+}
 
-    INSTANTIATE_TEST_SUITE_P(MyParamSequence,
-                             MyParamTest,
-                             testing::Range(0, kNumberOfParamTests));
+int g_param_test_count = 0;
+
+const int kNumberOfParamTests = 10;
+
+class MyParamTest : public testing::TestWithParam<int> {
+};
+
+TEST_P(MyParamTest, ShouldPass
+) {
+GTEST_CHECK_INT_EQ_(g_param_test_count % kNumberOfParamTests, GetParam());
+g_param_test_count++;
+}
+
+INSTANTIATE_TEST_SUITE_P(MyParamSequence,
+        MyParamTest,
+        testing::Range(0, kNumberOfParamTests)
+);
 
 // Resets the count for each test.
-    void ResetCounts() {
-        g_environment_set_up_count = 0;
-        g_environment_tear_down_count = 0;
-        g_should_fail_count = 0;
-        g_should_pass_count = 0;
-        g_death_test_count = 0;
-        g_param_test_count = 0;
-    }
+void ResetCounts() {
+    g_environment_set_up_count = 0;
+    g_environment_tear_down_count = 0;
+    g_should_fail_count = 0;
+    g_should_pass_count = 0;
+    g_death_test_count = 0;
+    g_param_test_count = 0;
+}
 
 // Checks that the count for each test is expected.
-    void CheckCounts(int expected) {
-        GTEST_CHECK_INT_EQ_(expected, g_environment_set_up_count);
-        GTEST_CHECK_INT_EQ_(expected, g_environment_tear_down_count);
-        GTEST_CHECK_INT_EQ_(expected, g_should_fail_count);
-        GTEST_CHECK_INT_EQ_(expected, g_should_pass_count);
-        GTEST_CHECK_INT_EQ_(expected, g_death_test_count);
-        GTEST_CHECK_INT_EQ_(expected * kNumberOfParamTests, g_param_test_count);
-    }
+void CheckCounts(int expected) {
+    GTEST_CHECK_INT_EQ_(expected, g_environment_set_up_count);
+    GTEST_CHECK_INT_EQ_(expected, g_environment_tear_down_count);
+    GTEST_CHECK_INT_EQ_(expected, g_should_fail_count);
+    GTEST_CHECK_INT_EQ_(expected, g_should_pass_count);
+    GTEST_CHECK_INT_EQ_(expected, g_death_test_count);
+    GTEST_CHECK_INT_EQ_(expected * kNumberOfParamTests, g_param_test_count);
+}
 
 // Tests the behavior of Google Test when --gtest_repeat is not specified.
-    void TestRepeatUnspecified() {
-        ResetCounts();
-        GTEST_CHECK_INT_EQ_(1, RUN_ALL_TESTS());
-        CheckCounts(1);
-    }
+void TestRepeatUnspecified() {
+    ResetCounts();
+    GTEST_CHECK_INT_EQ_(1, RUN_ALL_TESTS());
+    CheckCounts(1);
+}
 
 // Tests the behavior of Google Test when --gtest_repeat has the given value.
-    void TestRepeat(int repeat) {
-        GTEST_FLAG(repeat) = repeat;
+void TestRepeat(int repeat) {
+    GTEST_FLAG(repeat) = repeat;
 
-        ResetCounts();
-        GTEST_CHECK_INT_EQ_(repeat > 0 ? 1 : 0, RUN_ALL_TESTS());
-        CheckCounts(repeat);
-    }
+    ResetCounts();
+    GTEST_CHECK_INT_EQ_(repeat > 0 ? 1 : 0, RUN_ALL_TESTS());
+    CheckCounts(repeat);
+}
 
 // Tests using --gtest_repeat when --gtest_filter specifies an empty
 // set of tests.
-    void TestRepeatWithEmptyFilter(int repeat) {
-        GTEST_FLAG(repeat) = repeat;
-        GTEST_FLAG(filter) = "None";
+void TestRepeatWithEmptyFilter(int repeat) {
+    GTEST_FLAG(repeat) = repeat;
+    GTEST_FLAG(filter) = "None";
 
-        ResetCounts();
-        GTEST_CHECK_INT_EQ_(0, RUN_ALL_TESTS());
-        CheckCounts(0);
-    }
+    ResetCounts();
+    GTEST_CHECK_INT_EQ_(0, RUN_ALL_TESTS());
+    CheckCounts(0);
+}
 
 // Tests using --gtest_repeat when --gtest_filter specifies a set of
 // successful tests.
-    void TestRepeatWithFilterForSuccessfulTests(int repeat) {
-        GTEST_FLAG(repeat) = repeat;
-        GTEST_FLAG(filter) = "*-*ShouldFail";
+void TestRepeatWithFilterForSuccessfulTests(int repeat) {
+    GTEST_FLAG(repeat) = repeat;
+    GTEST_FLAG(filter) = "*-*ShouldFail";
 
-        ResetCounts();
-        GTEST_CHECK_INT_EQ_(0, RUN_ALL_TESTS());
-        GTEST_CHECK_INT_EQ_(repeat, g_environment_set_up_count);
-        GTEST_CHECK_INT_EQ_(repeat, g_environment_tear_down_count);
-        GTEST_CHECK_INT_EQ_(0, g_should_fail_count);
-        GTEST_CHECK_INT_EQ_(repeat, g_should_pass_count);
-        GTEST_CHECK_INT_EQ_(repeat, g_death_test_count);
-        GTEST_CHECK_INT_EQ_(repeat * kNumberOfParamTests, g_param_test_count);
-    }
+    ResetCounts();
+    GTEST_CHECK_INT_EQ_(0, RUN_ALL_TESTS());
+    GTEST_CHECK_INT_EQ_(repeat, g_environment_set_up_count);
+    GTEST_CHECK_INT_EQ_(repeat, g_environment_tear_down_count);
+    GTEST_CHECK_INT_EQ_(0, g_should_fail_count);
+    GTEST_CHECK_INT_EQ_(repeat, g_should_pass_count);
+    GTEST_CHECK_INT_EQ_(repeat, g_death_test_count);
+    GTEST_CHECK_INT_EQ_(repeat * kNumberOfParamTests, g_param_test_count);
+}
 
 // Tests using --gtest_repeat when --gtest_filter specifies a set of
 // failed tests.
-    void TestRepeatWithFilterForFailedTests(int repeat) {
-        GTEST_FLAG(repeat) = repeat;
-        GTEST_FLAG(filter) = "*ShouldFail";
+void TestRepeatWithFilterForFailedTests(int repeat) {
+    GTEST_FLAG(repeat) = repeat;
+    GTEST_FLAG(filter) = "*ShouldFail";
 
-        ResetCounts();
-        GTEST_CHECK_INT_EQ_(1, RUN_ALL_TESTS());
-        GTEST_CHECK_INT_EQ_(repeat, g_environment_set_up_count);
-        GTEST_CHECK_INT_EQ_(repeat, g_environment_tear_down_count);
-        GTEST_CHECK_INT_EQ_(repeat, g_should_fail_count);
-        GTEST_CHECK_INT_EQ_(0, g_should_pass_count);
-        GTEST_CHECK_INT_EQ_(0, g_death_test_count);
-        GTEST_CHECK_INT_EQ_(0, g_param_test_count);
-    }
+    ResetCounts();
+    GTEST_CHECK_INT_EQ_(1, RUN_ALL_TESTS());
+    GTEST_CHECK_INT_EQ_(repeat, g_environment_set_up_count);
+    GTEST_CHECK_INT_EQ_(repeat, g_environment_tear_down_count);
+    GTEST_CHECK_INT_EQ_(repeat, g_should_fail_count);
+    GTEST_CHECK_INT_EQ_(0, g_should_pass_count);
+    GTEST_CHECK_INT_EQ_(0, g_death_test_count);
+    GTEST_CHECK_INT_EQ_(0, g_param_test_count);
+}
 
 }  // namespace
 

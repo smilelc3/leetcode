@@ -1,4 +1,5 @@
 import unittest
+
 """report.py - Utilities for reporting statistics about benchmark results
 """
 import os
@@ -172,6 +173,7 @@ def calc_utest(timings_cpu, timings_time):
 
     return (min_rep_cnt >= UTEST_OPTIMAL_REPETITIONS), cpu_pvalue, time_pvalue
 
+
 def print_utest(bc_name, utest, utest_alpha, first_col_width, use_color=True):
     def get_utest_color(pval):
         return BC_FAIL if pval >= utest_alpha else BC_OKGREEN
@@ -256,7 +258,8 @@ def get_difference_report(
         # benchmark suite.
         if measurements:
             run_type = partition[0][0]['run_type'] if 'run_type' in partition[0][0] else ''
-            aggregate_name = partition[0][0]['aggregate_name'] if run_type == 'aggregate' and 'aggregate_name' in partition[0][0] else ''
+            aggregate_name = partition[0][0]['aggregate_name'] if run_type == 'aggregate' and 'aggregate_name' in \
+                                                                  partition[0][0] else ''
             diff_report.append({
                 'name': benchmark_name,
                 'measurements': measurements,
@@ -397,11 +400,11 @@ class TestReportDifference(unittest.TestCase):
             ['BM_10PercentFaster', '-0.1000', '-0.1000', '100', '90', '100', '90'],
             ['BM_10PercentSlower', '+0.1000', '+0.1000', '100', '110', '100', '110'],
             ['BM_100xSlower', '+99.0000', '+99.0000',
-                '100', '10000', '100', '10000'],
+             '100', '10000', '100', '10000'],
             ['BM_100xFaster', '-0.9900', '-0.9900',
-                '10000', '100', '10000', '100'],
+             '10000', '100', '10000', '100'],
             ['BM_10PercentCPUToTime', '+0.1000',
-                '-0.1000', '100', '110', '100', '90'],
+             '-0.1000', '100', '110', '100', '90'],
             ['BM_ThirdFaster', '-0.3333', '-0.3334', '100', '67', '100', '67'],
             ['BM_NotBadTimeUnit', '-0.9000', '+0.2000', '0', '0', '0', '1'],
         ]
@@ -420,73 +423,96 @@ class TestReportDifference(unittest.TestCase):
         expected_output = [
             {
                 'name': 'BM_SameTimes',
-                'measurements': [{'time': 0.0000, 'cpu': 0.0000, 'real_time': 10, 'real_time_other': 10, 'cpu_time': 10, 'cpu_time_other': 10}],
+                'measurements': [{'time': 0.0000, 'cpu': 0.0000, 'real_time': 10, 'real_time_other': 10, 'cpu_time': 10,
+                                  'cpu_time_other': 10}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_2xFaster',
-                'measurements': [{'time': -0.5000, 'cpu': -0.5000, 'real_time': 50, 'real_time_other': 25, 'cpu_time': 50, 'cpu_time_other': 25}],
+                'measurements': [
+                    {'time': -0.5000, 'cpu': -0.5000, 'real_time': 50, 'real_time_other': 25, 'cpu_time': 50,
+                     'cpu_time_other': 25}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_2xSlower',
-                'measurements': [{'time': 1.0000, 'cpu': 1.0000, 'real_time': 50, 'real_time_other': 100, 'cpu_time': 50, 'cpu_time_other': 100}],
+                'measurements': [
+                    {'time': 1.0000, 'cpu': 1.0000, 'real_time': 50, 'real_time_other': 100, 'cpu_time': 50,
+                     'cpu_time_other': 100}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_1PercentFaster',
-                'measurements': [{'time': -0.0100, 'cpu': -0.0100, 'real_time': 100, 'real_time_other': 98.9999999, 'cpu_time': 100, 'cpu_time_other': 98.9999999}],
+                'measurements': [
+                    {'time': -0.0100, 'cpu': -0.0100, 'real_time': 100, 'real_time_other': 98.9999999, 'cpu_time': 100,
+                     'cpu_time_other': 98.9999999}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_1PercentSlower',
-                'measurements': [{'time': 0.0100, 'cpu': 0.0100, 'real_time': 100, 'real_time_other': 101, 'cpu_time': 100, 'cpu_time_other': 101}],
+                'measurements': [
+                    {'time': 0.0100, 'cpu': 0.0100, 'real_time': 100, 'real_time_other': 101, 'cpu_time': 100,
+                     'cpu_time_other': 101}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_10PercentFaster',
-                'measurements': [{'time': -0.1000, 'cpu': -0.1000, 'real_time': 100, 'real_time_other': 90, 'cpu_time': 100, 'cpu_time_other': 90}],
+                'measurements': [
+                    {'time': -0.1000, 'cpu': -0.1000, 'real_time': 100, 'real_time_other': 90, 'cpu_time': 100,
+                     'cpu_time_other': 90}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_10PercentSlower',
-                'measurements': [{'time': 0.1000, 'cpu': 0.1000, 'real_time': 100, 'real_time_other': 110, 'cpu_time': 100, 'cpu_time_other': 110}],
+                'measurements': [
+                    {'time': 0.1000, 'cpu': 0.1000, 'real_time': 100, 'real_time_other': 110, 'cpu_time': 100,
+                     'cpu_time_other': 110}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_100xSlower',
-                'measurements': [{'time': 99.0000, 'cpu': 99.0000, 'real_time': 100, 'real_time_other': 10000, 'cpu_time': 100, 'cpu_time_other': 10000}],
+                'measurements': [
+                    {'time': 99.0000, 'cpu': 99.0000, 'real_time': 100, 'real_time_other': 10000, 'cpu_time': 100,
+                     'cpu_time_other': 10000}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_100xFaster',
-                'measurements': [{'time': -0.9900, 'cpu': -0.9900, 'real_time': 10000, 'real_time_other': 100, 'cpu_time': 10000, 'cpu_time_other': 100}],
+                'measurements': [
+                    {'time': -0.9900, 'cpu': -0.9900, 'real_time': 10000, 'real_time_other': 100, 'cpu_time': 10000,
+                     'cpu_time_other': 100}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_10PercentCPUToTime',
-                'measurements': [{'time': 0.1000, 'cpu': -0.1000, 'real_time': 100, 'real_time_other': 110, 'cpu_time': 100, 'cpu_time_other': 90}],
+                'measurements': [
+                    {'time': 0.1000, 'cpu': -0.1000, 'real_time': 100, 'real_time_other': 110, 'cpu_time': 100,
+                     'cpu_time_other': 90}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_ThirdFaster',
-                'measurements': [{'time': -0.3333, 'cpu': -0.3334, 'real_time': 100, 'real_time_other': 67, 'cpu_time': 100, 'cpu_time_other': 67}],
+                'measurements': [
+                    {'time': -0.3333, 'cpu': -0.3334, 'real_time': 100, 'real_time_other': 67, 'cpu_time': 100,
+                     'cpu_time_other': 67}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': 'BM_NotBadTimeUnit',
-                'measurements': [{'time': -0.9000, 'cpu': 0.2000, 'real_time': 0.4, 'real_time_other': 0.04, 'cpu_time': 0.5, 'cpu_time_other': 0.6}],
+                'measurements': [
+                    {'time': -0.9000, 'cpu': 0.2000, 'real_time': 0.4, 'real_time_other': 0.04, 'cpu_time': 0.5,
+                     'cpu_time_other': 0.6}],
                 'time_unit': 's',
                 'utest': {}
             },
@@ -541,25 +567,29 @@ class TestReportDifferenceBetweenFamilies(unittest.TestCase):
         expected_output = [
             {
                 'name': u'.',
-                'measurements': [{'time': -0.5, 'cpu': -0.5, 'real_time': 10, 'real_time_other': 5, 'cpu_time': 10, 'cpu_time_other': 5}],
+                'measurements': [{'time': -0.5, 'cpu': -0.5, 'real_time': 10, 'real_time_other': 5, 'cpu_time': 10,
+                                  'cpu_time_other': 5}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': u'./4',
-                'measurements': [{'time': -0.5, 'cpu': -0.5, 'real_time': 40, 'real_time_other': 20, 'cpu_time': 40, 'cpu_time_other': 20}],
+                'measurements': [{'time': -0.5, 'cpu': -0.5, 'real_time': 40, 'real_time_other': 20, 'cpu_time': 40,
+                                  'cpu_time_other': 20}],
                 'time_unit': 'ns',
                 'utest': {},
             },
             {
                 'name': u'Prefix/.',
-                'measurements': [{'time': -0.5, 'cpu': -0.5, 'real_time': 20, 'real_time_other': 10, 'cpu_time': 20, 'cpu_time_other': 10}],
+                'measurements': [{'time': -0.5, 'cpu': -0.5, 'real_time': 20, 'real_time_other': 10, 'cpu_time': 20,
+                                  'cpu_time_other': 10}],
                 'time_unit': 'ns',
                 'utest': {}
             },
             {
                 'name': u'Prefix/./3',
-                'measurements': [{'time': -0.5, 'cpu': -0.5, 'real_time': 30, 'real_time_other': 15, 'cpu_time': 30, 'cpu_time_other': 15}],
+                'measurements': [{'time': -0.5, 'cpu': -0.5, 'real_time': 30, 'real_time_other': 15, 'cpu_time': 30,
+                                  'cpu_time_other': 15}],
                 'time_unit': 'ns',
                 'utest': {}
             }
@@ -668,11 +698,12 @@ class TestReportDifferenceWithUTest(unittest.TestCase):
                      'cpu_time': 90,
                      'cpu_time_other': 89},
                     {'time': -0.125, 'cpu': -0.16279069767441862, 'real_time': 8,
-                        'real_time_other': 7, 'cpu_time': 86, 'cpu_time_other': 72}
+                     'real_time_other': 7, 'cpu_time': 86, 'cpu_time_other': 72}
                 ],
                 'time_unit': 'ns',
                 'utest': {
-                    'have_optimal_repetitions': False, 'cpu_pvalue': 0.6985353583033387, 'time_pvalue': 0.6985353583033387
+                    'have_optimal_repetitions': False, 'cpu_pvalue': 0.6985353583033387,
+                    'time_pvalue': 0.6985353583033387
                 }
             },
             {
@@ -693,7 +724,8 @@ class TestReportDifferenceWithUTest(unittest.TestCase):
                 ],
                 'time_unit': 'ns',
                 'utest': {
-                    'have_optimal_repetitions': False, 'cpu_pvalue': 0.14891467317876572, 'time_pvalue': 0.7670968684102772
+                    'have_optimal_repetitions': False, 'cpu_pvalue': 0.14891467317876572,
+                    'time_pvalue': 0.7670968684102772
                 }
             },
             {
@@ -720,7 +752,7 @@ class TestReportDifferenceWithUTest(unittest.TestCase):
 
 
 class TestReportDifferenceWithUTestWhileDisplayingAggregatesOnly(
-        unittest.TestCase):
+    unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         def load_results():
@@ -778,7 +810,7 @@ class TestReportDifferenceWithUTestWhileDisplayingAggregatesOnly(
              '9+',
              'repetitions',
              'recommended.'],
-             ['medium', '-0.3750', '-0.3375', '8', '5', '80', '53']
+            ['medium', '-0.3750', '-0.3375', '8', '5', '80', '53']
         ]
         output_lines_with_header = print_difference_report(
             self.json_diff_report,
@@ -816,11 +848,12 @@ class TestReportDifferenceWithUTestWhileDisplayingAggregatesOnly(
                      'cpu_time': 90,
                      'cpu_time_other': 89},
                     {'time': -0.125, 'cpu': -0.16279069767441862, 'real_time': 8,
-                        'real_time_other': 7, 'cpu_time': 86, 'cpu_time_other': 72}
+                     'real_time_other': 7, 'cpu_time': 86, 'cpu_time_other': 72}
                 ],
                 'time_unit': 'ns',
                 'utest': {
-                    'have_optimal_repetitions': False, 'cpu_pvalue': 0.6985353583033387, 'time_pvalue': 0.6985353583033387
+                    'have_optimal_repetitions': False, 'cpu_pvalue': 0.6985353583033387,
+                    'time_pvalue': 0.6985353583033387
                 }
             },
             {
@@ -841,7 +874,8 @@ class TestReportDifferenceWithUTestWhileDisplayingAggregatesOnly(
                 ],
                 'time_unit': 'ns',
                 'utest': {
-                    'have_optimal_repetitions': False, 'cpu_pvalue': 0.14891467317876572, 'time_pvalue': 0.7670968684102772
+                    'have_optimal_repetitions': False, 'cpu_pvalue': 0.14891467317876572,
+                    'time_pvalue': 0.7670968684102772
                 }
             },
             {
@@ -853,7 +887,7 @@ class TestReportDifferenceWithUTestWhileDisplayingAggregatesOnly(
                      'real_time': 8,
                      'cpu_time_other': 53,
                      'cpu': -0.3375
-                    }
+                     }
                 ],
                 'utest': {},
                 'time_unit': u'ns',
