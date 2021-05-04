@@ -27,7 +27,7 @@ func (receiver *BoolStaComp) setSize(size int) *BoolStaComp {
 	return receiver
 }
 
-// 指定idx位状态，置true
+// 设置idx位状态
 func (receiver *BoolStaComp) SetState(idx int, state bool) {
 	if state == true {
 		receiver.SetStateTrue(idx)

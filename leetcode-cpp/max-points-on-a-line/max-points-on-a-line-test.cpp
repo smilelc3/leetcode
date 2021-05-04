@@ -27,6 +27,29 @@ namespace {
         int rightAns = 4;
         ASSERT_EQ(ans, rightAns);
     }
+
+    TEST(maxPointsTest, Example3) {
+        std::vector<std::vector<int>> points = {{-783, -667},
+                                                {-870, -747},
+                                                {87,   133},
+                                                {0,    53},
+                                                {261,  293},
+                                                {-609, -507},
+                                                {-435, -347},
+                                                {870,  853},
+                                                {435,  453},
+                                                {609,  613},
+                                                {174,  213},
+                                                {-261, -187},
+                                                {-348, -267},
+                                                {-87,  -27},
+                                                {-174, -107},
+                                                {783,  773},
+                                                {696,  693}};
+        auto ans = Solution().maxPoints(points);
+        int rightAns = 17;
+        ASSERT_EQ(ans, rightAns);
+    }
 }
 
 
