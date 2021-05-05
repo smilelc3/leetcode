@@ -50,6 +50,15 @@ namespace {
         int rightAns = 17;
         ASSERT_EQ(ans, rightAns);
     }
+
+    TEST(maxPointsTest, Example4) {
+        std::vector<std::vector<int>> points = {{2,  3},
+                                                {3,  3},
+                                                {-5, 3}};
+        auto ans = Solution().maxPoints(points);
+        int rightAns = 3;
+        ASSERT_EQ(ans, rightAns);
+    }
 }
 
 
