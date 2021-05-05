@@ -13,13 +13,12 @@ find_package(Threads REQUIRED)
 # 检测test代码
 if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.cpp)
     # 编译test代码
-    # 长文件限制
-    add_executable(construct-binary-tree-from-in-post-test ${CURRENT_FOLDER}-test.cpp)
-    target_link_libraries(construct-binary-tree-from-in-post-test gtest ${CMAKE_THREAD_LIBS_INIT})
+    add_executable(${CURRENT_FOLDER}-test ${CURRENT_FOLDER}-test.cpp)
+    target_link_libraries(${CURRENT_FOLDER}-test gtest ${CMAKE_THREAD_LIBS_INIT})
     # 添加built-in库依赖
-    target_link_libraries(construct-binary-tree-from-in-post-test built-in)
+    target_link_libraries(${CURRENT_FOLDER}-test built-in)
     # 运行测试
-    add_test(${CURRENT_FOLDER} construct-binary-tree-from-in-post-test)
+    add_test(${CURRENT_FOLDER} ${CURRENT_FOLDER}-test)
 else ()
     message(STATUS "${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.cpp source file not found! -> skip test")
 endif ()
