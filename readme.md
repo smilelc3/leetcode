@@ -14,7 +14,7 @@
   * Linux(推荐)：GCC 或 Clang
   * Windows(可用)：MSVC(Visual Studio 2019以上) 或 MinGW(线程模型必须为 posix 版本)
   * macOS(待测试)：Clang 或 GCC 
-* 因为Windows平台存在[最大路径长度限制]([最大路径长度限制 - Win32 apps | Microsoft Docs](https://docs.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd))，需要将工程直接放在根目录，防止 [CMAKE_OBJECT_PATH_MAX](https://cmake.org/cmake/help/latest/variable/CMAKE_OBJECT_PATH_MAX.html) 引发生成文件报错；
+* 因为Windows平台存在[最大路径长度限制](https://docs.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd)，需要将工程直接放在根目录，防止 [CMAKE_OBJECT_PATH_MAX](https://cmake.org/cmake/help/latest/variable/CMAKE_OBJECT_PATH_MAX.html) 引发生成文件报错；
 
 * C++单元测试使用[Google Test](https://github.com/google/googletest)，性能测试使用[Google Benchmark](https://github.com/google/benchmark)。二者已经以源代码形式存在于 [leetcode-cpp/built-in](leetcode-cpp/built-in) 文件夹中，直接导入项目即可。
 
@@ -179,5 +179,5 @@
   算法，且已尽可能优化。但是测试样例存在[bug](https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues/2295)
   ，即使使用提交页面提供的0ms代码，在当前测试样例下，至少也有80ms耗时，与本人结果一致，怀疑存在后期加入其他复杂测试样例。
 * [89. Gray Code](https://leetcode.com/problems/gray-code/)  已做到时间+空间最优解，运算全部位运算，不论golang还是C++都做不到0ms解或则最优空间。
-* [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) 有**三点枚举优化**和斜率HashMap两种方法，前者在本地性能测试中总优于后者，但在线测试时前者耗时均多于后者。
+* [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) 有**三点枚举优化**和**斜率HashMap**两种方法，前者在本地性能测试中总优于后者，但在线测试时前者耗时均多于后者。
 
