@@ -9,19 +9,17 @@
 
 ### C++ 补充
 
-* 代码使用C++14标准，构建工具使用[CMake](https://cmake.org/download/)，推荐使用[Clion](https://www.jetbrains.com/clion/)作为IDE，导入工程目录为：[leetcode/leetcode-cpp](leetcode-cpp)，已经配置好 CMakeLists.txt 脚本、Debug/Release 模式；
+* 代码使用C++14标准，构建工具使用 [CMake](https://cmake.org/download/) ，推荐使用 [Clion](https://www.jetbrains.com/clion/) 作为IDE，导入工程目录为：[leetcode/leetcode-cpp](leetcode-cpp)，已经配置好 CMakeLists.txt 脚本、Debug/Release 模式；
 * 某些低版本编译器可能无法编译， **平台+编译器**推荐组合如下：
   * Linux(推荐)：GCC 或 Clang
   * Windows(可用)：MSVC(Visual Studio 2019以上) 或 MinGW(线程模型必须为 posix 版本)
   * macOS(待测试)：Clang 或 GCC 
-* 因为Windows平台存在[最大路径长度限制](https://docs.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd)，需要将工程直接放在根目录，防止 [CMAKE_OBJECT_PATH_MAX](https://cmake.org/cmake/help/latest/variable/CMAKE_OBJECT_PATH_MAX.html) 引发生成文件报错；
-
-* C++单元测试使用[Google Test](https://github.com/google/googletest)，性能测试使用[Google Benchmark](https://github.com/google/benchmark)。二者已经以源代码形式存在于 [leetcode-cpp/built-in](leetcode-cpp/built-in) 文件夹中，直接导入项目即可。
+* 因为Windows平台存在 [最大路径长度限制](https://docs.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd) ，需要将工程直接放在根目录，防止 [CMAKE_OBJECT_PATH_MAX](https://cmake.org/cmake/help/latest/variable/CMAKE_OBJECT_PATH_MAX.html) 引发生成文件报错；
+* C++单元测试使用 [Google Test](https://github.com/google/googletest) ，性能测试使用 [Google Benchmark](https://github.com/google/benchmark) 。二者已经以源代码形式存在于 [leetcode-cpp/built-in](leetcode-cpp/built-in) 文件夹中，直接导入项目即可。
 
 ### Golang 补充
 
-* 使用mod管理包，推荐使用[Goland](https://www.jetbrains.com/go/)作为IDE，导入工程目录为：[leetcode\leetcode-go](leetcode-go)；
-
+* 使用mod管理包，推荐使用 [Goland](https://www.jetbrains.com/go/) 作为IDE，导入工程目录为：[leetcode\leetcode-go](leetcode-go) ；
 * Golang自动化测试使用自带test命令，包括单元测试和性能测试。
 
 ## 汇总表
