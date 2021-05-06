@@ -1,15 +1,32 @@
 # leetcode自由刷题
 
 ## 说明
-* 代码由C++14或者golang编写，可根据文件后缀判断。C++单元测试使用[Gtest](https://github.com/google/googletest)框架，go单元测试使用自带test工具；
-* 全部代码解法**均为时间最优解**，在某些题的代码中，包含多个可AC方法，最终也只采用最优时间解；
-* 每个题单独创建以题名为命名的文件夹(package)，下含有源码与单元测试代码，均通过测试；
+* 代码由C++或者Go语言编写，可根据文件后缀判断；
+* 全部代码解法**均为时间最优解**，在某些题的代码中，包含多个可AC方法，最终也只采用时间/空间最优解；
+* 每个题单独创建以题名为命名的文件夹，下含有源码与单元测试代码，均通过测试；
 * 某些题目未给出时间复杂度，其原因多在于存在回溯操作，难以正确估计实际时间复杂度；
 * 若题目对空间复杂度有明确要求，例如O(1)，所给代码均按照要求实现。
 
+### C++ 补充
+
+* 代码使用C++14标准，构建工具使用[CMake](https://cmake.org/download/)，推荐使用[Clion](https://www.jetbrains.com/clion/)作为IDE，导入工程目录为：[leetcode/leetcode-cpp](leetcode-cpp)，已经配置好 CMakeLists.txt 脚本、Debug/Release 模式；
+* 某些低版本编译器可能无法编译， **平台+编译器**推荐组合如下：
+  * Linux(推荐)：GCC 或 Clang
+  * Windows(可用)：MSVC(Visual Studio 2019以上) 或 MinGW(线程模型必须为 posix 版本)
+  * macOS(待测试)：Clang 或 GCC 
+* 因为Windows平台存在[最大路径长度限制]([最大路径长度限制 - Win32 apps | Microsoft Docs](https://docs.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd))，需要将工程直接放在根目录，防止 [CMAKE_OBJECT_PATH_MAX](https://cmake.org/cmake/help/latest/variable/CMAKE_OBJECT_PATH_MAX.html) 引发生成文件报错；
+
+* C++单元测试使用[Google Test](https://github.com/google/googletest)，性能测试使用[Google Benchmark](https://github.com/google/benchmark)。二者已经以源代码形式存在于 [leetcode-cpp/built-in](leetcode-cpp/built-in) 文件夹中，直接导入项目即可。
+
+### Golang 补充
+
+* 使用mod管理包，推荐使用[Goland](https://www.jetbrains.com/go/)作为IDE，导入工程目录为：[leetcode\leetcode-go](leetcode-go)；
+
+* Golang自动化测试使用自带test命令，包括单元测试和性能测试。
+
 ## 汇总表
 
-| 编号 | 题目 | 代码 | 时间复杂度 | 简述 |  空间复杂度 |
+| 编号 | 题目 | 代码文件 | 时间复杂度 | 简述 |  空间复杂度 |
 |:---:|:-----:|:---:|:---:|:---:|:---:|
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | [two-sum.go](leetcode-go/two-sum/two-sum.go) | O(n) | 哈希Map |  |
 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | [add-two-numbers.go](leetcode-go/add-two-numbers/add-two-numbers.go) | O(n) | 单向链表 | |
@@ -147,7 +164,7 @@
 | 145 | [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) | [binary-tree-postorder-traversal.cpp](leetcode-cpp/binary-tree-postorder-traversal/binary-tree-postorder-traversal.cpp) | O(n) | 二叉树后序遍历 | O(n) |
 | 146 | [LRU Cache](https://leetcode.com/problems/lru-cache/) | [lru-cache.cpp](leetcode-cpp/lru-cache/lru-cache.cpp) | O(1) | 双链表+HashMap实现LRU | O(n) |
 | 148 | [Sort List](https://leetcode.com/problems/sort-list/) | [sort-list.cpp](leetcode-cpp/sort-list/sort-list.cpp) | O(nlog(n)) | 单链表归并排序 | O(1) |
-| 149 | [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) | [max-points-on-a-line.cpp](leetcode-cpp/max-points-on-a-line/max-points-on-a-line.cpp) | O(n^2) | 三点共线/斜率HashMap | O(n) |
+| 149 | [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) | [max-points-on-a-line.cpp](leetcode-cpp/max-points-on-a-line/max-points-on-a-line.cpp) | O(n^2) | 三点枚举优化/斜率HashMap | O(n) |
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | [evaluate-reverse-polish-notation.cpp](leetcode-cpp/evaluate-reverse-polish-notation/evaluate-reverse-polish-notation.cpp) | O(n) | 后缀表达式（逆波兰式）求值 | O(n) |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | [reverse-linked-list.cpp](leetcode-cpp/reverse-linked-list/reverse-linked-list.cpp) | O(n) | 单链翻转 | O(1) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
@@ -162,3 +179,5 @@
   算法，且已尽可能优化。但是测试样例存在[bug](https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues/2295)
   ，即使使用提交页面提供的0ms代码，在当前测试样例下，至少也有80ms耗时，与本人结果一致，怀疑存在后期加入其他复杂测试样例。
 * [89. Gray Code](https://leetcode.com/problems/gray-code/)  已做到时间+空间最优解，运算全部位运算，不论golang还是C++都做不到0ms解或则最优空间。
+* [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) 有**三点枚举优化**和斜率HashMap两种方法，前者在本地性能测试中总优于后者，但在线测试时前者耗时均多于后者。
+

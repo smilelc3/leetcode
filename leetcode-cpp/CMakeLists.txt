@@ -6,10 +6,12 @@ if (MSVC)
     # MSVC默认以MD(多线程DLL)动态链接库文件，不适合本项目，替换MD为MT（多线程静态）
 
     set(CompilerFlags
+            CMAKE_CXX_FLAGS
             CMAKE_CXX_FLAGS_DEBUG
             CMAKE_CXX_FLAGS_RELEASE
             CMAKE_CXX_FLAGS_MINSIZEREL
             CMAKE_CXX_FLAGS_RELWITHDEBINFO
+            CMAKE_C_FLAGS
             CMAKE_C_FLAGS_DEBUG
             CMAKE_C_FLAGS_RELEASE
             CMAKE_C_FLAGS_MINSIZEREL
@@ -23,7 +25,6 @@ if (MSVC)
     add_compile_options(/permissive-)
 endif()
 
-set(CMAKE_OBJECT_PATH_MAX 4096)
 
 # 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
 enable_testing()

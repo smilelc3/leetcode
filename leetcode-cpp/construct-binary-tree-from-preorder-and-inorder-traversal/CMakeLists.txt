@@ -9,16 +9,18 @@ set(CMAKE_CXX_STANDARD 14)
 # Google Test/Benchmark 需要 Threads 库支持
 find_package(Threads REQUIRED)
 
+# Windows 平台路径长度限制：260，缩短名称，不然编译失败
+set(test_target_short_name constr-bin-tree-from-pre-in-test)
 
 # 检测test代码
 if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.cpp)
     # 编译test代码
-    add_executable(${CURRENT_FOLDER}-test ${CURRENT_FOLDER}-test.cpp)
-    target_link_libraries(${CURRENT_FOLDER}-test gtest ${CMAKE_THREAD_LIBS_INIT})
+    add_executable(${test_target_short_name} ${CURRENT_FOLDER}-test.cpp)
+    target_link_libraries(${test_target_short_name} gtest ${CMAKE_THREAD_LIBS_INIT})
     # 添加built-in库依赖
-    target_link_libraries(${CURRENT_FOLDER}-test built-in)
+    target_link_libraries(${test_target_short_name} built-in)
     # 运行测试
-    add_test(${CURRENT_FOLDER} ${CURRENT_FOLDER}-test)
+    add_test(${CURRENT_FOLDER} ${test_target_short_name})
 else ()
     message(STATUS "${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.cpp source file not found! -> skip test")
 endif ()
