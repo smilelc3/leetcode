@@ -25,7 +25,7 @@ bool isSameList(const ListNode *head1, const ListNode *head2) {
         throw std::length_error("Link exist Cycle");
     }
 
-    if (head1 == nullptr ^ head2 == nullptr) {
+    if ((head1 == nullptr) ^ (head2 == nullptr)) {
         return false;
     } else {
         if (head1 == nullptr) {
