@@ -14,9 +14,9 @@ TreeNode *GenTreeByNums(const std::vector<int> &numsConst, int nullNum) {
     nums.erase(nums.begin());
     auto preLevelNode = std::vector<TreeNode *>{root}; // 维护上一层所有非空父节点
     while (!nums.empty()) {
-        int numPreLevelNodes = preLevelNode.size();
-        int numsIdx = 0;
-        for (int idx = 0; idx < numPreLevelNodes; idx++) {
+        decltype(preLevelNode.size()) numPreLevelNodes = preLevelNode.size();
+        decltype(nums.size()) numsIdx = 0;
+        for (decltype(numPreLevelNodes) idx = 0; idx < numPreLevelNodes; idx++) {
             if (numsIdx < nums.size()) {
                 if (nums[numsIdx] != nullNum) {
                     preLevelNode[idx]->left = new TreeNode{nums[numsIdx]};
@@ -48,9 +48,9 @@ TreeNode *GenTreeByNums(const std::vector<int> &numsConst) {
     nums.erase(nums.begin());
     auto preLevelNode = std::vector<TreeNode *>{root}; // 维护上一层所有非空父节点
     while (!nums.empty()) {
-        int numPreLevelNodes = preLevelNode.size();
-        int numsIdx = 0;
-        for (int idx = 0; idx < numPreLevelNodes; idx++) {
+        decltype(preLevelNode.size()) numPreLevelNodes = preLevelNode.size();
+        decltype(nums.size()) numsIdx = 0;
+        for (decltype(numPreLevelNodes) idx = 0; idx < numPreLevelNodes; idx++) {
             if (numsIdx < nums.size()) {
                 preLevelNode[idx]->left = new TreeNode{nums[numsIdx]};
                 preLevelNode.push_back(preLevelNode[idx]->left);

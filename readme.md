@@ -161,6 +161,7 @@
 | 143 | [Reorder List](https://leetcode.com/problems/reorder-list/) | [reorder-list.cpp](leetcode-cpp/reorder-list/reorder-list.cpp) | O(n) | 链表重排序 | O(1) |
 | 145 | [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) | [binary-tree-postorder-traversal.cpp](leetcode-cpp/binary-tree-postorder-traversal/binary-tree-postorder-traversal.cpp) | O(n) | 二叉树后序遍历 | O(n) |
 | 146 | [LRU Cache](https://leetcode.com/problems/lru-cache/) | [lru-cache.cpp](leetcode-cpp/lru-cache/lru-cache.cpp) | O(1) | 双链表+HashMap实现LRU | O(n) |
+| 147 | [Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) | [insertion-sort-list.cpp](leetcode-cpp/insertion-sort-list/insertion-sort-list.cpp) | O(n^2) |                        单链表插入排序                        | O(1) |
 | 148 | [Sort List](https://leetcode.com/problems/sort-list/) | [sort-list.cpp](leetcode-cpp/sort-list/sort-list.cpp) | O(nlog(n)) | 单链表归并排序 | O(1) |
 | 149 | [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) | [max-points-on-a-line.cpp](leetcode-cpp/max-points-on-a-line/max-points-on-a-line.cpp) | O(n^2) | 三点枚举优化/斜率HashMap | O(n) |
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | [evaluate-reverse-polish-notation.cpp](leetcode-cpp/evaluate-reverse-polish-notation/evaluate-reverse-polish-notation.cpp) | O(n) | 后缀表达式（逆波兰式）求值 | O(n) |
@@ -177,5 +178,6 @@
   算法，且已尽可能优化。但是测试样例存在[bug](https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues/2295)
   ，即使使用提交页面提供的0ms代码，在当前测试样例下，至少也有80ms耗时，与本人结果一致，怀疑存在后期加入其他复杂测试样例。
 * [89. Gray Code](https://leetcode.com/problems/gray-code/)  已做到时间+空间最优解，运算全部位运算，不论golang还是C++都做不到0ms解或则最优空间。
-* [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) 有**三点枚举优化**和**斜率HashMap**两种方法，前者在本地性能测试中总优于后者，但在线测试时前者耗时均多于后者。
+* [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) 要求在单链表上实现插入排序（时间复杂度：O(n^2)，空间：O(1)），但为了在线评测中时间表现优异，添加了快速排序实现（时间复杂度：O(nlog(n))，空间：O(n)）。
+* [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) 有`三点枚举优化`和`斜率HashMap`两种方法，前者在本地性能测试中总优于后者，但在线测试时前者耗时均多于后者。
 
