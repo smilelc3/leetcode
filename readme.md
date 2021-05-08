@@ -153,7 +153,7 @@
 | 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [longest-consecutive-sequence.cpp](leetcode-cpp/longest-consecutive-sequence/longest-consecutive-sequence.cpp) | O(n) | HashMap | O(n) |
 | 129 | [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) | [sum-root-to-leaf-numbers.cpp](leetcode-cpp/sum-root-to-leaf-numbers/sum-root-to-leaf-numbers.cpp) | O(2^n) | 二叉树深度遍历 | O(1) |
 | 130 | [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) | [longest-consecutive-sequence.cpp](leetcode-cpp/surrounded-regions/surrounded-regions.cpp) | O(m*n) | DFS地图 | O(1) |
-| 133 | [Clone Graph](https://leetcode.com/problems/clone-graph/) | [clone-graph.cpp](leetcode-cpp/clone-graph/clone-graph.cpp) | O(VE) | 无向图复制 | O(VE) |
+| 133 | [Clone Graph](https://leetcode.com/problems/clone-graph/) | [clone-graph.cpp](leetcode-cpp/clone-graph/clone-graph.cpp) | O(VE) | 深拷贝：无向图 | O(VE) |
 | 134 | [Gas Station](https://leetcode.com/problems/gas-station/) | [gas-station.cpp](leetcode-cpp/gas-station/gas-station.cpp) | O(n) | 贪心 | O(1) |
 | 136 | [Single Number](https://leetcode.com/problems/single-number/) | [single-number.cpp](leetcode-cpp/single-number/single-number.cpp) | O(n) | 异或判重 | O(1) |
 | 137 | [Single Number II](https://leetcode.com/problems/single-number-ii/) | [single-number-ii.cpp](leetcode-cpp/single-number-ii/single-number-ii.cpp) | O(n) | 位操作模拟三进制 | O(1) |
