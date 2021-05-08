@@ -151,6 +151,7 @@
 | 126 | [Word Ladder II](https://leetcode.com/problems/word-ladder-ii/) | [word-ladder-ii.cpp](leetcode-cpp/word-ladder-ii/word-ladder-ii.cpp) | O(n*26^(l/2)) | 双向BFS+DFS | O(k*n) |
 | 127 | [Word Ladder](https://leetcode.com/problems/word-ladder/) | [word-ladder.cpp](leetcode-cpp/word-ladder/word-ladder.cpp) | O(n*26^(l/2)) | 双向BFS | O(n) |
 | 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [longest-consecutive-sequence.cpp](leetcode-cpp/longest-consecutive-sequence/longest-consecutive-sequence.cpp) | O(n) | HashMap | O(n) |
+| 129 | [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/) | [sum-root-to-leaf-numbers.cpp](leetcode-cpp/sum-root-to-leaf-numbers/sum-root-to-leaf-numbers.cpp) | O(2^n) | 二叉树深度遍历 | O(1) |
 | 130 | [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) | [longest-consecutive-sequence.cpp](leetcode-cpp/surrounded-regions/surrounded-regions.cpp) | O(m*n) | DFS地图 | O(1) |
 | 133 | [Clone Graph](https://leetcode.com/problems/clone-graph/) | [clone-graph.cpp](leetcode-cpp/clone-graph/clone-graph.cpp) | O(VE) | 无向图复制 | O(VE) |
 | 134 | [Gas Station](https://leetcode.com/problems/gas-station/) | [gas-station.cpp](leetcode-cpp/gas-station/gas-station.cpp) | O(n) | 贪心 | O(1) |
