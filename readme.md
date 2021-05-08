@@ -157,6 +157,7 @@
 | 134 | [Gas Station](https://leetcode.com/problems/gas-station/) | [gas-station.cpp](leetcode-cpp/gas-station/gas-station.cpp) | O(n) | 贪心 | O(1) |
 | 136 | [Single Number](https://leetcode.com/problems/single-number/) | [single-number.cpp](leetcode-cpp/single-number/single-number.cpp) | O(n) | 异或判重 | O(1) |
 | 137 | [Single Number II](https://leetcode.com/problems/single-number-ii/) | [single-number-ii.cpp](leetcode-cpp/single-number-ii/single-number-ii.cpp) | O(n) | 位操作模拟三进制 | O(1) |
+| 138 | [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) | [copy-list-with-random-pointer.cpp](leetcode-cpp/copy-list-with-random-pointer/copy-list-with-random-pointer.cpp) | O(n) | 深拷贝：原节点后拷贝新节点 | O(1) |
 | 139 | [Word Break](https://leetcode.com/problems/word-break/) | [word-break.cpp](leetcode-cpp/word-break/word-break.cpp) | O(n^2) | HashMap + DP | O(n) |
 | 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | [linked-list-cycle.go](leetcode-go/linked-list-cycle/linked-list-cycle.go) [linked-list-cycle.cpp](leetcode-cpp/linked-list-cycle/linked-list-cycle.cpp) | O(n) | 链表判环：快慢指针 | O(1) |
 | 142 | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | [linked-list-cycle-ii.cpp](leetcode-cpp/linked-list-cycle-ii/linked-list-cycle-ii.cpp) | O(n) | 链表环起点：快慢指针 | O(1) |
