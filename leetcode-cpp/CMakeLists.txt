@@ -4,7 +4,6 @@ project(leetcode-cpp)
 
 if (MSVC)
     # MSVC默认以MD(多线程DLL)动态链接库文件，不适合本项目，替换MD为MT（多线程静态）
-
     set(CompilerFlags
             CMAKE_CXX_FLAGS
             CMAKE_CXX_FLAGS_DEBUG
@@ -23,6 +22,8 @@ if (MSVC)
 
     # 指定编译器的标准一致性模式(支持关键词： and or not)
     add_compile_options(/permissive-)
+    # 禁用warning C4819警告(utf-8文件警告)
+    add_compile_options(/wd4819)
 endif()
 
 

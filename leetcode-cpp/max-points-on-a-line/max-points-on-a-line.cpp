@@ -9,14 +9,14 @@
 
 class Solution {
 public:
-    int maxPoints(std::vector<std::vector<int>> &points) {
+    size_t maxPoints(std::vector<std::vector<int>> &points) {
         return maxPointsMethod1(points);
 
         return maxPointsMethod2(points);
     }
 
     //  time: O(n^2) space: O(n^2)
-    int maxPointsMethod1(std::vector<std::vector<int>> &points) {
+    size_t maxPointsMethod1(std::vector<std::vector<int>> &points) {
         if (points.size() <= 2) {
             return points.size();
         }

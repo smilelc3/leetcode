@@ -5,9 +5,9 @@
 #include "BoolStaComp.h"
 #include <stdexcept>
 
-void BoolStaComp::setSize(int _size) {
-    if (_size <= 0) {
-        throw std::out_of_range("size must > 0");
+void BoolStaComp::setSize(size_t _size) {
+    if (_size < 0) {
+        throw std::out_of_range("size must >= 0");
     }
     size = _size;
 
@@ -18,11 +18,11 @@ void BoolStaComp::setSize(int _size) {
     data = std::vector<uint8_t>(int8sLength, 0);
 }
 
-BoolStaComp::BoolStaComp(int _size) {
+BoolStaComp::BoolStaComp(size_t _size) {
     setSize(_size);
 }
 
-void BoolStaComp::SetState(int idx, bool state) {
+void BoolStaComp::SetState(size_t idx, bool state) {
     if (state) {
         SetStateTrue(idx);
     } else {
@@ -30,18 +30,18 @@ void BoolStaComp::SetState(int idx, bool state) {
     }
 }
 
-void BoolStaComp::SetStateTrue(int idx) {
+void BoolStaComp::SetStateTrue(size_t idx) {
     data.at(idx >> 3) |= 1 << (idx & 0x7);
 }
 
-void BoolStaComp::SetStateFalse(int idx) {
+void BoolStaComp::SetStateFalse(size_t idx) {
     data.at(idx >> 3) &= ~(1 << (idx & 0x7));
 }
 
-void BoolStaComp::ReverseState(int idx) {
+void BoolStaComp::ReverseState(size_t idx) {
     data.at(idx >> 3) ^= 1 << (idx & 0x7);
 }
 
-bool BoolStaComp::GetState(int idx) {
+bool BoolStaComp::GetState(size_t idx) {
     return data.at(idx >> 3) >> (idx & 0x7) & 1;
 }

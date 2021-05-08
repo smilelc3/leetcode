@@ -29,22 +29,6 @@ Example usage:
 
 from absl import app
 from google_benchmark import _benchmark
-from google_benchmark._benchmark import (
-    Counter,
-    kNanosecond,
-    kMicrosecond,
-    kMillisecond,
-    kSecond,
-    oNone,
-    o1,
-    oN,
-    oNSquared,
-    oNCubed,
-    oLogN,
-    oNLogN,
-    oAuto,
-    oLambda,
-)
 
 __all__ = [
     "register",

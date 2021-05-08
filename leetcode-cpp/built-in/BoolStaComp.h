@@ -10,29 +10,29 @@
 
 class BoolStaComp {
 private:
-    int size{};
+    size_t size{};
     std::vector<uint8_t> data{};
 
-    void setSize(int size);
+    void setSize(size_t size);
 
 public:
     // 构造函数
-    explicit BoolStaComp(int size);
+    explicit BoolStaComp(size_t size);
 
     // 指定idx位状态
-    void SetState(int idx, bool state);
+    void SetState(size_t idx, bool state);
 
     // 指定idx位状态，置true
-    void SetStateTrue(int idx);
+    void SetStateTrue(size_t idx);
 
     // 指定idx位状态，置false
-    void SetStateFalse(int idx);
+    void SetStateFalse(size_t idx);
 
     // 指定idx位状态，取反
-    void ReverseState(int idx);
+    void ReverseState(size_t idx);
 
     // 获取idx位状态
-    bool GetState(int idx);
+    bool GetState(size_t idx);
 };
 
 

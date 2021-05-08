@@ -20,10 +20,9 @@ In the extracted directory, execute:
   python setup.py install
 """
 
+import google_benchmark as benchmark
 import random
 import time
-
-import google_benchmark as benchmark
 from google_benchmark import Counter
 
 

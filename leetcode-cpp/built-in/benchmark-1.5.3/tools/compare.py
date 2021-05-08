@@ -9,9 +9,8 @@ compare.py - versatile benchmark output compare tool
 import argparse
 from argparse import ArgumentParser
 import json
-import sys
 import gbench
-from gbench import util, report
+from gbench import report
 from gbench.util import *
 
 

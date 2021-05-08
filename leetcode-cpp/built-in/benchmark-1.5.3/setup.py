@@ -1,11 +1,10 @@
 import os
 import posixpath
 import re
+import setuptools
 import shutil
 import sys
-
 from distutils import sysconfig
-import setuptools
 from setuptools.command import build_ext
 
 HERE = os.path.dirname(os.path.abspath(__file__))

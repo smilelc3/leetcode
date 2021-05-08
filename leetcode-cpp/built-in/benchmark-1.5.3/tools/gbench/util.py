@@ -2,9 +2,9 @@
 """
 import json
 import os
-import tempfile
 import subprocess
 import sys
+import tempfile
 
 # Input file type enumeration
 IT_Invalid = 0

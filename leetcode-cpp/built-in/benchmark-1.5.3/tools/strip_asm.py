@@ -4,10 +4,10 @@
 strip_asm.py - Cleanup ASM output for the specified file
 """
 
-from argparse import ArgumentParser
-import sys
 import os
 import re
+import sys
+from argparse import ArgumentParser
 
 
 def find_used_labels(asm):
