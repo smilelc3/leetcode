@@ -140,7 +140,8 @@
 | 112 | [Path Sum](https://leetcode.com/problems/path-sum/) | [path-sum.cpp](leetcode-cpp/path-sum/path-sum.cpp) | O(n) | DFS遍历树 | O(1) |
 | 113 | [Path Sum II](https://leetcode.com/problems/path-sum-ii/) | [path-sum-ii.cpp](leetcode-cpp/path-sum-ii/path-sum-ii.cpp) | O(n) | DFS遍历树+记录路径 | O(n) |
 | 114 | [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) | [flatten-binary-tree-to-linked-list.cpp](leetcode-cpp/flatten-binary-tree-to-linked-list/flatten-binary-tree-to-linked-list.cpp) | O(n) | 转换二叉树为先序链表：直接修改树 | O(1) |
-| 115 | [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) | [leetcode-cpp/distinct-subsequences/distinct-subsequences.cpp](leetcode-cpp/distinct-subsequences/distinct-subsequences.cpp) | O(n^2) | DP+滚动数组 | O(n) |
+| 115 | [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) | [distinct-subsequences/distinct-subsequences.cpp](leetcode-cpp/distinct-subsequences/distinct-subsequences.cpp) | O(n^2) | DP+滚动数组 | O(n) |
+| 116 | [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) | [populating-next-right-pointers-in-each-node.cpp](leetcode-cpp/populating-next-right-pointers-in-each-node/populating-next-right-pointers-in-each-node.cpp) | O(n) | 二叉树的DFS | O(1) |
 | 118 | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) | [pascals-triangle.cpp](leetcode-cpp/pascals-triangle/pascals-triangle.cpp) | O(n^2) | 构建帕斯卡三角 | O(n^2) |
 | 119 | [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) | [pascals-triangle-ii.cpp](leetcode-cpp/pascals-triangle-ii/pascals-triangle-ii.cpp) | O(n^2) | 构建帕斯卡三角单行 | O(n) |
 | 120 | [Triangle](https://leetcode.com/problems/triangle/) | [triangle.cpp](leetcode-cpp/triangle/triangle.cpp) | O(n^2) | DP+滚动数组 | O(n) |

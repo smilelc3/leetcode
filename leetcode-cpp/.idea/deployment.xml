@@ -16,13 +16,6 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="WSL (clang) (db2c9099-4917-4adb-bc87-a259499c1da8)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="WSL (gcc) (868857c1-16f7-4aa0-aab8-bc00cc5e0078)">
         <serverdata>
           <mappings>
