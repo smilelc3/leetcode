@@ -2,8 +2,6 @@
 // Created by smile on 2021/5/9.
 //
 
-
-
 // Definition for a Node.
 class Node {
 public:
@@ -25,14 +23,35 @@ public:
 class Solution {
 public:
     Node *connect(Node *root) {
-        // BFS method
-        // return BFSConnect(root);
-
-        // DFS method
         DFSConnect(root);
         return root;
     }
 
+private:
+    void DFSConnect(Node *root) {
+        if (root == nullptr) {
+            return;
+        }
+        if (root->right != nullptr) {
+            root->right->next = getRootNextSubTree(root);
+        }
+        if (root->left != nullptr) {
+            root->left->next = root->right != nullptr ? root->right : getRootNextSubTree(root);
+        }
+        DFSConnect(root->right);    // 重点：优先访问右子树
+        DFSConnect(root->left);
+    }
+
+    static constexpr Node *getRootNextSubTree(Node *root) {
+        auto rootNext = root->next;
+        if (rootNext != nullptr) {
+            if (rootNext->left == nullptr and rootNext->right == nullptr) {
+                return getRootNextSubTree(rootNext);
+            }
+            return rootNext->left != nullptr ? rootNext->left : rootNext->right;
+        }
+        return nullptr;
+    }
 
     Node *BFSConnect(Node *root) {
         if (root == nullptr) {
@@ -49,26 +68,14 @@ public:
                 if (idx != queueSize - 1) {
                     pNode->next = nodesQueue.front();
                 }
-                if (pNode->left != nullptr) {   // 满二叉树，只需要判断左右其中一个
+                if (pNode->left != nullptr) {
                     nodesQueue.emplace(pNode->left);
+                }
+                if (pNode->right != nullptr) {
                     nodesQueue.emplace(pNode->right);
                 }
             }
         }
         return root;
-    }
-
-
-    void DFSConnect(Node *root) {
-        if (root == nullptr or root->left == nullptr) {
-            return;
-        }
-
-        root->left->next = root->right;
-        if (root->next != nullptr) {
-            root->right->next = root->next->left;   // 父节点在之前的递归中已经建立了next
-        }
-        DFSConnect(root->left);
-        DFSConnect(root->right);
     }
 };

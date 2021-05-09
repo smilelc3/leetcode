@@ -17,9 +17,9 @@ namespace {
                         nullptr
                 ),
                 new Node(
-                        2,
-                        new Node(4),
-                        new Node(5),
+                        3,
+                        new Node(6),
+                        new Node(7),
                         nullptr
                 ),
                 nullptr
