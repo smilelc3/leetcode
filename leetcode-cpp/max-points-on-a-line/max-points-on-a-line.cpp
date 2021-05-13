@@ -48,7 +48,7 @@ public:
 
     int maxPointsMethod2(std::vector<std::vector<int>> &points) {
         if (points.size() <= 2) {
-            return points.size();
+            return int(points.size());
         }
         int ans = 0;
         for (auto first = 0; first < points.size() - 1; first++) {
@@ -76,7 +76,7 @@ public:
         return ans;
     }
 
-    static constexpr int getLocByTwoIdx(int m, int n, int size) {
+    static constexpr int64_t getLocByTwoIdx(int m, int n, int64_t size) {
         return (2 * size - 1 - m) * m / 2 + n - m - 1;
     }
 

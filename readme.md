@@ -162,6 +162,7 @@
 | 137 | [Single Number II](https://leetcode.com/problems/single-number-ii/) | [single-number-ii.cpp](leetcode-cpp/single-number-ii/single-number-ii.cpp) | O(n) | 位操作模拟三进制 | O(1) |
 | 138 | [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) | [copy-list-with-random-pointer.cpp](leetcode-cpp/copy-list-with-random-pointer/copy-list-with-random-pointer.cpp) | O(n) | 深拷贝：原节点后拷贝新节点 | O(1) |
 | 139 | [Word Break](https://leetcode.com/problems/word-break/) | [word-break.cpp](leetcode-cpp/word-break/word-break.cpp) | O(n^2) | HashMap + DP | O(n) |
+| 140 | [Word Break II](https://leetcode.com/problems/word-break-ii/) | [word-break-ii.cpp](leetcode-cpp/word-break-ii/word-break-ii.cpp) |  | DFS+HashSet | O(n) |
 | 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | [linked-list-cycle.go](leetcode-go/linked-list-cycle/linked-list-cycle.go) [linked-list-cycle.cpp](leetcode-cpp/linked-list-cycle/linked-list-cycle.cpp) | O(n) | 链表判环：快慢指针 | O(1) |
 | 142 | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | [linked-list-cycle-ii.cpp](leetcode-cpp/linked-list-cycle-ii/linked-list-cycle-ii.cpp) | O(n) | 链表环起点：快慢指针 | O(1) |
 | 143 | [Reorder List](https://leetcode.com/problems/reorder-list/) | [reorder-list.cpp](leetcode-cpp/reorder-list/reorder-list.cpp) | O(n) | 链表重排序 | O(1) |
