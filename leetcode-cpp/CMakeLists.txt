@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5.1)
 
 project(leetcode-cpp)
 
+# 使用Visual Studio编译额外的修改
 if (MSVC)
     # MSVC默认以MD(多线程DLL)动态链接库文件，不适合本项目，替换MD为MT（多线程静态）
     set(CompilerFlags
@@ -20,12 +21,13 @@ if (MSVC)
         string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
     endforeach()
 
-    # 指定编译器的标准一致性模式(支持关键词： and or not)
+    # 指定编译器的标准一致性模式(支持关键词：and or not)
     add_compile_options(/permissive-)
     # 禁用warning C4819警告(utf-8文件警告)
     add_compile_options(/wd4819)
 endif()
 
+message(${CMAKE_CXX_FLAGS_RELEASE})
 
 # 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
 enable_testing()
