@@ -8,16 +8,22 @@
 class Solution {
 public:
     std::string reverseWords(const std::string &s) {
-        std::string ans(s.rbegin(), s.rend());
-        // 清洗 首末空格
-        ans.erase(0, ans.find_first_not_of(' '));
-        ans.erase(ans.find_last_not_of(' ') + 1);
-        // 清洗 中间空格
-        for (auto idx = 1; idx < ans.size(); idx++) {
-            if (ans[idx] == ' ' and ans[idx + 1] == ' ') {
-                ans.erase(idx, ans.find_first_not_of(' ', idx) - idx - 1);
+        std::string ans;
+        ans.reserve(s.size());
+        auto noSpaceStart = s.find_last_not_of(' ');
+        auto noSpaceStop = s.find_first_not_of(' ');
+
+        // 格式化
+        ans.push_back(s[noSpaceStart]);
+        for (auto idx = noSpaceStart - 1; idx > noSpaceStop; idx--) {
+            if (s[idx] == ' ' and s[idx - 1] == ' ') {
+                continue;
             }
+            ans.push_back(s[idx]);
         }
+        ans.push_back(s[noSpaceStop]);
+
+        ans.shrink_to_fit();
 
         auto wordBegin = ans.begin(), wordEnd = ans.begin();
         while (wordEnd != ans.end()) {
