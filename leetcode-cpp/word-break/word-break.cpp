@@ -20,11 +20,11 @@ public:
     }
 
     static bool wordBreakDp(std::string &s, std::unordered_set<std::string> &wordSet, int wordMaxLen) {
-        int n = s.length();
+        size_t n = s.length();
         auto dp = std::vector<bool>(n + 1);  // dp[i] 表示范围 [0, i) 内的子串是否可以拆分后能够组成
         dp[0] = true;
-        for (int i = 1; i <= n; i++) {
-            for (int j = 0; j <= i; j++) {
+        for (auto i = 1; i <= n; i++) {
+            for (auto j = 0; j <= i; j++) {
                 if (dp[j] and i - j <= wordMaxLen and wordSet.find(s.substr(j, i - j)) != wordSet.end()) {
                     dp[i] = true;
                     break;
