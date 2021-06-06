@@ -176,6 +176,7 @@
 | 149 | [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) | [max-points-on-a-line.cpp](leetcode-cpp/max-points-on-a-line/max-points-on-a-line.cpp) | O(n^2) | 三点枚举优化/斜率HashMap | O(n) |
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | [evaluate-reverse-polish-notation.cpp](leetcode-cpp/evaluate-reverse-polish-notation/evaluate-reverse-polish-notation.cpp) | O(n) | 后缀表达式（逆波兰式）求值 | O(n) |
 | 151 | [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | [reverse-words-in-a-string.cpp](leetcode-cpp/reverse-words-in-a-string/reverse-words-in-a-string.cpp) | O(n) |                           单词翻转                           | O(1) |
+| 152 | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) | [maximum-product-subarray.cpp](leetcode-cpp/maximum-product-subarray/maximum-product-subarray.cpp) | O(n) | DP | O(1) |
 | 155 | [Min Stack](https://leetcode.com/problems/min-stack/) | [min-stack.cpp](leetcode-cpp/min-stack/min-stack.cpp) | O(1) | 最小栈 | O(n) |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | [reverse-linked-list.cpp](leetcode-cpp/reverse-linked-list/reverse-linked-list.cpp) | O(n) | 单链翻转 | O(1) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
