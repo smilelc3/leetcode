@@ -181,6 +181,7 @@
 | 160 | [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | [intersection-of-two-linked-lists.cpp](leetcode-cpp/intersection-of-two-linked-lists/intersection-of-two-linked-lists.cpp) | O(n) | 反转链表 | O(1) |
 | 162 | [Find Peak Element](https://leetcode.com/problems/find-peak-element/) | [find-peak-element.cpp](leetcode-cpp/find-peak-element/find-peak-element.cpp) | O(log(n)) | 二分 | O(1) |
 | 165 | [Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/) | [compare-version-numbers.cpp](leetcode-cpp/compare-version-numbers/compare-version-numbers.cpp) | O(n) | 字符串分割 | O(n) |
+| 166 | [Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/) | [fraction-to-recurring-decimal.cpp](leetcode-cpp/fraction-to-recurring-decimal/fraction-to-recurring-decimal.cpp) | O(n) | 长除法 | O(n) |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | [reverse-linked-list.cpp](leetcode-cpp/reverse-linked-list/reverse-linked-list.cpp) | O(n) | 单链翻转 | O(1) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
 
