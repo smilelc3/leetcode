@@ -20,12 +20,14 @@ public:
             numerator = -numerator;
             isResNeg = true;
         }
+        auto gcdVal = gcd(numerator, denominator);
+        numerator /= gcdVal;
+        denominator /= gcdVal;
 
         intPart = std::to_string(numerator / denominator);
         numerator %= denominator;
         // 长除法产生的差与对应位置map
-        std::unordered_map<int64_t , size_t> diffMap;
-        this->decPart.reserve(denominator - 1);       // 小数部分 不超过分母大小-1
+        std::unordered_map<int64_t, size_t> diffMap;
         size_t idx = 0;
         while (numerator != 0 and diffMap.find(numerator) == diffMap.end()) {
             diffMap.emplace(numerator, idx);
@@ -63,18 +65,21 @@ private:
         if (isResNeg) {
             res << '-';
         }
-        if (decPart.empty()) {
-            res << intPart;
-        } else {
+        res << intPart;
+        if (not decPart.empty()) {
+            res << '.';
             if (isCycleDec) {
-                res << intPart
-                    << '.'
-                    << decPart.substr(0, cycleIdx)
-                    << '(' + decPart.substr(cycleIdx) + ')';
+                res << decPart.substr(0, cycleIdx) << '(' + decPart.substr(cycleIdx) + ')';
             } else {
-                res << intPart << '.' << decPart;
+                res << decPart;
             }
         }
         return res.str();
+    }
+
+    // 最大公约数
+    template<typename T=int64_t>
+    T gcd(T m, T n) {
+        return n == 0 ? m : gcd(n, m % n);
     }
 };
