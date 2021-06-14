@@ -184,6 +184,7 @@
 | 166 | [Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/) | [fraction-to-recurring-decimal.cpp](leetcode-cpp/fraction-to-recurring-decimal/fraction-to-recurring-decimal.cpp) | O(n) | 长除法 | O(n) |
 | 167 | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [two-sum-ii-input-array-is-sorted.cpp](leetcode-cpp/two-sum-ii-input-array-is-sorted/two-sum-ii-input-array-is-sorted.cpp) | O(n) | two-pointer | O(1) |
 | 168 | [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/) | [excel-sheet-column-title.cpp](leetcode-cpp/excel-sheet-column-title/excel-sheet-column-title.cpp) | O(n) | 进制转换 | O(1) |
+| 169 | [Majority Element](https://leetcode.com/problems/majority-element/) | [majority-element.cpp](leetcode-cpp/majority-element/majority-element.cpp) | O(n) | [摩尔投票算法](https://www.cs.utexas.edu/~moore/best-ideas/mjrty/index.html) | O(1) |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | [reverse-linked-list.cpp](leetcode-cpp/reverse-linked-list/reverse-linked-list.cpp) | O(n) | 单链翻转 | O(1) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
 
