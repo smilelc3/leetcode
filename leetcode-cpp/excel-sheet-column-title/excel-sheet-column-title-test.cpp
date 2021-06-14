@@ -41,9 +41,6 @@ namespace {
         ASSERT_EQ(ans, rightAns);
     }
 
-
-
-
     TEST(convertToTitleTest, Test0) {        // NOLINT
         int columnNumber = 52;
         auto ans = Solution().convertToTitle(columnNumber);
