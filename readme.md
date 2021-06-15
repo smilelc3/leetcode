@@ -1,9 +1,9 @@
 # leetcode自由刷题
 
 ## 说明
-* 代码由C++或者Go语言编写，可根据文件后缀判断；
+* 代码主要由C++或者Go语言编写，部分题目为SQL或者bash操作，可根据文件后缀判断；
 * 全部代码解法**均为时间最优解**，在某些题的代码中，包含多个可AC方法，最终也只采用时间/空间最优解；
-* 每个题单独创建以题名为命名的文件夹，下含有源码与单元测试代码，均通过测试；
+* 每个题单独创建以题名为命名的文件夹，内含有源码与单元测试代码，均通过测试；
 * 某些题目未给出时间复杂度，其原因多在于存在回溯操作，难以正确估计实际时间复杂度；
 * 若题目对空间复杂度有明确要求，例如O(1)，所给代码均按照要求实现。
 
@@ -187,6 +187,7 @@
 | 169 | [Majority Element](https://leetcode.com/problems/majority-element/) | [majority-element.cpp](leetcode-cpp/majority-element/majority-element.cpp) | O(n) | [摩尔投票算法](https://www.cs.utexas.edu/~moore/best-ideas/mjrty/index.html) | O(1) |
 | 171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/) | [excel-sheet-column-number.cpp](leetcode-cpp/excel-sheet-column-number/excel-sheet-column-number.cpp) | O(n) | 进制转换 | O(1) |
 | 184 | [Department Highest Salary](https://leetcode.com/problems/department-highest-salary/) | [department-highest-salary.sql](leetcode-sql/department-highest-salary/department-highest-salary.sql) |  | 左连接+子查询 |  |
+| 185 | [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/) | [department-top-three-salaries.sql](leetcode-sql/department-top-three-salaries/department-top-three-salaries.sql) | |                    窗口函数: dense_rank()                    | |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/) | [house-robber.cpp](leetcode-cpp/house-robber/house-robber.cpp) | O(n) | DP | O(1) |
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [number-of-islands.cpp](leetcode-cpp/number-of-islands/number-of-islands.cpp) | O(m*n) | 地图DFS | O(m*n) |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | [reverse-linked-list.cpp](leetcode-cpp/reverse-linked-list/reverse-linked-list.cpp) | O(n) | 单链翻转 | O(1) |
