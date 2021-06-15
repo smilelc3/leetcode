@@ -22,6 +22,11 @@
 * 使用mod管理包，推荐使用 [Goland](https://www.jetbrains.com/go/) 作为IDE，导入工程目录为：[leetcode\leetcode-go](leetcode-go) ；
 * Golang自动化测试使用自带test命令，包括单元测试和性能测试。
 
+### SQL 补充
+
+* SQL语法适用于[MySQL](https://www.mysql.com/)数据库（建议版本8.0以上）;
+* 所有的SQL操作均在名为`leetcode`的数据库中进行。
+
 ## 汇总表
 
 | 编号 | 题目 | 代码文件 | 时间复杂度 | 简述 |  空间复杂度 |
