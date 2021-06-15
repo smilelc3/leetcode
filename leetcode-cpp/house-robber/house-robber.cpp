@@ -14,13 +14,13 @@ public:
         if (nums.size() == 1) {
             return nums.front();
         }
-        std::vector<int> dp(nums.size());
-        dp[0] = nums[0];
-        dp[1] = std::max(nums[0], nums[1]);
+        auto preStatus = nums[0], curStatus = std::max(nums[0], nums[1]);
 
         for (auto idx = 2; idx < nums.size(); ++idx) {
-            dp[idx] = std::max(dp[idx - 2] + nums[idx], dp[idx - 1]);
+            auto curStatusCopy = curStatus;
+            curStatus = std::max(preStatus + nums[idx], curStatus);
+            preStatus = curStatusCopy;
         }
-        return dp.back();
+        return curStatus;
     }
 };
