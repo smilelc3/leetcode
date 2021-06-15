@@ -1,7 +1,8 @@
 # 初始化
 create database if not exists leetcode;
 use leetcode;
-Create table If Not Exists Person
+drop table if exists Person;
+Create table Person
 (
     Id    int,
     Email varchar(255)

@@ -1,12 +1,14 @@
 # 初始化
 create database if not exists leetcode;
 use leetcode;
-Create table If Not Exists Customers
+drop table if exists Customers;
+Create table Customers
 (
     Id   int,
     Name varchar(255)
 );
-Create table If Not Exists Orders
+drop table if exists Orders;
+Create table Orders
 (
     Id         int,
     CustomerId int

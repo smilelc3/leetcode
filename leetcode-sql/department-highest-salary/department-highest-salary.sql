@@ -1,14 +1,15 @@
 # 初始化
 create database if not exists leetcode;
-use leetcode;
-create table if not exists Employee
+
+drop table if exists Employee;
+create table Employee
 (
     Id           int,
     Name         varchar(255),
     Salary       int,
     DepartmentId int
 );
-
+drop table if exists Department;
 create table if not exists Department
 (
     Id   int,

@@ -2,7 +2,8 @@
 create database if not exists leetcode;
 use leetcode;
 
-create table if not exists Employee
+drop table if exists Employee;
+create table Employee
 (
     Id           int,
     Name         varchar(255),
@@ -10,7 +11,8 @@ create table if not exists Employee
     DepartmentId int
 );
 
-create table if not exists Department
+drop table if exists Department;
+create table Department
 (
     Id   int,
     Name varchar(255)
