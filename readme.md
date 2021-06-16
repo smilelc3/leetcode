@@ -9,13 +9,13 @@
 
 ### C++ 补充
 
-* 代码使用C++14标准，构建工具使用 [CMake](https://cmake.org/download/) ，推荐使用 [Clion](https://www.jetbrains.com/clion/) 作为IDE，导入工程目录为：[leetcode/leetcode-cpp](leetcode-cpp)，已经配置好 CMakeLists.txt 脚本、Debug/Release 模式；
+* 代码使用 **C++ 14** 标准，构建工具使用 [CMake](https://cmake.org/download/) ，推荐使用 [Clion](https://www.jetbrains.com/clion/) 作为IDE，导入工程目录为：[leetcode/leetcode-cpp](leetcode-cpp)，已经配置好 CMakeLists.txt 脚本、Debug/Release 模式；
 * 某些低版本编译器可能无法编译， **平台+编译器**推荐组合如下：
   * Linux(推荐)：GCC 或 Clang
   * Windows(可用)：MSVC(Visual Studio 2019以上) 或 MinGW(线程模型必须为 posix 版本)
   * macOS(待测试)：Clang 或 GCC 
 * 因为Windows平台存在 [最大路径长度限制](https://docs.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd) ，需要将工程直接放在根目录，防止 [CMAKE_OBJECT_PATH_MAX](https://cmake.org/cmake/help/latest/variable/CMAKE_OBJECT_PATH_MAX.html) 引发生成文件报错；
-* C++单元测试使用 [Google Test](https://github.com/google/googletest) ，性能测试使用 [Google Benchmark](https://github.com/google/benchmark) 。二者已经以源代码形式存在于 [leetcode-cpp/built-in](leetcode-cpp/built-in) 文件夹中，直接导入项目即可。
+* C++单元测试采用 [Google Test](https://github.com/google/googletest) ，性能测试采用 [Google Benchmark](https://github.com/google/benchmark) 。二者已经以源代码形式存在于 [leetcode-cpp/built-in](leetcode-cpp/built-in) 文件夹中，直接导入项目即可。
 
 ### Golang 补充
 
@@ -24,7 +24,7 @@
 
 ### SQL 补充
 
-* SQL语法适用于[MySQL](https://www.mysql.com/)数据库（建议版本8.0以上）;
+* SQL语法适用于[MySQL](https://www.mysql.com/)数据库（版本8.0以上）;
 * 所有的SQL操作均在名为`leetcode`的数据库中进行。
 
 ## 汇总表
@@ -196,6 +196,7 @@
 | 183 | [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order/) | [customers-who-never-order.sql](leetcode-sql/customers-who-never-order/customers-who-never-order.sql) |  | 左连接不包含内连接 |  |
 | 184 | [Department Highest Salary](https://leetcode.com/problems/department-highest-salary/) | [department-highest-salary.sql](leetcode-sql/department-highest-salary/department-highest-salary.sql) |  | 左连接+子查询 |  |
 | 185 | [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/) | [department-top-three-salaries.sql](leetcode-sql/department-top-three-salaries/department-top-three-salaries.sql) | |                    窗口函数: dense_rank()                    | |
+| 196 | [Delete Duplicate Emails](https://leetcode.com/problems/delete-duplicate-emails/) | [delete-duplicate-emails.sql](leetcode-sql/delete-duplicate-emails/delete-duplicate-emails.sql) | | with+rank() | |
 | 197 | [Rising Temperature](https://leetcode.com/problems/rising-temperature/) | [rising-temperature.sql](leetcode-sql/rising-temperature/rising-temperature.sql) |  | 自连接 |  |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/) | [house-robber.cpp](leetcode-cpp/house-robber/house-robber.cpp) | O(n) | DP | O(1) |
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [number-of-islands.cpp](leetcode-cpp/number-of-islands/number-of-islands.cpp) | O(m*n) | 地图DFS | O(m*n) |
@@ -211,7 +212,7 @@
 * [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)  借助单调栈实现O(n)
   算法，且已尽可能优化。但是测试样例存在[bug](https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues/2295)
   ，即使使用提交页面提供的0ms代码，在当前测试样例下，至少也有80ms耗时，与本人结果一致，怀疑存在后期加入其他复杂测试样例。
-* [89. Gray Code](https://leetcode.com/problems/gray-code/)  已做到时间+空间最优解，运算全部位运算，不论golang还是C++都做不到0ms解或则最优空间。
+* [89. Gray Code](https://leetcode.com/problems/gray-code/)  已做到时间+空间最优解，运算全部位运算，不论golang还是C++都做不到0ms解或则最优空间解。
 * [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) 要求在单链表上实现插入排序（时间复杂度：O(n^2)，空间：O(1)），但为了在线评测中时间表现优异，添加了快速排序实现（时间复杂度：O(nlog(n))，空间：O(n)）。
 * [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) 有`三点枚举优化`和`斜率HashMap`两种方法，前者在本地性能测试中总优于后者，但在线测试时前者耗时均多于后者。
 
