@@ -1,7 +1,7 @@
 # leetcode自由刷题
 
 ## 说明
-* 代码主要由C++或者Go语言编写，部分题目为SQL或者bash操作，可根据文件后缀判断；
+* 代码主要由C++或者Go语言编写，部分题目为SQL或者shell脚本操作，可根据文件后缀判断；
 * 全部代码解法**均为时间最优解**，在某些题的代码中，包含多个可AC方法，最终也只采用时间/空间最优解；
 * 每个题单独创建以题名为命名的文件夹，内含有源码与单元测试代码，均通过测试；
 * 某些题目未给出时间复杂度，其原因多在于存在回溯操作，难以正确估计实际时间复杂度；
@@ -26,6 +26,10 @@
 
 * SQL语法适用于[MySQL](https://www.mysql.com/)数据库（版本8.0以上）;
 * 所有的SQL操作均在名为`leetcode`的数据库中进行。
+
+### Shell补充
+
+* Shell 使用 Bash (**B**ourne **A**gain **sh**ell)
 
 ## 汇总表
 
@@ -196,6 +200,7 @@
 | 183 | [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order/) | [customers-who-never-order.sql](leetcode-sql/customers-who-never-order/customers-who-never-order.sql) |  | 左连接不包含内连接 |  |
 | 184 | [Department Highest Salary](https://leetcode.com/problems/department-highest-salary/) | [department-highest-salary.sql](leetcode-sql/department-highest-salary/department-highest-salary.sql) |  | 左连接+子查询 |  |
 | 185 | [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/) | [department-top-three-salaries.sql](leetcode-sql/department-top-three-salaries/department-top-three-salaries.sql) | |                    窗口函数: dense_rank()                    | |
+| 195 | [Tenth Line](https://leetcode.com/problems/tenth-line/) | [tenth-line.sh](leetcode-shell/tenth-line/tenth-line.sh) | | sed命令 | |
 | 196 | [Delete Duplicate Emails](https://leetcode.com/problems/delete-duplicate-emails/) | [delete-duplicate-emails.sql](leetcode-sql/delete-duplicate-emails/delete-duplicate-emails.sql) | | with+rank() | |
 | 197 | [Rising Temperature](https://leetcode.com/problems/rising-temperature/) | [rising-temperature.sql](leetcode-sql/rising-temperature/rising-temperature.sql) |  | 自连接 |  |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/) | [house-robber.cpp](leetcode-cpp/house-robber/house-robber.cpp) | O(n) | DP | O(1) |
