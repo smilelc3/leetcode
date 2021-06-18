@@ -206,6 +206,7 @@
 | 196 | [Delete Duplicate Emails](https://leetcode.com/problems/delete-duplicate-emails/) | [delete-duplicate-emails.sql](leetcode-sql/delete-duplicate-emails/delete-duplicate-emails.sql) | | with+rank() | |
 | 197 | [Rising Temperature](https://leetcode.com/problems/rising-temperature/) | [rising-temperature.sql](leetcode-sql/rising-temperature/rising-temperature.sql) |  | 自连接 |  |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/) | [house-robber.cpp](leetcode-cpp/house-robber/house-robber.cpp) | O(n) | DP | O(1) |
+| 199 | [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) | [binary-tree-right-side-view.cpp](leetcode-cpp/binary-tree-right-side-view/binary-tree-right-side-view.cpp) | O(n) | BFS | O(n) |
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [number-of-islands.cpp](leetcode-cpp/number-of-islands/number-of-islands.cpp) | O(m*n) | 地图DFS | O(m*n) |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | [reverse-linked-list.cpp](leetcode-cpp/reverse-linked-list/reverse-linked-list.cpp) | O(n) | 单链翻转 | O(1) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
