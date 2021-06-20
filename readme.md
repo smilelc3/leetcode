@@ -195,6 +195,7 @@
 | 168 | [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/) | [excel-sheet-column-title.cpp](leetcode-cpp/excel-sheet-column-title/excel-sheet-column-title.cpp) | O(n) | 进制转换 | O(1) |
 | 169 | [Majority Element](https://leetcode.com/problems/majority-element/) | [majority-element.cpp](leetcode-cpp/majority-element/majority-element.cpp) | O(n) | [摩尔投票算法](https://www.cs.utexas.edu/~moore/best-ideas/mjrty/index.html) | O(1) |
 | 171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/) | [excel-sheet-column-number.cpp](leetcode-cpp/excel-sheet-column-number/excel-sheet-column-number.cpp) | O(n) | 进制转换 | O(1) |
+| 172 | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) | [factorial-trailing-zeroes.cpp](leetcode-cpp/factorial-trailing-zeroes/factorial-trailing-zeroes.cpp) | O(1) | 阶乘末尾0个数 | O(1) |
 | 181 | [Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers/) | [employees-earning-more-than-their-managers.sql](leetcode-sql/employees-earning-more-than-their-managers/employees-earning-more-than-their-managers.sql) |  | 自连接 |  |
 | 182 | [Duplicate Emails](https://leetcode.com/problems/duplicate-emails/) | [duplicate-emails.sql](leetcode-sql/duplicate-emails/duplicate-emails.sql) |  |                         查找重复元素                         |  |
 | 183 | [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order/) | [customers-who-never-order.sql](leetcode-sql/customers-who-never-order/customers-who-never-order.sql) |  | 左连接不包含内连接 |  |
@@ -223,4 +224,4 @@
 * [89. Gray Code](https://leetcode.com/problems/gray-code/)  已做到时间+空间最优解，运算全部位运算，不论golang还是C++都做不到0ms解或则最优空间解。
 * [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) 要求在单链表上实现插入排序（时间复杂度：O(n^2)，空间：O(1)），但为了在线评测中时间表现优异，添加了快速排序实现（时间复杂度：O(nlog(n))，空间：O(n)）。
 * [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) 有`三点枚举优化`和`斜率HashMap`两种方法，前者在本地性能测试中总优于后者，但在线测试时前者耗时均多于后者。
-
+* [172. Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) 要求统计阶乘末尾0的个数，解法是计算阶乘中质因子5的个数，时间复杂度O(log_5(n))。又因为数据范围小，通过循环展开，实现理论时间复杂度O(1)。
