@@ -180,7 +180,7 @@
 | 143 | [Reorder List](https://leetcode.com/problems/reorder-list/) | [reorder-list.cpp](leetcode-cpp/reorder-list/reorder-list.cpp) | O(n) | 链表重排序 | O(1) |
 | 145 | [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) | [binary-tree-postorder-traversal.cpp](leetcode-cpp/binary-tree-postorder-traversal/binary-tree-postorder-traversal.cpp) | O(n) | 二叉树后序遍历 | O(n) |
 | 146 | [LRU Cache](https://leetcode.com/problems/lru-cache/) | [lru-cache.cpp](leetcode-cpp/lru-cache/lru-cache.cpp) | O(1) | 双链表+HashMap实现LRU | O(n) |
-| 147 | [Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) | [insertion-sort-list.cpp](leetcode-cpp/insertion-sort-list/insertion-sort-list.cpp) | O(n^2) |                        单链表插入排序                        | O(1) |
+| 147 | [Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) | [insertion-sort-list.cpp](leetcode-cpp/insertion-sort-list/insertion-sort-list.cpp) | O(n^2) | 单链表插入排序 | O(1) |
 | 148 | [Sort List](https://leetcode.com/problems/sort-list/) | [sort-list.cpp](leetcode-cpp/sort-list/sort-list.cpp) | O(nlog(n)) | 单链表归并排序 | O(1) |
 | 149 | [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) | [max-points-on-a-line.cpp](leetcode-cpp/max-points-on-a-line/max-points-on-a-line.cpp) | O(n^2) | 三点枚举优化/斜率HashMap | O(n) |
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | [evaluate-reverse-polish-notation.cpp](leetcode-cpp/evaluate-reverse-polish-notation/evaluate-reverse-polish-notation.cpp) | O(n) | 后缀表达式（逆波兰式）求值 | O(n) |
@@ -197,12 +197,13 @@
 | 171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/) | [excel-sheet-column-number.cpp](leetcode-cpp/excel-sheet-column-number/excel-sheet-column-number.cpp) | O(n) | 进制转换 | O(1) |
 | 172 | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) | [factorial-trailing-zeroes.cpp](leetcode-cpp/factorial-trailing-zeroes/factorial-trailing-zeroes.cpp) | O(1) | 阶乘末尾0个数 | O(1) |
 | 175 | [Combine Two Tables](https://leetcode.com/problems/combine-two-tables/) | [combine-two-tables.sql](leetcode-sql/combine-two-tables/combine-two-tables.sql) |  | 左连接 |  |
-| 176 | [Second Highest Salary](https://leetcode.com/problems/second-highest-salary/) | [second-highest-salary.sql](leetcode-sql/second-highest-salary/second-highest-salary.sql) | | max()函数 | |
+| 176 | [Second Highest Salary](https://leetcode.com/problems/second-highest-salary/) | [second-highest-salary.sql](leetcode-sql/second-highest-salary/second-highest-salary.sql) | | max()函数 |  |
+| 177 | [Nth Highest Salary](https://leetcode.com/problems/nth-highest-salary/) | [nth-highest-salary.sql](leetcode-sql/nth-highest-salary/nth-highest-salary.sql) | |  dense_rank()函数 | |
 | 181 | [Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers/) | [employees-earning-more-than-their-managers.sql](leetcode-sql/employees-earning-more-than-their-managers/employees-earning-more-than-their-managers.sql) |  | 自连接 |  |
-| 182 | [Duplicate Emails](https://leetcode.com/problems/duplicate-emails/) | [duplicate-emails.sql](leetcode-sql/duplicate-emails/duplicate-emails.sql) |  |                         查找重复元素                         |  |
+| 182 | [Duplicate Emails](https://leetcode.com/problems/duplicate-emails/) | [duplicate-emails.sql](leetcode-sql/duplicate-emails/duplicate-emails.sql) |  | 查找重复元素 |  |
 | 183 | [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order/) | [customers-who-never-order.sql](leetcode-sql/customers-who-never-order/customers-who-never-order.sql) |  | 左连接不包含内连接 |  |
 | 184 | [Department Highest Salary](https://leetcode.com/problems/department-highest-salary/) | [department-highest-salary.sql](leetcode-sql/department-highest-salary/department-highest-salary.sql) |  | 左连接+子查询 |  |
-| 185 | [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/) | [department-top-three-salaries.sql](leetcode-sql/department-top-three-salaries/department-top-three-salaries.sql) | |                    窗口函数: dense_rank()                    | |
+| 185 | [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/) | [department-top-three-salaries.sql](leetcode-sql/department-top-three-salaries/department-top-three-salaries.sql) | | 窗口函数: dense_rank() | |
 | 190 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | [reverse-bits.cpp](leetcode-cpp/reverse-bits/reverse-bits.cpp) | O(1) | 《Hacker's Delight》*图 7-1* | O(1) |
 | 191 | [umber of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | [number-of-1-bits.cpp](leetcode-cpp/number-of-1-bits/number-of-1-bits.cpp) | O(1) | 《Hacker's Delight》*图 5-2* | O(1) |
 | 195 | [Tenth Line](https://leetcode.com/problems/tenth-line/) | [tenth-line.sh](leetcode-shell/tenth-line/tenth-line.sh) | | sed命令 | |
