@@ -4,11 +4,7 @@
 
 #include <uthash.h>
 #include "TreeNode.h"
-
-//
-// Created by l30014168 on 2021/7/30.
-//
-
+#include "Vector.h"
 
 typedef struct tagParentNodeMap {
     int nodeVal;
@@ -26,17 +22,8 @@ static void freeParentNodeMap(ParentNodeMap *head) {
     free(head);
 }
 
-int *appendNum(int *ret, int *returnSize, int val) {
-    (*returnSize)++;
-    if ((*returnSize & (*returnSize -1)) == 0) {
-        ret = realloc(ret, (*returnSize) * 2 * sizeof(int));
-    }
-    ret[*returnSize -1] = val;
-    return ret;
-}
-
 // 更新所有父节点Map
-ParentNodeMap * updateNodeParent(struct TreeNode *root, ParentNodeMap *mapHead) {
+ParentNodeMap *updateNodeParent(struct TreeNode *root, ParentNodeMap *mapHead) {
     if (root->left != NULL) {
         // 节点值不重复，不再判断重复
         ParentNodeMap *item = malloc(sizeof(ParentNodeMap));
@@ -58,19 +45,19 @@ ParentNodeMap * updateNodeParent(struct TreeNode *root, ParentNodeMap *mapHead) 
 
 
 // 从某个节点向下查找距离K
-void childDistanceK(struct TreeNode *root, int k, int **ret, int *returnSize) {
+void childDistanceK(struct TreeNode *root, int k, Vector *vector) {
     if (root == NULL) {
         return;
     }
     if (k == 0) {
-        *ret = appendNum(*ret, returnSize, root->val);
+        VectorAppend(vector, &root->val);
         return;
     }
     if (root->left != NULL) {
-        childDistanceK(root->left, k - 1, ret, returnSize);
+        childDistanceK(root->left, k - 1, vector);
     }
     if (root->right != NULL) {
-        childDistanceK(root->right, k - 1, ret, returnSize);
+        childDistanceK(root->right, k - 1, vector);
     }
 }
 
@@ -82,11 +69,10 @@ int *distanceK(struct TreeNode *root, struct TreeNode *target, int k, int *retur
     ParentNodeMap *parentNodeMap = NULL;
     parentNodeMap = updateNodeParent(root, parentNodeMap);
 
-    int *ret = NULL;
-    *returnSize = 0;
+    Vector *vector = VectorCreate(sizeof(int));
 
     // 从target节点往下走
-    childDistanceK(target, k, &ret, returnSize);
+    childDistanceK(target, k, vector);
 
     // 从父结点扩展
     ParentNodeMap *find = NULL;
@@ -97,16 +83,24 @@ int *distanceK(struct TreeNode *root, struct TreeNode *target, int k, int *retur
         }
         k--;
         if (k == 0) {
-            ret = appendNum(ret, returnSize, find->parent->val);
+            VectorAppend(vector, &find->parent->val);
         } else {
             if (find->parent->left == target) {
-                childDistanceK(find->parent->right, k - 1, &ret, returnSize);
+                childDistanceK(find->parent->right, k - 1, vector);
             } else {
-                childDistanceK(find->parent->left, k - 1, &ret, returnSize);
+                childDistanceK(find->parent->left, k - 1, vector);
             }
         }
         target = find->parent;
     }
     freeParentNodeMap(parentNodeMap);
+
+    int *ret = NULL;
+    *returnSize = vector->size;     // NOLINT
+    if (vector->size != 0) {
+        ret = malloc(sizeof(int) * vector->size);
+        memcpy(ret, vector->items, vector->itemSize * vector->size);
+    }
+    VectorDestroy(vector);
     return ret;
 }

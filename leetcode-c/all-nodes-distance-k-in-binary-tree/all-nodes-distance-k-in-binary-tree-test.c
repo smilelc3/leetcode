@@ -95,9 +95,9 @@ void testDistanceKTest0(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testDistanceKExample1);
+    //RUN_TEST(testDistanceKExample1);
     RUN_TEST(testDistanceKExample2);
 
-    RUN_TEST(testDistanceKTest0);
+    //RUN_TEST(testDistanceKTest0);
     return UNITY_END();
 }
