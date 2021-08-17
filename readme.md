@@ -1,11 +1,21 @@
 # leetcode自由刷题
 
 ## 说明
-* 代码主要由C++或者Go语言编写，部分题目为SQL或者shell脚本操作，可根据文件后缀判断；
+* 代码主要由C/C++或者Go语言编写，部分题目为SQL或者shell脚本操作，可根据文件后缀判断；
 * 全部代码解法**均为时间最优解**，在某些题的代码中，包含多个可AC方法，最终也只采用时间/空间最优解；
 * 每个题单独创建以题名为命名的文件夹，内含有源码与单元测试代码，均通过测试；
 * 某些题目未给出时间复杂度，其原因多在于存在回溯操作，难以正确估计实际时间复杂度；
 * 若题目对空间复杂度有明确要求，例如O(1)，所给代码均按照要求实现。
+
+### C补充
+
+* 代码使用 **C11**标准，构建工具使用 [CMake](https://cmake.org/download/) ，推荐使用 [Clion](https://www.jetbrains.com/clion/) 作为IDE，导入工程目录为：[leetcode/leetcode-c](leetcode-c)，已经配置好 CMakeLists.txt 脚本、Debug/Release 模式；
+* 某些低版本编译器可能无法编译， **平台+编译器**推荐组合如下：
+  * Windows(可用)：MSVC(Visual Studio 2019以上) 
+* 因为Windows平台存在 [最大路径长度限制](https://docs.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd) ，需要将工程直接放在根目录，防止 [CMAKE_OBJECT_PATH_MAX](https://cmake.org/cmake/help/latest/variable/CMAKE_OBJECT_PATH_MAX.html) 引发生成文件报错；
+* C单元测试采用 [ThrowTheSwitch/Unity](https://github.com/ThrowTheSwitch/Unity) ，已以源代码形式存在于 [leetcode-c/built-in/Unity-2.5.2](leetcode-c/built-in/Unity-2.5.2) 文件夹中，直接导入项目即可。
+* 哈希表采用[uthash](http://troydhanson.github.io/uthash/)项目中的[uthash.h](leetcode-c/built-in/uthash.h)，已以源代码形式存在于 [leetcode-c/built-in](leetcode-c/built-in) 文件夹中，直接导入项目即可。
+* 编译启用 **AddressSanitizer** 内存检测选项，编译器需要支持该功能。
 
 ### C++ 补充
 
@@ -206,6 +216,7 @@
 | 183 | [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order/) | [customers-who-never-order.sql](leetcode-sql/customers-who-never-order/customers-who-never-order.sql) |  | 左连接不包含内连接 |  |
 | 184 | [Department Highest Salary](https://leetcode.com/problems/department-highest-salary/) | [department-highest-salary.sql](leetcode-sql/department-highest-salary/department-highest-salary.sql) |  | 左连接+子查询 |  |
 | 185 | [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/) | [department-top-three-salaries.sql](leetcode-sql/department-top-three-salaries/department-top-three-salaries.sql) | | 窗口函数: dense_rank() | |
+| 187 | [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) | [repeated-dna-sequences.c](leetcode-c/repeated-dna-sequences/repeated-dna-sequences.c) | O(n) | hashset+位压缩 | O(n) |
 | 190 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | [reverse-bits.cpp](leetcode-cpp/reverse-bits/reverse-bits.cpp) | O(1) | 《Hacker's Delight》*图 7-1* | O(1) |
 | 191 | [umber of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | [number-of-1-bits.cpp](leetcode-cpp/number-of-1-bits/number-of-1-bits.cpp) | O(1) | 《Hacker's Delight》*图 5-2* | O(1) |
 | 195 | [Tenth Line](https://leetcode.com/problems/tenth-line/) | [tenth-line.sh](leetcode-shell/tenth-line/tenth-line.sh) | | sed命令 | |
@@ -215,7 +226,20 @@
 | 199 | [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) | [binary-tree-right-side-view.cpp](leetcode-cpp/binary-tree-right-side-view/binary-tree-right-side-view.cpp) | O(n) | BFS | O(n) |
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [number-of-islands.cpp](leetcode-cpp/number-of-islands/number-of-islands.cpp) | O(m*n) | 地图DFS | O(m*n) |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | [reverse-linked-list.cpp](leetcode-cpp/reverse-linked-list/reverse-linked-list.cpp) | O(n) | 单链翻转 | O(1) |
+| 217  | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | [contains-duplicate.c](leetcode-c/contains-duplicate/contains-duplicate.c) |    O(n)     |     hashset     |    O(n)     |
+| 233  | [Number of Digit One](https://leetcode.com/problems/number-of-digit-one/) | [number-of-digit-one.c](leetcode-c/number-of-digit-one/number-of-digit-one.c) | O(log10(n)) |  数学推导+递归  | O(log10(n)) |
+| 264  | [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) | [ugly-number-ii.c](leetcode-c/ugly-number-ii/ugly-number-ii.c) |    O(n)     |       DP        |    O(n)     |
+| 434  | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | [number-of-segments-in-a-string.c](leetcode-c/number-of-segments-in-a-string/number-of-segments-in-a-string.c) |    O(n)     |      遍历       |    O(1)     |
+| 435  | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | [non-overlapping-intervals.c](leetcode-c/non-overlapping-intervals/non-overlapping-intervals.c) | O(nlog(n))  |      贪心       | O(nlog(n))  |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
+| 581  | [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/) | [shortest-unsorted-continuous-subarray.c](leetcode-c/shortest-unsorted-continuous-subarray/shortest-unsorted-continuous-subarray.c) |    O(n)     |      遍历       |    O(1)     |
+| 611  | [Valid Triangle Number](https://leetcode.com/problems/valid-triangle-number/) | [valid-triangle-number.c](leetcode-c/valid-triangle-number/valid-triangle-number.c) |   O(n^2)    |     双指针      |    O(1)     |
+| 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | [daily-temperatures.c](leetcode-c/daily-temperatures/daily-temperatures.c) |    O(n)     |  单调非递增栈   |    O(n)     |
+| 784  | [Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/) | [letter-case-permutation.c](leetcode-c/letter-case-permutation/letter-case-permutation.c) |   O(2^n)    |      递归       |   O(2^n)    |
+| 863  | [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | [all-nodes-distance-k-in-binary-tree.c](leetcode-c/all-nodes-distance-k-in-binary-tree/all-nodes-distance-k-in-binary-tree.c) |    O(n)     |   hash表+递归   |    O(n)     |
+| 1104 | [Path In Zigzag Labelled Binary Tree](https://leetcode.com/problems/path-in-zigzag-labelled-binary-tree/) | [path-in-zigzag-labelled-binary-tree.c](leetcode-c/path-in-zigzag-labelled-binary-tree/path-in-zigzag-labelled-binary-tree.c) |  O(log(n))  |    数学推导     |  O(log(n))  |
+| 1178 | [Number of Valid Words for Each Puzzle](https://leetcode.com/problems/number-of-valid-words-for-each-puzzle/) | [number-of-valid-words-for-each-puzzle.c](leetcode-c/number-of-valid-words-for-each-puzzle/number-of-valid-words-for-each-puzzle.c) |  O(n*2^7)   | hashMap +位压缩 |    O(n)     |
+| 1833 | [Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/) | [maximum-ice-cream-bars.c](leetcode-c/maximum-ice-cream-bars/maximum-ice-cream-bars.c) |    O(n)     |   贪心+桶排序   |    O(n)     |
 
 ## 补充
 
@@ -230,3 +254,4 @@
 * [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) 要求在单链表上实现插入排序（时间复杂度：O(n^2)，空间：O(1)），但为了在线评测中时间表现优异，添加了快速排序实现（时间复杂度：O(nlog(n))，空间：O(n)）。
 * [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) 有`三点枚举优化`和`斜率HashMap`两种方法，前者在本地性能测试中总优于后者，但在线测试时前者耗时均多于后者。
 * [172. Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) 要求统计阶乘末尾0的个数，解法是计算阶乘中质因子5的个数，时间复杂度O(log_5(n))。又因为数据范围小，通过循环展开，实现理论时间复杂度O(1)。
+* [187. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) 使用双`HashSet`来统计结果，因为key值过多，存在性能问题。

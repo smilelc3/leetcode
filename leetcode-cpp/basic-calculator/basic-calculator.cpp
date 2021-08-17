@@ -13,8 +13,8 @@ struct exprItem {
     char Operator;
     int Number;
 
-    explicit exprItem(char _operator) : Operator(_operator), Number(NULL) {};
-    explicit exprItem(int _number) : Operator(NULL), Number(_number) {};
+    explicit exprItem(char _operator) : Operator(_operator) {};
+    explicit exprItem(int _number) : Number(_number) {};
 };
 
 class Solution {
@@ -126,12 +126,12 @@ private:
         std::vector<exprItem> fullPostfix;
         char preChar = '(';
         for (const auto &p : infix) {
-            if (p.Operator != NULL) {
+            if (p.Operator != '\0') {
                 if (preChar == '(' and (p.Operator == '-' or p.Operator == '+'))
                     fullPostfix.emplace_back(exprItem{0});
                 preChar = p.Operator;
             } else {
-                preChar = NULL;
+                preChar = '\0';
             }
             fullPostfix.emplace_back(p);
         }

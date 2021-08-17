@@ -27,10 +27,9 @@ if (MSVC)
     add_compile_options(/utf-8)
 endif()
 
-message(${CMAKE_CXX_FLAGS_RELEASE})
-
 # 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
 enable_testing()
+
 # 引入build-in依赖
 include_directories(built-in)
 
@@ -48,6 +47,3 @@ foreach (SUBDIR ${SUBDIRS})
         add_subdirectory(${SUBDIR})
     endif ()
 endforeach ()
-
-# 创建自动化创建新题目工具
-add_executable(auto-new-project main.cpp)
