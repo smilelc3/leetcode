@@ -43,6 +43,3 @@ foreach (SUBDIR ${SUBDIRS})
         add_subdirectory(${SUBDIR})
     endif ()
 endforeach ()
-
-# 创建自动化创建新题目工具
-add_executable(auto-new-project main.cpp)
