@@ -27,6 +27,7 @@ void testContainsDuplicateExample1(void) {
     nums[3] = 1;
     bool ans = containsDuplicate(nums, numsSize);
     TEST_ASSERT_TRUE(ans);
+    free(nums);
 }
 
 void testContainsDuplicateExample2(void) {
@@ -42,6 +43,7 @@ void testContainsDuplicateExample2(void) {
     nums[3] = 4;
     bool ans = containsDuplicate(nums, numsSize);
     TEST_ASSERT_FALSE(ans);
+    free(nums);
 }
 
 
@@ -64,6 +66,7 @@ void testContainsDuplicateExample3(void) {
     nums[9] = 2;
     bool ans = containsDuplicate(nums, numsSize);
     TEST_ASSERT_TRUE(ans);
+    free(nums);
 }
 
 

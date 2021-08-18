@@ -20,6 +20,7 @@ void testPathInZigZagTreeExample1(void) {
     int rightAns[] = {1, 3, 4, 14};
     TEST_ASSERT_EQUAL_INT(sizeof(rightAns) / sizeof(rightAns[0]), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(rightAns, ans, returnSize);
+    free(ans);
 }
 
 void testPathInZigZagTreeExample2(void) {
@@ -29,6 +30,7 @@ void testPathInZigZagTreeExample2(void) {
     int rightAns[] = {1, 2, 6, 10, 26};
     TEST_ASSERT_EQUAL_INT(sizeof(rightAns) / sizeof(rightAns[0]), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(rightAns, ans, returnSize);
+    free(ans);
 }
 
 

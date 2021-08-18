@@ -96,7 +96,7 @@ int *distanceK(struct TreeNode *root, struct TreeNode *target, int k, int *retur
     freeParentNodeMap(parentNodeMap);
 
     int *ret = NULL;
-    *returnSize = vector->size;     // NOLINT
+    *returnSize = (int)vector->size;     // NOLINT
     if (vector->size != 0) {
         ret = malloc(sizeof(int) * vector->size);
         memcpy(ret, vector->items, vector->itemSize * vector->size);

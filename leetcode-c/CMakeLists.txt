@@ -23,8 +23,8 @@ if (MSVC)
 
 endif()
 
-# 启动AddressSanitizer (ASan)功能
-# add_compile_options(-fsanitize=address)
+# 启用AddressSanitizer (ASan)功能
+add_compile_options(-fsanitize=address)
 
 # 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
 enable_testing()
