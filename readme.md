@@ -11,11 +11,11 @@
 
 * 代码使用 **C11**标准，构建工具使用 [CMake](https://cmake.org/download/) ，推荐使用 [Clion](https://www.jetbrains.com/clion/) 作为IDE，导入工程目录为：[leetcode/leetcode-c](leetcode-c)，已经配置好 CMakeLists.txt 脚本、Debug/Release 模式；
 * 某些低版本编译器可能无法编译， **平台+编译器**推荐组合如下：
-  * Windows(可用)：MSVC(Visual Studio 2019以上) 
+  * Windows(推荐)：MSVC(Visual Studio 2019以上) 或 MinGW
+  * Linux(可用)：GCC
 * 因为Windows平台存在 [最大路径长度限制](https://docs.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd) ，需要将工程直接放在根目录，防止 [CMAKE_OBJECT_PATH_MAX](https://cmake.org/cmake/help/latest/variable/CMAKE_OBJECT_PATH_MAX.html) 引发生成文件报错；
 * C单元测试采用 [ThrowTheSwitch/Unity](https://github.com/ThrowTheSwitch/Unity) ，已以源代码形式存在于 [leetcode-c/built-in/Unity-2.5.2](leetcode-c/built-in/Unity-2.5.2) 文件夹中，直接导入项目即可。
 * 哈希表采用[uthash](http://troydhanson.github.io/uthash/)项目中的[uthash.h](leetcode-c/built-in/uthash.h)，已以源代码形式存在于 [leetcode-c/built-in](leetcode-c/built-in) 文件夹中，直接导入项目即可。
-* 编译启用 **AddressSanitizer** 内存检测选项，编译器需要支持该功能。
 
 ### C++ 补充
 
