@@ -5,11 +5,27 @@
 #ifndef LEETCODE_C_VECTOR_H
 #define LEETCODE_C_VECTOR_H
 
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <errno.h>
 
+#ifndef errno_t
+typedef int errno_t;
+#endif
+
+#ifndef NO_ERROR
 #define NO_ERROR 0
+#endif
+
+#ifndef ERANGE
+#define ERANGE 34
+#endif
+
+#ifndef ENOMEM
+#define ENOMEM 12      /* Out of Memory */
+#endif
 
 typedef struct tagVector {
     void *items;
