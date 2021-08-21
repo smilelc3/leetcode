@@ -1,6 +1,9 @@
-cmake_minimum_required(VERSION 3.5.1)
+cmake_minimum_required(VERSION 3.14)
 
 project(leetcode-cpp)
+
+# 设置 C++14 标准
+set(CMAKE_CXX_STANDARD 14)
 
 # 使用Visual Studio编译额外的修改
 if (MSVC)
@@ -12,20 +15,34 @@ if (MSVC)
             CMAKE_CXX_FLAGS_MINSIZEREL
             CMAKE_CXX_FLAGS_RELWITHDEBINFO
             )
-    foreach(CompilerFlag ${CompilerFlags})
+    foreach (CompilerFlag ${CompilerFlags})
         string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
-    endforeach()
+    endforeach ()
 
     # 指定编译器的标准一致性模式(支持关键词：and or not)
     add_compile_options(/permissive-)
     # 指定代码文件编码格式为utf-8 (无BOM)
     add_compile_options(/utf-8)
-endif()
-
-message(${CMAKE_CXX_FLAGS_RELEASE})
+endif ()
 
 # 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
 enable_testing()
+
+# 启用AddressSanitizer (ASan)功能
+add_compile_options(-fsanitize=address)
+
+## 启动自下载
+#include(FetchContent)
+#
+## FetchContent获取GTest
+#FetchContent_Declare(googletest GIT_REPOSITORY https://github.com/google/googletest.git)
+#FetchContent_MakeAvailable(googletest)
+#
+#
+## git获取Google benchmark
+#FetchContent_Declare(benchmark GIT_REPOSITORY https://github.com/google/benchmark.git)
+#FetchContent_MakeAvailable(benchmark)
+
 # 引入build-in依赖
 include_directories(built-in)
 

@@ -6,7 +6,7 @@
 #include "clone-graph.cpp"
 
 namespace {
-    TEST(cloneGraphTest, Example1) {
+    TEST(cloneGraphTest, Example1) {        // NOLINT
         auto node1 = new Node(1);
         auto node2 = new Node(2);
         auto node3 = new Node(3);
@@ -46,24 +46,35 @@ namespace {
         ASSERT_NE(node2, node2Copy);
         ASSERT_NE(node3, node3Copy);
         ASSERT_NE(node4, node4Copy);
+
+        delete node1;
+        delete node2;
+        delete node3;
+        delete node4;
+        delete node1Copy;
+        delete node2Copy;
+        delete node3Copy;
+        delete node4Copy;
     }
 
-    TEST(cloneGraphTest, Example2) {
+    TEST(cloneGraphTest, Example2) {        // NOLINT
         auto node1 = new Node(1);
         auto node1Copy = Solution().cloneGraph(node1);
         ASSERT_EQ(node1Copy->val, 1);
         ASSERT_EQ(node1Copy->neighbors.size(), 0);
-
         ASSERT_NE(node1, node1Copy);
+
+        delete node1;
+        delete node1Copy;
     }
 
-    TEST(cloneGraphTest, Example3) {
+    TEST(cloneGraphTest, Example3) {        // NOLINT
         Node *node = nullptr;
         auto nodeCopy = Solution().cloneGraph(node);
         ASSERT_EQ(nodeCopy, nullptr);
     }
 
-    TEST(cloneGraphTest, Example4) {
+    TEST(cloneGraphTest, Example4) {        // NOLINT
         auto node1 = new Node(1);
         auto node2 = new Node(2);
         node1->neighbors = {node2};
@@ -82,6 +93,10 @@ namespace {
         ASSERT_NE(node1, node1Copy);
         ASSERT_NE(node2, node2Copy);
 
+        delete node1;
+        delete node2;
+        delete node1Copy;
+        delete node2Copy;
     }
 }
 

@@ -5,7 +5,7 @@
 # include <vector>
 #include <iostream>
 
-TreeNode *GenTreeByNums(const std::vector<int> &numsConst, int nullNum) {
+TreeNode *TreeCreateByNums(const std::vector<int> &numsConst, int nullNum) {
     if (numsConst.empty() || numsConst[0] == nullNum) {
         return nullptr;
     }
@@ -39,7 +39,7 @@ TreeNode *GenTreeByNums(const std::vector<int> &numsConst, int nullNum) {
     return root;
 }
 
-TreeNode *GenTreeByNums(const std::vector<int> &numsConst) {
+TreeNode *TreeCreateByNums(const std::vector<int> &numsConst) {
     if (numsConst.empty()) {
         return nullptr;
     }
@@ -69,6 +69,16 @@ TreeNode *GenTreeByNums(const std::vector<int> &numsConst) {
     return root;
 }
 
+void TreeDestroy(TreeNode *root) {
+    if (root == nullptr) {
+        return;
+    }
+    TreeDestroy(root->left);
+    TreeDestroy(root->right);
+    delete root;
+}
+
+
 bool isSameTree(TreeNode const *root1, TreeNode const *root2) {
     if (root1 == nullptr and root2 == nullptr) {
         return true;
@@ -81,4 +91,5 @@ bool isSameTree(TreeNode const *root1, TreeNode const *root2) {
         return false;
     }
 }
+
 

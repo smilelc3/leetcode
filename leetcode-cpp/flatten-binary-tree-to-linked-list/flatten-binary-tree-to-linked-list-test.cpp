@@ -2,33 +2,40 @@
 #include "flatten-binary-tree-to-linked-list.cpp"
 
 namespace {
-    TEST(flattenTest, Example1) {
-        auto root = GenTreeByNums({1, 2, 5, 3, 4, -1, 6}, -1);
+    TEST(flattenTest, Example1) {       // NOLINT
+        auto root = TreeCreateByNums({1, 2, 5, 3, 4, -1, 6}, -1);
         Solution().flatten(root);
-        auto rightAns = GenTreeByNums({1, -1, 2, -1, 3, -1, 4, -1, 5, -1, 6}, -1);
+        auto rightAns = TreeCreateByNums({1, -1, 2, -1, 3, -1, 4, -1, 5, -1, 6}, -1);
         EXPECT_TRUE(isSameTree(root, rightAns));
+        TreeDestroy(root);
+        TreeDestroy(rightAns);
     }
 
-
-    TEST(flattenTest, Example2) {
-        auto root = GenTreeByNums({});
+    TEST(flattenTest, Example2) {       // NOLINT
+        auto root = TreeCreateByNums({});
         Solution().flatten(root);
-        auto rightAns = GenTreeByNums({});
+        auto rightAns = TreeCreateByNums({});
         EXPECT_TRUE(isSameTree(root, rightAns));
+        TreeDestroy(root);
+        TreeDestroy(rightAns);
     }
 
-    TEST(flattenTest, Example3) {
-        auto root = GenTreeByNums({0});
+    TEST(flattenTest, Example3) {       // NOLINT
+        auto root = TreeCreateByNums({0});
         Solution().flatten(root);
-        auto rightAns = GenTreeByNums({0});
+        auto rightAns = TreeCreateByNums({0});
         EXPECT_TRUE(isSameTree(root, rightAns));
+        TreeDestroy(root);
+        TreeDestroy(rightAns);
     }
 
-    TEST(flattenTest, Test0) {
-        auto root = GenTreeByNums({1, 2, 5, 3, 4, -1, 6}, -1);
+    TEST(flattenTest, Test0) {      // NOLINT
+        auto root = TreeCreateByNums({1, 2, 5, 3, 4, -1, 6}, -1);
         Solution().flatten(root);
-        auto rightAns = GenTreeByNums({1, -1, 2, -1, 3, -1, 4, -1, 5, -1, 6}, -1);
+        auto rightAns = TreeCreateByNums({1, -1, 2, -1, 3, -1, 4, -1, 5, -1, 6}, -1);
         EXPECT_TRUE(isSameTree(root, rightAns));
+        TreeDestroy(root);
+        TreeDestroy(rightAns);
     }
 }
 

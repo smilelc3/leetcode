@@ -71,4 +71,13 @@ public:
         DFSConnect(root->left);
         DFSConnect(root->right);
     }
+
+    void destroyNode(Node *root) {
+        if (root == nullptr) {
+            return;
+        }
+        destroyNode(root->left);
+        destroyNode(root->right);
+        delete root;
+    }
 };

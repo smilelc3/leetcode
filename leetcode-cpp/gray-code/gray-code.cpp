@@ -6,6 +6,9 @@
 class Solution {
 public:
     static std::vector<int> grayCode(int n) {
+        if (n < 0) {
+            return {};
+        }
         std::vector<int> ans;
         ans.reserve(1 << n);        // 预分配空间
         for (int idx = 0; idx < 1 << n; idx++) {

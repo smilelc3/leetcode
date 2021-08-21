@@ -37,6 +37,8 @@ namespace {
         ASSERT_EQ(pHeadCopy->next->next->random, nullptr);
         ASSERT_EQ(pHeadCopy->next->next->next->random, pHeadCopy->next->next);
         ASSERT_EQ(pHeadCopy->next->next->next->next->random, pHeadCopy);
+
+        Solution().destroyList(pHeadCopy);
     }
 
     TEST(copyRandomListTest, Example2) { // NOLINT
@@ -56,6 +58,8 @@ namespace {
 
         ASSERT_EQ(pHeadCopy->random, pHeadCopy->next);
         ASSERT_EQ(pHeadCopy->next->random, pHeadCopy->next);
+
+        Solution().destroyList(pHeadCopy);
     }
 
     TEST(copyRandomListTest, Example3) { // NOLINT
@@ -78,6 +82,8 @@ namespace {
         ASSERT_EQ(pHeadCopy->random, nullptr);
         ASSERT_EQ(pHeadCopy->next->random, pHeadCopy);
         ASSERT_EQ(pHeadCopy->next->next->random, nullptr);
+
+        Solution().destroyList(pHeadCopy);
     }
 }
 

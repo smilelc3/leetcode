@@ -7,25 +7,31 @@
 #include "reverse-linked-list.cpp"
 
 namespace {
-    TEST(reverseListTest, Example1) {
-        auto head = GenLinksByNums({1, 2, 3, 4, 5});
+    TEST(reverseListTest, Example1) {       // NOLINT
+        auto head = LinkedListCreateByNums({1, 2, 3, 4, 5});
         auto ans = Solution().reverseList(head);
-        auto rightAns = GenLinksByNums({5, 4, 3, 2, 1});
-        ASSERT_TRUE(isSameList(rightAns, ans));
+        auto rightAns = LinkedListCreateByNums({5, 4, 3, 2, 1});
+        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
+        LinkedListDestroy(ans);
+        LinkedListDestroy(rightAns);
     }
 
-    TEST(reverseListTest, Example2) {
-        auto head = GenLinksByNums({1, 2});
+    TEST(reverseListTest, Example2) {       // NOLINT
+        auto head = LinkedListCreateByNums({1, 2});
         auto ans = Solution().reverseList(head);
-        auto rightAns = GenLinksByNums({2, 1});
-        ASSERT_TRUE(isSameList(rightAns, ans));
+        auto rightAns = LinkedListCreateByNums({2, 1});
+        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
+        LinkedListDestroy(ans);
+        LinkedListDestroy(rightAns);
     }
 
-    TEST(reverseListTest, MyTest0) {
-        auto head = GenLinksByNums({});
+    TEST(reverseListTest, MyTest0) {        // NOLINT
+        auto head = LinkedListCreateByNums({});
         auto ans = Solution().reverseList(head);
-        auto rightAns = GenLinksByNums({});
-        ASSERT_TRUE(isSameList(rightAns, ans));
+        auto rightAns = LinkedListCreateByNums({});
+        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
+        LinkedListDestroy(ans);
+        LinkedListDestroy(rightAns);
     }
 }
 
