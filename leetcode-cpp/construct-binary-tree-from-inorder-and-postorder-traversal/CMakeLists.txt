@@ -24,7 +24,7 @@ if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.cpp)
     # 链接built-in库依赖
     target_link_libraries(${TARGET_SHORT_NAME}-test built-in)
     # 运行Gtest测试
-    add_test(${CURRENT_FOLDER} ${TARGET_SHORT_NAME}-test)
+    add_test(${CURRENT_FOLDER}-test ${TARGET_SHORT_NAME}-test)
 endif ()
 
 # 检测benchmark代码
@@ -40,5 +40,5 @@ if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-benchmark.cpp)
     # 链接built-in库
     target_link_libraries(${TARGET_SHORT_NAME}-benchmark built-in)
     # 运行benchmark测试
-    add_test(${CURRENT_FOLDER} ${TARGET_SHORT_NAME}-benchmark)
+    add_test(${CURRENT_FOLDER}-benchmark ${TARGET_SHORT_NAME}-benchmark)
 endif ()
