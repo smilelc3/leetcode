@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include "ListNode.h"
 
-ListNode *GenLinksByNums(const std::vector<int> &nums) {
+ListNode *LinkedListCreateByNums(const std::vector<int> &nums) {
     ListNode *head = nullptr, *preNode;
     for (auto idx = 0; idx < nums.size(); idx++) {
         auto curNode = new ListNode{nums[idx]};
@@ -19,9 +19,17 @@ ListNode *GenLinksByNums(const std::vector<int> &nums) {
     return head;
 }
 
-bool isSameList(const ListNode *head1, const ListNode *head2) {
+void LinkedListDestroy(ListNode *head) {
+    if (head == nullptr) {
+        return;
+    }
+    LinkedListDestroy(head->next);
+    delete head;
+}
+
+bool isSameLinkedList(const ListNode *head1, const ListNode *head2) {
     // 判定是否存在环
-    if (isLinkHasCycle(head1) or isLinkHasCycle(head2)) {
+    if (isLinkedListHasCycle(head1) or isLinkedListHasCycle(head2)) {
         throw std::length_error("Link exist Cycle");
     }
 
@@ -34,7 +42,7 @@ bool isSameList(const ListNode *head1, const ListNode *head2) {
             if (head1->val != head2->val) {
                 return false;
             } else {
-                return isSameList(head1->next, head2->next);
+                return isSameLinkedList(head1->next, head2->next);
             }
         }
     }
@@ -42,7 +50,7 @@ bool isSameList(const ListNode *head1, const ListNode *head2) {
 }
 
 // TEST 判链表是否存在环
-bool isLinkHasCycle(const ListNode *head) {
+bool isLinkedListHasCycle(const ListNode *head) {
     if (head == nullptr || head->next == nullptr || head->next->next == nullptr) {
         return false;
     }
@@ -60,3 +68,4 @@ bool isLinkHasCycle(const ListNode *head) {
     }
     return Fast == Slow;
 }
+

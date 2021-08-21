@@ -6,27 +6,30 @@
 #include "binary-tree-level-order-traversal-ii.cpp"
 
 namespace {
-    TEST(levelOrderBottomTest, Example1) {
-        auto root = GenTreeByNums({3, 9, 20, -1, -1, 15, 7}, -1);
+    TEST(levelOrderBottomTest, Example1) {      // NOLINT
+        auto root = TreeCreateByNums({3, 9, 20, -1, -1, 15, 7}, -1);
         auto ans = Solution().levelOrderBottom(root);
         std::vector<std::vector<int>> rightAns = {{15, 7},
                                                   {9,  20},
                                                   {3}};
         ASSERT_EQ(ans, rightAns);
+        TreeDestroy(root);
     }
 
-    TEST(levelOrderBottomTest, Example2) {
-        auto root = GenTreeByNums({1});
+    TEST(levelOrderBottomTest, Example2) {      // NOLINT
+        auto root = TreeCreateByNums({1});
         auto ans = Solution().levelOrderBottom(root);
         std::vector<std::vector<int>> rightAns = {{1}};
         ASSERT_EQ(ans, rightAns);
+        TreeDestroy(root);
     }
 
-    TEST(levelOrderBottomTest, Example3) {
-        auto root = GenTreeByNums({});
+    TEST(levelOrderBottomTest, Example3) {      // NOLINT
+        auto root = TreeCreateByNums({});
         auto ans = Solution().levelOrderBottom(root);
         std::vector<std::vector<int>> rightAns = {};
         ASSERT_EQ(ans, rightAns);
+        TreeDestroy(root);
     }
 }
 

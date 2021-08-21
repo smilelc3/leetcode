@@ -33,6 +33,8 @@ namespace {
         ASSERT_EQ(ans->left->right->next, ans->right->left);
         ASSERT_EQ(ans->right->left->next, ans->right->right);
         ASSERT_EQ(ans->right->right->next, nullptr);
+
+        Solution().destroyNode(ans);
     }
 }
 

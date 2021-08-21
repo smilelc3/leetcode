@@ -27,6 +27,15 @@ public:
         return root;
     }
 
+    void destroyNode(Node *root) {
+        if (root == nullptr) {
+            return;
+        }
+        destroyNode(root->left);
+        destroyNode(root->right);
+        delete root;
+    }
+
 private:
     void DFSConnect(Node *root) {
         if (root == nullptr) {

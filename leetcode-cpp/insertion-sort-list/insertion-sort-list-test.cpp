@@ -6,25 +6,31 @@
 #include "insertion-sort-list.cpp"
 
 namespace {
-    TEST(insertionSortListTest, Example1) {
-        auto head = GenLinksByNums({4, 2, 1, 3});
+    TEST(insertionSortListTest, Example1) {     // NOLINT
+        auto head = LinkedListCreateByNums({4, 2, 1, 3});
         auto ans = Solution().insertionSortList(head);
-        auto rightAns = GenLinksByNums({1, 2, 3, 4});
-        ASSERT_TRUE(isSameList(ans, rightAns));
+        auto rightAns = LinkedListCreateByNums({1, 2, 3, 4});
+        ASSERT_TRUE(isSameLinkedList(ans, rightAns));
+        LinkedListDestroy(head);
+        LinkedListDestroy(rightAns);
     }
 
-    TEST(insertionSortListTest, Example2) {
-        auto head = GenLinksByNums({-1, 0, 3, 4, 5});
+    TEST(insertionSortListTest, Example2) {     // NOLINT
+        auto head = LinkedListCreateByNums({-1, 0, 3, 4, 5});
         auto ans = Solution().insertionSortList(head);
-        auto rightAns = GenLinksByNums({-1, 0, 3, 4, 5});
-        ASSERT_TRUE(isSameList(ans, rightAns));
+        auto rightAns = LinkedListCreateByNums({-1, 0, 3, 4, 5});
+        ASSERT_TRUE(isSameLinkedList(ans, rightAns));
+        LinkedListDestroy(head);
+        LinkedListDestroy(rightAns);
     }
 
-    TEST(insertionSortListTest, Example3) {
-        auto head = GenLinksByNums({-1, 5, 3, 4, 0});
+    TEST(insertionSortListTest, Example3) {     // NOLINT
+        auto head = LinkedListCreateByNums({-1, 5, 3, 4, 0});
         auto ans = Solution().insertionSortList(head);
-        auto rightAns = GenLinksByNums({-1, 0, 3, 4, 5});
-        ASSERT_TRUE(isSameList(ans, rightAns));
+        auto rightAns = LinkedListCreateByNums({-1, 0, 3, 4, 5});
+        ASSERT_TRUE(isSameLinkedList(ans, rightAns));
+        LinkedListDestroy(head);
+        LinkedListDestroy(rightAns);
     }
 }
 

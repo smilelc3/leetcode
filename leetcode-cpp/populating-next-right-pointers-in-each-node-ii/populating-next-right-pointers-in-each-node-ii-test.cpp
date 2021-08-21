@@ -32,6 +32,8 @@ namespace {
         ASSERT_EQ(ans->left->left->next, ans->left->right);
         ASSERT_EQ(ans->left->right->next, ans->right->right);
         ASSERT_EQ(ans->right->right->next, nullptr);
+
+        Solution().destroyNode(ans);
     }
 
     TEST(pathSumTest, Test0) {  // NOLINT
@@ -74,6 +76,8 @@ namespace {
         auto ans = Solution().connect(root);
 
         ASSERT_EQ(ans->left->right->right->next, ans->right->right->left);
+
+        Solution().destroyNode(ans);
     }
 }
 

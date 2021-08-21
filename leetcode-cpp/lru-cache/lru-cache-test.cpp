@@ -7,7 +7,7 @@
 #include "lru-cache.cpp"
 
 namespace {
-    TEST(LRUCacheTest, Example1) {
+    TEST(LRUCacheTest, Example1) {      // NOLINT
         auto lRUCache = new LRUCache(2);
         lRUCache->put(1, 1);    // cache is {1=1}
         lRUCache->put(2, 2);    // cache is {1=1, 2=2}
@@ -19,9 +19,10 @@ namespace {
         EXPECT_EQ(-1, lRUCache->get(1));           // return -1 (not found)
         EXPECT_EQ(3, lRUCache->get(3));           // return 3
         EXPECT_EQ(4, lRUCache->get(4));              // return 4
+        delete lRUCache;
     }
 
-    TEST(LRUCacheTest, Example2) {
+    TEST(LRUCacheTest, Example2) {      // NOLINT
         auto lRUCache = new LRUCache(2);
         lRUCache->put(1, 0);
         lRUCache->put(2, 2);
@@ -33,6 +34,7 @@ namespace {
         EXPECT_EQ(-1, lRUCache->get(1));
         EXPECT_EQ(3, lRUCache->get(3));
         EXPECT_EQ(4, lRUCache->get(4));
+        delete lRUCache;
     }
 }
 

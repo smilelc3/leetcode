@@ -101,4 +101,12 @@ public:
 
         return headCopy;
     }
+
+    void destroyList(Node *head) {
+        if (head == nullptr) {
+            return;
+        }
+        destroyList(head->next);
+        delete head;
+    }
 };

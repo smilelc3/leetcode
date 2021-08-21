@@ -7,24 +7,27 @@
 
 namespace {
     TEST(rightSideViewTest, Example1) {     // NOLINT
-        auto root = GenTreeByNums({1, 2, 3, -1, 5, -1, 4}, -1);
+        auto root = TreeCreateByNums({1, 2, 3, -1, 5, -1, 4}, -1);
         auto ans = Solution().rightSideView(root);
         decltype(ans) rightAns = {1, 3, 4};
         ASSERT_EQ(ans, rightAns);
+        TreeDestroy(root);
     }
 
     TEST(rightSideViewTest, Example2) {     // NOLINT
-        auto root = GenTreeByNums({1, -1, 3}, -1);
+        auto root = TreeCreateByNums({1, -1, 3}, -1);
         auto ans = Solution().rightSideView(root);
         decltype(ans) rightAns = {1, 3};
         ASSERT_EQ(ans, rightAns);
+        TreeDestroy(root);
     }
 
     TEST(rightSideViewTest, Example3) {     // NOLINT
-        auto root = GenTreeByNums({});
+        auto root = TreeCreateByNums({});
         auto ans = Solution().rightSideView(root);
         decltype(ans) rightAns = {};
         ASSERT_EQ(ans, rightAns);
+        TreeDestroy(root);
     }
 }
 

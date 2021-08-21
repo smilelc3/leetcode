@@ -5,7 +5,7 @@
 #include <benchmark/benchmark.h>
 #include "populating-next-right-pointers-in-each-node.cpp"
 
-auto root = new Node(
+auto root = new Node(       // NOLINT
         1,
         new Node(
                 2,
@@ -42,6 +42,7 @@ static void BFSMethod(benchmark::State &state) {
     }
 }
 BENCHMARK(BFSMethod); // NOLINT
+
 
 // method2: time: O(n) space: O(1)
 static void DFSMethod(benchmark::State &state) {

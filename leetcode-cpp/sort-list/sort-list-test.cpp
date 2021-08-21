@@ -7,18 +7,22 @@
 #include "sort-list.cpp"
 
 namespace {
-    TEST(sortListTest, Example1) {
-        auto head = GenLinksByNums({4, 2, 3, 1});
+    TEST(sortListTest, Example1) {      // NOLINT
+        auto head = LinkedListCreateByNums({4, 2, 3, 1});
         auto ans = Solution::sortList(head);
-        auto rightAns = GenLinksByNums({1, 2, 3, 4});
-        ASSERT_TRUE(isSameList(rightAns, ans));
+        auto rightAns = LinkedListCreateByNums({1, 2, 3, 4});
+        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
+        LinkedListDestroy(ans);
+        LinkedListDestroy(rightAns);
     }
 
-    TEST(sortListTest, Example2) {
-        auto head = GenLinksByNums({-1, 5, 3, 4, 0});
+    TEST(sortListTest, Example2) {      // NOLINT
+        auto head = LinkedListCreateByNums({-1, 5, 3, 4, 0});
         auto ans = Solution::sortList(head);
-        auto rightAns = GenLinksByNums({-1, 0, 3, 4, 5});
-        ASSERT_TRUE(isSameList(rightAns, ans));
+        auto rightAns = LinkedListCreateByNums({-1, 0, 3, 4, 5});
+        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
+        LinkedListDestroy(ans);
+        LinkedListDestroy(rightAns);
     }
 }
 

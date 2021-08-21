@@ -8,18 +8,20 @@
 #include "sum-root-to-leaf-numbers.cpp"
 
 namespace {
-    TEST(sumNumbersTest, Example1) { // NOLINT
-        auto root = GenTreeByNums({1, 2, 3});
+    TEST(sumNumbersTest, Example1) {    // NOLINT
+        auto root = TreeCreateByNums({1, 2, 3});
         auto ans = Solution().sumNumbers(root);
         auto rightAns = 25;
         ASSERT_EQ(ans, rightAns);
+        TreeDestroy(root);
     }
 
-    TEST(sumNumbersTest, Example2) { // NOLINT
-        auto root = GenTreeByNums({4, 9, 0, 5, 1});
+    TEST(sumNumbersTest, Example2) {    // NOLINT
+        auto root = TreeCreateByNums({4, 9, 0, 5, 1});
         auto ans = Solution().sumNumbers(root);
         auto rightAns = 1026;
         ASSERT_EQ(ans, rightAns);
+        TreeDestroy(root);
     }
 }
 

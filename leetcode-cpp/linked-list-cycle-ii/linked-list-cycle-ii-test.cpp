@@ -6,24 +6,29 @@
 #include "linked-list-cycle-ii.cpp"
 
 namespace {
-    TEST(detectCycleTest, Example1) {
-        ListNode *head = GenLinksByNums({3, 2, 0, -4});
+    TEST(detectCycleTest, Example1) {       // NOLINT
+        ListNode *head = LinkedListCreateByNums({3, 2, 0, -4});
         head->next->next->next->next = head->next;
         auto ans = Solution().detectCycle(head);
         ASSERT_EQ(ans, head->next);
+        head->next->next->next->next = nullptr;
+        LinkedListDestroy(head);
     }
 
-    TEST(hasCycleTest, Example2) {
-        ListNode *head = GenLinksByNums({1, 2});
+    TEST(hasCycleTest, Example2) {      // NOLINT
+        ListNode *head = LinkedListCreateByNums({1, 2});
         head->next->next = head;
         auto ans = Solution().detectCycle(head);
         ASSERT_EQ(ans, head);
+        head->next->next = nullptr;
+        LinkedListDestroy(head);
     }
 
-    TEST(hasCycleTest, Example3) {
-        ListNode *head = GenLinksByNums({1});
+    TEST(hasCycleTest, Example3) {      // NOLINT
+        ListNode *head = LinkedListCreateByNums({1});
         auto ans = Solution().detectCycle(head);
         ASSERT_EQ(ans, nullptr);
+        LinkedListDestroy(head);
     }
 }
 

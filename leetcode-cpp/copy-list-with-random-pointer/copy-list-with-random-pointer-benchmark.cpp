@@ -23,7 +23,10 @@ static void benchCopyRandomListUsingTwoTraverWithMap(benchmark::State &state) {
     Node4.random = &head;
 
     for (auto _: state) {
-        Solution().copyRandomListUsingTwoTraverWithMap(&head);
+        auto pHeadCopy = Solution().copyRandomListUsingTwoTraverWithMap(&head);
+        state.PauseTiming();
+        Solution().destroyList(pHeadCopy);
+        state.ResumeTiming();
     }
 }
 
@@ -47,7 +50,10 @@ static void benchCopyRandomListUsingThreeTraver(benchmark::State &state) {
     Node3.random = &Node2;
     Node4.random = &head;
     for (auto _: state) {
-        Solution().copyRandomListUsingThreeTraver(&head);
+        auto pHeadCopy = Solution().copyRandomListUsingThreeTraver(&head);
+        state.PauseTiming();
+        Solution().destroyList(pHeadCopy);
+        state.ResumeTiming();
     }
 }
 
