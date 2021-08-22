@@ -4,7 +4,8 @@
 
 #include <unity.h>
 #include <stdlib.h>
-#include <Vector.h>
+#include "Vector.h"
+#include "TreeNode.h"
 
 void setUp(void) {
     // set stuff up here
@@ -59,8 +60,41 @@ void testVectorInt(void) {
 }
 
 
+void testTreeCreateByNums(void) {
+    struct TreeNode *rootCorrect;
+    rootCorrect = calloc(1, sizeof(struct TreeNode));
+    rootCorrect->val = 3;
+    rootCorrect->left = calloc(1, sizeof(struct TreeNode));
+    rootCorrect->left->val = 5;
+    rootCorrect->right = calloc(1, sizeof(struct TreeNode));
+    rootCorrect->right->val = 1;
+
+    rootCorrect->left->left = calloc(1, sizeof(struct TreeNode));
+    rootCorrect->left->left->val = 6;
+    rootCorrect->left->right = calloc(1, sizeof(struct TreeNode));
+    rootCorrect->left->right->val = 2;
+
+    rootCorrect->right->left = calloc(1, sizeof(struct TreeNode));
+    rootCorrect->right->left->val = 0;
+    rootCorrect->right->right = calloc(1, sizeof(struct TreeNode));
+    rootCorrect->right->right->val = 8;
+
+    rootCorrect->left->right->left = calloc(1, sizeof(struct TreeNode));
+    rootCorrect->left->right->left->val = 7;
+    rootCorrect->left->right->right = calloc(1, sizeof(struct TreeNode));
+    rootCorrect->left->right->right->val = 4;
+
+    int nums[] = {3, 5, 1, 6, 2, 0, 8, -1, -1, 7, 4};
+    struct TreeNode *root = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), -1);
+    TEST_ASSERT_TRUE(isSameTree(rootCorrect, root));
+    TreeDestroy(rootCorrect);
+    TreeDestroy(root);
+
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(testVectorInt);
+    RUN_TEST(testTreeCreateByNums);
     return UNITY_END();
 }

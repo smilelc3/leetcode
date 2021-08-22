@@ -2,18 +2,26 @@
 <project version="4">
   <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="WSL (clang) (c919583c-1e27-46a2-bd6f-4b78c8527216)">
+      <paths name="远程主机 (c943cad6-db5f-4333-b59e-046a603a89a1)">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/tmp/tmp.sRLaghu1Kh" local="$PROJECT_DIR$" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
+          </excludedPaths>
         </serverdata>
       </paths>
-      <paths name="WSL (gcc) (6f5295ba-d962-4058-82d6-e6004cfbf7f8)">
+      <paths name="远程主机 wsl (fb6cd6b2-f09c-466c-9dea-a2b43caea981)">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/tmp/tmp.4WOCMbe5Lp" local="$PROJECT_DIR$" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>

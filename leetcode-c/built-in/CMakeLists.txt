@@ -34,7 +34,7 @@ if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.c)
     # 链接built-in库
     target_link_libraries(${CURRENT_FOLDER}-test built-in)
     # 运行测试
-    add_test(${CURRENT_FOLDER} ${CURRENT_FOLDER}-test)
+    add_test(${CURRENT_FOLDER}-test ${CURRENT_FOLDER}-test)
 else ()
     message(STATUS "${CMAKE_CURRENT_SOURCE_DIR}/${CURRENT_FOLDER}-test.c source file not found! -> skip test")
 endif ()
