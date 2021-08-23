@@ -213,6 +213,7 @@
 | 176 | [Second Highest Salary](https://leetcode.com/problems/second-highest-salary/) | [second-highest-salary.sql](leetcode-sql/second-highest-salary/second-highest-salary.sql) | | max()函数 |  |
 | 177 | [Nth Highest Salary](https://leetcode.com/problems/nth-highest-salary/) | [nth-highest-salary.sql](leetcode-sql/nth-highest-salary/nth-highest-salary.sql) | |  dense_rank()函数 | |
 | 178 | [Rank Scores](https://leetcode.com/problems/rank-scores/) | [rank-scores.sql](leetcode-sql/rank-scores/rank-scores.sql) | | dense_rank()函数 | |
+| 179 | [Largest Number](https://leetcode.com/problems/largest-number/) | [largest-number.c](leetcode-c/largest-number/largest-number.c) | O(nlogn) | 字符串排序 | O(n) |
 | 180 | [Consecutive Numbers](https://leetcode.com/problems/consecutive-numbers/) | [consecutive-numbers.sql](leetcode-sql/consecutive-numbers/consecutive-numbers.sql) | | lag()/lead()函数 | |
 | 181 | [Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers/) | [employees-earning-more-than-their-managers.sql](leetcode-sql/employees-earning-more-than-their-managers/employees-earning-more-than-their-managers.sql) |  | 自连接 |  |
 | 182 | [Duplicate Emails](https://leetcode.com/problems/duplicate-emails/) | [duplicate-emails.sql](leetcode-sql/duplicate-emails/duplicate-emails.sql) |  | 查找重复元素 |  |
