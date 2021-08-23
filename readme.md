@@ -7,7 +7,7 @@
 * 某些题目未给出时间复杂度，其原因多在于存在回溯操作，难以正确估计实际时间复杂度；
 * 若题目对空间复杂度有明确要求，例如O(1)，所给代码均按照要求实现。
 
-### C补充
+### C 补充
 
 * 代码使用 **C11** 标准，构建工具使用 [CMake](https://cmake.org/download/) ，推荐使用 [Clion](https://www.jetbrains.com/clion/) 作为IDE，导入工程目录为：[leetcode/leetcode-c](leetcode-c)，已经配置好 CMakeLists.txt 脚本、Debug/Release 模式；
 * 某些低版本编译器可能无法编译， **平台+编译器**推荐组合如下：
@@ -222,6 +222,7 @@
 | 187 | [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) | [repeated-dna-sequences.c](leetcode-c/repeated-dna-sequences/repeated-dna-sequences.c) | O(n) | hashset+位压缩 | O(n) |
 | 190 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | [reverse-bits.cpp](leetcode-cpp/reverse-bits/reverse-bits.cpp) | O(1) | 《Hacker's Delight》*图 7-1* | O(1) |
 | 191 | [umber of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | [number-of-1-bits.cpp](leetcode-cpp/number-of-1-bits/number-of-1-bits.cpp) | O(1) | 《Hacker's Delight》*图 5-2* | O(1) |
+| 193 | [Valid Phone Numbers](https://leetcode.com/problems/valid-phone-numbers/) | [valid-phone-numbers.sh](leetcode-shell/valid-phone-numbers/valid-phone-numbers.sh) |  | grep命令+正则 |  |
 | 195 | [Tenth Line](https://leetcode.com/problems/tenth-line/) | [tenth-line.sh](leetcode-shell/tenth-line/tenth-line.sh) | | sed命令 | |
 | 196 | [Delete Duplicate Emails](https://leetcode.com/problems/delete-duplicate-emails/) | [delete-duplicate-emails.sql](leetcode-sql/delete-duplicate-emails/delete-duplicate-emails.sql) | | with+rank() | |
 | 197 | [Rising Temperature](https://leetcode.com/problems/rising-temperature/) | [rising-temperature.sql](leetcode-sql/rising-temperature/rising-temperature.sql) |  | 自连接 |  |
