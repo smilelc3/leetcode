@@ -5,6 +5,7 @@
 #include <string.h>
 #include <unity.h>
 #include <stdlib.h>
+#include "TreeNode.h"
 #include "serialize-and-deserialize-binary-tree.c"
 
 void setUp(void) {

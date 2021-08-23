@@ -37,8 +37,31 @@ char *serialize(struct TreeNode *root) {
     if (root != NULL) {
         Vector *preLevelTreeNodes = VectorCreate(sizeof(struct TreeNode *));
         VectorAppend(preLevelTreeNodes, &root);
+        char strBuf[11];
+        sprintf(strBuf, "%d", root->val);
+        for (int idxBuf = 0; idxBuf < strlen(strBuf); ++idxBuf) {
+            VectorAppend(str, &strBuf[idxBuf]);
+        }
         while (!VectorIsEmpty(preLevelTreeNodes)) {
-
+            size_t numPreLevelNodes = preLevelTreeNodes->size;
+            for (size_t idx = 0; idx < numPreLevelNodes; idx++) {
+                struct TreeNode **pPreLevelNode = VectorAtNoCheck(preLevelTreeNodes, idx);
+                if ((*pPreLevelNode)->left != NULL) {
+                    VectorAppend(preLevelTreeNodes, &(*pPreLevelNode)->left);
+                    sprintf(strBuf, "%d", (*pPreLevelNode)->left->val);
+                    for (int idxBuf = 0; idxBuf < strlen(strBuf); ++idxBuf) {
+                        VectorAppend(str, &strBuf[idxBuf]);
+                    }
+                }
+                if ((*pPreLevelNode)->right != NULL) {
+                    VectorAppend(preLevelTreeNodes, &(*pPreLevelNode)->right);
+                    sprintf(strBuf, "%d", (*pPreLevelNode)->right->val);
+                    for (int idxBuf = 0; idxBuf < strlen(strBuf); ++idxBuf) {
+                        VectorAppend(str, &strBuf[idxBuf]);
+                    }
+                }
+            }
+            VectorErase(preLevelTreeNodes, 0, numPreLevelNodes);
         }
         VectorDestroy(preLevelTreeNodes);
     }
