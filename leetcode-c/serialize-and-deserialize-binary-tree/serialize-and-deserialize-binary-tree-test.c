@@ -17,8 +17,8 @@ void tearDown(void) {
 }
 
 void testSerializeAndDeserializeExample1(void) {
-    int nums[] = {1, 2, 3, -1, -1, 4, 5};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), -1);
+    int nums[] = {1, 2, 3, INT_MIN, INT_MIN, 4, 5};
+    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[1,2,3,null,null,4,5]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
@@ -33,7 +33,7 @@ void testSerializeAndDeserializeExample1(void) {
 
 void testSerializeAndDeserializeExample2(void) {
     int nums[] = {};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), -1);
+    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
@@ -48,7 +48,7 @@ void testSerializeAndDeserializeExample2(void) {
 
 void testSerializeAndDeserializeExample3(void) {
     int nums[] = {1};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), -1);
+    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[1]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
@@ -63,7 +63,7 @@ void testSerializeAndDeserializeExample3(void) {
 
 void testSerializeAndDeserializeExample4(void) {
     int nums[] = {1, 2};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), -1);
+    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[1,2]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
@@ -75,6 +75,7 @@ void testSerializeAndDeserializeExample4(void) {
     TreeDestroy(root);
     free(ser);
 }
+
 
 int main(void) {
     UNITY_BEGIN();
