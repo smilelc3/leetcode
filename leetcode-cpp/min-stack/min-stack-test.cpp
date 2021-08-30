@@ -6,7 +6,7 @@
 #include "min-stack.cpp"
 
 namespace {
-    TEST(wordBreakTest, Example1) { // NOLINT
+    TEST(minStackTest, Example1) { // NOLINT
         auto minStack = new MinStack();
         minStack->push(-2);
         minStack->push(0);
