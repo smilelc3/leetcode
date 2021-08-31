@@ -192,7 +192,7 @@
 | 142 | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | [linked-list-cycle-ii.cpp](leetcode-cpp/linked-list-cycle-ii/linked-list-cycle-ii.cpp) | O(n) | 链表环起点：快慢指针 | O(1) |
 | 143 | [Reorder List](https://leetcode.com/problems/reorder-list/) | [reorder-list.cpp](leetcode-cpp/reorder-list/reorder-list.cpp) | O(n) | 链表重排序 | O(1) |
 | 145 | [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) | [binary-tree-postorder-traversal.cpp](leetcode-cpp/binary-tree-postorder-traversal/binary-tree-postorder-traversal.cpp) | O(n) | 二叉树后序遍历 | O(n) |
-| 146 | [LRU Cache](https://leetcode.com/problems/lru-cache/) | [lru-cache.cpp](leetcode-cpp/lru-cache/lru-cache.cpp) | O(1) | 双链表+HashMap实现LRU | O(n) |
+| 146 | [LRU Cache](https://leetcode.com/problems/lru-cache/) | [lru-cache.cpp](leetcode-cpp/lru-cache/lru-cache.cpp) | O(1) | 双向链表+HashMap实现LRU | O(n) |
 | 147 | [Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) | [insertion-sort-list.cpp](leetcode-cpp/insertion-sort-list/insertion-sort-list.cpp) | O(n^2) | 单链表插入排序 | O(1) |
 | 148 | [Sort List](https://leetcode.com/problems/sort-list/) | [sort-list.cpp](leetcode-cpp/sort-list/sort-list.cpp) | O(nlog(n)) | 单链表归并排序 | O(1) |
 | 149 | [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) | [max-points-on-a-line.cpp](leetcode-cpp/max-points-on-a-line/max-points-on-a-line.cpp) | O(n^2) | 三点枚举优化/斜率HashMap | O(n) |
@@ -234,8 +234,10 @@
 | 217  | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | [contains-duplicate.c](leetcode-c/contains-duplicate/contains-duplicate.c) |    O(n)     |     hashset     |    O(n)     |
 | 233  | [Number of Digit One](https://leetcode.com/problems/number-of-digit-one/) | [number-of-digit-one.c](leetcode-c/number-of-digit-one/number-of-digit-one.c) | O(log10(n)) |  数学推导+递归  | O(log10(n)) |
 | 264  | [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) | [ugly-number-ii.c](leetcode-c/ugly-number-ii/ugly-number-ii.c) |    O(n)     |       DP        |    O(n)     |
+| 295 | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) | [find-median-from-data-stream.cpp](leetcode-cpp/find-median-from-data-stream/find-median-from-data-stream.cpp) | O(nlog(n)) | 优先队列/堆 | O(n) |
 | 434  | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | [number-of-segments-in-a-string.c](leetcode-c/number-of-segments-in-a-string/number-of-segments-in-a-string.c) |    O(n)     |      遍历       |    O(1)     |
 | 435  | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | [non-overlapping-intervals.c](leetcode-c/non-overlapping-intervals/non-overlapping-intervals.c) | O(nlog(n))  |      贪心       | O(nlog(n))  |
+| 460 | [LFU Cache](https://leetcode.com/problems/lfu-cache/) | [lfu-cache.cpp](leetcode-cpp/lfu-cache/lfu-cache.cpp) | O(1) | 双向链表+双HashMap实现LFU | O(n) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
 | 581  | [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/) | [shortest-unsorted-continuous-subarray.c](leetcode-c/shortest-unsorted-continuous-subarray/shortest-unsorted-continuous-subarray.c) |    O(n)     |      遍历       |    O(1)     |
 | 611  | [Valid Triangle Number](https://leetcode.com/problems/valid-triangle-number/) | [valid-triangle-number.c](leetcode-c/valid-triangle-number/valid-triangle-number.c) |   O(n^2)    |     双指针      |    O(1)     |
@@ -262,3 +264,5 @@
 * [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) 有`三点枚举优化`和`斜率HashMap`两种方法，前者在本地性能测试中总优于后者，但在线测试时前者耗时均多于后者。
 * [172. Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) 要求统计阶乘末尾0的个数，解法是计算阶乘中质因子5的个数，时间复杂度O(log_5(n))。又因为数据范围小，通过循环展开，实现理论时间复杂度O(1)。
 * [187. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) 使用双`HashSet`来统计结果，因为key值过多，存在性能问题。
+* [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)  使用双优先队列实现，已做尽可能优化逻辑，与提交页面最优解基本一致，但时间不能做到最快，怀疑后期加入复杂用例。
+

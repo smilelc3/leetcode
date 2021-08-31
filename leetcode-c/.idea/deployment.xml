@@ -2,33 +2,40 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="远程主机 (c943cad6-db5f-4333-b59e-046a603a89a1)">
+      <paths name="Remote Host (23fd939a-0d61-43b4-9604-a2e02bf619a8)">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/tmp.xyXMoWKKDQ" local="$PROJECT_DIR$" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Remote Host (d17e905e-218b-4a26-aaa0-a8cf57bbad49)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Remote Host (ddd9b520-1a5c-4be8-8505-23c58180ab91)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.1z2bjV2tEW" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/boats-to-save-people/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/boats-to-save-people/cmake-build-release" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release--wsl" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
           </excludedPaths>
         </serverdata>
       </paths>
-      <paths name="远程主机 wsl (fb6cd6b2-f09c-466c-9dea-a2b43caea981)">
+      <paths name="Remote Host Clang (b9f423b5-2d26-45a9-9d9c-f353c800cf40)">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/tmp.MmI58U2STh" local="$PROJECT_DIR$" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release--wsl" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug--wsl" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
-          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
