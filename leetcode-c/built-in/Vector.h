@@ -28,7 +28,7 @@ typedef int errno_t;
 #endif
 
 typedef struct tagVector {
-    void *items;
+    void *restrict items;       // restrict指针仅能通过该指针进行访问（读/写）
     size_t itemSize;
     size_t size;
     size_t cap;
@@ -42,7 +42,7 @@ errno_t VectorAppend(Vector *vector, void *item);
 static inline void *VectorAtNoCheck(Vector *vector, size_t idx) {
     // ANSI C 规定，不可以对void指针进行运算操作，因为我们不知道指针指向的数据类型大小，无法进行偏移；
     // GNU 规定，void指针的运算操作与char型保持一致；
-    return (char *) vector->items + idx * vector->itemSize;
+    return (char *) vector->items + idx * vector->itemSize;     // 该处做兼容处理
 }
 
 // 带检查的坐标访问
@@ -57,8 +57,8 @@ static inline void *VectorAt(Vector *vector, size_t idx) {
 errno_t VectorInsert(Vector *vector, size_t index, void *item);
 
 // vector元素排序
-static inline void VectorSort(Vector *vector, int (*prCompFunc)(const void *, const void *)) {
-    qsort(vector->items, vector->size, vector->itemSize, prCompFunc);
+static inline void VectorSort(Vector *vector, int (*ptrCmpFunc)(const void *, const void *)) {
+    qsort(vector->items, vector->size, vector->itemSize, ptrCmpFunc);
 }
 
 errno_t VectorResize(Vector *vector, size_t size);

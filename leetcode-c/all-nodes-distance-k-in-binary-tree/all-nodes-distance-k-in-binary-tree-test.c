@@ -14,7 +14,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testDistanceKExample1(void) {
+void distanceKTestExample1(void) {
     struct TreeNode *root;
     root = calloc(1, sizeof(struct TreeNode));
     root->val = 3;
@@ -50,8 +50,7 @@ void testDistanceKExample1(void) {
     free(ans);
 }
 
-
-void testDistanceKExample2(void) {
+void distanceKTestExample2(void) {
     struct TreeNode *root;
     root = calloc(1, sizeof(struct TreeNode));
     root->val = 1;
@@ -67,8 +66,7 @@ void testDistanceKExample2(void) {
     free(ans);
 }
 
-
-void testDistanceKTest0(void) {
+void distanceKTestTest0(void) {
     struct TreeNode *root;
     root = calloc(1, sizeof(struct TreeNode));
     root->val = 0;
@@ -95,9 +93,8 @@ void testDistanceKTest0(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testDistanceKExample1);
-    RUN_TEST(testDistanceKExample2);
-
-    RUN_TEST(testDistanceKTest0);
+    RUN_TEST(distanceKTestExample1);
+    RUN_TEST(distanceKTestExample2);
+    RUN_TEST(distanceKTestTest0);
     return UNITY_END();
 }

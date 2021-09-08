@@ -14,7 +14,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testNumRescueBoatsExample1(void) {
+void numRescueBoatsTestExample1(void) {
     int people[] = {1, 2};
     int limit = 3;
     int ans = numRescueBoats(people, sizeof(people) / sizeof(int), limit);
@@ -22,7 +22,7 @@ void testNumRescueBoatsExample1(void) {
     TEST_ASSERT_EQUAL_INT(ansCorrect, ans);
 }
 
-void testNumRescueBoatsExample2(void) {
+void numRescueBoatsTestExample2(void) {
     int people[] = {3, 2, 2, 1};
     int limit = 3;
     int ans = numRescueBoats(people, sizeof(people) / sizeof(int), limit);
@@ -30,7 +30,7 @@ void testNumRescueBoatsExample2(void) {
     TEST_ASSERT_EQUAL_INT(ansCorrect, ans);
 }
 
-void testNumRescueBoatsExample3(void) {
+void numRescueBoatsTestExample3(void) {
     int people[] = {3, 5, 3, 4};
     int limit = 5;
     int ans = numRescueBoats(people, sizeof(people) / sizeof(int), limit);
@@ -40,8 +40,8 @@ void testNumRescueBoatsExample3(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testNumRescueBoatsExample1);
-    RUN_TEST(testNumRescueBoatsExample2);
-    RUN_TEST(testNumRescueBoatsExample3);
+    RUN_TEST(numRescueBoatsTestExample1);
+    RUN_TEST(numRescueBoatsTestExample2);
+    RUN_TEST(numRescueBoatsTestExample3);
     return UNITY_END();
 }

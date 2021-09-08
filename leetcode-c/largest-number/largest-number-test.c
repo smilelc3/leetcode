@@ -14,7 +14,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testLargestNumberExample1(void) {
+void largestNumberTestExample1(void) {
     int nums[] = {10, 2};
     char correctAns[] = "210";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -22,7 +22,7 @@ void testLargestNumberExample1(void) {
     free(ans);
 }
 
-void testLargestNumberExample2(void) {
+void largestNumberTestExample2(void) {
     int nums[] = {3, 30, 34, 5, 9};
     char correctAns[] = "9534330";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -30,7 +30,7 @@ void testLargestNumberExample2(void) {
     free(ans);
 }
 
-void testLargestNumberExample3(void) {
+void largestNumberTestExample3(void) {
     int nums[] = {1};
     char correctAns[] = "1";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -72,9 +72,9 @@ void testLargestNumberTest1(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testLargestNumberExample1);
-    RUN_TEST(testLargestNumberExample2);
-    RUN_TEST(testLargestNumberExample3);
+    RUN_TEST(largestNumberTestExample1);
+    RUN_TEST(largestNumberTestExample2);
+    RUN_TEST(largestNumberTestExample3);
     RUN_TEST(testLargestNumberExample4);
     RUN_TEST(testLargestNumberMyTest0);
     RUN_TEST(testLargestNumberTest0);

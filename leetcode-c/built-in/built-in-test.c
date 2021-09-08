@@ -5,7 +5,10 @@
 #include <unity.h>
 #include <stdlib.h>
 #include "Vector.h"
+#include "util.h"
 #include "TreeNode.h"
+#include "ListNode.h"
+
 
 void setUp(void) {
     // set stuff up here
@@ -15,11 +18,8 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-static int ascIntCmpFunc(const void *a, const void *b) {
-    return *(int *) a - *(int *) b;
-}
 
-void testVectorInt(void) {
+void VectorIntTest(void) {
     int data[] = {8, 6, 4, 7, 2, 9, 3, 5, 0, 1};
     Vector *vector = VectorCreate(sizeof(int));
     TEST_ASSERT_EQUAL_INT(0, vector->size);
@@ -33,7 +33,7 @@ void testVectorInt(void) {
     TEST_ASSERT_EQUAL_INT(7, *(int *) VectorAt(vector, 3));
 
     /* 排序后期望为0 1 2 3 4 5 6 7 8 9 */
-    VectorSort(vector, ascIntCmpFunc);
+    VectorSort(vector, intAscCmpFunc);
     for (int idx = 0; idx < sizeof(data) / sizeof(int); idx++) {
         TEST_ASSERT_EQUAL_INT(idx, *(int *) VectorAt(vector, idx));
     }
@@ -60,7 +60,7 @@ void testVectorInt(void) {
 }
 
 
-void testTreeCreateByNums(void) {
+void TreeCreateByNumsAndTreeDestroyTest(void) {
     struct TreeNode *rootCorrect;
     rootCorrect = calloc(1, sizeof(struct TreeNode));
     rootCorrect->val = 3;
@@ -92,9 +92,22 @@ void testTreeCreateByNums(void) {
 
 }
 
+void ListCreateByNumsAndListDestroyTest(void) {
+    int nums[] = {1, 4, 2, 6, 8, 0, -1};
+    struct ListNode *head = ListCreateByNums(nums, sizeof(nums) / sizeof(int));
+    struct ListNode *node = head;
+    for (size_t idx = 0; idx < sizeof(nums) / sizeof(int); idx++) {
+        TEST_ASSERT_EQUAL_INT(nums[idx], node->val);
+        node = node->next;
+    }
+    ListDestroy(head);
+}
+
+
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testVectorInt);
-    RUN_TEST(testTreeCreateByNums);
+    RUN_TEST(VectorIntTest);
+    RUN_TEST(TreeCreateByNumsAndTreeDestroyTest);
+    RUN_TEST(ListCreateByNumsAndListDestroyTest);
     return UNITY_END();
 }
