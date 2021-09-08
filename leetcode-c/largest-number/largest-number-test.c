@@ -14,7 +14,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testLargestNumberExample1(void) {
+void largestNumberTestExample1(void) {
     int nums[] = {10, 2};
     char correctAns[] = "210";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -22,7 +22,7 @@ void testLargestNumberExample1(void) {
     free(ans);
 }
 
-void testLargestNumberExample2(void) {
+void largestNumberTestExample2(void) {
     int nums[] = {3, 30, 34, 5, 9};
     char correctAns[] = "9534330";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -30,7 +30,7 @@ void testLargestNumberExample2(void) {
     free(ans);
 }
 
-void testLargestNumberExample3(void) {
+void largestNumberTestExample3(void) {
     int nums[] = {1};
     char correctAns[] = "1";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -38,7 +38,7 @@ void testLargestNumberExample3(void) {
     free(ans);
 }
 
-void testLargestNumberExample4(void) {
+void largestNumberTestExample4(void) {
     int nums[] = {10};
     char correctAns[] = "10";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -46,7 +46,7 @@ void testLargestNumberExample4(void) {
     free(ans);
 }
 
-void testLargestNumberMyTest0(void) {
+void largestNumberTestExample5(void) {
     int nums[] = {30, 3};
     char correctAns[] = "330";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -54,7 +54,7 @@ void testLargestNumberMyTest0(void) {
     free(ans);
 }
 
-void testLargestNumberTest0(void) {
+void largestNumberTestTest0(void) {
     int nums[] = {111311, 1113};
     char correctAns[] = "1113111311";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -62,7 +62,7 @@ void testLargestNumberTest0(void) {
     free(ans);
 }
 
-void testLargestNumberTest1(void) {
+void largestNumberTestTest1(void) {
     int nums[] = {8308, 8308, 830};
     char correctAns[] = "83088308830";
     char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
@@ -72,12 +72,12 @@ void testLargestNumberTest1(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testLargestNumberExample1);
-    RUN_TEST(testLargestNumberExample2);
-    RUN_TEST(testLargestNumberExample3);
-    RUN_TEST(testLargestNumberExample4);
-    RUN_TEST(testLargestNumberMyTest0);
-    RUN_TEST(testLargestNumberTest0);
-    RUN_TEST(testLargestNumberTest1);
+    RUN_TEST(largestNumberTestExample1);
+    RUN_TEST(largestNumberTestExample2);
+    RUN_TEST(largestNumberTestExample3);
+    RUN_TEST(largestNumberTestExample4);
+    RUN_TEST(largestNumberTestExample5);
+    RUN_TEST(largestNumberTestTest0);
+    RUN_TEST(largestNumberTestTest1);
     return UNITY_END();
 }

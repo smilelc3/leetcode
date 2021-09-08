@@ -14,7 +14,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testCreateTargetArrayExample1(void) {
+void createTargetArrayTestExample1(void) {
     int nums[] = {0, 1, 2, 3, 4}, index[] = {0, 1, 2, 2, 1};
     int returnSize = -1;
     int *ans = createTargetArray(nums, sizeof(nums) / sizeof(int), index, sizeof(index) / sizeof(int), &returnSize);
@@ -24,7 +24,7 @@ void testCreateTargetArrayExample1(void) {
     free(ans);
 }
 
-void testCreateTargetArrayExample2(void) {
+void createTargetArrayTestExample2(void) {
     int nums[] = {1, 2, 3, 4, 0}, index[] = {0, 1, 2, 3, 0};
     int returnSize = -1;
     int *ans = createTargetArray(nums, sizeof(nums) / sizeof(int), index, sizeof(index) / sizeof(int), &returnSize);
@@ -34,7 +34,7 @@ void testCreateTargetArrayExample2(void) {
     free(ans);
 }
 
-void testCreateTargetArrayExample3(void) {
+void createTargetArrayTestExample3(void) {
     int nums[] = {1}, index[] = {0};
     int returnSize = -1;
     int *ans = createTargetArray(nums, sizeof(nums) / sizeof(int), index, sizeof(index) / sizeof(int), &returnSize);
@@ -46,8 +46,8 @@ void testCreateTargetArrayExample3(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testCreateTargetArrayExample1);
-    RUN_TEST(testCreateTargetArrayExample2);
-    RUN_TEST(testCreateTargetArrayExample3);
+    RUN_TEST(createTargetArrayTestExample1);
+    RUN_TEST(createTargetArrayTestExample2);
+    RUN_TEST(createTargetArrayTestExample3);
     return UNITY_END();
 }

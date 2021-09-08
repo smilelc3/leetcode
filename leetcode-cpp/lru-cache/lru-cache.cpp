@@ -18,6 +18,7 @@ public:
             throw std::out_of_range("LRUCache's capacity must be > 0");
         }
         cap = capacity;
+        cacheMap.reserve(cap);
     }
 
     int get(int key) {

@@ -14,7 +14,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testDailyTemperaturesExample1(void) {
+void dailyTemperaturesTestExample1(void) {
     int temperatures[] = {73, 74, 75, 71, 69, 72, 76, 73};
     int temperaturesSize = sizeof(temperatures) / sizeof(int);
     int returnSize = -1;
@@ -25,7 +25,7 @@ void testDailyTemperaturesExample1(void) {
     free(ans);
 }
 
-void testDailyTemperaturesExample2(void) {
+void dailyTemperaturesTestExample2(void) {
     int temperatures[] = {30, 40, 50, 60};
     int temperaturesSize = sizeof(temperatures) / sizeof(int);
     int returnSize = -1;
@@ -36,7 +36,7 @@ void testDailyTemperaturesExample2(void) {
     free(ans);
 }
 
-void testDailyTemperaturesExample3(void) {
+void dailyTemperaturesTestExample3(void) {
     int temperatures[] = {30, 60, 90};
     int temperaturesSize = sizeof(temperatures) / sizeof(int);
     int returnSize = -1;
@@ -47,7 +47,7 @@ void testDailyTemperaturesExample3(void) {
     free(ans);
 }
 
-void testDailyTemperaturesTest0(void) {
+void dailyTemperaturesTestTest0(void) {
     int temperatures[] = {89, 62, 70, 58, 47, 47, 46, 76, 100, 70};
     int temperaturesSize = sizeof(temperatures) / sizeof(int);
     int returnSize = -1;
@@ -60,10 +60,10 @@ void testDailyTemperaturesTest0(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testDailyTemperaturesExample1);
-    RUN_TEST(testDailyTemperaturesExample2);
-    RUN_TEST(testDailyTemperaturesExample3);
+    RUN_TEST(dailyTemperaturesTestExample1);
+    RUN_TEST(dailyTemperaturesTestExample2);
+    RUN_TEST(dailyTemperaturesTestExample3);
 
-    RUN_TEST(testDailyTemperaturesTest0);
+    RUN_TEST(dailyTemperaturesTestTest0);
     return UNITY_END();
 }

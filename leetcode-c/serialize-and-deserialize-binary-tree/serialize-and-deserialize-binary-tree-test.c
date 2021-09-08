@@ -16,7 +16,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testSerializeAndDeserializeExample1(void) {
+void serializeAndDeserializeTestExample1(void) {
     int nums[] = {1, 2, 3, INT_MIN, INT_MIN, 4, 5};
     struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
     char *ser = serialize(rootCorrect);
@@ -31,7 +31,7 @@ void testSerializeAndDeserializeExample1(void) {
     free(ser);
 }
 
-void testSerializeAndDeserializeExample2(void) {
+void serializeAndDeserializeTestExample2(void) {
     int nums[] = {};
     struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
     char *ser = serialize(rootCorrect);
@@ -46,7 +46,7 @@ void testSerializeAndDeserializeExample2(void) {
     free(ser);
 }
 
-void testSerializeAndDeserializeExample3(void) {
+void serializeAndDeserializeTestExample3(void) {
     int nums[] = {1};
     struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
     char *ser = serialize(rootCorrect);
@@ -61,7 +61,7 @@ void testSerializeAndDeserializeExample3(void) {
     free(ser);
 }
 
-void testSerializeAndDeserializeExample4(void) {
+void serializeAndDeserializeTestExample4(void) {
     int nums[] = {1, 2};
     struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
     char *ser = serialize(rootCorrect);
@@ -76,12 +76,11 @@ void testSerializeAndDeserializeExample4(void) {
     free(ser);
 }
 
-
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testSerializeAndDeserializeExample1);
-    RUN_TEST(testSerializeAndDeserializeExample2);
-    RUN_TEST(testSerializeAndDeserializeExample3);
-    RUN_TEST(testSerializeAndDeserializeExample4);
+    RUN_TEST(serializeAndDeserializeTestExample1);
+    RUN_TEST(serializeAndDeserializeTestExample2);
+    RUN_TEST(serializeAndDeserializeTestExample3);
+    RUN_TEST(serializeAndDeserializeTestExample4);
     return UNITY_END();
 }

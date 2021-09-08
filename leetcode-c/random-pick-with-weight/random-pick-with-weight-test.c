@@ -13,7 +13,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testSolutionExample1(void) {
+void SolutionTestExample1(void) {
     int w[] = {1};
     Solution *obj = solutionCreate(w, sizeof(w) / sizeof(int));
     int param_1 = solutionPickIndex(obj);
@@ -21,7 +21,7 @@ void testSolutionExample1(void) {
     solutionFree(obj);
 }
 
-void testSolutionExample2(void) {
+void SolutionTestExample2(void) {
     int w[] = {1, 3};
     Solution *obj = solutionCreate(w, sizeof(w) / sizeof(int));
     size_t totTime = 100000000;
@@ -43,7 +43,7 @@ void testSolutionExample2(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testSolutionExample1);
-    RUN_TEST(testSolutionExample2);
+    RUN_TEST(SolutionTestExample1);
+    RUN_TEST(SolutionTestExample2);
     return UNITY_END();
 }

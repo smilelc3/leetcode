@@ -13,14 +13,14 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testNthUglyNumberExample1(void) {
+void nthUglyNumberTestExample1(void) {
     int n = 10;
     int ans = nthUglyNumber(n);
     int rightAns = 12;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
 }
 
-void testNthUglyNumberExample2(void) {
+void nthUglyNumberTestExample2(void) {
     int n = 1;
     int ans = nthUglyNumber(n);
     int rightAns = 1;
@@ -30,8 +30,7 @@ void testNthUglyNumberExample2(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testNthUglyNumberExample1);
-    RUN_TEST(testNthUglyNumberExample2);
-
+    RUN_TEST(nthUglyNumberTestExample1);
+    RUN_TEST(nthUglyNumberTestExample2);
     return UNITY_END();
 }

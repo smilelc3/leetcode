@@ -14,14 +14,14 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testCountDigitOneExample1(void) {
+void countDigitOneTestExample1(void) {
     int n = 13;
     int ans = countDigitOne(n);
     int rightAns = 6;
     TEST_ASSERT_EQUAL_INT(ans, rightAns);
 }
 
-void testCountDigitOneExample2(void) {
+void countDigitOneTestExample2(void) {
     int n = 0;
     int ans = countDigitOne(n);
     int rightAns = 0;
@@ -30,7 +30,7 @@ void testCountDigitOneExample2(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testCountDigitOneExample1);
-    RUN_TEST(testCountDigitOneExample2);
+    RUN_TEST(countDigitOneTestExample1);
+    RUN_TEST(countDigitOneTestExample2);
     return UNITY_END();
 }

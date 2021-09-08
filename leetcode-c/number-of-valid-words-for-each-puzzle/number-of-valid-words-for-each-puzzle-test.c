@@ -13,7 +13,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testFindNumOfValidWordsExample1(void) {
+void findNumOfValidWordsTestExample1(void) {
     char *words[] = {"aaaa", "asas", "able", "ability", "actt", "actor", "access"};
     int wordsSize = 7;
     char *puzzles[] = {"aboveyz", "abrodyz", "abslute", "absoryz", "actresz", "gaswxyz"};
@@ -26,7 +26,7 @@ void testFindNumOfValidWordsExample1(void) {
     free(ans);
 }
 
-void testFindNumOfValidWordsTest0(void) {
+void findNumOfValidWordsTestTest0(void) {
     char *words[] = {"apple", "pleas", "please"};
     int wordsSize = 3;
     char *puzzles[] = {"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
@@ -41,7 +41,7 @@ void testFindNumOfValidWordsTest0(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testFindNumOfValidWordsExample1);
-    RUN_TEST(testFindNumOfValidWordsTest0);
+    RUN_TEST(findNumOfValidWordsTestExample1);
+    RUN_TEST(findNumOfValidWordsTestTest0);
     return UNITY_END();
 }

@@ -13,7 +13,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testEraseOverlapIntervalsExample1(void) {
+void eraseOverlapIntervalsTestExample1(void) {
     int intervalsRowSize = 4, intervalsColSize = 2;
     int **intervals = (int **) malloc(intervalsRowSize * sizeof(int *));
 
@@ -44,7 +44,7 @@ void testEraseOverlapIntervalsExample1(void) {
 
 }
 
-void testEraseOverlapIntervalsExample2(void) {
+void eraseOverlapIntervalsTestExample2(void) {
     int intervalsRowSize = 3, intervalsColSize = 2;
     int **intervals = (int **) malloc(intervalsRowSize * sizeof(int *));
 
@@ -73,7 +73,7 @@ void testEraseOverlapIntervalsExample2(void) {
 
 }
 
-void testEraseOverlapIntervalsExample3(void) {
+void eraseOverlapIntervalsTestExample3(void) {
     int intervalsRowSize = 2, intervalsColSize = 2;
     int **intervals = (int **) malloc(intervalsRowSize * sizeof(int *));
 
@@ -102,8 +102,8 @@ void testEraseOverlapIntervalsExample3(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testEraseOverlapIntervalsExample1);
-    RUN_TEST(testEraseOverlapIntervalsExample2);
-    RUN_TEST(testEraseOverlapIntervalsExample3);
+    RUN_TEST(eraseOverlapIntervalsTestExample1);
+    RUN_TEST(eraseOverlapIntervalsTestExample2);
+    RUN_TEST(eraseOverlapIntervalsTestExample3);
     return UNITY_END();
 }

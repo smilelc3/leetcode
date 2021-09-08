@@ -9,7 +9,7 @@
 #                                                                                 #
 ###################################################################################
 
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 
 # Read src/unity.h file and get project version from it
 set(UNITY_HEADER "src/unity.h")

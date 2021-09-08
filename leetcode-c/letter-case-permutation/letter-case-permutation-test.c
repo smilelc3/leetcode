@@ -13,7 +13,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testLetterCasePermutationExample1(void) {
+void letterCasePermutationTestExample1(void) {
     char s[] = "a1b2";
     int returnSize = 0;
     char **ans = letterCasePermutation(s, &returnSize);
@@ -31,7 +31,7 @@ void testLetterCasePermutationExample1(void) {
     ans = NULL;
 }
 
-void testLetterCasePermutationExample2(void) {
+void letterCasePermutationTestExample2(void) {
     char s[] = "3z4";
     int returnSize = 0;
     char **ans = letterCasePermutation(s, &returnSize);
@@ -49,7 +49,7 @@ void testLetterCasePermutationExample2(void) {
     ans = NULL;
 }
 
-void testLetterCasePermutationExample3(void) {
+void letterCasePermutationTestExample3(void) {
     char s[] = "12345";
     int returnSize = 0;
     char **ans = letterCasePermutation(s, &returnSize);
@@ -67,7 +67,7 @@ void testLetterCasePermutationExample3(void) {
     ans = NULL;
 }
 
-void testLetterCasePermutationExample4(void) {
+void letterCasePermutationTestExample4(void) {
     char s[] = "0";
     int returnSize = 0;
     char **ans = letterCasePermutation(s, &returnSize);
@@ -87,9 +87,9 @@ void testLetterCasePermutationExample4(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testLetterCasePermutationExample1);
-    RUN_TEST(testLetterCasePermutationExample2);
-    RUN_TEST(testLetterCasePermutationExample3);
-    RUN_TEST(testLetterCasePermutationExample4);
+    RUN_TEST(letterCasePermutationTestExample1);
+    RUN_TEST(letterCasePermutationTestExample2);
+    RUN_TEST(letterCasePermutationTestExample3);
+    RUN_TEST(letterCasePermutationTestExample4);
     return UNITY_END();
 }

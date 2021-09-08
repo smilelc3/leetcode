@@ -15,7 +15,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testMaxIceCreamExample1(void) {
+void maxIceCreamTestExample1(void) {
     int costs[] = {1, 3, 2, 4, 1};
     int costsSize = sizeof(costs) / sizeof(int);
     int coins = 7;
@@ -24,7 +24,7 @@ void testMaxIceCreamExample1(void) {
     TEST_ASSERT_EQUAL_INT(ans, rightAns);
 }
 
-void testMaxIceCreamExample2(void) {
+void maxIceCreamTestExample2(void) {
     int costs[] = {10, 6, 8, 7, 7, 8};
     int costsSize = sizeof(costs) / sizeof(int);
     int coins = 5;
@@ -33,7 +33,7 @@ void testMaxIceCreamExample2(void) {
     TEST_ASSERT_EQUAL_INT(ans, rightAns);
 }
 
-void testMaxIceCreamExample3(void) {
+void maxIceCreamTestExample3(void) {
     int costs[] = {1, 6, 3, 1, 2, 5};
     int costsSize = sizeof(costs) / sizeof(int);
     int coins = 20;
@@ -44,8 +44,8 @@ void testMaxIceCreamExample3(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testMaxIceCreamExample1);
-    RUN_TEST(testMaxIceCreamExample2);
-    RUN_TEST(testMaxIceCreamExample3);
+    RUN_TEST(maxIceCreamTestExample1);
+    RUN_TEST(maxIceCreamTestExample2);
+    RUN_TEST(maxIceCreamTestExample3);
     return UNITY_END();
 }

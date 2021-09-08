@@ -13,7 +13,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testFindUnsortedSubarrayExample1(void) {
+void findUnsortedSubarrayTestExample1(void) {
     int nums[] = {2, 6, 4, 8, 10, 9, 15};
     int numsSize = sizeof(nums) / sizeof(int);
     int ans = findUnsortedSubarray(nums, numsSize);
@@ -21,7 +21,7 @@ void testFindUnsortedSubarrayExample1(void) {
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
 }
 
-void testFindUnsortedSubarrayExample2(void) {
+void findUnsortedSubarrayTestExample2(void) {
     int nums[] = {1, 2, 3, 4};
     int numsSize = sizeof(nums) / sizeof(int);
     int ans = findUnsortedSubarray(nums, numsSize);
@@ -29,7 +29,7 @@ void testFindUnsortedSubarrayExample2(void) {
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
 }
 
-void testFindUnsortedSubarrayExample3(void) {
+void findUnsortedSubarrayTestExample3(void) {
     int nums[] = {1};
     int numsSize = sizeof(nums) / sizeof(int);
     int ans = findUnsortedSubarray(nums, numsSize);
@@ -37,7 +37,7 @@ void testFindUnsortedSubarrayExample3(void) {
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
 }
 
-void testFindUnsortedSubarrayMyTest0(void) {
+void findUnsortedSubarrayTestMyTest0(void) {
     int nums[] = {4, 3, 2, 1};
     int numsSize = sizeof(nums) / sizeof(int);
     int ans = findUnsortedSubarray(nums, numsSize);
@@ -45,7 +45,7 @@ void testFindUnsortedSubarrayMyTest0(void) {
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
 }
 
-void testFindUnsortedSubarrayTest0(void) {
+void findUnsortedSubarrayTestTest0(void) {
     int nums[] = {1, 3, 2, 2, 2};
     int numsSize = sizeof(nums) / sizeof(int);
     int ans = findUnsortedSubarray(nums, numsSize);
@@ -53,7 +53,7 @@ void testFindUnsortedSubarrayTest0(void) {
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
 }
 
-void testFindUnsortedSubarrayTest1(void) {
+void findUnsortedSubarrayTestTest1(void) {
     int nums[] = {1, 2, 3, 3, 3};
     int numsSize = sizeof(nums) / sizeof(int);
     int ans = findUnsortedSubarray(nums, numsSize);
@@ -63,11 +63,11 @@ void testFindUnsortedSubarrayTest1(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testFindUnsortedSubarrayExample1);
-    RUN_TEST(testFindUnsortedSubarrayExample2);
-    RUN_TEST(testFindUnsortedSubarrayExample3);
-    RUN_TEST(testFindUnsortedSubarrayMyTest0);
-    RUN_TEST(testFindUnsortedSubarrayTest0);
-    RUN_TEST(testFindUnsortedSubarrayTest1);
+    RUN_TEST(findUnsortedSubarrayTestExample1);
+    RUN_TEST(findUnsortedSubarrayTestExample2);
+    RUN_TEST(findUnsortedSubarrayTestExample3);
+    RUN_TEST(findUnsortedSubarrayTestMyTest0);
+    RUN_TEST(findUnsortedSubarrayTestTest0);
+    RUN_TEST(findUnsortedSubarrayTestTest1);
     return UNITY_END();
 }

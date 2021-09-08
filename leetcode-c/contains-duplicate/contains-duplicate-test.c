@@ -14,7 +14,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testContainsDuplicateExample1(void) {
+void containsDuplicateTestExample1(void) {
     int numsSize = 4;
     int *nums = (int *) malloc(sizeof(int) * numsSize);
     if (nums == NULL) {
@@ -30,7 +30,7 @@ void testContainsDuplicateExample1(void) {
     free(nums);
 }
 
-void testContainsDuplicateExample2(void) {
+void containsDuplicateTestExample2(void) {
     int numsSize = 4;
     int *nums = (int *) malloc(sizeof(int) * numsSize);
     if (nums == NULL) {
@@ -46,8 +46,7 @@ void testContainsDuplicateExample2(void) {
     free(nums);
 }
 
-
-void testContainsDuplicateExample3(void) {
+void containsDuplicateTestExample3(void) {
     int numsSize = 10;
     int *nums = (int *) malloc(sizeof(int) * numsSize);
     if (nums == NULL) {
@@ -69,11 +68,10 @@ void testContainsDuplicateExample3(void) {
     free(nums);
 }
 
-
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testContainsDuplicateExample1);
-    RUN_TEST(testContainsDuplicateExample2);
-    RUN_TEST(testContainsDuplicateExample3);
+    RUN_TEST(containsDuplicateTestExample1);
+    RUN_TEST(containsDuplicateTestExample2);
+    RUN_TEST(containsDuplicateTestExample3);
     return UNITY_END();
 }

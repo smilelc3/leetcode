@@ -13,7 +13,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testPathInZigZagTreeExample1(void) {
+void pathInZigZagTreeTestExample1(void) {
     int label = 14;
     int returnSize = -1;
     int *ans = pathInZigZagTree(label, &returnSize);
@@ -23,7 +23,7 @@ void testPathInZigZagTreeExample1(void) {
     free(ans);
 }
 
-void testPathInZigZagTreeExample2(void) {
+void pathInZigZagTreeTestExample2(void) {
     int label = 26;
     int returnSize = -1;
     int *ans = pathInZigZagTree(label, &returnSize);
@@ -36,7 +36,7 @@ void testPathInZigZagTreeExample2(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testPathInZigZagTreeExample1);
-    RUN_TEST(testPathInZigZagTreeExample2);
+    RUN_TEST(pathInZigZagTreeTestExample1);
+    RUN_TEST(pathInZigZagTreeTestExample2);
     return UNITY_END();
 }

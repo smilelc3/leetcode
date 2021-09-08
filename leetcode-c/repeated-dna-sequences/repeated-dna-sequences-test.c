@@ -13,7 +13,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void testFindRepeatedDnaSequencesExample1(void) {
+void findRepeatedDnaSequencesTestExample1(void) {
     char s[] = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
     int returnSize = -1;
     char **ans = findRepeatedDnaSequences(s, &returnSize);
@@ -31,7 +31,7 @@ void testFindRepeatedDnaSequencesExample1(void) {
     ans = NULL;
 }
 
-void testFindRepeatedDnaSequencesExample2(void) {
+void findRepeatedDnaSequencesTestExample2(void) {
     char s[] = "AAAAAAAAAAAAA";
     int returnSize = -1;
     char **ans = findRepeatedDnaSequences(s, &returnSize);
@@ -49,7 +49,7 @@ void testFindRepeatedDnaSequencesExample2(void) {
     ans = NULL;
 }
 
-void testFindRepeatedDnaSequencesTest0(void) {
+void findRepeatedDnaSequencesTestTest0(void) {
     char s[] = "A";
     int returnSize = -1;
     char **ans = findRepeatedDnaSequences(s, &returnSize);
@@ -61,8 +61,8 @@ void testFindRepeatedDnaSequencesTest0(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testFindRepeatedDnaSequencesExample1);
-    RUN_TEST(testFindRepeatedDnaSequencesExample2);
-    RUN_TEST(testFindRepeatedDnaSequencesTest0);
+    RUN_TEST(findRepeatedDnaSequencesTestExample1);
+    RUN_TEST(findRepeatedDnaSequencesTestExample2);
+    RUN_TEST(findRepeatedDnaSequencesTestTest0);
     return UNITY_END();
 }
