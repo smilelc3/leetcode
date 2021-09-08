@@ -248,6 +248,7 @@
 | 881 | [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) | [boats-to-save-people.c](leetcode-c/boats-to-save-people/boats-to-save-people.c) | O(nlog(n)) | 贪心 | O(1) |
 | 1104 | [Path In Zigzag Labelled Binary Tree](https://leetcode.com/problems/path-in-zigzag-labelled-binary-tree/) | [path-in-zigzag-labelled-binary-tree.c](leetcode-c/path-in-zigzag-labelled-binary-tree/path-in-zigzag-labelled-binary-tree.c) |  O(log(n))  |    数学推导     |  O(log(n))  |
 | 1178 | [Number of Valid Words for Each Puzzle](https://leetcode.com/problems/number-of-valid-words-for-each-puzzle/) | [number-of-valid-words-for-each-puzzle.c](leetcode-c/number-of-valid-words-for-each-puzzle/number-of-valid-words-for-each-puzzle.c) |  O((2^7)*n)  | hashMap +位压缩 |    O(n)     |
+| 1367 | [Linked List in Binary Tree](https://leetcode.com/problems/linked-list-in-binary-tree/) | [linked-list-in-binary-tree-test.c](leetcode-c/linked-list-in-binary-tree/linked-list-in-binary-tree-test.c) |  | 二次递归 |  |
 | 1389 | [Create Target Array in the Given Order](https://leetcode.com/problems/create-target-array-in-the-given-order/) | [create-target-array-in-the-given-order-test.c](leetcode-c/create-target-array-in-the-given-order/create-target-array-in-the-given-order-test.c) | O(n^2) | 线性表插入 | O(n) |
 | 1833 | [Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/) | [maximum-ice-cream-bars.c](leetcode-c/maximum-ice-cream-bars/maximum-ice-cream-bars.c) |    O(n)     |   贪心+桶排序   |    O(n)     |
 
