@@ -17,7 +17,7 @@ typedef struct {
 // 压缩DNA字符串，每个字符仅可能为A/C/G/T，单个符号压缩成2位二进制
 static int zipDnaStr(const char *str, size_t length) {
     if (length > sizeof(int) * 8 / 2) {
-        fprintf(stderr, "cpr str length(%zu) > limit(%lu).\n", length, sizeof(int) * 8 / 2);
+        fprintf(stderr, "cpr str length(%zu) > limit(%zu).\n", length, sizeof(int) * 8 / 2);
         return 0;
     }
     int ret = 0;

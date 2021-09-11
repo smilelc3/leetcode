@@ -32,8 +32,8 @@ void serializeAndDeserializeTestExample1(void) {
 }
 
 void serializeAndDeserializeTestExample2(void) {
-    int nums[] = {};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
+    int* nums = NULL;
+    struct TreeNode *rootCorrect = TreeCreateByNums(nums, 0, INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));

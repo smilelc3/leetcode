@@ -32,7 +32,7 @@ Solution *solutionCreate(const int *w, int wSize) {
     for (int idx = 1; idx < wSize; ++idx) {
         obj->prefixSum[idx] = obj->prefixSum[idx - 1] + w[idx];
     }
-    srand(time(NULL));
+    srand((unsigned int)time(NULL));
     return obj;
 }
 
