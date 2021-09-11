@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 
 static int findUnsortedSubarrayBoundMethod(const int *nums, int numsSize) {
     if (numsSize <= 1) {
@@ -35,9 +36,6 @@ static int findUnsortedSubarrayBoundMethod(const int *nums, int numsSize) {
     return right - left + 1;
 }
 
-static inline int ascCompIntFunc(const void *a, const void *b) {
-    return *(int *) a - *(int *) b;
-}
 
 static int findUnsortedSubarraySortMethod(const int *nums, int numsSize) {
 
@@ -48,7 +46,7 @@ static int findUnsortedSubarraySortMethod(const int *nums, int numsSize) {
     }
     memcpy(numsSort, nums, sizeof(int) * numsSize);
 
-    qsort(numsSort, numsSize, sizeof(int), ascCompIntFunc);
+    qsort(numsSort, numsSize, sizeof(int), intAscCmpFunc);
     int left = 0, right = numsSize - 1;
     while (nums[left] == numsSort[left]) {
         left++;

@@ -3,13 +3,10 @@
 //
 
 #include <stdlib.h>
-
-static inline int AscCmpFun(const void *a, const void *b) {
-    return *((int *) a) - *((int *) b);
-}
+#include "util.h"
 
 static int triangleNumber(int *nums, int numsSize) {
-    qsort(nums, numsSize, sizeof(int), AscCmpFun);
+    qsort(nums, numsSize, sizeof(int), intAscCmpFunc);
     // 三角形第三边小于两边之和，大于两边之差
     // 先查找 第三边（最大边）c
     // 已升序排序

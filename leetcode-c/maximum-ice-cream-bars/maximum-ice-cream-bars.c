@@ -5,12 +5,9 @@
 #include <stdlib.h>
 #include <util.h>
 
-static inline int cmpFunc(const void *a, const void *b) {
-    return *(int *) a - *(int *) b;
-}
 
 static int maxIceCreamQuickSort(int *costs, const int costsSize, int coins) {
-    qsort(costs, costsSize, sizeof(int), cmpFunc);
+    qsort(costs, costsSize, sizeof(int), intAscCmpFunc);
     int ret = 0;
     // every cost >= 1
     for (int idx = 0; idx < costsSize; idx++) {
