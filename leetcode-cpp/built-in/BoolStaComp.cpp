@@ -6,11 +6,7 @@
 #include <stdexcept>
 
 void BoolStaComp::setSize(size_t _size) {
-    if (_size < 0) {
-        throw std::out_of_range("size must >= 0");
-    }
     size = _size;
-
     auto int8sLength = size >> 3;
     if ((size & 0x7) != 0) {
         int8sLength++;

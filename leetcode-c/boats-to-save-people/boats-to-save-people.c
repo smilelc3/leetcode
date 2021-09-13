@@ -3,17 +3,14 @@
 //
 
 #include <stdlib.h>
-
-int descIntCompFunc(const void *a, const void *b) {
-    return *(int *) b - *(int *) a;
-}
+#include "util.h"
 
 int numRescueBoats(int *people, int peopleSize, int limit) {
     if (peopleSize <= 0) {
         return 0;
     }
     int ret = 0;
-    qsort(people, peopleSize, sizeof(int), descIntCompFunc);
+    qsort(people, peopleSize, sizeof(int), intDescCmpFunc);
     int left = 0, right = peopleSize - 1;
     while (left <= right) {
         if (people[left] + people[right] <= limit) {
