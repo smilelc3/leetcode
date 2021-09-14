@@ -255,6 +255,7 @@
 | 1367 | [Linked List in Binary Tree](https://leetcode.com/problems/linked-list-in-binary-tree/) | [linked-list-in-binary-tree-test.c](leetcode-c/linked-list-in-binary-tree/linked-list-in-binary-tree-test.c) |  | 二次递归 |  |
 | 1389 | [Create Target Array in the Given Order](https://leetcode.com/problems/create-target-array-in-the-given-order/) | [create-target-array-in-the-given-order-test.c](leetcode-c/create-target-array-in-the-given-order/create-target-array-in-the-given-order-test.c) | O(n^2) | 线性表插入 | O(n) |
 | 1833 | [Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/) | [maximum-ice-cream-bars.c](leetcode-c/maximum-ice-cream-bars/maximum-ice-cream-bars.c) |    O(n)     |   贪心+桶排序   |    O(n)     |
+| 1845 | [Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager/) | [seat-reservation-manager.cpp](leetcode-cpp/seat-reservation-manager/seat-reservation-manager.cpp) | O(log(n)) | 优先队列 | O(n) |
 
 ## 补充
 
