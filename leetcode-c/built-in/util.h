@@ -6,6 +6,7 @@
 #define LEETCODE_C_UTIL_H
 
 #include <stdlib.h>
+#include <stdint.h>
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))

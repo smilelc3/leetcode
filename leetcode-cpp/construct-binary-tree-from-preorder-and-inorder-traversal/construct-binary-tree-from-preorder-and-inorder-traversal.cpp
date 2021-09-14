@@ -21,8 +21,8 @@ public:
 private:
     std::unordered_map<int, int> indexMap;
 
-    TreeNode *rebuildTreeByPreorderAndInorder(std::vector<int> &preorder, int preorderStart, int preorderEnd,
-                                              std::vector<int> &inorder, int inorderStart, int inorderEnd) {
+    TreeNode *rebuildTreeByPreorderAndInorder(std::vector<int> &preorder, size_t preorderStart, size_t preorderEnd,
+                                              std::vector<int> &inorder, size_t inorderStart, size_t inorderEnd) {
         if (preorderStart == preorderEnd or inorderStart == inorderEnd) {
             return nullptr;
         }
@@ -32,7 +32,7 @@ private:
         int inorderRootIdx = indexMap[root->val];
 
         // 得到左子树的数目
-        int leftSubtreeSize = inorderRootIdx - inorderStart;
+        size_t leftSubtreeSize = inorderRootIdx - inorderStart;
 
         // 重构左子树
         root->left = rebuildTreeByPreorderAndInorder(preorder, preorderStart + 1, preorderStart + leftSubtreeSize + 1,

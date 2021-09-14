@@ -26,6 +26,6 @@ public:
                 }
             }
         }
-        return dp[s.size() - 1];
+        return (int) dp[s.size() - 1];
     }
 };

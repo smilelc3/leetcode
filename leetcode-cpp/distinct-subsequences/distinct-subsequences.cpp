@@ -33,7 +33,7 @@ public:
             curLayer.swap(preLayer);
             curLayer[0] = 0;
         }
-        return preLayer[s.size()];
+        return (int) preLayer[s.size()];
     }
 
     /* dp[i][j] = dp[i][j-1] if t[i-1] == s[j-1] else dp[i][j-1] + dp[i-1][j-1]
