@@ -239,6 +239,7 @@
 | 295 | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) | [find-median-from-data-stream.cpp](leetcode-cpp/find-median-from-data-stream/find-median-from-data-stream.cpp) | O(nlog(n)) | 优先队列/堆 | O(n) |
 | 434  | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | [number-of-segments-in-a-string.c](leetcode-c/number-of-segments-in-a-string/number-of-segments-in-a-string.c) |    O(n)     |      遍历       |    O(1)     |
 | 435  | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | [non-overlapping-intervals.c](leetcode-c/non-overlapping-intervals/non-overlapping-intervals.c) | O(nlog(n))  |      贪心       | O(nlog(n))  |
+| 447 | [Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs/) | [number-of-boomerangs.c](leetcode-c/number-of-boomerangs/number-of-boomerangs.c) | O(n^2) | HashMap | O(n) |
 | 460 | [LFU Cache](https://leetcode.com/problems/lfu-cache/) | [lfu-cache.cpp](leetcode-cpp/lfu-cache/lfu-cache.cpp) | O(1) | 双向链表+双HashMap实现LFU | O(n) |
 | 528 | [Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/) | [random-pick-with-weight.c](leetcode-c/random-pick-with-weight/random-pick-with-weight.c) | O(log(n)) | 前缀和数组+二分查找 | O(n) |
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |

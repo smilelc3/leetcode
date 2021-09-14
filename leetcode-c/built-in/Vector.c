@@ -68,8 +68,8 @@ errno_t VectorReserve(Vector *vector, size_t cap) {
 // 修改容器尺寸，有可能会截断
 errno_t VectorResize(Vector *vector, size_t size) {
     if (vector->cap < size) {
-        // 策略：倍增cap，直到容纳size;
-        size_t _cap = vector->cap == 0 ? 1 : vector->cap;
+        // 策略：初始化为8（借鉴utarray策略），倍增cap，直到容纳size;
+        size_t _cap = vector->cap == 0 ? 8 : vector->cap;
         while (_cap < size) {
             _cap = _cap << 1;
         }

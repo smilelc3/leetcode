@@ -103,11 +103,30 @@ void ListCreateByNumsAndListDestroyTest(void) {
     ListDestroy(head);
 }
 
+void fastPowTest(void) {
+    int a = 1, b = 0;
+    TEST_ASSERT_EQUAL(1, fastPow(a, b));
+    a = 1, b = 1;
+    TEST_ASSERT_EQUAL(1, fastPow(a, b));
+    a = -1, b = 1;
+    TEST_ASSERT_EQUAL(-1, fastPow(a, b));
+    a = -2, b = 0;
+    TEST_ASSERT_EQUAL(1, fastPow(a, b));
+    a = -2, b = 1;
+    TEST_ASSERT_EQUAL(-2, fastPow(a, b));
+    a = 2, b = 10;
+    TEST_ASSERT_EQUAL(1024, fastPow(a, b));
+    a = -2, b = 10;
+    TEST_ASSERT_EQUAL(1024, fastPow(a, b));
+    a = -2, b = 11;
+    TEST_ASSERT_EQUAL(-2048, fastPow(a, b));
+}
 
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(VectorIntTest);
     RUN_TEST(TreeCreateByNumsAndTreeDestroyTest);
     RUN_TEST(ListCreateByNumsAndListDestroyTest);
+    RUN_TEST(fastPowTest);
     return UNITY_END();
 }

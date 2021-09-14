@@ -5,6 +5,8 @@
 #ifndef LEETCODE_C_UTIL_H
 #define LEETCODE_C_UTIL_H
 
+#include <stdlib.h>
+
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 
@@ -17,5 +19,8 @@ static inline int intAscCmpFunc(const void *a, const void *b) {
 static inline int intDescCmpFunc(const void *a, const void *b) {
     return -intAscCmpFunc(a, b);
 }
+
+// 快速幂
+int64_t fastPow(int64_t a, size_t b);
 
 #endif //LEETCODE_C_UTIL_H
