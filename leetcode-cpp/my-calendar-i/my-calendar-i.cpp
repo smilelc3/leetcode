@@ -14,7 +14,7 @@ public:
     // 在map中找到第一个key(end)大于start的item,只要存在且item->second < end 就不能添加新的日程安排。
     bool book(int start, int end) {
         auto item = end2StartMap.lower_bound(start);
-        if (item->first == start) {
+        if (item != end2StartMap.end() and item->first == start) {
             item++;
         }
         if (item != end2StartMap.end() and item->second < end) {
