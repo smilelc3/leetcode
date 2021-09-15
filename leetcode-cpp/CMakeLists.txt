@@ -25,31 +25,27 @@ if (MSVC)
     add_compile_options(/utf-8)
 endif ()
 
-# 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
-enable_testing()
-
 # 启用AddressSanitizer (ASan)功能
 add_compile_options(-fsanitize=address)
 
-## 启动自下载
-#include(FetchContent)
-#
-## FetchContent获取GTest
-#FetchContent_Declare(googletest GIT_REPOSITORY https://github.com/google/googletest.git)
-#FetchContent_MakeAvailable(googletest)
-#
-#
-## git获取Google benchmark
-#FetchContent_Declare(benchmark GIT_REPOSITORY https://github.com/google/benchmark.git)
-#FetchContent_MakeAvailable(benchmark)
+# 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
+enable_testing()
+
+# 启动自下载
+include(FetchContent)
+
+# FetchContent获取GTest
+FetchContent_Declare(googletest GIT_REPOSITORY https://github.com/google/googletest.git)
+FetchContent_MakeAvailable(googletest)
+message(STATUS "fetch GTest success !")
+
+# git获取Google benchmark
+FetchContent_Declare(benchmark GIT_REPOSITORY https://github.com/google/benchmark.git)
+FetchContent_MakeAvailable(benchmark)
+message(STATUS "fetch Google benchmark success !")
 
 # 引入build-in依赖
 include_directories(built-in)
-
-# 添加Google gtest/benchmark 项目
-add_subdirectory(built-in/googletest-release-1.10.0)
-add_subdirectory(built-in/benchmark-1.5.3)
-
 
 # 生成所有子目录到变量 SUBDIRS
 file(GLOB SUBDIRS RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
