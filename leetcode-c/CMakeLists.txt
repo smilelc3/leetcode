@@ -33,7 +33,7 @@ include(FetchContent)
 # FetchContent获取Unity
 FetchContent_Declare(Unity GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git)
 FetchContent_MakeAvailable(Unity)
-message(STATUS "fetch Unity success !")
+message(STATUS "fetch 3rd-party: ThrowTheSwitch/Unity success !")
 
 # 引入built-in依赖
 include_directories(built-in)
