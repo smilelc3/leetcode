@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -19,6 +20,16 @@ static inline int intAscCmpFunc(const void *a, const void *b) {
 // int降序比较函数
 static inline int intDescCmpFunc(const void *a, const void *b) {
     return -intAscCmpFunc(a, b);
+}
+
+// 字符串字典序比较函数
+static inline int strAscCmpFunc(const void *a, const void *b) {
+    return strcmp((char *) a, (char *) b);
+}
+
+// 字符串逆字典序比较函数
+static inline int strDescCmpFunc(const void *a, const void *b) {
+    return -strAscCmpFunc(a, b);
 }
 
 // 快速幂
