@@ -122,11 +122,31 @@ void fastPowTest(void) {
     TEST_ASSERT_EQUAL(-2048, fastPow(a, b));
 }
 
+void gcdAndLcmTest(void) {
+    int m = 6, n = 8;
+    TEST_ASSERT_EQUAL(2, gcd(m, n));
+    TEST_ASSERT_EQUAL(24, lcm(m, n));
+    m = -6, n = 8;
+    TEST_ASSERT_EQUAL(2, gcd(m, n));
+    m = -6, n = -8;
+    TEST_ASSERT_EQUAL(2, gcd(m, n));
+    m = 1, n = -8;
+    TEST_ASSERT_EQUAL(1, gcd(m, n));
+    TEST_ASSERT_EQUAL(8, lcm(m, n));
+    m = 0, n = 1024;
+    TEST_ASSERT_EQUAL(1024, gcd(m, n));
+    TEST_ASSERT_EQUAL(0, lcm(m, n));
+    m = 1024, n = 0;
+    TEST_ASSERT_EQUAL(1024, gcd(m, n));
+    TEST_ASSERT_EQUAL(0, lcm(m, n));
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(VectorIntTest);
     RUN_TEST(TreeCreateByNumsAndTreeDestroyTest);
     RUN_TEST(ListCreateByNumsAndListDestroyTest);
     RUN_TEST(fastPowTest);
+    RUN_TEST(gcdAndLcmTest);
     return UNITY_END();
 }

@@ -64,7 +64,7 @@ void multiSearchTestExample2(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    //RUN_TEST(multiSearchTestExample1);
+    RUN_TEST(multiSearchTestExample1);
     RUN_TEST(multiSearchTestExample2);
     return UNITY_END();
 }

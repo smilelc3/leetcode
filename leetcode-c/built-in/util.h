@@ -12,6 +12,7 @@
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
+#define abs(n) (((n) >= 0) ? (n) : -(n))
 
 // int升序比较函数
 static inline int intAscCmpFunc(const void *a, const void *b) {
@@ -36,6 +37,18 @@ static inline int strDescCmpFunc(const void *a, const void *b) {
 // 快速幂
 int64_t fastPow(int64_t a, size_t b);
 
-// TODO gcd/lcm函数，需要从C++17标准中移植
+// 最大公约数（移植于C++17 std::gcd）
+static int64_t gcd(int64_t m, int64_t n) {
+    return m == 0 ? abs(n)
+                  : n == 0 ? abs(m)
+                           : gcd(n, m % n);
+}
+
+// 最小公倍数（移植于C++17 std::lcm）
+static int64_t lcm(int64_t m, int64_t n) {
+    return (m != 0 && n != 0)
+           ? (abs(m) / gcd(m, n)) * abs(n)
+           : 0;
+}
 
 #endif //LEETCODE_C_UTIL_H
