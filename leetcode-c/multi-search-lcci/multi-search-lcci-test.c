@@ -34,15 +34,37 @@ void multiSearchTestExample1(void) {
     correctAns[4] = correctAnsCol4;
     correctAns[5] = correctAnsCol5;
 
+    int correctAnsColSizes[] = {2, 1, 0, 1, 4, 1};
     TEST_ASSERT_EQUAL_INT(6, returnSize);
     for (int i = 0; i < returnSize; ++i) {
+        TEST_ASSERT_EQUAL_INT(correctAnsColSizes[i], returnColumnSizes[i]);
         qsort(ans[i], returnColumnSizes[i], sizeof(int), intAscCmpFunc);
-        TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], returnColumnSizes[i]);
+        if (returnColumnSizes[i] > 0) {
+            TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], returnColumnSizes[i]);
+        }
+        free(ans[i]);
     }
+    free(ans);
+    free(returnColumnSizes);
+}
+
+void multiSearchTestExample2(void) {
+    char *big = "abc";
+    char *smalls[] = {""};
+    int returnSize = -1;
+    int *returnColumnSizes;
+    int **ans = multiSearch(big, smalls, sizeof(smalls) / sizeof(char *), &returnSize, &returnColumnSizes);
+
+    TEST_ASSERT_EQUAL_INT(1, returnSize);
+    TEST_ASSERT_EQUAL(returnColumnSizes[0], 0);
+    free(ans[0]);
+    free(ans);
+    free(returnColumnSizes);
 }
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(multiSearchTestExample1);
+    //RUN_TEST(multiSearchTestExample1);
+    RUN_TEST(multiSearchTestExample2);
     return UNITY_END();
 }
