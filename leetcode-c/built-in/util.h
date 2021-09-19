@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include <string.h>
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -34,5 +35,7 @@ static inline int strDescCmpFunc(const void *a, const void *b) {
 
 // 快速幂
 int64_t fastPow(int64_t a, size_t b);
+
+// TODO gcd/lcm函数，需要从C++17标准中移植
 
 #endif //LEETCODE_C_UTIL_H
