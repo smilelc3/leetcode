@@ -2,8 +2,9 @@
 // Created by smile on 2021/6/13.
 //
 
-# include <string>
+#include <string>
 #include <stack>
+#include <algorithm>
 
 class Solution {
 public:
