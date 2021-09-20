@@ -12,7 +12,7 @@
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
-#define abs(n) (((n) >= 0) ? (n) : -(n))
+#define abs(n) (((n) < 0) ? -(n) : (n))
 
 // int升序比较函数
 static inline int intAscCmpFunc(const void *a, const void *b) {
