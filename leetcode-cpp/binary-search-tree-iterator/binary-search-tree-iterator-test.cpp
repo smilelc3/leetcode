@@ -12,8 +12,6 @@ namespace {
     TEST(BSTIteratorTest, Example1) {      // NOLINT
         auto root = TreeCreateByNums({7, 3, 15, null, null, 9, 20}, null);
         auto iter = new BSTIterator(root);
-        iter->printInorder();
-
         ASSERT_EQ(3, iter->next());
         ASSERT_EQ(7, iter->next());
         ASSERT_TRUE(iter->hasNext());

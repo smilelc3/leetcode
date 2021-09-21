@@ -66,7 +66,7 @@ void TrieSearch(char *key, TrieNode *root, int **ret, int *returnColumnSizes, in
 int **multiSearch(char *big, char **smalls, int smallsSize, int *returnSize, int **returnColumnSizes) {
     // 根据smalls实现前缀树
     TrieNode *smallsTrie = TrieCreate();
-    for (size_t idx = 0; idx < smallsSize; ++idx) {
+    for (int idx = 0; idx < smallsSize; ++idx) {
         if (smalls[idx][0] == '\0') {
             continue;
         }
@@ -81,7 +81,7 @@ int **multiSearch(char *big, char **smalls, int smallsSize, int *returnSize, int
 
     *returnColumnSizes = calloc(*returnSize, sizeof(int));
 
-    for (size_t idx = 0; idx < strlen(big); ++idx) {
+    for (int idx = 0; idx < strlen(big); ++idx) {
         TrieSearch(big + idx, smallsTrie, ret, *returnColumnSizes, idx);
         for (int i = 0; i < *returnSize; ++i) {
             printf("idx(%d): ", i);

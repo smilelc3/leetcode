@@ -13,7 +13,11 @@ struct ListNode {
     int val;
     ListNode *next;
 
-    explicit ListNode(int val) : val(val), next(nullptr) {}
+    ListNode() : val(0), next(nullptr) {}
+
+    explicit ListNode(int x) : val(x), next(nullptr) {}
+
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 // 通过vector<int>构建LinkedList
