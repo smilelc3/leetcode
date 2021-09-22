@@ -23,6 +23,7 @@ namespace {
         undergroundSystem->checkOut(10, "Waterloo", 38);  // Customer 10 "Leyton" -> "Waterloo" in 38-24 = 14
         ASSERT_DOUBLE_EQ(12, undergroundSystem->getAverageTime("Leyton",
                                                                "Waterloo"));    // return 12.00000. Three trips "Leyton" -> "Waterloo", (10 + 12 + 14) / 3 = 12
+        delete undergroundSystem;
     }
 
     TEST(UndergroundSystemTest, Example2) {     // NOLINT
@@ -37,6 +38,7 @@ namespace {
         undergroundSystem->checkIn(2, "Leyton", 21);
         undergroundSystem->checkOut(2, "Paradise", 30); // Customer 2 "Leyton" -> "Paradise" in 30-21 = 9
         ASSERT_DOUBLE_EQ(20.0 / 3, undergroundSystem->getAverageTime("Leyton","Paradise")); // return 6.66667, (5 + 6 + 9) / 3 = 6.66667
+        delete undergroundSystem;
     }
 }
 

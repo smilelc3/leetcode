@@ -4,6 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <vector>
+#include <climits>
 #include "binary-search-tree-iterator.cpp"
 
 const auto null = INT_MAX;
