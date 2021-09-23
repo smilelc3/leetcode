@@ -241,6 +241,7 @@
 | 260 | [Single Number III](https://leetcode.com/problems/single-number-iii/) | [single-number-iii.c](leetcode-c/single-number-iii/single-number-iii.c) | O(n) | 异或+分组 | O(1) |
 | 264  | [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) | [ugly-number-ii.c](leetcode-c/ugly-number-ii/ugly-number-ii.c) |    O(n)     |       DP        |    O(n)     |
 | 295 | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) | [find-median-from-data-stream.cpp](leetcode-cpp/find-median-from-data-stream/find-median-from-data-stream.cpp) | O(nlog(n)) | 优先队列/堆 | O(n) |
+| 365 | [Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem/) | [water-and-jug-problem.c](leetcode-c/water-and-jug-problem/water-and-jug-problem.c) | O(log(n)) | gcd | O(1) |
 | 434  | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | [number-of-segments-in-a-string.c](leetcode-c/number-of-segments-in-a-string/number-of-segments-in-a-string.c) |    O(n)     |      遍历       |    O(1)     |
 | 435  | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | [non-overlapping-intervals.c](leetcode-c/non-overlapping-intervals/non-overlapping-intervals.c) | O(nlog(n))  |      贪心       | O(nlog(n))  |
 | 447 | [Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs/) | [number-of-boomerangs.c](leetcode-c/number-of-boomerangs/number-of-boomerangs.c) | O(n^2) | HashMap | O(n) |
