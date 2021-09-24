@@ -51,4 +51,12 @@ static int64_t lcm(int64_t m, int64_t n) {
            : 0;
 }
 
+// 交换元素
+void swap(void *_a, void *_b, size_t _sizeOfElement) {
+    uint8_t *buf = malloc(_sizeOfElement);
+    memmove(buf, _a, _sizeOfElement);
+    memmove(_a, _b, _sizeOfElement);
+    memmove(_b, buf, _sizeOfElement);
+}
+
 #endif //LEETCODE_C_UTIL_H
