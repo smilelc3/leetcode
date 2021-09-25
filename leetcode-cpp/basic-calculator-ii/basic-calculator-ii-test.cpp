@@ -1,36 +1,29 @@
 //
-// Created by smile on 2021/6/20.
+// Created by smile on 2021/9/25.
 //
 
 #include <gtest/gtest.h>
-#include "basic-calculator.cpp"
+#include "basic-calculator-ii.cpp"
 
 namespace {
     TEST(calculateTest, Example1) {     // NOLINT
-        std::string s = "1 + 1";
+        std::string s = "3+2*2";
         auto ans = Solution().calculate(s);
-        decltype(ans) rightAns = 2;
+        decltype(ans) rightAns = 7;
         ASSERT_EQ(ans, rightAns);
     }
 
     TEST(calculateTest, Example2) {     // NOLINT
-        std::string s = "2-1 + 2";
+        std::string s = " 3/2 ";
         auto ans = Solution().calculate(s);
-        decltype(ans) rightAns = 3;
+        decltype(ans) rightAns = 1;
         ASSERT_EQ(ans, rightAns);
     }
 
     TEST(calculateTest, Example3) {     // NOLINT
-        std::string s = "(1+(4+5+2)-3)+(6+8)";
+        std::string s = " 3+5 / 2 ";
         auto ans = Solution().calculate(s);
-        decltype(ans) rightAns = 23;
-        ASSERT_EQ(ans, rightAns);
-    }
-
-    TEST(calculateTest, Test0) {     // NOLINT
-        std::string s = "48 + -48";
-        auto ans = Solution().calculate(s);
-        decltype(ans) rightAns = 0;
+        decltype(ans) rightAns = 5;
         ASSERT_EQ(ans, rightAns);
     }
 }
