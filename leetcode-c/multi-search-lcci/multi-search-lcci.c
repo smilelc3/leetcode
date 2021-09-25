@@ -83,14 +83,6 @@ int **multiSearch(char *big, char **smalls, int smallsSize, int *returnSize, int
 
     for (int idx = 0; idx < strlen(big); ++idx) {
         TrieSearch(big + idx, smallsTrie, ret, *returnColumnSizes, idx);
-        for (int i = 0; i < *returnSize; ++i) {
-            printf("idx(%d): ", i);
-            for (int j = 0; j < (*returnColumnSizes)[i]; ++j) {
-                printf("%d ", ret[i][j]);
-            }
-            printf("\n");
-        }
-        printf("\n");
     }
 
     TrieDestroy(smallsTrie);
