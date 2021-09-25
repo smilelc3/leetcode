@@ -51,7 +51,7 @@ void addOperatorsTestExample3(void) {
     int target = 5;
     int returnSize = -1;
     char **ans = addOperators(num, target, &returnSize);
-    char *correctAns[] = {"1*0+5","10-5"};
+    char *correctAns[] = {"1*0+5", "10-5"};
     TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(char *), returnSize);
     qsort(ans, returnSize, sizeof(char *), strAscCmpFunc);
     qsort(correctAns, returnSize, sizeof(char *), strAscCmpFunc);
@@ -85,7 +85,7 @@ void addOperatorsTestExample5(void) {
     char **ans = addOperators(num, target, &returnSize);
     char **correctAns = NULL;
     TEST_ASSERT_EQUAL_INT(0, returnSize);
-    TEST_ASSERT_EQUAL(NULL, ans);
+    TEST_ASSERT_EQUAL(ans, correctAns);
     free(ans);
 }
 

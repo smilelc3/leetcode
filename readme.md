@@ -242,6 +242,7 @@
 | 234 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) | [palindrome-linked-list.c](leetcode-c/palindrome-linked-list/palindrome-linked-list.c) | O(n) | 反转链表+双指针比较 | O(1) |
 | 260 | [Single Number III](https://leetcode.com/problems/single-number-iii/) | [single-number-iii.c](leetcode-c/single-number-iii/single-number-iii.c) | O(n) | 异或+分组 | O(1) |
 | 264  | [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) | [ugly-number-ii.c](leetcode-c/ugly-number-ii/ugly-number-ii.c) |    O(n)     |       DP        |    O(n)     |
+| 282 | [Expression Add Operators](https://leetcode.com/problems/expression-add-operators/) | [expression-add-operators.c](leetcode-c/expression-add-operators/expression-add-operators.c) | O(4^n) | DFS | O(n) |
 | 295 | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) | [find-median-from-data-stream.cpp](leetcode-cpp/find-median-from-data-stream/find-median-from-data-stream.cpp) | O(nlog(n)) | 优先队列/堆 | O(n) |
 | 365 | [Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem/) | [water-and-jug-problem.c](leetcode-c/water-and-jug-problem/water-and-jug-problem.c) | O(log(n)) | gcd | O(1) |
 | 384 | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | [shuffle-an-array.c](leetcode-c/shuffle-an-array/shuffle-an-array.c) | O(n) | [Fisher–Yates shuffle 洗牌算法](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) | O(n) |
