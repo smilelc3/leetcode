@@ -7,7 +7,7 @@
 #include "util.h"
 
 // 判断数组
-inline bool isLessOrEqual(const int *nums, size_t idxA, size_t idxB) {
+static inline bool isLessOrEqual(const int *nums, size_t idxA, size_t idxB) {
     return nums[idxA] <= nums[idxB];
 }
 
