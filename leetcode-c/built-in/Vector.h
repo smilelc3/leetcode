@@ -79,6 +79,7 @@ static inline void VectorClear(Vector *vector) {
 static inline void VectorDestroy(Vector *vector) {
     free(vector->items);
     free(vector);
+    vector = NULL;
 }
 
 #endif //LEETCODE_C_VECTOR_H
