@@ -5,8 +5,6 @@
 #ifndef LEETCODE_C_VECTOR_H
 #define LEETCODE_C_VECTOR_H
 
-
-#include <stdlib.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <errno.h>
