@@ -33,9 +33,7 @@ namespace {
         decltype(ans) rightAns = 2147483647;
         ASSERT_EQ(ans, rightAns);
     }
-
 }
-
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
