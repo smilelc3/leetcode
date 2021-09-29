@@ -248,6 +248,7 @@
 | 384 | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | [shuffle-an-array.c](leetcode-c/shuffle-an-array/shuffle-an-array.c) | O(n) | [Fisher–Yates shuffle 洗牌算法](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) | O(n) |
 | 434  | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | [number-of-segments-in-a-string.c](leetcode-c/number-of-segments-in-a-string/number-of-segments-in-a-string.c) |    O(n)     |      遍历       |    O(1)     |
 | 435  | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | [non-overlapping-intervals.c](leetcode-c/non-overlapping-intervals/non-overlapping-intervals.c) | O(nlog(n))  |      贪心       | O(nlog(n))  |
+| 437 | [Path Sum III](https://leetcode.com/problems/path-sum-iii/) | [path-sum-iii.c](leetcode-c/path-sum-iii/path-sum-iii.c) | O(n) | 前缀和+HashMap | O(n) |
 | 447 | [Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs/) | [number-of-boomerangs.c](leetcode-c/number-of-boomerangs/number-of-boomerangs.c) | O(n^2) | HashMap | O(n) |
 | 460 | [LFU Cache](https://leetcode.com/problems/lfu-cache/) | [lfu-cache.cpp](leetcode-cpp/lfu-cache/lfu-cache.cpp) | O(1) | 双向链表+双HashMap实现LFU | O(n) |
 | 528 | [Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/) | [random-pick-with-weight.c](leetcode-c/random-pick-with-weight/random-pick-with-weight.c) | O(log(n)) | 前缀和数组+二分查找 | O(n) |
