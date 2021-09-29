@@ -35,17 +35,19 @@ enable_testing()
 include(FetchContent)
 
 # FetchContent获取GTest
-FetchContent_Declare(googletest GIT_REPOSITORY https://github.com/google/googletest.git)
+message(STATUS "3rd-party: start fetch GoogleTest ...")
+FetchContent_Declare(googletest GIT_REPOSITORY https://hub.fastgit.org/google/googletest.git)   # 镜像站加速
 set(INSTALL_GTEST OFF)       # 不安装GTest
 FetchContent_MakeAvailable(googletest)
-message(STATUS "fetch 3rd-party: GoogleTest success !")
+message(STATUS "3rd-party: fetch GoogleTest success !")
 
 # git获取Google benchmark
-FetchContent_Declare(benchmark GIT_REPOSITORY https://github.com/google/benchmark.git)
+message(STATUS "3rd-party: start fetch Google benchmark ...")
+FetchContent_Declare(benchmark GIT_REPOSITORY https://hub.fastgit.org/google/benchmark.git)     # 镜像站加速
 set(BENCHMARK_ENABLE_TESTING OFF)       # 不编译benchmark测试项
 set(BENCHMARK_ENABLE_INSTALL OFF)       # 不安装benchmark
 FetchContent_MakeAvailable(benchmark)
-message(STATUS "fetch 3rd-party: Google benchmark success !")
+message(STATUS "3rd-party: fetch Google benchmark success !")
 
 
 # 引入build-in依赖
