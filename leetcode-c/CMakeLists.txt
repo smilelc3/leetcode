@@ -30,19 +30,10 @@ enable_testing()
 
 # 启动自下载
 include(FetchContent)
-
-find_package(unity)
-
-if(${unity_FOUND})
-    message(STATUS "unity version: ${unity_VERSION}")
-    include_directories(/usr/local/include/unity/)
-else()
-    # FetchContent获取Unity
-    FetchContent_Declare(Unity GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git)
-    FetchContent_MakeAvailable(Unity)
-    message(STATUS "fetch 3rd-party: ThrowTheSwitch/Unity success !")
-endif()
-
+# FetchContent获取Unity
+FetchContent_Declare(Unity GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git)
+FetchContent_MakeAvailable(Unity)
+message(STATUS "fetch 3rd-party: ThrowTheSwitch/Unity success !")
 
 # 引入built-in依赖
 include_directories(built-in)
