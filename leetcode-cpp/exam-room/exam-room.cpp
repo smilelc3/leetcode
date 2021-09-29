@@ -6,39 +6,47 @@
 #include <unordered_map>
 #include <vector>
 
-// 用一个二叉平衡树(set)维护所有当前空闲的区间，同时用两个哈希表记录每个位置左边和右边有那些区间（这样在有人离开座位，需要合并区间的时候就会更加方便。）
-
 // 区间类
 class Interval {
 public:
     int left, right;
     int num;       // num代表下一次分配座位号
+    static int n;
+
+    Interval() = default;
 
     Interval(int left, int right, int num) : left(left), right(right), num(num) {}
 
     bool operator<(const Interval &that) const {
-        auto diff = std::abs(this->getDis() - that.getDis());
-        if (diff <= 1) {
-            return this->num < that.num;            // 区间长度差距在1以内，返回靠前的
+        auto thisDis = this->getFarDis(), thatDis = that.getFarDis();
+        if (thisDis == thatDis) {
+            return this->num < that.num;                // 距离相同，返回靠前的
         }
-        return this->getDis() > that.getDis();        // 排序优先返回最大区间
+        return thisDis > thatDis;    // 排序优先返回最大距离
     }
 
 private:
-    inline int getDis() const {
-        return right - left;
+    inline int getFarDis() const {      // 获取临近最远距离
+        decltype(getFarDis()) ret = this->right - this->left;       // 存在一边没有相邻
+        if (this->left != 0 and this->right != n - 1) {
+            ret >>= 1;
+        }
+        return ret;
     }
 };
+
+int Interval::n = 0;
 
 class ExamRoom {
 private:
     int n;      // 座位数量
-    std::unordered_map<int, std::vector<Interval>> leftMap, rightMap;
-    std::set<Interval> intervalSet;
+    std::set<Interval> intervalSet;     // 用一个二叉平衡树(set)维护所有当前空闲的区间
+    // 同时用两个哈希表记录每个位置左边和右边有那些区间（这样在有人离开座位，需要合并区间的时候就会更加方便。）
+    std::unordered_map<int, Interval> leftMap, rightMap;
 
     // 添加一个区间
     void addInterval(int left, int right) {
-        if (left >= right) {
+        if (left > right) {
             return;
         }
         auto num = (left + right) / 2;
@@ -48,48 +56,46 @@ private:
             num = n - 1;
         }
         auto interval = Interval(left, right, num);
-        intervalSet.insert(interval);
-        leftMap[right].emplace_back(interval);
-        rightMap[left].emplace_back(interval);
+        intervalSet.emplace(interval);
+        leftMap[right] = interval;
+        rightMap[left] = interval;
     }
 
     // 在set中删除该节点， 在左右节点map删除该区间
-    void removeInterval(Interval &interval) {
+    void removeInterval(Interval interval) {
         intervalSet.erase(interval);
-        leftMap[interval.right].clear();        // 这里不采用erase，仅清空value，不删除key,以便后需添加
-        rightMap[interval.left].clear();
+        leftMap.erase(interval.right);
+        rightMap.erase(interval.left);
     }
 
 public:
     explicit ExamRoom(int n) {
         this->n = n;
-        auto whole = Interval(0, n - 1, 0);
-        intervalSet.insert(whole);          // 添加 0 ~ n-1 区间段
-        rightMap[0].emplace_back(whole);       // 0 的右边添加该区间
-        leftMap[n - 1].emplace_back(whole);    // n-1 的左边添加该区间
+        Interval::n = n;
+        addInterval(0, n - 1);
     }
 
     // 分配一个座位
     int seat() {
         auto best = *intervalSet.begin();
         removeInterval(best);
-        addInterval(best.left, best.num);
-        addInterval(best.num, best.right);
+        addInterval(best.left, best.num - 1);
+        addInterval(best.num + 1, best.right);
         return best.num;
     }
 
     // 释放一个座位
     void leave(int p) {
         auto left = p, right = p;        // 删除p的左右区间后，合并的新区间
-        if (not leftMap[p].empty()) {
-            auto leftInr = leftMap[p].front();
-            left = leftInr.left;
-            removeInterval(leftInr);
+        auto find = leftMap.find(p - 1);
+        if (find != leftMap.end()) {
+            left = find->second.left;
+            removeInterval(find->second);
         }
-        if (not rightMap[p].empty()) {
-            auto rightInr = rightMap[p].front();
-            right = rightInr.right;
-            removeInterval(rightInr);
+        find = rightMap.find(p + 1);
+        if (find != rightMap.end()) {
+            right = find->second.right;
+            removeInterval(find->second);
         }
         addInterval(left, right);
     }
