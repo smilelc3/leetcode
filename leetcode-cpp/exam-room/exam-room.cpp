@@ -4,7 +4,6 @@
 
 #include <set>
 #include <unordered_map>
-#include <vector>
 
 // 区间类
 class Interval {
