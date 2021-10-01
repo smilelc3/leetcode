@@ -30,10 +30,12 @@ enable_testing()
 
 # 启动自下载
 include(FetchContent)
+
 # FetchContent获取Unity
-FetchContent_Declare(Unity GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git)
+message(STATUS "3rd-party: start fetch ThrowTheSwitch/Unity ...")
+FetchContent_Declare(Unity GIT_REPOSITORY https://hub.fastgit.org/ThrowTheSwitch/Unity.git)      # 镜像站加速
 FetchContent_MakeAvailable(Unity)
-message(STATUS "fetch 3rd-party: ThrowTheSwitch/Unity success !")
+message(STATUS "3rd-party: fetch ThrowTheSwitch/Unity success !")
 
 # 引入built-in依赖
 include_directories(built-in)
