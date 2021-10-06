@@ -1,0 +1,56 @@
+name: leetcode-go
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+
+    - name: Build
+      working-directory: ${{github.workspace}}/leetcode-go
+      run: go build -v ./...
+
+    - name: Test
+      working-directory: ${{github.workspace}}/leetcode-go
+      run: go test -v ./...
+
+  build-macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+
+    - name: Build
+      working-directory: ${{github.workspace}}/leetcode-go
+      run: go build -v ./...
+
+    - name: Test
+      working-directory: ${{github.workspace}}/leetcode-go
+      run: go test -v ./...
+  
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+
+    - name: Build
+      working-directory: ${{github.workspace}}/leetcode-go
+      run: go build -v ./...
+
+    - name: Test
+      working-directory: ${{github.workspace}}/leetcode-go
+      run: go test -v ./...

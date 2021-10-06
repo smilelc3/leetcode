@@ -25,7 +25,7 @@ void SolutionTestExample2(void) {
     int w[] = {1, 3};
     Solution *obj = solutionCreate(w, sizeof(w) / sizeof(int));
     size_t totTime = 100000000;
-    float delta = 1e-4f;
+    float delta = 1e-3f;
     int idx0Cnt = 0, idx1Cnt = 0;
     for (size_t idx = 0 ; idx < totTime; idx++) {
         int pickIdx = solutionPickIndex(obj);

@@ -1,0 +1,104 @@
+name: leetcode-cpp
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  cmake-build-debug-linux-gcc:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure CMake
+      working-directory: ${{github.workspace}}/leetcode-cpp
+      run: cmake -B ${{github.workspace}}/leetcode-cpp/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/leetcode-cpp/cmake-build-debug
+
+    - name: Test
+      working-directory: ${{github.workspace}}/leetcode-cpp/cmake-build-debug
+      run: ctest --verbose
+
+  cmake-build-release-linux-gcc:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure CMake
+      working-directory: ${{github.workspace}}/leetcode-cpp
+      run: cmake -B ${{github.workspace}}/leetcode-cpp/cmake-build-release -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/leetcode-cpp/cmake-build-release
+
+    - name: Test
+      working-directory: ${{github.workspace}}/leetcode-cpp/cmake-build-release
+      run: ctest --verbose
+
+  cmake-build-debug-macos-appleclang:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure CMake
+      working-directory: ${{github.workspace}}/leetcode-cpp
+      run: cmake -B ${{github.workspace}}/leetcode-cpp/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/leetcode-cpp/cmake-build-debug
+
+    - name: Test
+      working-directory: ${{github.workspace}}/leetcode-cpp/cmake-build-debug
+      run: ctest --verbose
+
+  cmake-build-release-macos-appleclang:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure CMake
+      working-directory: ${{github.workspace}}/leetcode-cpp
+      run: cmake -B ${{github.workspace}}/leetcode-cpp/cmake-build-release -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/leetcode-cpp/cmake-build-release
+
+    - name: Test
+      working-directory: ${{github.workspace}}/leetcode-cpp/cmake-build-release
+      run: ctest --verbose
+
+  cmake-build-debug-windows-msvc:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure CMake
+      working-directory: ${{github.workspace}}/leetcode-cpp
+      run: cmake -B ${{github.workspace}}/leetcode-cpp/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/leetcode-cpp/cmake-build-debug
+
+    - name: Test
+      working-directory: ${{github.workspace}}/leetcode-cpp/cmake-build-debug
+      run: ctest --verbose
+
+  cmake-build-release-windows-msvc:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure CMake
+      working-directory: ${{github.workspace}}/leetcode-cpp
+      run: cmake -B ${{github.workspace}}/leetcode-cpp/cmake-build-release -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/leetcode-cpp/cmake-build-release
+
+    - name: Test
+      working-directory: ${{github.workspace}}/leetcode-cpp/cmake-build-release
+      run: ctest --verbose
