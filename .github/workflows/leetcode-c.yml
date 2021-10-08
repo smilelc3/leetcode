@@ -18,8 +18,8 @@ jobs:
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
       run: |
-      cmake --version
-      cmake -B ${{github.workspace}}/leetcode-c/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
+        cmake --version
+        cmake -B ${{github.workspace}}/leetcode-c/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
       run: cmake --build ${{github.workspace}}/leetcode-c/cmake-build-debug
@@ -36,8 +36,8 @@ jobs:
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
       run: |
-      cmake --version
-      cmake -B ${{github.workspace}}/leetcode-c/cmake-build-release -DCMAKE_BUILD_TYPE=Release
+        cmake --version
+        cmake -B ${{github.workspace}}/leetcode-c/cmake-build-release -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
       run: cmake --build ${{github.workspace}}/leetcode-c/cmake-build-release
@@ -54,8 +54,8 @@ jobs:
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
       run: |
-      cmake --version
-      cmake -B ${{github.workspace}}/leetcode-c/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
+        cmake --version
+        cmake -B ${{github.workspace}}/leetcode-c/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
       run: cmake --build ${{github.workspace}}/leetcode-c/cmake-build-debug
@@ -72,8 +72,8 @@ jobs:
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
       run: |
-      cmake --version
-      cmake -B ${{github.workspace}}/leetcode-c/cmake-build-release -DCMAKE_BUILD_TYPE=Release
+        cmake --version
+        cmake -B ${{github.workspace}}/leetcode-c/cmake-build-release -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
       run: cmake --build ${{github.workspace}}/leetcode-c/cmake-build-release
@@ -94,8 +94,8 @@ jobs:
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
       run: |
-      cmake --version
-      cmake -B ${{github.workspace}}/leetcode-c/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
+        cmake --version
+        cmake -B ${{github.workspace}}/leetcode-c/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
       run: cmake --build ${{github.workspace}}/leetcode-c/cmake-build-debug
@@ -116,8 +116,8 @@ jobs:
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
       run: |
-      cmake --version
-      cmake -B ${{github.workspace}}/leetcode-c/cmake-build-release -DCMAKE_BUILD_TYPE=Release
+        cmake --version
+        cmake -B ${{github.workspace}}/leetcode-c/cmake-build-release -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
       run: cmake --build ${{github.workspace}}/leetcode-c/cmake-build-release
