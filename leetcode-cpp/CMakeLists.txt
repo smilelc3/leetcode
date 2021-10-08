@@ -62,8 +62,8 @@ foreach (SUBDIR ${SUBDIRS})
         # 编译test代码
         add_executable(${SUBDIR}-test ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/${SUBDIR}-test.cpp)
         # 链接ASan库
-        target_compile_options(${SUBDIR}-test PUBLIC -fsanitize=address -fno-omit-frame-pointer)
-        target_link_options(${SUBDIR}-test PUBLIC -fsanitize=address)
+        target_compile_options(${SUBDIR}-test PRIVATE -fsanitize=address)
+        target_link_options(${SUBDIR}-test PRIVATE -fsanitize=address)
         # 链接built-in库依赖
         target_link_libraries(${SUBDIR}-test built-in)
         # 链接Gtest库依赖

@@ -17,6 +17,7 @@ jobs:
 
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
+      run: cmake --version
       run: cmake -B ${{github.workspace}}/leetcode-c/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
@@ -33,6 +34,7 @@ jobs:
 
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
+      run: cmake --version
       run: cmake -B ${{github.workspace}}/leetcode-c/cmake-build-release -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
@@ -49,6 +51,7 @@ jobs:
 
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
+      run: cmake --version
       run: cmake -B ${{github.workspace}}/leetcode-c/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
@@ -65,6 +68,7 @@ jobs:
 
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
+      run: cmake --version
       run: cmake -B ${{github.workspace}}/leetcode-c/cmake-build-release -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
@@ -79,8 +83,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Get latest CMake
+      # VS自带cmake存在ASan链接问题，启用第三方cmake
+      uses: lukka/get-cmake@latest
+     
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
+      run: cmake --version
       run: cmake -B ${{github.workspace}}/leetcode-c/cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
@@ -95,8 +104,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Get latest CMake
+      # VS自带cmake存在ASan链接问题，启用第三方cmake
+      uses: lukka/get-cmake@latest
+      
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
+      run: cmake --version
       run: cmake -B ${{github.workspace}}/leetcode-c/cmake-build-release -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
