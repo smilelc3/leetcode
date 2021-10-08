@@ -31,6 +31,14 @@ enable_testing()
 # 启动自下载
 include(FetchContent)
 
+# FetchContent获取uthash
+message(STATUS "3rd-party: start fetch troydhanson/uthash ...")
+FetchContent_Declare(uthash GIT_REPOSITORY https://hub.fastgit.org/troydhanson/uthash.git)      # 镜像站加速
+FetchContent_Populate(uthash)
+message(STATUS "3rd-party: copy uthash.h to built-in folder")
+file(COPY ${uthash_SOURCE_DIR}/src/uthash.h DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/built-in/)
+message(STATUS "3rd-party: fetch troydhanson/uthash success !")
+
 # FetchContent获取Unity
 message(STATUS "3rd-party: start fetch ThrowTheSwitch/Unity ...")
 FetchContent_Declare(Unity GIT_REPOSITORY https://hub.fastgit.org/ThrowTheSwitch/Unity.git)      # 镜像站加速
