@@ -14,9 +14,9 @@
   * Linux(推荐)：GCC 或 Clang
   * Windows(可用)：Visual Studio(MSVC) 16.8版本以上 + [Windows 10 SDK](https://developer.microsoft.com/zh-cn/windows/downloads/windows-10-sdk/) (10.0.20348.0) 版本 2104 以上)
   * macOS(可用)：Apple Clang 或 GCC 
-
 * C单元测试采用 [ThrowTheSwitch/Unity](https://github.com/ThrowTheSwitch/Unity) ，在CMake构建中会拉取最新源码，需要环境自带[Git](https://git-scm.com/)；
-* 哈希表采用 [uthash](http://troydhanson.github.io/uthash/) 项目中的[uthash.h](leetcode-c/built-in/uthash.h)，已以源代码形式存在于 [leetcode-c/built-in](leetcode-c/built-in) 文件夹中，直接导入项目即可。
+* 哈希表采用 [uthash](http://troydhanson.github.io/uthash/) 项目中的[uthash.h](https://github.com/troydhanson/uthash/blob/master/src/uthash.h)，在CMake构建中会拉取最新源码，复制 uthash.h 到 [leetcode-c/built-in](leetcode-c/built-in) 文件夹中;
+* 默认启用 AddressSanitizer 内存检查功能，需要编译器支持该功能。
 
 ### C++ 补充
 
@@ -25,8 +25,8 @@
   * Linux(推荐)：GCC 或 Clang
   * Windows(可用)：Visual Studio(MSVC) 16.8版本以上
   * macOS(可用)：Apple Clang 或 GCC 
-
 * C++单元测试采用 [Google Test](https://github.com/google/googletest) ，性能测试采用 [Google Benchmark](https://github.com/google/benchmark) ，二者在CMake构建中会拉取最新源码，需要环境自带[Git](https://git-scm.com/)。
+* 默认启用 AddressSanitizer 内存检查功能，需要编译器支持该功能。
 
 ### Golang 补充
 
