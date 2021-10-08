@@ -62,8 +62,8 @@ foreach (SUBDIR ${SUBDIRS})
         # 链接built-in库
         target_link_libraries(${SUBDIR}-test built-in)
         # 链接ASan库
-        target_compile_options(${SUBDIR}-test PUBLIC -fsanitize=address -fno-omit-frame-pointer)
-        target_link_options(${SUBDIR}-test PUBLIC -fsanitize=address)
+        target_compile_options(${SUBDIR}-test PRIVATE -fsanitize=address)
+        target_link_options(${SUBDIR}-test PRIVATE -fsanitize=address)
         # 链接unity测试库
         target_link_libraries(${SUBDIR}-test unity)
         # 运行测试
