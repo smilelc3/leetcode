@@ -2,7 +2,6 @@
 // Created by l30014168 on 2021/7/26.
 //
 
-
 #include <unity.h>
 #include <stdlib.h>
 #include "maximum-ice-cream-bars.c"
