@@ -1,0 +1,54 @@
+//
+// Created by l30014168 on 2021/10/14.
+//
+
+#include <unity.h>
+#include <stdlib.h>
+#include "score-after-flipping-matrix.c"
+
+void setUp(void) {
+    // set stuff up here
+}
+
+void tearDown(void) {
+    // clean stuff up here
+}
+
+void matrixScoreExample1(void) {
+    int nums[][4] = {{0, 0, 1, 1},
+                     {1, 0, 1, 0},
+                     {1, 1, 0, 0}};
+    int gridSize = 3;
+    int gridColSize = 4;
+
+    int **grid = malloc(sizeof(int *) * gridSize);
+    for (size_t idx = 0; idx < gridSize; ++idx) {
+        grid[idx] = nums[idx];
+    }
+    int ans = matrixScore(grid, gridSize, &gridColSize);
+    int correctAns = 39;
+    TEST_ASSERT_EQUAL_INT(correctAns, ans);
+    free(grid);
+}
+
+void matrixScoreExample2(void) {
+    int nums[][1] = {{0}};
+    int gridSize = 1;
+    int gridColSize = 1;
+
+    int **grid = malloc(sizeof(int *) * gridSize);
+    for (size_t idx = 0; idx < gridSize; ++idx) {
+        grid[idx] = nums[idx];
+    }
+    int ans = matrixScore(grid, gridSize, &gridColSize);
+    int correctAns = 1;
+    TEST_ASSERT_EQUAL_INT(correctAns, ans);
+    free(grid);
+}
+
+int main(void) {
+    UNITY_BEGIN();
+    RUN_TEST(matrixScoreExample1);
+    RUN_TEST(matrixScoreExample2);
+    return UNITY_END();
+}
