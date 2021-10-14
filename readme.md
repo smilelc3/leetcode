@@ -225,6 +225,7 @@
 | 187 | [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) | [repeated-dna-sequences.c](leetcode-c/repeated-dna-sequences/repeated-dna-sequences.c) | O(n) | hashset+位压缩 | O(n) |
 | 190 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | [reverse-bits.cpp](leetcode-cpp/reverse-bits/reverse-bits.cpp) | O(1) | 《Hacker's Delight》*图 7-1* | O(1) |
 | 191 | [umber of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | [number-of-1-bits.cpp](leetcode-cpp/number-of-1-bits/number-of-1-bits.cpp) | O(1) | 《Hacker's Delight》*图 5-2* | O(1) |
+| 192 | [Word Frequency](https://leetcode.com/problems/word-frequency/) | [word-frequency.sh](leetcode-shell/word-frequency/word-frequency.sh) | O(nlog(n)) | declare + sed + sort命令 | O(n) |
 | 193 | [Valid Phone Numbers](https://leetcode.com/problems/valid-phone-numbers/) | [valid-phone-numbers.sh](leetcode-shell/valid-phone-numbers/valid-phone-numbers.sh) |  | grep命令+正则 |  |
 | 195 | [Tenth Line](https://leetcode.com/problems/tenth-line/) | [tenth-line.sh](leetcode-shell/tenth-line/tenth-line.sh) | | sed命令 | |
 | 196 | [Delete Duplicate Emails](https://leetcode.com/problems/delete-duplicate-emails/) | [delete-duplicate-emails.sql](leetcode-sql/delete-duplicate-emails/delete-duplicate-emails.sql) | | with+rank() | |
