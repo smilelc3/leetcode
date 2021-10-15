@@ -5,7 +5,6 @@
 #include <gtest/gtest.h>
 #include "design-browser-history.cpp"
 
-
 namespace {
     TEST(BrowserHistoryTest, Example1) {     // NOLINT
         auto browserHistory = new BrowserHistory("leetcode.com");

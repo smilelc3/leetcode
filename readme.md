@@ -256,6 +256,7 @@
 | 537 | [Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication/) | [complex-number-multiplication.go](leetcode-go/complex-number-multiplication/complex-number-multiplication.go) | O(n) | 复数相乘 | O(1) |
 | 581  | [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/) | [shortest-unsorted-continuous-subarray.c](leetcode-c/shortest-unsorted-continuous-subarray/shortest-unsorted-continuous-subarray.c) |    O(n)     |      遍历       |    O(1)     |
 | 611  | [Valid Triangle Number](https://leetcode.com/problems/valid-triangle-number/) | [valid-triangle-number.c](leetcode-c/valid-triangle-number/valid-triangle-number.c) |   O(n^2)    |     双指针      |    O(1)     |
+|     622      | [Design Circular Queue](https://leetcode.com/problems/design-circular-queue/) | [design-circular-queue.cpp](leetcode-cpp/design-circular-queue/design-circular-queue.cpp) | O(1) | 循环队列 | O(n) |
 | 729 | [My Calendar I](https://leetcode.com/problems/my-calendar-i/) | [my-calendar-i.cpp](leetcode-cpp/my-calendar-i/my-calendar-i.cpp) | O(log(n)) | 借助std::map模拟平衡树 | O(n) |
 | 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | [daily-temperatures.c](leetcode-c/daily-temperatures/daily-temperatures.c) |    O(n)     |  单调非递增栈   |    O(n)     |
 | 784  | [Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/) | [letter-case-permutation.c](leetcode-c/letter-case-permutation/letter-case-permutation.c) |   O(2^n)    |      递归       |   O(2^n)    |

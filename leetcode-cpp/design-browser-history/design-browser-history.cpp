@@ -17,7 +17,7 @@ public:
 
     void visit(const std::string &url) {
         visIdx++;
-        webHistory.erase(webHistory.begin()+ visIdx, webHistory.end());
+        webHistory.erase(webHistory.begin() + visIdx, webHistory.end());
         webHistory.emplace_back(url);
     }
 
