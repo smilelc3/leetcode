@@ -46,7 +46,6 @@ void shuffleAnArrayTestExample1(void) {
 
 }
 
-
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(shuffleAnArrayTestExample1);
