@@ -68,6 +68,11 @@ int randomizedSetGetRandom(RandomizedSet *obj) {
 }
 
 void randomizedSetFree(RandomizedSet *obj) {
+    Val2IdxMap *cur, *tmp;
+    HASH_ITER(hh, obj->val2IdxMap, cur, tmp) {
+        HASH_DEL(obj->val2IdxMap, cur);
+        free(cur);
+    }
     VectorDestroy(obj->values);
     free(obj);
 }
