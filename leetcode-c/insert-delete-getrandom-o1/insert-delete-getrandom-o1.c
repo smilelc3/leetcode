@@ -64,7 +64,7 @@ bool randomizedSetRemove(RandomizedSet *obj, int val) {
 
 int randomizedSetGetRandom(RandomizedSet *obj) {
     uint32_t randIdx = rand() % obj->values->size;
-    return *(int *) VectorAt(obj->values, randIdx);
+    return *(int *) VectorAtNoCheck(obj->values, randIdx);
 }
 
 void randomizedSetFree(RandomizedSet *obj) {

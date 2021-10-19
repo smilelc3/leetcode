@@ -27,7 +27,7 @@ typedef int errno_t;
 #define ENOMEM 12      /* Out of Memory */
 #endif
 
-typedef struct tagVector {
+typedef struct {
     void *restrict items;       // restrict指针仅能通过该指针进行访问（读/写）
     size_t itemSize;
     size_t size;
@@ -35,7 +35,7 @@ typedef struct tagVector {
 } Vector;
 
 // 创建vector实例
-Vector *VectorCreate(size_t itemSize) {
+static Vector *VectorCreate(size_t itemSize) {
     Vector *vector = malloc(sizeof(Vector));
     if (vector == NULL) {
         fprintf(stderr, "malloc fail! function: (%s)\n", __func__);
@@ -49,7 +49,7 @@ Vector *VectorCreate(size_t itemSize) {
 }
 
 // 重新调整vector容量，必须比当前cap大
-errno_t VectorReserve(Vector *vector, size_t cap) {
+static errno_t VectorReserve(Vector *vector, size_t cap) {
     if (cap <= vector->cap) {
         fprintf(stderr, "cap(%zu) <= vector->cap(%zu)\n", cap, vector->cap);
         return ERANGE;
@@ -66,7 +66,7 @@ errno_t VectorReserve(Vector *vector, size_t cap) {
 }
 
 // 修改容器尺寸，有可能会截断
-errno_t VectorResize(Vector *vector, size_t size) {
+static errno_t VectorResize(Vector *vector, size_t size) {
     if (vector->cap < size) {
         // 策略：初始化为8（借鉴utarray策略），倍增cap，直到容纳size;
         size_t _cap = vector->cap == 0 ? 8 : vector->cap;
@@ -101,7 +101,7 @@ static inline void *VectorAt(Vector *vector, size_t idx) {
 }
 
 // 插入元素，时间O(1)~O(n)
-errno_t VectorInsert(Vector *vector, size_t index, void *item) {
+static errno_t VectorInsert(Vector *vector, size_t index, void *item) {
     errno_t ret = VectorResize(vector, vector->size + 1);       // 新增一个位置
     if (ret != 0) {
         fprintf(stderr, "insert fail! function(%s), index(%zu), size(%zu)\n", __func__, index, vector->size);
@@ -117,11 +117,13 @@ errno_t VectorInsert(Vector *vector, size_t index, void *item) {
 }
 
 // 末尾追加元素
-errno_t VectorAppend(Vector *vector, void *item) {
-    errno_t ret = VectorInsert(vector, vector->size, item);
+static errno_t VectorAppend(Vector *vector, void *item) {
+    errno_t ret = VectorResize(vector, vector->size + 1);       // 新增一个位置
     if (ret != 0) {
         fprintf(stderr, "append fail! function(%s) size(%zu), item(%p)\n", __func__, vector->size, item);
+        return ret;
     }
+    memcpy(VectorAtNoCheck(vector, vector->size - 1), item, vector->itemSize);
     return ret;
 }
 
@@ -131,7 +133,7 @@ static inline void VectorSort(Vector *vector, int (*ptrCmpFunc)(const void *, co
 }
 
 // 删除从beginIdx到endIdx的元素，区间为[beginIdx, endIdx)
-errno_t VectorErase(Vector *vector, size_t beginIdx, size_t endIdx) {
+static errno_t VectorErase(Vector *vector, size_t beginIdx, size_t endIdx) {
 
     if (beginIdx >= endIdx || beginIdx >= vector->size || endIdx > vector->size) {
         fprintf(stderr, "out of range! function(%s), size(%zu), beginIdx(%zu), endIdx(%zu)\n",

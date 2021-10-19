@@ -62,7 +62,7 @@ foreach (SUBDIR ${SUBDIRS})
         # 编译test代码
         add_executable(${SUBDIR}-test ${SUBDIR}/${SUBDIR}-test.c)
         if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU" OR
-            "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang" OR 
+            "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang" OR
             "${CMAKE_C_COMPILER_ID}" STREQUAL "AppleClang")
             # 链接math库
             target_link_libraries(${SUBDIR}-test m)
