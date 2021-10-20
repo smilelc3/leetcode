@@ -8,7 +8,7 @@
 # define MAX_CHAR_SIZE 26
 // 前缀树（字典树）节点， 仅支持26个小写字符
 typedef struct tagWordDictionary {
-    bool isLeaf;    // 是否是叶子节点（代表单词末尾）
+    bool isEnd;    // 是否是单词末尾
     struct tagWordDictionary *next[MAX_CHAR_SIZE];       // 多分支存储下一个字符
 } WordDictionary;
 
@@ -20,7 +20,7 @@ WordDictionary *wordDictionaryCreate() {
 
 void wordDictionaryAddWord(WordDictionary *obj, const char *word) {
     if (word[0] == '\0') {
-        obj->isLeaf = true;
+        obj->isEnd = true;
         return;
     }
     size_t nextIdx = word[0] - 'a';
@@ -35,7 +35,7 @@ bool wordDictionarySearch(WordDictionary *obj, const char *word) {
         return false;
     }
     if (word[0] == '\0') {
-        return obj->isLeaf;
+        return obj->isEnd;
     }
     if (word[0] == '.') {
         for (size_t i = 0; i < MAX_CHAR_SIZE; ++i) {
