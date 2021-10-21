@@ -1,9 +1,9 @@
 //
 // Created by l30014168 on 2021/8/31.
 //
+
 #include <unity.h>
 #include "random-pick-with-weight.c"
-
 
 void setUp(void) {
     // set stuff up here

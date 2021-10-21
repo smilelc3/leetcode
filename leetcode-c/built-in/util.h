@@ -14,6 +14,12 @@
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 #define abs(n) (((n) < 0) ? -(n) : (n))
 
+// 位操作
+#define setBit(n, idx) ((n) |= (1 << (idx)))        // 置某一位为1
+#define clrBit(n, idx) ((n) &= ~(1 << (idx)))       // 置某一位为0
+#define getBit(n, idx) ((n) >> (idx) & 1)           // 获取某一位值
+#define revBit(n, idx) ((n) ^= (1 << (idx)))        // 某一位取反
+
 // int升序比较函数
 static inline int intAscCmpFunc(const void *a, const void *b) {
     return *(int *) a - *(int *) b;
@@ -50,6 +56,5 @@ static int64_t lcm(int64_t m, int64_t n) {
            ? (abs(m) / gcd(m, n)) * abs(n)
            : 0;
 }
-
 
 #endif //LEETCODE_C_UTIL_H
