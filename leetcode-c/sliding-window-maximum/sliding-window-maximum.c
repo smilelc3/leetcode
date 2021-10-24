@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <string.h>
 #include <ListNode.h>
 
 void maxQueuePushBack(DuListNode **pTail, int idx, const int *nums) {
@@ -17,11 +18,14 @@ void maxQueuePushBack(DuListNode **pTail, int idx, const int *nums) {
 
 int *maxSlidingWindow(const int *nums, int numsSize, int k, int *returnSize) {
     *returnSize = numsSize - k + 1;
+    int *ans = malloc(sizeof(int) * *returnSize);
+    if (k == 1) {
+        memcpy(ans, nums, sizeof(int) * numsSize);
+        return ans;
+    }
     // 使用链表实现单调队列
     DuListNode *head = DuCirListCreate();   // 保留一个空头节点
     DuListNode *tail = head;
-    int *ans = malloc(sizeof(int) * *returnSize);
-
     // 初始化队列元素
     for (int i = 0; i < k; ++i) {
         maxQueuePushBack(&tail, i, nums);
@@ -33,9 +37,6 @@ int *maxSlidingWindow(const int *nums, int numsSize, int k, int *returnSize) {
         // 出队
         if (i - 1 == head->next->val) {
             DuCirListErase(head->next);
-            if (DuCirListIsEmpty(head)) {
-                tail = head;
-            }
         }
         // 入队
         maxQueuePushBack(&tail, i + k - 1, nums);
