@@ -40,8 +40,8 @@ void ListDestroy(struct ListNode *head) {
     head = NULL;
 }
 
-struct DuListNode *DuCirListCreate(void) {
-    struct DuListNode *head = calloc(1, sizeof(struct DuListNode));
+DuListNode *DuCirListCreate(void) {
+    DuListNode *head = calloc(1, sizeof(DuListNode));
     if (head == NULL) {
         fprintf(stderr, "calloc DuListNode head fail! function(%s)\n", __func__);
         return NULL;
@@ -50,34 +50,35 @@ struct DuListNode *DuCirListCreate(void) {
     return head;
 }
 
-void DuCirListDestroy(struct DuListNode *head) {
-    struct DuListNode *pNode = head->next;
-    while (pNode != head) {
+void DuCirListDestroy(DuListNode *node) {
+    DuListNode *pNode = node->next;
+    while (pNode != node) {
         pNode = pNode->next;
         free(pNode->prev);
     }
-    free(head);
-    head = NULL;
+    free(node);
+    node = NULL;
 }
 
-bool DuCirListIsEmpty(const struct DuListNode *head) {
+bool DuCirListIsEmpty(const DuListNode *head) {
     return head->next == head && head->prev == head;
 }
 
-void DuCirListInsert(struct DuListNode *pNode, int newVal) {
-    struct DuListNode *newNode = malloc(sizeof(struct DuListNode));
+void DuCirListInsert(DuListNode *pNode, int newVal) {
+    DuListNode *newNode = malloc(sizeof(DuListNode));
     if (newNode == NULL) {
         fprintf(stderr, "malloc DuListNode newNode fail! function(%s)\n", __func__);
         return;
     }
     newNode->prev = pNode;
     newNode->next = pNode->next;
+    newNode->val = newVal;
     pNode->next = newNode;
     newNode->next->prev = newNode;
 }
 
-void DuCirListErase(struct DuListNode *pNode) {
+void DuCirListErase(DuListNode *pNode) {
     pNode->prev->next = pNode->next;
+    pNode->next->prev = pNode->prev;
     free(pNode);
-    pNode = NULL;
 }

@@ -8,7 +8,6 @@
 #include "util.h"
 #include "single-number-iii.c"
 
-
 void setUp(void) {
     // set stuff up here
 }
