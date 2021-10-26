@@ -16,7 +16,7 @@ void maxQueuePushBack(DuListNode **pTail, int idx, const int *nums) {
     *pTail = (*pTail)->next;
 }
 
-int *maxSlidingWindow(const int *nums, int numsSize, int k, int *returnSize) {
+int *maxSlidingWindowDuLinkListMethod(const int *nums, int numsSize, int k, int *returnSize) {
     *returnSize = numsSize - k + 1;
     int *ans = malloc(sizeof(int) * *returnSize);
     if (k == 1) {
@@ -44,4 +44,27 @@ int *maxSlidingWindow(const int *nums, int numsSize, int k, int *returnSize) {
     }
     DuCirListDestroy(head);
     return ans;
+}
+
+int *maxSlidingWindowDuLoopMethod(const int *nums, int numsSize, int k, int *returnSize) {
+    *returnSize = numsSize - k + 1;
+    int *ans = malloc(sizeof(int) * *returnSize);
+
+    for (int i = 0; i < *returnSize; ++i) {
+        int maxInWin = nums[i];
+        for (int j = 1; j < k; ++j) {
+            maxInWin = max(maxInWin, nums[i + j]);
+        }
+        ans[i] = maxInWin;
+    }
+    return ans;
+}
+
+
+int *maxSlidingWindow(const int *nums, int numsSize, int k, int *returnSize) {
+    // double loop method
+    // return maxSlidingWindowDuLoopMethod(nums, numsSize, k, returnSize);
+
+
+    return maxSlidingWindowDuLinkListMethod(nums, numsSize, k, returnSize);
 }
