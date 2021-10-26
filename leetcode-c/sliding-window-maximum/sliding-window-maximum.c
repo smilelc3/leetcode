@@ -4,7 +4,8 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <ListNode.h>
+#include "ListNode.h"
+#include "util.h"
 
 void maxQueuePushBack(DuListNode **pTail, int idx, const int *nums) {
     while (!DuCirListIsEmpty(*pTail) && nums[(*pTail)->val] <= nums[idx]) {
