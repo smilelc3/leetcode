@@ -14,7 +14,7 @@
   * Linux(推荐)：GCC 或 Clang
   * Windows(可用)：Visual Studio(MSVC) 16.8版本以上 + [Windows 10 SDK](https://developer.microsoft.com/zh-cn/windows/downloads/windows-10-sdk/) (10.0.20348.0) 版本 2104 以上)
   * macOS(可用)：Apple Clang 或 GCC 
-* C单元测试采用 [ThrowTheSwitch/Unity](https://github.com/ThrowTheSwitch/Unity) ，在CMake构建中会拉取最新源码，需要环境自带[Git](https://git-scm.com/)；
+* C单元测试采用 [ThrowTheSwitch/Unity](https://github.com/ThrowTheSwitch/Unity) ，性能测试采用 [sheredom/ubench.h](https://github.com/sheredom/ubench.h)，在CMake构建中会拉取最新源码，需要环境自带[Git](https://git-scm.com/)；
 * 哈希表采用 [uthash](http://troydhanson.github.io/uthash/) 项目中的[uthash.h](https://github.com/troydhanson/uthash/blob/master/src/uthash.h)，在CMake构建中会拉取最新源码，复制 uthash.h 到 [leetcode-c/built-in](leetcode-c/built-in) 文件夹中;
 * 默认启用 AddressSanitizer 内存检查功能，需要编译器支持该功能。
 
@@ -270,6 +270,7 @@
 | 861 | [Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/) | [score-after-flipping-matrix.c](leetcode-c/score-after-flipping-matrix/score-after-flipping-matrix.c) | O(m*n) | 贪心 | O(1) |
 | 863  | [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | [all-nodes-distance-k-in-binary-tree.c](leetcode-c/all-nodes-distance-k-in-binary-tree/all-nodes-distance-k-in-binary-tree.c) |    O(n)     |   hash表+递归   |    O(n)     |
 | 881 | [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) | [boats-to-save-people.c](leetcode-c/boats-to-save-people/boats-to-save-people.c) | O(nlog(n)) | 贪心 | O(1) |
+| 900 | [RLE Iterator](https://leetcode.com/problems/rle-iterator/) | [rle-iterator.c](leetcode-c/rle-iterator/rle-iterator.c) | O(n) | 模拟 | O(n) |
 | 947 | [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) | [most-stones-removed-with-same-row-or-column.c](leetcode-c/most-stones-removed-with-same-row-or-column/most-stones-removed-with-same-row-or-column.c) | O(n) | 并查集（路径压缩+按秩合并） | O(n) |
 | 957 | [Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/) | [prison-cells-after-n-days/prison-cells-after-n-days.c](leetcode-c/prison-cells-after-n-days/prison-cells-after-n-days.c) | O(1) | 位操作+计算周期 | O(1) |
 | 967 | [Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/) | [numbers-with-same-consecutive-differences.c](leetcode-c/numbers-with-same-consecutive-differences/numbers-with-same-consecutive-differences.c) |  | DFS | O(n) |
