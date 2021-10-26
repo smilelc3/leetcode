@@ -9,7 +9,6 @@ typedef struct {
     int *encoding;
     int encodingSize;
     int idx;        // 当前游标的位置
-    int cost;   // 当前游标已消耗的次数
 } RLEIterator;
 
 
@@ -19,7 +18,6 @@ RLEIterator *rLEIteratorCreate(int *encoding, int encodingSize) {
     obj->encoding = malloc(sizeof(int) * encodingSize);
     memcpy(obj->encoding, encoding, sizeof(int) * encodingSize);
     obj->idx = 0;
-    obj->cost = 0;
     return obj;
 }
 
