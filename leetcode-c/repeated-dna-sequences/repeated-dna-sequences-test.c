@@ -58,7 +58,6 @@ void findRepeatedDnaSequencesTestTest0(void) {
     ans = NULL;
 }
 
-
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(findRepeatedDnaSequencesTestExample1);
