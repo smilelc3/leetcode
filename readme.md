@@ -269,6 +269,7 @@
 | 855 | [Exam Room](https://leetcode.com/problems/exam-room/) | [exam-room.cpp](leetcode-cpp/exam-room/exam-room.cpp) | O(log(n)) | 平衡树+hashMap | O(n) |
 | 861 | [Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/) | [score-after-flipping-matrix.c](leetcode-c/score-after-flipping-matrix/score-after-flipping-matrix.c) | O(m*n) | 贪心 | O(1) |
 | 863  | [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | [all-nodes-distance-k-in-binary-tree.c](leetcode-c/all-nodes-distance-k-in-binary-tree/all-nodes-distance-k-in-binary-tree.c) |    O(n)     |   hash表+递归   |    O(n)     |
+| 869 | [Reordered Power of 2Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/) | [reordered-power-of-2.c](leetcode-c/reordered-power-of-2/reordered-power-of-2.c) | O(log(n)) | 模拟 | O(1) |
 | 881 | [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) | [boats-to-save-people.c](leetcode-c/boats-to-save-people/boats-to-save-people.c) | O(nlog(n)) | 贪心 | O(1) |
 | 900 | [RLE Iterator](https://leetcode.com/problems/rle-iterator/) | [rle-iterator.c](leetcode-c/rle-iterator/rle-iterator.c) | O(n) | 模拟 | O(n) |
 | 947 | [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) | [most-stones-removed-with-same-row-or-column.c](leetcode-c/most-stones-removed-with-same-row-or-column/most-stones-removed-with-same-row-or-column.c) | O(n) | 并查集（路径压缩+按秩合并） | O(n) |
@@ -283,6 +284,7 @@
 | 1472 | [Design Browser History](https://leetcode.com/problems/design-browser-history/) | [design-browser-history.cpp](leetcode-cpp/design-browser-history/design-browser-history.cpp) | O(1) | 线性表 | O(n) |
 | 1833 | [Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/) | [maximum-ice-cream-bars.c](leetcode-c/maximum-ice-cream-bars/maximum-ice-cream-bars.c) |    O(n)     |   贪心+桶排序   |    O(n)     |
 | 1845 | [Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager/) | [seat-reservation-manager.cpp](leetcode-cpp/seat-reservation-manager/seat-reservation-manager.cpp) | O(log(n)) | 优先队列 | O(n) |
+| 1904 | [The Number of Full Rounds You Have Played](https://leetcode.com/problems/the-number-of-full-rounds-you-have-played/) | [the-number-of-full-rounds-you-have-played.c](leetcode-c/the-number-of-full-rounds-you-have-played/the-number-of-full-rounds-you-have-played.c) | O(1) | 模拟 | O(1) |
 | 2043 | [Simple Bank System](https://leetcode.com/problems/simple-bank-system/) | [simple-bank-system.c](leetcode-c/simple-bank-system/simple-bank-system.c) | O(1) | 模拟 | O(n) |
 | 面试题 17.17 | [多次搜索](https://leetcode-cn.com/problems/multi-search-lcci/) | [multi-search-lcci.c](leetcode-c/multi-search-lcci/multi-search-lcci.c) | O(m*n) | 前缀树 | O(m*n) |
 
