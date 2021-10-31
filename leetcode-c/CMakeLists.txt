@@ -45,6 +45,14 @@ FetchContent_Declare(Unity GIT_REPOSITORY https://hub.fastgit.org/ThrowTheSwitch
 FetchContent_MakeAvailable(Unity)
 message(STATUS "3rd-party: fetch ThrowTheSwitch/Unity success!")
 
+# FetchContent获取ubench.h
+message(STATUS "3rd-party: start fetch sheredom/ubench.h...")
+FetchContent_Declare(ubench.h GIT_REPOSITORY https://hub.fastgit.org/sheredom/ubench.h.git)      # 镜像站加速
+FetchContent_Populate(ubench.h)
+message(STATUS "3rd-party: include ubench.h to project...")
+include_directories(${ubench.h_SOURCE_DIR}/)
+message(STATUS "3rd-party: fetch sheredom/ubench.h success!")
+
 # 设置 C 标准
 set(CMAKE_C_STANDARD 11)
 
@@ -76,5 +84,20 @@ foreach (SUBDIR ${SUBDIRS})
         target_link_libraries(${SUBDIR}-test unity)
         # 运行测试
         add_test(${SUBDIR}-test ${SUBDIR}-test)
+    endif ()
+    # 检测benchmark代码
+    if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SUBDIR}/${SUBDIR}-benchmark.c)
+        # 编译benchmark代码
+        add_executable(${SUBDIR}-benchmark ${SUBDIR}/${SUBDIR}-benchmark.c)
+        if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU" OR
+                "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang" OR
+                "${CMAKE_C_COMPILER_ID}" STREQUAL "AppleClang")
+            # 链接math库
+            target_link_libraries(${SUBDIR}-benchmark m)
+        endif ()
+        # 链接built-in库
+        target_link_libraries(${SUBDIR}-benchmark built-in)
+        # 运行测试
+        add_test(${SUBDIR}-benchmark ${SUBDIR}-benchmark)
     endif ()
 endforeach ()

@@ -14,7 +14,7 @@
   * Linux(推荐)：GCC 或 Clang
   * Windows(可用)：Visual Studio(MSVC) 16.8版本以上 + [Windows 10 SDK](https://developer.microsoft.com/zh-cn/windows/downloads/windows-10-sdk/) (10.0.20348.0) 版本 2104 以上)
   * macOS(可用)：Apple Clang 或 GCC 
-* C单元测试采用 [ThrowTheSwitch/Unity](https://github.com/ThrowTheSwitch/Unity) ，在CMake构建中会拉取最新源码，需要环境自带[Git](https://git-scm.com/)；
+* C单元测试采用 [ThrowTheSwitch/Unity](https://github.com/ThrowTheSwitch/Unity) ，性能测试采用 [sheredom/ubench.h](https://github.com/sheredom/ubench.h)，在CMake构建中会拉取最新源码，需要环境自带[Git](https://git-scm.com/)；
 * 哈希表采用 [uthash](http://troydhanson.github.io/uthash/) 项目中的[uthash.h](https://github.com/troydhanson/uthash/blob/master/src/uthash.h)，在CMake构建中会拉取最新源码，复制 uthash.h 到 [leetcode-c/built-in](leetcode-c/built-in) 文件夹中;
 * 默认启用 AddressSanitizer 内存检查功能，需要编译器支持该功能。
 
@@ -241,6 +241,7 @@
 | 227 | [Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) | [basic-calculator-ii.cpp](leetcode-cpp/basic-calculator-ii/basic-calculator-ii.cpp) | O(n) | 表达式求值 | O(n) |
 | 233  | [Number of Digit One](https://leetcode.com/problems/number-of-digit-one/) | [number-of-digit-one.c](leetcode-c/number-of-digit-one/number-of-digit-one.c) | O(log10(n)) |  数学推导+递归  | O(log10(n)) |
 | 234 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) | [palindrome-linked-list.c](leetcode-c/palindrome-linked-list/palindrome-linked-list.c) | O(n) | 反转链表+双指针比较 | O(1) |
+| 239 | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | [sliding-window-maximum.c](leetcode-c/sliding-window-maximum/sliding-window-maximum.c) | O(n) | 单调队列 | O(n) |
 | 260 | [Single Number III](https://leetcode.com/problems/single-number-iii/) | [single-number-iii.c](leetcode-c/single-number-iii/single-number-iii.c) | O(n) | 异或+分组 | O(1) |
 | 264  | [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) | [ugly-number-ii.c](leetcode-c/ugly-number-ii/ugly-number-ii.c) |    O(n)     |       DP        |    O(n)     |
 | 282 | [Expression Add Operators](https://leetcode.com/problems/expression-add-operators/) | [expression-add-operators.c](leetcode-c/expression-add-operators/expression-add-operators.c) | O(4^n) | DFS | O(n) |
@@ -271,6 +272,7 @@
 | 863  | [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | [all-nodes-distance-k-in-binary-tree.c](leetcode-c/all-nodes-distance-k-in-binary-tree/all-nodes-distance-k-in-binary-tree.c) |    O(n)     |   hash表+递归   |    O(n)     |
 | 869 | [Reordered Power of 2Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/) | [reordered-power-of-2.c](leetcode-c/reordered-power-of-2/reordered-power-of-2.c) | O(log(n)) | 模拟 | O(1) |
 | 881 | [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) | [boats-to-save-people.c](leetcode-c/boats-to-save-people/boats-to-save-people.c) | O(nlog(n)) | 贪心 | O(1) |
+| 900 | [RLE Iterator](https://leetcode.com/problems/rle-iterator/) | [rle-iterator.c](leetcode-c/rle-iterator/rle-iterator.c) | O(n) | 模拟 | O(n) |
 | 947 | [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) | [most-stones-removed-with-same-row-or-column.c](leetcode-c/most-stones-removed-with-same-row-or-column/most-stones-removed-with-same-row-or-column.c) | O(n) | 并查集（路径压缩+按秩合并） | O(n) |
 | 957 | [Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/) | [prison-cells-after-n-days/prison-cells-after-n-days.c](leetcode-c/prison-cells-after-n-days/prison-cells-after-n-days.c) | O(1) | 位操作+计算周期 | O(1) |
 | 967 | [Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/) | [numbers-with-same-consecutive-differences.c](leetcode-c/numbers-with-same-consecutive-differences/numbers-with-same-consecutive-differences.c) |  | DFS | O(n) |
@@ -303,5 +305,3 @@
 * [187. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) 使用双`HashSet`来统计结果，因为key值过多，存在性能问题。
 * [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)  使用双优先队列实现，已做尽可能优化逻辑，与提交页面最优解基本一致，但时间不能做到最快，怀疑后期加入复杂用例。
 * [224. Basic Calculator](https://leetcode.com/problems/basic-calculator/) 和 [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) 解法来自本人项目[str_expr_eval](https://github.com/smilelc3/str_expr_eval)，实现：**字符串表达式 → 中缀表达式 → 后缀表达式 → 求值** 流程，由于更具泛用性，需要额外的线性时间处理和额外的线性空间记录中间值，难以实现时间和空间优势，但复杂度上不变。
-* [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)  使用双向循环链表实现单调队列，时间和空间复杂度不变，且更具泛用性，但需要额外操作来申请节点空间并实现插入、删除操作，难以做到时间和空间的绝对优势。
-
