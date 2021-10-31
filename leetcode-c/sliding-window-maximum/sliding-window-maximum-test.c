@@ -69,6 +69,17 @@ void maxSlidingWindowTestExample5(void) {
     free(ans);
 }
 
+void maxSlidingWindowTestTest0(void) {
+    int nums[] = {1, 3, 1, 2, 0, 5};
+    int k = 3;
+    int returnSize = -1;
+    int *ans = maxSlidingWindow(nums, sizeof(nums) / sizeof(int), k, &returnSize);
+    int correctAns[] = {3, 3, 2, 5};
+    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
+    free(ans);
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(maxSlidingWindowTestExample1);
@@ -76,5 +87,6 @@ int main(void) {
     RUN_TEST(maxSlidingWindowTestExample3);
     RUN_TEST(maxSlidingWindowTestExample4);
     RUN_TEST(maxSlidingWindowTestExample5);
+    RUN_TEST(maxSlidingWindowTestTest0);
     return UNITY_END();
 }

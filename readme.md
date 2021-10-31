@@ -241,6 +241,7 @@
 | 227 | [Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) | [basic-calculator-ii.cpp](leetcode-cpp/basic-calculator-ii/basic-calculator-ii.cpp) | O(n) | 表达式求值 | O(n) |
 | 233  | [Number of Digit One](https://leetcode.com/problems/number-of-digit-one/) | [number-of-digit-one.c](leetcode-c/number-of-digit-one/number-of-digit-one.c) | O(log10(n)) |  数学推导+递归  | O(log10(n)) |
 | 234 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) | [palindrome-linked-list.c](leetcode-c/palindrome-linked-list/palindrome-linked-list.c) | O(n) | 反转链表+双指针比较 | O(1) |
+| 239 | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | [sliding-window-maximum.c](leetcode-c/sliding-window-maximum/sliding-window-maximum.c) | O(n) | 单调队列 | O(n) |
 | 260 | [Single Number III](https://leetcode.com/problems/single-number-iii/) | [single-number-iii.c](leetcode-c/single-number-iii/single-number-iii.c) | O(n) | 异或+分组 | O(1) |
 | 264  | [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) | [ugly-number-ii.c](leetcode-c/ugly-number-ii/ugly-number-ii.c) |    O(n)     |       DP        |    O(n)     |
 | 282 | [Expression Add Operators](https://leetcode.com/problems/expression-add-operators/) | [expression-add-operators.c](leetcode-c/expression-add-operators/expression-add-operators.c) | O(4^n) | DFS | O(n) |
@@ -304,5 +305,3 @@
 * [187. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) 使用双`HashSet`来统计结果，因为key值过多，存在性能问题。
 * [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)  使用双优先队列实现，已做尽可能优化逻辑，与提交页面最优解基本一致，但时间不能做到最快，怀疑后期加入复杂用例。
 * [224. Basic Calculator](https://leetcode.com/problems/basic-calculator/) 和 [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) 解法来自本人项目[str_expr_eval](https://github.com/smilelc3/str_expr_eval)，实现：**字符串表达式 → 中缀表达式 → 后缀表达式 → 求值** 流程，由于更具泛用性，需要额外的线性时间处理和额外的线性空间记录中间值，难以实现时间和空间优势，但复杂度上不变。
-* [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)  使用双向循环链表实现单调队列，时间和空间复杂度不变，且更具泛用性，但需要额外操作来申请节点空间并实现插入、删除操作，难以做到时间和空间的绝对优势。
-

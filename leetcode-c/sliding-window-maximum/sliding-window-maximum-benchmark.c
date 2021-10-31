@@ -34,11 +34,19 @@ UBENCH_F_TEARDOWN(fixture) {
     free(ubench_fixture->nums);
 }
 
-
 UBENCH_EX_F(fixture, maxSlidingWindowDuLinkListMethod) {
     UBENCH_DO_BENCHMARK() {
         int *ans = maxSlidingWindowDuLinkListMethod(ubench_fixture->nums, ubench_fixture->numsSize, ubench_fixture->k,
                                                     &ubench_fixture->returnSize);
+        UBENCH_DO_NOTHING(ans);
+        free(ans);
+    }
+}
+
+UBENCH_EX_F(fixture, maxSlidingWindowVectorMethod) {
+    UBENCH_DO_BENCHMARK() {
+        int *ans = maxSlidingWindowVectorMethod(ubench_fixture->nums, ubench_fixture->numsSize, ubench_fixture->k,
+                                                &ubench_fixture->returnSize);
         UBENCH_DO_NOTHING(ans);
         free(ans);
     }
