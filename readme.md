@@ -283,6 +283,7 @@
 | 1367 | [Linked List in Binary Tree](https://leetcode.com/problems/linked-list-in-binary-tree/) | [linked-list-in-binary-tree-test.c](leetcode-c/linked-list-in-binary-tree/linked-list-in-binary-tree-test.c) |  | 二次递归 |  |
 | 1389 | [Create Target Array in the Given Order](https://leetcode.com/problems/create-target-array-in-the-given-order/) | [create-target-array-in-the-given-order-test.c](leetcode-c/create-target-array-in-the-given-order/create-target-array-in-the-given-order-test.c) | O(n^2) | 线性表插入 | O(n) |
 | 1472 | [Design Browser History](https://leetcode.com/problems/design-browser-history/) | [design-browser-history.cpp](leetcode-cpp/design-browser-history/design-browser-history.cpp) | O(1) | 线性表 | O(n) |
+| 1774 | [Closest Dessert Cost](https://leetcode.com/problems/closest-dessert-cost/) | [closest-dessert-cost.c](leetcode-c/closest-dessert-cost/closest-dessert-cost.c) | O(n*3^m) | DFS/DP | O(n) |
 | 1833 | [Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/) | [maximum-ice-cream-bars.c](leetcode-c/maximum-ice-cream-bars/maximum-ice-cream-bars.c) |    O(n)     |   贪心+桶排序   |    O(n)     |
 | 1845 | [Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager/) | [seat-reservation-manager.cpp](leetcode-cpp/seat-reservation-manager/seat-reservation-manager.cpp) | O(log(n)) | 优先队列 | O(n) |
 | 1904 | [The Number of Full Rounds You Have Played](https://leetcode.com/problems/the-number-of-full-rounds-you-have-played/) | [the-number-of-full-rounds-you-have-played.c](leetcode-c/the-number-of-full-rounds-you-have-played/the-number-of-full-rounds-you-have-played.c) | O(1) | 模拟 | O(1) |
@@ -305,3 +306,4 @@
 * [187. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) 使用双`HashSet`来统计结果，因为key值过多，存在性能问题。
 * [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)  使用双优先队列实现，已做尽可能优化逻辑，与提交页面最优解基本一致，但时间不能做到最快，怀疑后期加入复杂用例。
 * [224. Basic Calculator](https://leetcode.com/problems/basic-calculator/) 和 [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) 解法来自本人项目[str_expr_eval](https://github.com/smilelc3/str_expr_eval)，实现：**字符串表达式 → 中缀表达式 → 后缀表达式 → 求值** 流程，由于更具泛用性，需要额外的线性时间处理和额外的线性空间记录中间值，难以实现时间和空间优势，但复杂度上不变。
+* [1774. Closest Dessert Cost](https://leetcode.com/problems/closest-dessert-cost/) 存在DFS或则DP两种解法，后者在时间复杂度上更优，但由于本题数据量小，在极限数据上DFS方法耗时小于DP方法耗时，故采用DFS方法。
