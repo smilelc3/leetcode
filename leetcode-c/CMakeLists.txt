@@ -62,7 +62,7 @@ add_subdirectory(built-in)
 
 # 生成所有子目录到变量 SUBDIRS
 file(GLOB SUBDIRS RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
-# 遍历所有子目录，如果子目录下存在同名源代码和同名-test测试代码，创建测试对象
+# 遍历所有子目录，如果子目录下存在同名源代码和同名-test单元测试代码或者-benchmark性能测试代码，创建测试对象
 foreach (SUBDIR ${SUBDIRS})
     # 检测test代码
     if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SUBDIR}/${SUBDIR}-test.c)
