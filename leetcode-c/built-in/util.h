@@ -57,4 +57,8 @@ static int64_t lcm(int64_t m, int64_t n) {
            : 0;
 }
 
+// DFS迷宫遍历 (上、下、左、右)
+const int dx[4] = {-1, 1, 0, 0};
+const int dy[4] = {0, 0, -1, 1};
+
 #endif //LEETCODE_C_UTIL_H

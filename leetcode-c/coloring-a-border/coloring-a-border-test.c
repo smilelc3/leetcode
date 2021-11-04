@@ -94,10 +94,39 @@ void colorBorderTestExample3(void) {
     free(ans);
 }
 
+void colorBorderTestTest0(void) {
+    int nums[][3] = {{1, 2, 1},
+                     {1, 2, 2},
+                     {2, 2, 1}};
+    int gridSize = 3;
+    int gridColSize[3];
+    int **grid = malloc(sizeof(int *) * gridSize);
+    for (size_t idx = 0; idx < gridSize; ++idx) {
+        grid[idx] = nums[idx];
+        gridColSize[idx] = sizeof(nums[idx]) / sizeof(int);
+    }
+    int row = 1, col = 1, color = 2;
+    int returnSize = -1;
+    int *returnColumnSizes = NULL;
+    int **ans = colorBorder(grid, gridSize, gridColSize, row, col, color, &returnSize, &returnColumnSizes);
+    int correctAns[][3] = {{1, 2, 1},
+                           {1, 2, 2},
+                           {2, 2, 1}};
+    TEST_ASSERT_EQUAL_INT(gridSize, returnSize);
+    TEST_ASSERT_EQUAL_INT_ARRAY(gridColSize, returnColumnSizes, returnSize);
+    for (int i = 0; i < gridSize; ++i) {
+        TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], gridColSize[i]);
+        free(ans[i]);
+    }
+    free(returnColumnSizes);
+    free(ans);
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(colorBorderTestExample1);
     RUN_TEST(colorBorderTestExample2);
     RUN_TEST(colorBorderTestExample3);
+    RUN_TEST(colorBorderTestTest0);
     return UNITY_END();
 }
