@@ -36,6 +36,7 @@ void colorBorderTestExample1(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], gridColSize[i]);
         free(ans[i]);
     }
+    free(grid);
     free(returnColumnSizes);
     free(ans);
 }
@@ -62,6 +63,7 @@ void colorBorderTestExample2(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], gridColSize[i]);
         free(ans[i]);
     }
+    free(grid);
     free(returnColumnSizes);
     free(ans);
 }
@@ -90,6 +92,7 @@ void colorBorderTestExample3(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], gridColSize[i]);
         free(ans[i]);
     }
+    free(grid);
     free(returnColumnSizes);
     free(ans);
 }
@@ -118,6 +121,7 @@ void colorBorderTestTest0(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], gridColSize[i]);
         free(ans[i]);
     }
+    free(grid);
     free(returnColumnSizes);
     free(ans);
 }
