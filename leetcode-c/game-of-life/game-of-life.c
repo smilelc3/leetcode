@@ -3,6 +3,7 @@
 //
 
 #include <stdbool.h>
+#include "util.h"
 
 #define DEAD 0
 #define ALIVE 1
@@ -19,15 +20,9 @@ void gameOfLife(int **board, int boardSize, const int *boardColSize) {
         for (int y = 0; y < *boardColSize; ++y) {
             // 将结果保存在第二位
             uint8_t nbrAliveCnt = 0;
-
-            for (int8_t dx = -1; dx <= 1; ++dx) {
-                for (int8_t dy = -1; dy <= 1; ++dy) {
-                    if (dx == 0 && dy == 0) {
-                        continue;
-                    }
-                    if (isCellAlive(board, x + dx, y + dy, boardSize, *boardColSize) == true) {
-                        nbrAliveCnt++;
-                    }
+            for (int i = 0; i < 8; ++i) {
+                if (isCellAlive(board, x + dx[i], y + dy[i], boardSize, *boardColSize) == true) {
+                    nbrAliveCnt++;
                 }
             }
             // 下一次存活的情况
