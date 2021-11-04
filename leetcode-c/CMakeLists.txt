@@ -33,7 +33,7 @@ include(FetchContent)
 
 # FetchContent获取uthash
 message(STATUS "3rd-party: start fetch troydhanson/uthash...")
-FetchContent_Declare(uthash GIT_REPOSITORY https://hub.fastgit.org/troydhanson/uthash.git)      # 镜像站加速
+FetchContent_Declare(uthash GIT_REPOSITORY https://github.com/troydhanson/uthash.git)
 FetchContent_Populate(uthash)
 message(STATUS "3rd-party: copy uthash.h to built-in folder...")
 file(COPY ${uthash_SOURCE_DIR}/src/uthash.h DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/built-in/)
@@ -41,13 +41,13 @@ message(STATUS "3rd-party: fetch troydhanson/uthash success!")
 
 # FetchContent获取Unity
 message(STATUS "3rd-party: start fetch ThrowTheSwitch/Unity...")
-FetchContent_Declare(Unity GIT_REPOSITORY https://hub.fastgit.org/ThrowTheSwitch/Unity.git)      # 镜像站加速
+FetchContent_Declare(Unity GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git)
 FetchContent_MakeAvailable(Unity)
 message(STATUS "3rd-party: fetch ThrowTheSwitch/Unity success!")
 
 # FetchContent获取ubench.h
 message(STATUS "3rd-party: start fetch sheredom/ubench.h...")
-FetchContent_Declare(ubench.h GIT_REPOSITORY https://hub.fastgit.org/sheredom/ubench.h.git)      # 镜像站加速
+FetchContent_Declare(ubench.h GIT_REPOSITORY https://github.com/sheredom/ubench.h.git)
 FetchContent_Populate(ubench.h)
 message(STATUS "3rd-party: include ubench.h to project...")
 include_directories(${ubench.h_SOURCE_DIR}/)
@@ -62,7 +62,7 @@ add_subdirectory(built-in)
 
 # 生成所有子目录到变量 SUBDIRS
 file(GLOB SUBDIRS RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
-# 遍历所有子目录，如果子目录下存在同名源代码和同名-test测试代码，创建测试对象
+# 遍历所有子目录，如果子目录下存在同名源代码和同名-test单元测试代码或者-benchmark性能测试代码，创建测试对象
 foreach (SUBDIR ${SUBDIRS})
     # 检测test代码
     if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SUBDIR}/${SUBDIR}-test.c)
