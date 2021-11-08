@@ -68,6 +68,15 @@ namespace {
         ASSERT_EQ(ans, correctAns);
     }
 
+    TEST(shortestAlternatingPathsTest, MyTest0) {      // NOLINT
+        auto n = 2;
+        std::vector<std::vector<int>> red_edges = {{0, 1}};
+        std::vector<std::vector<int>> blue_edges = {{1, 0}};
+        auto ans = Solution().shortestAlternatingPaths(n, red_edges, blue_edges);
+        decltype(ans) correctAns = {0, 1};
+        ASSERT_EQ(ans, correctAns);
+    }
+
     TEST(shortestAlternatingPathsTest, Test1) {      // NOLINT
         auto n = 5;
         std::vector<std::vector<int>> red_edges = {{2, 2},
@@ -85,7 +94,7 @@ namespace {
                                                     {4, 2},
                                                     {1, 0}};
         auto ans = Solution().shortestAlternatingPaths(n, red_edges, blue_edges);
-        decltype(ans) correctAns = {0, 1, 2, 3, 7};
+        decltype(ans) correctAns = {0, 1, 2, 1, 1};
         ASSERT_EQ(ans, correctAns);
     }
 }
