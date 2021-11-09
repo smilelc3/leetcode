@@ -253,6 +253,7 @@
 | 380 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) | [insert-delete-getrandom-o1.c](leetcode-c/insert-delete-getrandom-o1/insert-delete-getrandom-o1.c) | O(1) | HashMap | O(n) |
 | 384 | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | [shuffle-an-array.c](leetcode-c/shuffle-an-array/shuffle-an-array.c) | O(n) | [Fisher–Yates shuffle 洗牌算法](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) | O(n) |
 | 393 | [UTF-8 Validation](https://leetcode.com/problems/utf-8-validation/) | [utf-8-validation.c](leetcode-c/utf-8-validation/utf-8-validation.c) | O(n) | UTF-8编码验证 | O(1) |
+| 397 | [Integer Replacement](https://leetcode.com/problems/integer-replacement/) | [integer-replacement.c](leetcode-c/integer-replacement/integer-replacement.c) | O(log(n)) | 贪心 | O(1) |
 | 434  | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | [number-of-segments-in-a-string.c](leetcode-c/number-of-segments-in-a-string/number-of-segments-in-a-string.c) |    O(n)     |      遍历       |    O(1)     |
 | 435  | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | [non-overlapping-intervals.c](leetcode-c/non-overlapping-intervals/non-overlapping-intervals.c) | O(nlog(n))  |      贪心       | O(nlog(n))  |
 | 437 | [Path Sum III](https://leetcode.com/problems/path-sum-iii/) | [path-sum-iii.c](leetcode-c/path-sum-iii/path-sum-iii.c) | O(n) | 前缀和+HashMap | O(n) |
