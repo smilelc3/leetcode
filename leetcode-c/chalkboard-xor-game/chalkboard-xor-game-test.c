@@ -35,10 +35,18 @@ void xorGameTestExample3(void) {
     TEST_ASSERT_EQUAL(correctAns, ans);
 }
 
+void xorGameTestTest0(void) {
+    int nums[] = {1, 1, 2, 3};     // Alice先手，
+    bool ans = xorGame(nums, sizeof(nums) / sizeof(int));
+    bool correctAns = true;
+    TEST_ASSERT_EQUAL(correctAns, ans);
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(xorGameTestExample1);
     RUN_TEST(xorGameTestExample2);
     RUN_TEST(xorGameTestExample3);
+    RUN_TEST(xorGameTestTest0);
     return UNITY_END();
 }

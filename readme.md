@@ -292,7 +292,7 @@
 | 1833 | [Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/) | [maximum-ice-cream-bars.c](leetcode-c/maximum-ice-cream-bars/maximum-ice-cream-bars.c) |    O(n)     |   贪心+桶排序   |    O(n)     |
 | 1845 | [Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager/) | [seat-reservation-manager.cpp](leetcode-cpp/seat-reservation-manager/seat-reservation-manager.cpp) | O(log(n)) | 优先队列 | O(n) |
 | 1904 | [The Number of Full Rounds You Have Played](https://leetcode.com/problems/the-number-of-full-rounds-you-have-played/) | [the-number-of-full-rounds-you-have-played.c](leetcode-c/the-number-of-full-rounds-you-have-played/the-number-of-full-rounds-you-have-played.c) | O(1) | 模拟 | O(1) |
-| 2007 | [Find Original Array From Doubled Array](https://leetcode.com/problems/find-original-array-from-doubled-array/) | [find-original-array-from-doubled-array.cpp](leetcode-cpp/find-original-array-from-doubled-array/find-original-array-from-doubled-array.cpp) | O(n) | 排序+队列 | O(n) |
+| 2007 | [Find Original Array From Doubled Array](https://leetcode.com/problems/find-original-array-from-doubled-array/) | [find-original-array-from-doubled-array.cpp](leetcode-cpp/find-original-array-from-doubled-array/find-original-array-from-doubled-array.cpp) | O(nlog(n)) | 排序+队列 | O(n) |
 | 2043 | [Simple Bank System](https://leetcode.com/problems/simple-bank-system/) | [simple-bank-system.c](leetcode-c/simple-bank-system/simple-bank-system.c) | O(1) | 模拟 | O(n) |
 | 面试题 17.17 | [多次搜索](https://leetcode-cn.com/problems/multi-search-lcci/) | [multi-search-lcci.c](leetcode-c/multi-search-lcci/multi-search-lcci.c) | O(m*n) | 前缀树 | O(m*n) |
 
