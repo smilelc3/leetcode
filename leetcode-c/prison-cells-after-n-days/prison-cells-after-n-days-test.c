@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <unity.h>
+#include "util.h"
 #include "prison-cells-after-n-days.c"
 
 void setUp(void) {
@@ -18,9 +19,9 @@ void prisonAfterNDaysTestExample1(void) {
     int cell[8] = {0, 1, 0, 1, 1, 0, 0, 1};
     int n = 7;
     int returnSize = -1;
-    int *ans = prisonAfterNDays(cell, sizeof(cell) / sizeof(int), n, &returnSize);
+    int *ans = prisonAfterNDays(cell, ARRAY_LENGTH(cell), n, &returnSize);
     int correctAns[8] = {0, 0, 1, 1, 0, 0, 0, 0};
-    TEST_ASSERT_EQUAL_INT(sizeof(cell) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(cell), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
 }
@@ -29,9 +30,9 @@ void prisonAfterNDaysTestExample2(void) {
     int cell[8] = {1, 0, 0, 1, 0, 0, 1, 0};
     int n = 1000000000;
     int returnSize = -1;
-    int *ans = prisonAfterNDays(cell, sizeof(cell) / sizeof(int), n, &returnSize);
+    int *ans = prisonAfterNDays(cell, ARRAY_LENGTH(cell), n, &returnSize);
     int correctAns[8] = {0, 0, 1, 1, 1, 1, 1, 0};
-    TEST_ASSERT_EQUAL_INT(sizeof(cell) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(cell), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
 }

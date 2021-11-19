@@ -4,6 +4,7 @@
 
 #include <unity.h>
 #include <stdlib.h>
+#include "util.h"
 #include "number-of-boomerangs.c"
 
 void setUp(void) {
@@ -15,11 +16,11 @@ void tearDown(void) {
 }
 
 void numberOfBoomerangsTestExample1(void) {
-    int pointsSize = 3;
-    int pointsColSize = 2;
     int nums[][2] = {{0, 0},
                      {1, 0},
                      {2, 0}};
+    int pointsSize = ARRAY_LENGTH(nums);
+    int pointsColSize = ARRAY_LENGTH(nums[0]);
     int **points = malloc(sizeof(int *) * pointsSize);
     for (size_t idx = 0; idx < pointsSize; ++idx) {
         points[idx] = nums[idx];
@@ -31,11 +32,11 @@ void numberOfBoomerangsTestExample1(void) {
 }
 
 void numberOfBoomerangsTestExample2(void) {
-    int pointsSize = 3;
-    int pointsColSize = 2;
     int nums[][2] = {{1, 1},
                      {2, 2},
                      {3, 3}};
+    int pointsSize = ARRAY_LENGTH(nums);
+    int pointsColSize = ARRAY_LENGTH(nums[0]);
     int **points = malloc(sizeof(int *) * pointsSize);
     for (size_t idx = 0; idx < pointsSize; ++idx) {
         points[idx] = nums[idx];
@@ -47,9 +48,9 @@ void numberOfBoomerangsTestExample2(void) {
 }
 
 void numberOfBoomerangsTestExample3(void) {
-    int pointsSize = 1;
-    int pointsColSize = 2;
     int nums[][2] = {{1, 1}};
+    int pointsSize = ARRAY_LENGTH(nums);
+    int pointsColSize = ARRAY_LENGTH(nums[0]);
     int **points = malloc(sizeof(int *) * pointsSize);
     for (size_t idx = 0; idx < pointsSize; ++idx) {
         points[idx] = nums[idx];

@@ -4,6 +4,7 @@
 
 #include <unity.h>
 #include <stdlib.h>
+#include "util.h"
 #include "coloring-a-border.c"
 
 void setUp(void) {
@@ -17,12 +18,12 @@ void tearDown(void) {
 void colorBorderTestExample1(void) {
     int nums[][2] = {{1, 1},
                      {1, 2}};
-    int gridSize = 2;
-    int gridColSize[2];
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize[ARRAY_LENGTH(nums)];
     int **grid = malloc(sizeof(int *) * gridSize);
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
-        gridColSize[idx] = sizeof(nums[idx]) / sizeof(int);
+        gridColSize[idx] = ARRAY_LENGTH(nums[idx]);
     }
     int row = 0, col = 0, color = 3;
     int returnSize = -1;
@@ -44,12 +45,12 @@ void colorBorderTestExample1(void) {
 void colorBorderTestExample2(void) {
     int nums[][3] = {{1, 2, 2},
                      {2, 3, 2}};
-    int gridSize = 2;
-    int gridColSize[2];
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize[ARRAY_LENGTH(nums)];
     int **grid = malloc(sizeof(int *) * gridSize);
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
-        gridColSize[idx] = sizeof(nums[idx]) / sizeof(int);
+        gridColSize[idx] = ARRAY_LENGTH(nums[idx]);
     }
     int row = 0, col = 1, color = 3;
     int returnSize = -1;
@@ -72,12 +73,12 @@ void colorBorderTestExample3(void) {
     int nums[][3] = {{1, 1, 1},
                      {1, 1, 1},
                      {1, 1, 1}};
-    int gridSize = 3;
-    int gridColSize[3];
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize[ARRAY_LENGTH(nums)];
     int **grid = malloc(sizeof(int *) * gridSize);
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
-        gridColSize[idx] = sizeof(nums[idx]) / sizeof(int);
+        gridColSize[idx] = ARRAY_LENGTH(nums[idx]);
     }
     int row = 1, col = 1, color = 2;
     int returnSize = -1;
@@ -101,12 +102,12 @@ void colorBorderTestTest0(void) {
     int nums[][3] = {{1, 2, 1},
                      {1, 2, 2},
                      {2, 2, 1}};
-    int gridSize = 3;
-    int gridColSize[3];
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize[ARRAY_LENGTH(nums)];
     int **grid = malloc(sizeof(int *) * gridSize);
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
-        gridColSize[idx] = sizeof(nums[idx]) / sizeof(int);
+        gridColSize[idx] = ARRAY_LENGTH(nums[idx]);
     }
     int row = 1, col = 1, color = 2;
     int returnSize = -1;

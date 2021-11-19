@@ -12,7 +12,6 @@ typedef struct {
     UT_hash_handle hh;
 } Dis2PointsMap;
 
-
 static inline void freeDis2PointsMap(Dis2PointsMap *head) {
     Dis2PointsMap *cur, *tmp;
     HASH_ITER(hh, head, cur, tmp) {
@@ -22,7 +21,6 @@ static inline void freeDis2PointsMap(Dis2PointsMap *head) {
     }
     free(head);
 }
-
 
 // 获取两点的间的距离（不开平方根）
 static inline int64_t getTwoPointsDistance(const int *pointA, const int *pointB) {

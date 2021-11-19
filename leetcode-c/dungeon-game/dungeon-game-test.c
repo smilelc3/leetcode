@@ -4,6 +4,7 @@
 
 #include <unity.h>
 #include <stdlib.h>
+#include "util.h"
 #include "dungeon-game.c"
 
 void setUp(void) {
@@ -18,8 +19,8 @@ void calculateMinimumHPTestExample1(void) {
     int nums[][3] = {{-2, -3,  3},
                      {-5, -10, 1},
                      {10, 30,  -5}};
-    int dungeonColSize = 3;
-    int dungeonSize = 3;
+    int dungeonSize = ARRAY_LENGTH(nums);
+    int dungeonColSize = ARRAY_LENGTH(nums[0]);
     int **dungeon = malloc(sizeof(int *) * dungeonSize);
     for (size_t idx = 0; idx < dungeonSize; ++idx) {
         dungeon[idx] = nums[idx];
@@ -32,8 +33,8 @@ void calculateMinimumHPTestExample1(void) {
 
 void calculateMinimumHPTestExample2(void) {
     int nums[][1] = {{0}};
-    int dungeonColSize = 1;
-    int dungeonSize = 1;
+    int dungeonSize = ARRAY_LENGTH(nums);
+    int dungeonColSize = ARRAY_LENGTH(nums[0]);
     int **dungeon = malloc(sizeof(int *) * dungeonSize);
     for (size_t idx = 0; idx < dungeonSize; ++idx) {
         dungeon[idx] = nums[idx];
@@ -46,8 +47,8 @@ void calculateMinimumHPTestExample2(void) {
 
 void calculateMinimumHPTestTest0(void) {
     int nums[][2] = {{0, 0}};
-    int dungeonColSize = 2;
-    int dungeonSize = 1;
+    int dungeonSize = ARRAY_LENGTH(nums);
+    int dungeonColSize = ARRAY_LENGTH(nums[0]);
     int **dungeon = malloc(sizeof(int *) * dungeonSize);
     for (size_t idx = 0; idx < dungeonSize; ++idx) {
         dungeon[idx] = nums[idx];

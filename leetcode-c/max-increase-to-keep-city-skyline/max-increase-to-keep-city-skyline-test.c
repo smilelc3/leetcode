@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <unity.h>
+#include "util.h"
 #include "max-increase-to-keep-city-skyline.c"
 
 void setUp(void) {
@@ -19,8 +20,8 @@ void maxIncreaseKeepingSkylineTestExample1(void) {
                      {2, 4, 5, 7},
                      {9, 2, 6, 3},
                      {0, 3, 1, 0}};
-    int gridSize = sizeof(nums) / sizeof(nums[0]);
-    int gridColSize = sizeof(nums[0]) / sizeof(int);
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize = ARRAY_LENGTH(nums[0]);
 
     int **grid = malloc(sizeof(int *) * gridSize);
     for (size_t idx = 0; idx < gridSize; ++idx) {
@@ -36,8 +37,8 @@ void maxIncreaseKeepingSkylineTestExample2(void) {
     int nums[][3] = {{0, 0, 0},
                      {0, 0, 0},
                      {0, 0, 0}};
-    int gridSize = sizeof(nums) / sizeof(nums[0]);
-    int gridColSize = sizeof(nums[0]) / sizeof(int);
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize = ARRAY_LENGTH(nums[0]);
 
     int **grid = malloc(sizeof(int *) * gridSize);
     for (size_t idx = 0; idx < gridSize; ++idx) {

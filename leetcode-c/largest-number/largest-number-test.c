@@ -4,6 +4,7 @@
 
 #include <unity.h>
 #include <stdlib.h>
+#include "util.h"
 #include "largest-number.c"
 
 void setUp(void) {
@@ -17,7 +18,7 @@ void tearDown(void) {
 void largestNumberTestExample1(void) {
     int nums[] = {10, 2};
     char correctAns[] = "210";
-    char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
+    char *ans = largestNumber(nums, ARRAY_LENGTH(nums));
     TEST_ASSERT_EQUAL_STRING(correctAns, ans);
     free(ans);
 }
@@ -25,7 +26,7 @@ void largestNumberTestExample1(void) {
 void largestNumberTestExample2(void) {
     int nums[] = {3, 30, 34, 5, 9};
     char correctAns[] = "9534330";
-    char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
+    char *ans = largestNumber(nums, ARRAY_LENGTH(nums));
     TEST_ASSERT_EQUAL_STRING(correctAns, ans);
     free(ans);
 }
@@ -33,7 +34,7 @@ void largestNumberTestExample2(void) {
 void largestNumberTestExample3(void) {
     int nums[] = {1};
     char correctAns[] = "1";
-    char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
+    char *ans = largestNumber(nums, ARRAY_LENGTH(nums));
     TEST_ASSERT_EQUAL_STRING(correctAns, ans);
     free(ans);
 }
@@ -41,7 +42,7 @@ void largestNumberTestExample3(void) {
 void largestNumberTestExample4(void) {
     int nums[] = {10};
     char correctAns[] = "10";
-    char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
+    char *ans = largestNumber(nums, ARRAY_LENGTH(nums));
     TEST_ASSERT_EQUAL_STRING(correctAns, ans);
     free(ans);
 }
@@ -49,7 +50,7 @@ void largestNumberTestExample4(void) {
 void largestNumberTestExample5(void) {
     int nums[] = {30, 3};
     char correctAns[] = "330";
-    char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
+    char *ans = largestNumber(nums, ARRAY_LENGTH(nums));
     TEST_ASSERT_EQUAL_STRING(correctAns, ans);
     free(ans);
 }
@@ -57,7 +58,7 @@ void largestNumberTestExample5(void) {
 void largestNumberTestTest0(void) {
     int nums[] = {111311, 1113};
     char correctAns[] = "1113111311";
-    char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
+    char *ans = largestNumber(nums, ARRAY_LENGTH(nums));
     TEST_ASSERT_EQUAL_STRING(correctAns, ans);
     free(ans);
 }
@@ -65,7 +66,7 @@ void largestNumberTestTest0(void) {
 void largestNumberTestTest1(void) {
     int nums[] = {8308, 8308, 830};
     char correctAns[] = "83088308830";
-    char *ans = largestNumber(nums, sizeof(nums) / sizeof(int));
+    char *ans = largestNumber(nums, ARRAY_LENGTH(nums));
     TEST_ASSERT_EQUAL_STRING(correctAns, ans);
     free(ans);
 }

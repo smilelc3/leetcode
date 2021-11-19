@@ -6,14 +6,13 @@
 #include <string.h>
 #include <time.h>
 
+# define swap(a, b) (a)^=(b)^=(a)^=(b);
+
 typedef struct {
     int *rawNums;
     int *shuffleNums;
     int numsLength;
 } Solution;
-
-
-# define swap(a, b) (a)^=(b)^=(a)^=(b);
 
 Solution *solutionCreate(int *nums, int numsSize) {
     Solution *ret = malloc(sizeof(Solution));

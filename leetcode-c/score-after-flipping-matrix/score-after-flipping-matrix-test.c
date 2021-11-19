@@ -4,6 +4,7 @@
 
 #include <unity.h>
 #include <stdlib.h>
+#include "util.h"
 #include "score-after-flipping-matrix.c"
 
 void setUp(void) {
@@ -18,9 +19,8 @@ void matrixScoreExample1(void) {
     int nums[][4] = {{0, 0, 1, 1},
                      {1, 0, 1, 0},
                      {1, 1, 0, 0}};
-    int gridSize = 3;
-    int gridColSize = 4;
-
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize = ARRAY_LENGTH(nums[0]);
     int **grid = malloc(sizeof(int *) * gridSize);
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
@@ -33,9 +33,8 @@ void matrixScoreExample1(void) {
 
 void matrixScoreExample2(void) {
     int nums[][1] = {{0}};
-    int gridSize = 1;
-    int gridColSize = 1;
-
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize = ARRAY_LENGTH(nums[0]);
     int **grid = malloc(sizeof(int *) * gridSize);
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];

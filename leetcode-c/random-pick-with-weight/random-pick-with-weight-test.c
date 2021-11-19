@@ -3,6 +3,7 @@
 //
 
 #include <unity.h>
+#include "util.h"
 #include "random-pick-with-weight.c"
 
 void setUp(void) {
@@ -15,7 +16,7 @@ void tearDown(void) {
 
 void SolutionTestExample1(void) {
     int w[] = {1};
-    Solution *obj = solutionCreate(w, sizeof(w) / sizeof(int));
+    Solution *obj = solutionCreate(w, ARRAY_LENGTH(w));
     int param_1 = solutionPickIndex(obj);
     TEST_ASSERT_EQUAL_INT(0, param_1);
     solutionFree(obj);
@@ -23,7 +24,7 @@ void SolutionTestExample1(void) {
 
 void SolutionTestExample2(void) {
     int w[] = {1, 3};
-    Solution *obj = solutionCreate(w, sizeof(w) / sizeof(int));
+    Solution *obj = solutionCreate(w, ARRAY_LENGTH(w));
     size_t totTime = 100000000;
     float delta = 1e-3f;
     int idx0Cnt = 0, idx1Cnt = 0;

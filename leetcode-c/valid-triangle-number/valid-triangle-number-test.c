@@ -2,7 +2,8 @@
 // Created by l30014168 on 2021/8/5.
 //
 
-#include "unity.h"
+#include <unity.h>
+#include "util.h"
 #include "valid-triangle-number.c"
 
 void setUp(void) {
@@ -15,7 +16,7 @@ void tearDown(void) {
 
 void triangleNumberTestExample1(void) {
     int nums[] = {2, 2, 3, 4};
-    int numsSize = 4;
+    int numsSize = ARRAY_LENGTH(nums);
     int ans = triangleNumber(nums, numsSize);
     int rightAns = 3;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
@@ -23,7 +24,7 @@ void triangleNumberTestExample1(void) {
 
 void triangleNumberTestExample2(void) {
     int nums[] = {4, 2, 3, 4};
-    int numsSize = 4;
+    int numsSize = ARRAY_LENGTH(nums);
     int ans = triangleNumber(nums, numsSize);
     int rightAns = 4;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);

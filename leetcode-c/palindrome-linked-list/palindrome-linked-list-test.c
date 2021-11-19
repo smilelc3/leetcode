@@ -3,6 +3,7 @@
 //
 
 #include <unity.h>
+#include "util.h"
 #include "palindrome-linked-list.c"
 
 void setUp(void) {
@@ -15,14 +16,14 @@ void tearDown(void) {
 
 void isPalindromeTestExample1(void) {
     int nums[] = {1, 2, 2, 1};
-    struct ListNode *head = ListCreateByNums(nums, sizeof(nums) / sizeof(int));
+    struct ListNode *head = ListCreateByNums(nums, ARRAY_LENGTH(nums));
     TEST_ASSERT_TRUE(isPalindrome(head));
     ListDestroy(head);
 }
 
 void isPalindromeTestExample2(void) {
     int nums[] = {1, 2};
-    struct ListNode *head = ListCreateByNums(nums, sizeof(nums) / sizeof(int));
+    struct ListNode *head = ListCreateByNums(nums, ARRAY_LENGTH(nums));
     TEST_ASSERT_FALSE(isPalindrome(head));
     ListDestroy(head);
 }

@@ -3,6 +3,7 @@
 //
 
 #include <unity.h>
+#include "util.h"
 #include "path-in-zigzag-labelled-binary-tree.c"
 
 void setUp(void) {
@@ -18,7 +19,7 @@ void pathInZigZagTreeTestExample1(void) {
     int returnSize = -1;
     int *ans = pathInZigZagTree(label, &returnSize);
     int rightAns[] = {1, 3, 4, 14};
-    TEST_ASSERT_EQUAL_INT(sizeof(rightAns) / sizeof(rightAns[0]), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(rightAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(rightAns, ans, returnSize);
     free(ans);
 }
@@ -28,7 +29,7 @@ void pathInZigZagTreeTestExample2(void) {
     int returnSize = -1;
     int *ans = pathInZigZagTree(label, &returnSize);
     int rightAns[] = {1, 2, 6, 10, 26};
-    TEST_ASSERT_EQUAL_INT(sizeof(rightAns) / sizeof(rightAns[0]), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(rightAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(rightAns, ans, returnSize);
     free(ans);
 }

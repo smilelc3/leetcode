@@ -20,7 +20,7 @@ void numsSameConsecDiffExample1(void) {
     int returnSize = -1;
     int *ans = numsSameConsecDiff(n, k, &returnSize);
     int correctAns[] = {181, 292, 707, 818, 929};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     qsort(ans, returnSize, sizeof(int), intAscCmpFunc);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
@@ -31,7 +31,7 @@ void numsSameConsecDiffExample2(void) {
     int returnSize = -1;
     int *ans = numsSameConsecDiff(n, k, &returnSize);
     int correctAns[] = {10, 12, 21, 23, 32, 34, 43, 45, 54, 56, 65, 67, 76, 78, 87, 89, 98};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     qsort(ans, returnSize, sizeof(int), intAscCmpFunc);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
@@ -42,7 +42,7 @@ void numsSameConsecDiffExample3(void) {
     int returnSize = -1;
     int *ans = numsSameConsecDiff(n, k, &returnSize);
     int correctAns[] = {11, 22, 33, 44, 55, 66, 77, 88, 99};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     qsort(ans, returnSize, sizeof(int), intAscCmpFunc);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
@@ -53,7 +53,7 @@ void numsSameConsecDiffExample4(void) {
     int returnSize = -1;
     int *ans = numsSameConsecDiff(n, k, &returnSize);
     int correctAns[] = {13, 20, 24, 31, 35, 42, 46, 53, 57, 64, 68, 75, 79, 86, 97};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     qsort(ans, returnSize, sizeof(int), intAscCmpFunc);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);

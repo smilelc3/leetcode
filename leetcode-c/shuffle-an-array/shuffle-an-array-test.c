@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "unity.h"
+#include <unity.h>
 #include "util.h"
 #include "shuffle-an-array.c"
 
@@ -19,7 +19,7 @@ void tearDown(void) {
 void shuffleAnArrayTestExample1(void) {
     int nums[] = {1, 2, 3};
     int numsSort[] = {1, 2, 3};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int *tmpNums = malloc(sizeof(nums));
     int retSize = -1;
     Solution *obj = solutionCreate(nums, numsSize);

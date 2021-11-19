@@ -2,8 +2,8 @@
 // Created by l30014168 on 2021/8/28.
 //
 
-#include <stdlib.h>
 #include <unity.h>
+#include "util.h"
 #include "boats-to-save-people.c"
 
 void setUp(void) {
@@ -17,7 +17,7 @@ void tearDown(void) {
 void numRescueBoatsTestExample1(void) {
     int people[] = {1, 2};
     int limit = 3;
-    int ans = numRescueBoats(people, sizeof(people) / sizeof(int), limit);
+    int ans = numRescueBoats(people, ARRAY_LENGTH(people), limit);
     int ansCorrect = 1;
     TEST_ASSERT_EQUAL_INT(ansCorrect, ans);
 }
@@ -25,7 +25,7 @@ void numRescueBoatsTestExample1(void) {
 void numRescueBoatsTestExample2(void) {
     int people[] = {3, 2, 2, 1};
     int limit = 3;
-    int ans = numRescueBoats(people, sizeof(people) / sizeof(int), limit);
+    int ans = numRescueBoats(people, ARRAY_LENGTH(people), limit);
     int ansCorrect = 3;
     TEST_ASSERT_EQUAL_INT(ansCorrect, ans);
 }
@@ -33,7 +33,7 @@ void numRescueBoatsTestExample2(void) {
 void numRescueBoatsTestExample3(void) {
     int people[] = {3, 5, 3, 4};
     int limit = 5;
-    int ans = numRescueBoats(people, sizeof(people) / sizeof(int), limit);
+    int ans = numRescueBoats(people, ARRAY_LENGTH(people), limit);
     int ansCorrect = 4;
     TEST_ASSERT_EQUAL_INT(ansCorrect, ans);
 }

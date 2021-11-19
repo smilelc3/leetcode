@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include "util.h"
 
-
 int nthUglyNumber(int n) {
     if( n <= 0) {
         perror("n must > 0");

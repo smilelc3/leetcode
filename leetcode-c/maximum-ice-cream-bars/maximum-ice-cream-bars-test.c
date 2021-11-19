@@ -3,7 +3,7 @@
 //
 
 #include <unity.h>
-#include <stdlib.h>
+#include "util.h"
 #include "maximum-ice-cream-bars.c"
 
 void setUp(void) {
@@ -16,7 +16,7 @@ void tearDown(void) {
 
 void maxIceCreamTestExample1(void) {
     int costs[] = {1, 3, 2, 4, 1};
-    int costsSize = sizeof(costs) / sizeof(int);
+    int costsSize = ARRAY_LENGTH(costs);
     int coins = 7;
     int ans = maxIceCream(costs, costsSize, coins);
     int rightAns = 4;
@@ -25,7 +25,7 @@ void maxIceCreamTestExample1(void) {
 
 void maxIceCreamTestExample2(void) {
     int costs[] = {10, 6, 8, 7, 7, 8};
-    int costsSize = sizeof(costs) / sizeof(int);
+    int costsSize = ARRAY_LENGTH(costs);
     int coins = 5;
     int ans = maxIceCream(costs, costsSize, coins);
     int rightAns = 0;
@@ -34,7 +34,7 @@ void maxIceCreamTestExample2(void) {
 
 void maxIceCreamTestExample3(void) {
     int costs[] = {1, 6, 3, 1, 2, 5};
-    int costsSize = sizeof(costs) / sizeof(int);
+    int costsSize = ARRAY_LENGTH(costs);
     int coins = 20;
     int ans = maxIceCream(costs, costsSize, coins);
     int rightAns = 6;
