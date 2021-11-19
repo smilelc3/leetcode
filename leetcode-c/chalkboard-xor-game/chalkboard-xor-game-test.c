@@ -3,7 +3,6 @@
 //
 
 #include <unity.h>
-#include <stdlib.h>
 #include "chalkboard-xor-game.c"
 
 void setUp(void) {

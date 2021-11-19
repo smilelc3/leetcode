@@ -268,6 +268,7 @@
 | 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | [daily-temperatures.c](leetcode-c/daily-temperatures/daily-temperatures.c) |    O(n)     |  单调非递增栈   |    O(n)     |
 | 784  | [Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/) | [letter-case-permutation.c](leetcode-c/letter-case-permutation/letter-case-permutation.c) |   O(2^n)    |      递归       |   O(2^n)    |
 | 807 | [Max Increase to Keep City Skyline](https://leetcode.com/problems/max-increase-to-keep-city-skyline/) | [max-increase-to-keep-city-skyline.c](leetcode-c/max-increase-to-keep-city-skyline/max-increase-to-keep-city-skyline.c) | O(2^n) | 行列最大值 | O(n) |
+| 810 | [Chalkboard XOR Game](https://leetcode.com/problems/chalkboard-xor-game/) | [chalkboard-xor-game.c](leetcode-c/chalkboard-xor-game/chalkboard-xor-game.c) | O(n) | 异或 | O(1) |
 | 855 | [Exam Room](https://leetcode.com/problems/exam-room/) | [exam-room.cpp](leetcode-cpp/exam-room/exam-room.cpp) | O(log(n)) | 平衡树+hashMap | O(n) |
 | 861 | [Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/) | [score-after-flipping-matrix.c](leetcode-c/score-after-flipping-matrix/score-after-flipping-matrix.c) | O(m*n) | 贪心 | O(1) |
 | 863  | [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | [all-nodes-distance-k-in-binary-tree.c](leetcode-c/all-nodes-distance-k-in-binary-tree/all-nodes-distance-k-in-binary-tree.c) |    O(n)     |   hash表+递归   |    O(n)     |

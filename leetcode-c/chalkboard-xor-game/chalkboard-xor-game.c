@@ -7,24 +7,7 @@
 bool xorGame(const int *nums, int numsSize) {
     uint32_t xorVal = 0;
     for (int i = 0; i < numsSize; ++i) {
-        xorVal ^= nums[i];
+        xorVal ^= (uint32_t) nums[i];
     }
-    if (xorVal == 0) {
-        return true;
-    }
-    for (int i = 0; i < numsSize; ++i) {
-        bool isExistNot
-        for (int j = i; j < numsSize; ++j) {
-            if ((xorVal ^ nums[j]) != 0)
-        }
-        xorVal ^= nums[i];
-        if (xorVal == 0) {
-            if ((i & 1) == 1) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-    return true;
+    return xorVal == 0 || (numsSize & 1) == 0;      // 刚开始结果就异或为0，赢；否则偶数才必赢
 }
