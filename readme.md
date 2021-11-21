@@ -254,6 +254,7 @@
 | 384 | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | [shuffle-an-array.c](leetcode-c/shuffle-an-array/shuffle-an-array.c) | O(n) | [Fisher–Yates shuffle 洗牌算法](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) | O(n) |
 | 393 | [UTF-8 Validation](https://leetcode.com/problems/utf-8-validation/) | [utf-8-validation.c](leetcode-c/utf-8-validation/utf-8-validation.c) | O(n) | UTF-8编码验证 | O(1) |
 | 397 | [Integer Replacement](https://leetcode.com/problems/integer-replacement/) | [integer-replacement.c](leetcode-c/integer-replacement/integer-replacement.c) | O(log(n)) | 贪心 | O(1) |
+| 406 | [Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/) | [queue-reconstruction-by-height.c](leetcode-c/queue-reconstruction-by-height/queue-reconstruction-by-height.c) | O(n^2) | 快速排序+插入 | O(n) |
 | 434  | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | [number-of-segments-in-a-string.c](leetcode-c/number-of-segments-in-a-string/number-of-segments-in-a-string.c) |    O(n)     |      遍历       |    O(1)     |
 | 435  | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | [non-overlapping-intervals.c](leetcode-c/non-overlapping-intervals/non-overlapping-intervals.c) | O(nlog(n))  |      贪心       | O(nlog(n))  |
 | 437 | [Path Sum III](https://leetcode.com/problems/path-sum-iii/) | [path-sum-iii.c](leetcode-c/path-sum-iii/path-sum-iii.c) | O(n) | 前缀和+HashMap | O(n) |
@@ -314,3 +315,4 @@
 * [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)  使用双优先队列实现，已做尽可能优化逻辑，与提交页面最优解基本一致，但时间不能做到最快，怀疑后期加入复杂用例。
 * [224. Basic Calculator](https://leetcode.com/problems/basic-calculator/) 和 [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) 解法来自本人项目[str_expr_eval](https://github.com/smilelc3/str_expr_eval)，实现：**字符串表达式 → 中缀表达式 → 后缀表达式 → 求值** 流程，由于更具泛用性，需要额外的线性时间处理和额外的线性空间记录中间值，难以实现时间和空间优势，但复杂度上不变。
 * [1774. Closest Dessert Cost](https://leetcode.com/problems/closest-dessert-cost/) 存在DFS或则DP两种解法，后者在时间复杂度上更优，但由于本题数据量小，在极限数据上DFS方法耗时小于DP方法耗时，故采用DFS方法。
+* [406. Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/) 插入操作可以使用线段树优化，待后续补充。
