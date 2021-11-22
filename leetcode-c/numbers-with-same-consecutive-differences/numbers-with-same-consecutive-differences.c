@@ -20,7 +20,6 @@ void dfsSolver(int n, int k, int idx, int cur, Vector *ans) {
     }
 }
 
-
 int *numsSameConsecDiff(int n, int k, int *returnSize) {
     Vector *ans = VectorCreate(sizeof(int));
     for (int i = 1; i < 10; ++i) {

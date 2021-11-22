@@ -52,13 +52,4 @@ UBENCH_EX_F(fixture, maxSlidingWindowVectorMethod) {
     }
 }
 
-UBENCH_EX_F(fixture, maxSlidingWindowDuLoopMethod) {
-    UBENCH_DO_BENCHMARK() {
-        int *ans = maxSlidingWindowDuLoopMethod(ubench_fixture->nums, ubench_fixture->numsSize, ubench_fixture->k,
-                                                    &ubench_fixture->returnSize);
-        UBENCH_DO_NOTHING(ans);
-        free(ans);
-    }
-}
-
 UBENCH_MAIN();

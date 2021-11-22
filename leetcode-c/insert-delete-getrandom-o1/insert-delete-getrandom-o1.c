@@ -19,7 +19,6 @@ typedef struct {
     Val2IdxMap *val2IdxMap;
 } RandomizedSet;
 
-
 RandomizedSet *randomizedSetCreate() {
     RandomizedSet *obj = malloc(sizeof(RandomizedSet));
     obj->values = VectorCreate(sizeof(uint32_t));

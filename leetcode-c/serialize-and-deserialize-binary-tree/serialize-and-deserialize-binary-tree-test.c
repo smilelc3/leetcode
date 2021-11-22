@@ -3,10 +3,11 @@
 //
 
 #include <string.h>
-#include <unity.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <unity.h>
 #include "TreeNode.h"
+#include "util.h"
 #include "serialize-and-deserialize-binary-tree.c"
 
 void setUp(void) {
@@ -19,7 +20,7 @@ void tearDown(void) {
 
 void serializeAndDeserializeTestExample1(void) {
     int nums[] = {1, 2, 3, INT_MIN, INT_MIN, 4, 5};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
+    struct TreeNode *rootCorrect = TreeCreateByNums(nums, ARRAY_LENGTH(nums), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[1,2,3,null,null,4,5]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
@@ -49,7 +50,7 @@ void serializeAndDeserializeTestExample2(void) {
 
 void serializeAndDeserializeTestExample3(void) {
     int nums[] = {1};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
+    struct TreeNode *rootCorrect = TreeCreateByNums(nums, ARRAY_LENGTH(nums), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[1]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
@@ -64,7 +65,7 @@ void serializeAndDeserializeTestExample3(void) {
 
 void serializeAndDeserializeTestExample4(void) {
     int nums[] = {1, 2};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), INT_MIN);
+    struct TreeNode *rootCorrect = TreeCreateByNums(nums, ARRAY_LENGTH(nums), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[1,2]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));

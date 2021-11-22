@@ -11,7 +11,6 @@ typedef struct {
     int num;
 } Bank;
 
-
 Bank *bankCreate(long long *balance, int balanceSize) {
     Bank *obj = malloc(sizeof(Bank));
     obj->balance = malloc(sizeof(long long) * balanceSize);

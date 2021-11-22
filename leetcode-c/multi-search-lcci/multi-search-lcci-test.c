@@ -20,7 +20,7 @@ void multiSearchTestExample1(void) {
     char *smalls[] = {"is", "ppi", "hi", "sis", "i", "ssippi"};
     int returnSize = -1;
     int *returnColumnSizes;
-    int **ans = multiSearch(big, smalls, sizeof(smalls) / sizeof(char *), &returnSize, &returnColumnSizes);
+    int **ans = multiSearch(big, smalls, ARRAY_LENGTH(smalls), &returnSize, &returnColumnSizes);
     int *correctAns[6];
     int correctAnsCol0[] = {1, 4};
     int correctAnsCol1[] = {8};
@@ -53,7 +53,7 @@ void multiSearchTestExample2(void) {
     char *smalls[] = {""};
     int returnSize = -1;
     int *returnColumnSizes;
-    int **ans = multiSearch(big, smalls, sizeof(smalls) / sizeof(char *), &returnSize, &returnColumnSizes);
+    int **ans = multiSearch(big, smalls, ARRAY_LENGTH(smalls), &returnSize, &returnColumnSizes);
 
     TEST_ASSERT_EQUAL_INT(1, returnSize);
     TEST_ASSERT_EQUAL(returnColumnSizes[0], 0);

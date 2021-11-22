@@ -10,9 +10,13 @@
 #include <stdbool.h>
 #include <string.h>
 
+// 最大值、最小值、绝对值
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 #define abs(n) (((n) < 0) ? -(n) : (n))
+
+// 数组长度
+#define ARRAY_LENGTH(array) (sizeof(array) / sizeof(array[0]))
 
 // 位操作
 #define setBit(n, idx) ((n) |= (1 << (idx)))        // 置某一位为1

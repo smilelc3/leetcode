@@ -4,6 +4,7 @@
 
 #include <unity.h>
 #include <stdlib.h>
+#include "util.h"
 #include "sum-of-even-numbers-after-queries.c"
 
 void setUp(void) {
@@ -20,20 +21,19 @@ void sumEvenAfterQueriesTestExample1(void) {
                      {-3, 1},
                      {-4, 0},
                      {2,  3}};
-    int queriesSize = 4;
+    int queriesSize = ARRAY_LENGTH(data);
     int *queriesColSize = malloc(sizeof(int) * queriesSize);
-    int **queries = malloc(sizeof(int *) * queriesSize);
+    int *queries[ARRAY_LENGTH(data)];
     for (size_t idx = 0; idx < queriesSize; ++idx) {
         queries[idx] = data[idx];
-        queriesColSize[idx] = sizeof(data[idx]) / sizeof(int);
+        queriesColSize[idx] = ARRAY_LENGTH(data[idx]);
     }
     int returnSize = -1;
-    int *ans = sumEvenAfterQueries(nums, sizeof(nums) / sizeof(int),
+    int *ans = sumEvenAfterQueries(nums, ARRAY_LENGTH(nums),
                                    queries, queriesSize, queriesColSize, &returnSize);
     int correctAns[] = {8, 6, 2, 4};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
-    free(queries);
     free(queriesColSize);
     free(ans);
 }
@@ -41,20 +41,19 @@ void sumEvenAfterQueriesTestExample1(void) {
 void sumEvenAfterQueriesTestExample2(void) {
     int nums[] = {1};
     int data[][2] = {{4, 0}};
-    int queriesSize = 1;
+    int queriesSize = ARRAY_LENGTH(data);
     int *queriesColSize = malloc(sizeof(int) * queriesSize);
-    int **queries = malloc(sizeof(int *) * queriesSize);
+    int *queries[ARRAY_LENGTH(data)];
     for (size_t idx = 0; idx < queriesSize; ++idx) {
         queries[idx] = data[idx];
-        queriesColSize[idx] = sizeof(data[idx]) / sizeof(int);
+        queriesColSize[idx] = ARRAY_LENGTH(data[idx]);
     }
     int returnSize = -1;
-    int *ans = sumEvenAfterQueries(nums, sizeof(nums) / sizeof(int),
+    int *ans = sumEvenAfterQueries(nums, ARRAY_LENGTH(nums),
                                    queries, queriesSize, queriesColSize, &returnSize);
     int correctAns[] = {0};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
-    free(queries);
     free(queriesColSize);
     free(ans);
 }

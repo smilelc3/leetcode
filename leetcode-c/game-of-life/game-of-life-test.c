@@ -2,8 +2,9 @@
 // Created by l30014168 on 2021/9/30.
 //
 
-#include <unity.h>
 #include <stdlib.h>
+#include <unity.h>
+#include "util.h"
 #include "game-of-life.c"
 
 void setUp(void) {
@@ -19,10 +20,9 @@ void gameOfLifeExample1(void) {
                      {0, 0, 1},
                      {1, 1, 1},
                      {0, 0, 0}};
-    int boardSize = 4;
-    int boardColSize = 3;
-
-    int **board = malloc(sizeof(int *) * boardSize);
+    int boardSize = ARRAY_LENGTH(nums);
+    int boardColSize = ARRAY_LENGTH(nums[0]);
+    int *board[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < boardSize; ++idx) {
         board[idx] = nums[idx];
     }
@@ -35,16 +35,14 @@ void gameOfLifeExample1(void) {
     for (size_t idx = 0; idx < boardSize; ++idx) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[idx], board[idx], boardColSize);
     }
-    free(board);
 }
 
 void gameOfLifeExample2(void) {
     int nums[][2] = {{1, 1},
                      {1, 0}};
-    int boardSize = 2;
-    int boardColSize = 2;
-
-    int **board = malloc(sizeof(int *) * boardSize);
+    int boardSize = ARRAY_LENGTH(nums);
+    int boardColSize = ARRAY_LENGTH(nums[0]);
+    int *board[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < boardSize; ++idx) {
         board[idx] = nums[idx];
     }
@@ -55,7 +53,6 @@ void gameOfLifeExample2(void) {
     for (size_t idx = 0; idx < boardSize; ++idx) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[idx], board[idx], boardColSize);
     }
-    free(board);
 }
 
 int main(void) {

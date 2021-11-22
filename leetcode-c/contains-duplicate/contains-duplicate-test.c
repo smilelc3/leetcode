@@ -3,7 +3,7 @@
 //
 
 #include <unity.h>
-#include <stdlib.h>
+#include "util.h"
 #include "contains-duplicate.c"
 
 void setUp(void) {
@@ -15,57 +15,24 @@ void tearDown(void) {
 }
 
 void containsDuplicateTestExample1(void) {
-    int numsSize = 4;
-    int *nums = (int *) malloc(sizeof(int) * numsSize);
-    if (nums == NULL) {
-        perror("init nums fail");
-        return;
-    }
-    nums[0] = 1;
-    nums[1] = 2;
-    nums[2] = 3;
-    nums[3] = 1;
+    int nums[] = {1, 2, 3, 1};
+    int numsSize = ARRAY_LENGTH(nums);
     bool ans = containsDuplicate(nums, numsSize);
     TEST_ASSERT_TRUE(ans);
-    free(nums);
 }
 
 void containsDuplicateTestExample2(void) {
-    int numsSize = 4;
-    int *nums = (int *) malloc(sizeof(int) * numsSize);
-    if (nums == NULL) {
-        perror("init nums fail");
-        return;
-    }
-    nums[0] = 1;
-    nums[1] = 2;
-    nums[2] = 3;
-    nums[3] = 4;
+    int nums[] = {1, 2, 3, 4};
+    int numsSize = ARRAY_LENGTH(nums);
     bool ans = containsDuplicate(nums, numsSize);
     TEST_ASSERT_FALSE(ans);
-    free(nums);
 }
 
 void containsDuplicateTestExample3(void) {
-    int numsSize = 10;
-    int *nums = (int *) malloc(sizeof(int) * numsSize);
-    if (nums == NULL) {
-        perror("init nums fail");
-        return;
-    }
-    nums[0] = 1;
-    nums[1] = 1;
-    nums[2] = 1;
-    nums[3] = 3;
-    nums[4] = 3;
-    nums[5] = 4;
-    nums[6] = 3;
-    nums[7] = 2;
-    nums[8] = 4;
-    nums[9] = 2;
+    int nums[] = {1, 1, 1, 3, 3, 4, 3, 2, 4, 2};
+    int numsSize = ARRAY_LENGTH(nums);
     bool ans = containsDuplicate(nums, numsSize);
     TEST_ASSERT_TRUE(ans);
-    free(nums);
 }
 
 int main(void) {

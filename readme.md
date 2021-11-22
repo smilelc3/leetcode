@@ -254,8 +254,10 @@
 | 384 | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) | [shuffle-an-array.c](leetcode-c/shuffle-an-array/shuffle-an-array.c) | O(n) | [Fisher–Yates shuffle 洗牌算法](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) | O(n) |
 | 393 | [UTF-8 Validation](https://leetcode.com/problems/utf-8-validation/) | [utf-8-validation.c](leetcode-c/utf-8-validation/utf-8-validation.c) | O(n) | UTF-8编码验证 | O(1) |
 | 397 | [Integer Replacement](https://leetcode.com/problems/integer-replacement/) | [integer-replacement.c](leetcode-c/integer-replacement/integer-replacement.c) | O(log(n)) | 贪心 | O(1) |
+| 406 | [Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/) | [queue-reconstruction-by-height.c](leetcode-c/queue-reconstruction-by-height/queue-reconstruction-by-height.c) | O(n^2) | 快速排序+插入 | O(n) |
 | 434  | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | [number-of-segments-in-a-string.c](leetcode-c/number-of-segments-in-a-string/number-of-segments-in-a-string.c) |    O(n)     |      遍历       |    O(1)     |
 | 435  | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | [non-overlapping-intervals.c](leetcode-c/non-overlapping-intervals/non-overlapping-intervals.c) | O(nlog(n))  |      贪心       | O(nlog(n))  |
+| 436 | [Find Right Interval](https://leetcode.com/problems/find-right-interval/) | [find-right-interval.c](leetcode-c/find-right-interval/find-right-interval.c) | O(nlog(n)) | 排序+二分查找 | O(n) |
 | 437 | [Path Sum III](https://leetcode.com/problems/path-sum-iii/) | [path-sum-iii.c](leetcode-c/path-sum-iii/path-sum-iii.c) | O(n) | 前缀和+HashMap | O(n) |
 | 447 | [Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs/) | [number-of-boomerangs.c](leetcode-c/number-of-boomerangs/number-of-boomerangs.c) | O(n^2) | HashMap | O(n) |
 | 460 | [LFU Cache](https://leetcode.com/problems/lfu-cache/) | [lfu-cache.cpp](leetcode-cpp/lfu-cache/lfu-cache.cpp) | O(1) | 双向链表+双HashMap实现LFU | O(n) |
@@ -268,6 +270,7 @@
 | 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | [daily-temperatures.c](leetcode-c/daily-temperatures/daily-temperatures.c) |    O(n)     |  单调非递增栈   |    O(n)     |
 | 784  | [Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/) | [letter-case-permutation.c](leetcode-c/letter-case-permutation/letter-case-permutation.c) |   O(2^n)    |      递归       |   O(2^n)    |
 | 807 | [Max Increase to Keep City Skyline](https://leetcode.com/problems/max-increase-to-keep-city-skyline/) | [max-increase-to-keep-city-skyline.c](leetcode-c/max-increase-to-keep-city-skyline/max-increase-to-keep-city-skyline.c) | O(2^n) | 行列最大值 | O(n) |
+| 810 | [Chalkboard XOR Game](https://leetcode.com/problems/chalkboard-xor-game/) | [chalkboard-xor-game.c](leetcode-c/chalkboard-xor-game/chalkboard-xor-game.c) | O(n) | 异或 | O(1) |
 | 855 | [Exam Room](https://leetcode.com/problems/exam-room/) | [exam-room.cpp](leetcode-cpp/exam-room/exam-room.cpp) | O(log(n)) | 平衡树+hashMap | O(n) |
 | 861 | [Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/) | [score-after-flipping-matrix.c](leetcode-c/score-after-flipping-matrix/score-after-flipping-matrix.c) | O(m*n) | 贪心 | O(1) |
 | 863  | [All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | [all-nodes-distance-k-in-binary-tree.c](leetcode-c/all-nodes-distance-k-in-binary-tree/all-nodes-distance-k-in-binary-tree.c) |    O(n)     |   hash表+递归   |    O(n)     |
@@ -284,6 +287,7 @@
 | 1129 | [Shortest Path with Alternating Colors](https://leetcode.com/problems/shortest-path-with-alternating-colors/) | [shortest-path-with-alternating-colors.cpp](leetcode-cpp/shortest-path-with-alternating-colors/shortest-path-with-alternating-colors.cpp) | O(E) | DFS最短路 | O(E) |
 | 1178 | [Number of Valid Words for Each Puzzle](https://leetcode.com/problems/number-of-valid-words-for-each-puzzle/) | [number-of-valid-words-for-each-puzzle.c](leetcode-c/number-of-valid-words-for-each-puzzle/number-of-valid-words-for-each-puzzle.c) |  O((2^7)*n)  | hashMap+位压缩 |    O(n)     |
 | 1139 | [Design Underground System](https://leetcode.com/problems/design-underground-system/) | [design-underground-system.cpp](leetcode-cpp/design-underground-system/design-underground-system.cpp) | O(1) | 双hashMap+自定义hash | O(n) |
+| 1333 | [Filter Restaurants by Vegan-Friendly, Price and Distance](https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance/) | [filter-restaurants-by-vegan-friendly-price-and-distance.c](leetcode-c/filter-restaurants-by-vegan-friendly-price-and-distance/filter-restaurants-by-vegan-friendly-price-and-distance.c) | O(nlog(n)) | 排序 | O(log(n)) |
 | 1367 | [Linked List in Binary Tree](https://leetcode.com/problems/linked-list-in-binary-tree/) | [linked-list-in-binary-tree-test.c](leetcode-c/linked-list-in-binary-tree/linked-list-in-binary-tree-test.c) |  | 二次递归 |  |
 | 1389 | [Create Target Array in the Given Order](https://leetcode.com/problems/create-target-array-in-the-given-order/) | [create-target-array-in-the-given-order-test.c](leetcode-c/create-target-array-in-the-given-order/create-target-array-in-the-given-order-test.c) | O(n^2) | 线性表插入 | O(n) |
 | 1472 | [Design Browser History](https://leetcode.com/problems/design-browser-history/) | [design-browser-history.cpp](leetcode-cpp/design-browser-history/design-browser-history.cpp) | O(1) | 线性表 | O(n) |
@@ -292,6 +296,7 @@
 | 1833 | [Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/) | [maximum-ice-cream-bars.c](leetcode-c/maximum-ice-cream-bars/maximum-ice-cream-bars.c) |    O(n)     |   贪心+桶排序   |    O(n)     |
 | 1845 | [Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager/) | [seat-reservation-manager.cpp](leetcode-cpp/seat-reservation-manager/seat-reservation-manager.cpp) | O(log(n)) | 优先队列 | O(n) |
 | 1904 | [The Number of Full Rounds You Have Played](https://leetcode.com/problems/the-number-of-full-rounds-you-have-played/) | [the-number-of-full-rounds-you-have-played.c](leetcode-c/the-number-of-full-rounds-you-have-played/the-number-of-full-rounds-you-have-played.c) | O(1) | 模拟 | O(1) |
+| 2007 | [Find Original Array From Doubled Array](https://leetcode.com/problems/find-original-array-from-doubled-array/) | [find-original-array-from-doubled-array.cpp](leetcode-cpp/find-original-array-from-doubled-array/find-original-array-from-doubled-array.cpp) | O(nlog(n)) | 排序+队列 | O(n) |
 | 2043 | [Simple Bank System](https://leetcode.com/problems/simple-bank-system/) | [simple-bank-system.c](leetcode-c/simple-bank-system/simple-bank-system.c) | O(1) | 模拟 | O(n) |
 | 面试题 17.17 | [多次搜索](https://leetcode-cn.com/problems/multi-search-lcci/) | [multi-search-lcci.c](leetcode-c/multi-search-lcci/multi-search-lcci.c) | O(m*n) | 前缀树 | O(m*n) |
 
@@ -312,3 +317,4 @@
 * [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)  使用双优先队列实现，已做尽可能优化逻辑，与提交页面最优解基本一致，但时间不能做到最快，怀疑后期加入复杂用例。
 * [224. Basic Calculator](https://leetcode.com/problems/basic-calculator/) 和 [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) 解法来自本人项目[str_expr_eval](https://github.com/smilelc3/str_expr_eval)，实现：**字符串表达式 → 中缀表达式 → 后缀表达式 → 求值** 流程，由于更具泛用性，需要额外的线性时间处理和额外的线性空间记录中间值，难以实现时间和空间优势，但复杂度上不变。
 * [1774. Closest Dessert Cost](https://leetcode.com/problems/closest-dessert-cost/) 存在DFS或则DP两种解法，后者在时间复杂度上更优，但由于本题数据量小，在极限数据上DFS方法耗时小于DP方法耗时，故采用DFS方法。
+* [406. Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/) 插入操作可以使用线段树优化，待后续补充。

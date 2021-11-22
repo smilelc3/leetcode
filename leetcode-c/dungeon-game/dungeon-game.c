@@ -3,7 +3,6 @@
 //
 
 #include <stdbool.h>
-#include <string.h>
 #include "util.h"
 
 int calculateMinimumHPDPMin(int small, int big, int **dungeon, bool isSwap) {

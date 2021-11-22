@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <unity.h>
+#include "util.h"
 #include "max-increase-to-keep-city-skyline.c"
 
 void setUp(void) {
@@ -19,34 +20,30 @@ void maxIncreaseKeepingSkylineTestExample1(void) {
                      {2, 4, 5, 7},
                      {9, 2, 6, 3},
                      {0, 3, 1, 0}};
-    int gridSize = sizeof(nums) / sizeof(nums[0]);
-    int gridColSize = sizeof(nums[0]) / sizeof(int);
-
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize = ARRAY_LENGTH(nums[0]);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
     }
     int ans = maxIncreaseKeepingSkyline(grid, gridSize, &gridColSize);
     int correctAns = 35;
     TEST_ASSERT_EQUAL_INT(ans, correctAns);
-    free(grid);
 }
 
 void maxIncreaseKeepingSkylineTestExample2(void) {
     int nums[][3] = {{0, 0, 0},
                      {0, 0, 0},
                      {0, 0, 0}};
-    int gridSize = sizeof(nums) / sizeof(nums[0]);
-    int gridColSize = sizeof(nums[0]) / sizeof(int);
-
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int gridSize = ARRAY_LENGTH(nums);
+    int gridColSize = ARRAY_LENGTH(nums[0]);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
     }
     int ans = maxIncreaseKeepingSkyline(grid, gridSize, &gridColSize);
     int correctAns = 0;
     TEST_ASSERT_EQUAL_INT(ans, correctAns);
-    free(grid);
 }
 
 int main(void) {

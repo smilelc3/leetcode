@@ -6,7 +6,6 @@
 #include <stdbool.h>
 #include "Vector.h"
 
-
 void dfsSolver(const char *num, char *operators, int idx, Vector *ans, int target);
 
 bool isStrWithOperatorsEquTarget(const char *num, const char *operators, int target) {

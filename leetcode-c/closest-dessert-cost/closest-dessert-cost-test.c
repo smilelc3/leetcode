@@ -17,8 +17,8 @@ void tearDown(void) {
 void closestCostTestExample1(void) {
     int baseCosts[] = {1, 7}, toppingCosts[] = {3, 4};
     int target = 10;
-    int ans = closestCost(baseCosts, sizeof(baseCosts) / sizeof(int),
-                          toppingCosts, sizeof(toppingCosts) / sizeof(int),
+    int ans = closestCost(baseCosts, ARRAY_LENGTH(baseCosts),
+                          toppingCosts, ARRAY_LENGTH(toppingCosts),
                           target);
     int correctAns = 10;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
@@ -27,8 +27,8 @@ void closestCostTestExample1(void) {
 void closestCostTestExample2(void) {
     int baseCosts[] = {2, 3}, toppingCosts[] = {4, 5, 100};
     int target = 18;
-    int ans = closestCost(baseCosts, sizeof(baseCosts) / sizeof(int),
-                          toppingCosts, sizeof(toppingCosts) / sizeof(int),
+    int ans = closestCost(baseCosts, ARRAY_LENGTH(baseCosts),
+                          toppingCosts, ARRAY_LENGTH(toppingCosts),
                           target);
     int correctAns = 17;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
@@ -37,8 +37,8 @@ void closestCostTestExample2(void) {
 void closestCostTestExample3(void) {
     int baseCosts[] = {3, 10}, toppingCosts[] = {2, 5};
     int target = 9;
-    int ans = closestCost(baseCosts, sizeof(baseCosts) / sizeof(int),
-                          toppingCosts, sizeof(toppingCosts) / sizeof(int),
+    int ans = closestCost(baseCosts, ARRAY_LENGTH(baseCosts),
+                          toppingCosts, ARRAY_LENGTH(toppingCosts),
                           target);
     int correctAns = 8;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
@@ -47,8 +47,8 @@ void closestCostTestExample3(void) {
 void closestCostTestTest0(void) {
     int baseCosts[] = {8, 4, 4, 5, 8}, toppingCosts[] = {3, 10, 9, 10, 8, 10, 10, 9, 3};
     int target = 6;
-    int ans = closestCost(baseCosts, sizeof(baseCosts) / sizeof(int),
-                          toppingCosts, sizeof(toppingCosts) / sizeof(int),
+    int ans = closestCost(baseCosts, ARRAY_LENGTH(baseCosts),
+                          toppingCosts, ARRAY_LENGTH(toppingCosts),
                           target);
     int correctAns = 5;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);

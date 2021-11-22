@@ -3,7 +3,7 @@
 //
 
 #include <unity.h>
-#include <stdlib.h>
+#include "util.h"
 #include "find-minimum-in-rotated-sorted-array-ii.c"
 
 void setUp(void) {
@@ -16,28 +16,28 @@ void tearDown(void) {
 
 void findMinTestExample1(void) {
     int nums[] = {1, 3, 5};
-    int ans = findMin(nums, sizeof(nums) / sizeof(int));
+    int ans = findMin(nums, ARRAY_LENGTH(nums));
     int correctAns = 1;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
 void findMinTestExample2(void) {
     int nums[] = {2, 2, 2, 0, 1};
-    int ans = findMin(nums, sizeof(nums) / sizeof(int));
+    int ans = findMin(nums, ARRAY_LENGTH(nums));
     int correctAns = 0;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
 void findMinTestTest0(void) {
     int nums[] = {3, 3, 1, 3};
-    int ans = findMin(nums, sizeof(nums) / sizeof(int));
+    int ans = findMin(nums, ARRAY_LENGTH(nums));
     int correctAns = 1;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
 void findMinTestTest1(void) {
     int nums[] = {10, 1, 10, 10, 10};
-    int ans = findMin(nums, sizeof(nums) / sizeof(int));
+    int ans = findMin(nums, ARRAY_LENGTH(nums));
     int correctAns = 1;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }

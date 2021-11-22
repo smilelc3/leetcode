@@ -3,6 +3,7 @@
 //
 
 #include <unity.h>
+#include "util.h"
 #include "simple-bank-system.c"
 
 void setUp(void) {
@@ -15,7 +16,7 @@ void tearDown(void) {
 
 void BankTestExample1(void) {
     long long nums[] = {10, 100, 20, 50, 30};
-    Bank *obj = bankCreate(nums, (int) sizeof(nums) / sizeof(long long));
+    Bank *obj = bankCreate(nums, (int) ARRAY_LENGTH(nums));
     TEST_ASSERT_TRUE(bankWithdraw(obj, 3, 10));
     TEST_ASSERT_TRUE(bankTransfer(obj, 5, 1, 10));
     TEST_ASSERT_TRUE(bankDeposit(obj, 5, 20));

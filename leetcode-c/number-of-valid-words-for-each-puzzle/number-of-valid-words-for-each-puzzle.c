@@ -13,7 +13,6 @@ typedef struct tagWordHashMap {
     UT_hash_handle hh;
 } WordsHashMap;
 
-
 static void freeWordHashSet(WordsHashMap *head) {
     WordsHashMap *cur, *tmp;
     HASH_ITER(hh, head, cur, tmp) {
@@ -22,7 +21,6 @@ static void freeWordHashSet(WordsHashMap *head) {
     }
     free(head);
 }
-
 
 static void dfsSubstrProcess(int cprVal, int start, int end, int curCprVal, int firstLoc, WordsHashMap *wordsHashSet,
                              int *pRet) {

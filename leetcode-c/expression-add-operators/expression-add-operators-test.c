@@ -20,7 +20,7 @@ void addOperatorsTestExample1(void) {
     int returnSize = -1;
     char **ans = addOperators(num, target, &returnSize);
     char *correctAns[] = {"1+2+3", "1*2*3"};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(char *), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     qsort(ans, returnSize, sizeof(char *), strAscCmpFunc);
     qsort(correctAns, returnSize, sizeof(char *), strAscCmpFunc);
     TEST_ASSERT_EQUAL_STRING_ARRAY(correctAns, ans, returnSize);
@@ -36,7 +36,7 @@ void addOperatorsTestExample2(void) {
     int returnSize = -1;
     char **ans = addOperators(num, target, &returnSize);
     char *correctAns[] = {"2*3+2", "2+3*2"};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(char *), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     qsort(ans, returnSize, sizeof(char *), strAscCmpFunc);
     qsort(correctAns, returnSize, sizeof(char *), strAscCmpFunc);
     TEST_ASSERT_EQUAL_STRING_ARRAY(correctAns, ans, returnSize);
@@ -52,7 +52,7 @@ void addOperatorsTestExample3(void) {
     int returnSize = -1;
     char **ans = addOperators(num, target, &returnSize);
     char *correctAns[] = {"1*0+5", "10-5"};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(char *), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     qsort(ans, returnSize, sizeof(char *), strAscCmpFunc);
     qsort(correctAns, returnSize, sizeof(char *), strAscCmpFunc);
     TEST_ASSERT_EQUAL_STRING_ARRAY(correctAns, ans, returnSize);
@@ -68,7 +68,7 @@ void addOperatorsTestExample4(void) {
     int returnSize = -1;
     char **ans = addOperators(num, target, &returnSize);
     char *correctAns[] = {"0+0", "0-0", "0*0"};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(char *), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     qsort(ans, returnSize, sizeof(char *), strAscCmpFunc);
     qsort(correctAns, returnSize, sizeof(char *), strAscCmpFunc);
     TEST_ASSERT_EQUAL_STRING_ARRAY(correctAns, ans, returnSize);

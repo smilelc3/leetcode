@@ -3,6 +3,7 @@
 //
 
 #include <unity.h>
+#include "util.h"
 #include "shortest-unsorted-continuous-subarray.c"
 
 void setUp(void) {
@@ -15,7 +16,7 @@ void tearDown(void) {
 
 void findUnsortedSubarrayTestExample1(void) {
     int nums[] = {2, 6, 4, 8, 10, 9, 15};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int ans = findUnsortedSubarray(nums, numsSize);
     int rightAns = 5;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
@@ -23,7 +24,7 @@ void findUnsortedSubarrayTestExample1(void) {
 
 void findUnsortedSubarrayTestExample2(void) {
     int nums[] = {1, 2, 3, 4};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int ans = findUnsortedSubarray(nums, numsSize);
     int rightAns = 0;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
@@ -31,7 +32,7 @@ void findUnsortedSubarrayTestExample2(void) {
 
 void findUnsortedSubarrayTestExample3(void) {
     int nums[] = {1};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int ans = findUnsortedSubarray(nums, numsSize);
     int rightAns = 0;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
@@ -39,7 +40,7 @@ void findUnsortedSubarrayTestExample3(void) {
 
 void findUnsortedSubarrayTestMyTest0(void) {
     int nums[] = {4, 3, 2, 1};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int ans = findUnsortedSubarray(nums, numsSize);
     int rightAns = 4;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
@@ -47,7 +48,7 @@ void findUnsortedSubarrayTestMyTest0(void) {
 
 void findUnsortedSubarrayTestTest0(void) {
     int nums[] = {1, 3, 2, 2, 2};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int ans = findUnsortedSubarray(nums, numsSize);
     int rightAns = 4;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
@@ -55,7 +56,7 @@ void findUnsortedSubarrayTestTest0(void) {
 
 void findUnsortedSubarrayTestTest1(void) {
     int nums[] = {1, 2, 3, 3, 3};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int ans = findUnsortedSubarray(nums, numsSize);
     int rightAns = 0;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);

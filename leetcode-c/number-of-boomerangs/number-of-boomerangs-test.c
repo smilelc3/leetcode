@@ -4,6 +4,7 @@
 
 #include <unity.h>
 #include <stdlib.h>
+#include "util.h"
 #include "number-of-boomerangs.c"
 
 void setUp(void) {
@@ -15,48 +16,45 @@ void tearDown(void) {
 }
 
 void numberOfBoomerangsTestExample1(void) {
-    int pointsSize = 3;
-    int pointsColSize = 2;
     int nums[][2] = {{0, 0},
                      {1, 0},
                      {2, 0}};
-    int **points = malloc(sizeof(int *) * pointsSize);
+    int pointsSize = ARRAY_LENGTH(nums);
+    int pointsColSize = ARRAY_LENGTH(nums[0]);
+    int *points[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < pointsSize; ++idx) {
         points[idx] = nums[idx];
     }
     int ans = numberOfBoomerangs(points, pointsSize, &pointsColSize);
     int correctAns = 2;
-    free(points);
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
 void numberOfBoomerangsTestExample2(void) {
-    int pointsSize = 3;
-    int pointsColSize = 2;
     int nums[][2] = {{1, 1},
                      {2, 2},
                      {3, 3}};
-    int **points = malloc(sizeof(int *) * pointsSize);
+    int pointsSize = ARRAY_LENGTH(nums);
+    int pointsColSize = ARRAY_LENGTH(nums[0]);
+    int *points[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < pointsSize; ++idx) {
         points[idx] = nums[idx];
     }
     int ans = numberOfBoomerangs(points, pointsSize, &pointsColSize);
     int correctAns = 2;
-    free(points);
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
 void numberOfBoomerangsTestExample3(void) {
-    int pointsSize = 1;
-    int pointsColSize = 2;
     int nums[][2] = {{1, 1}};
-    int **points = malloc(sizeof(int *) * pointsSize);
+    int pointsSize = ARRAY_LENGTH(nums);
+    int pointsColSize = ARRAY_LENGTH(nums[0]);
+    int *points[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < pointsSize; ++idx) {
         points[idx] = nums[idx];
     }
     int ans = numberOfBoomerangs(points, pointsSize, &pointsColSize);
     int correctAns = 0;
-    free(points);
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 

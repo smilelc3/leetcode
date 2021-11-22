@@ -18,7 +18,7 @@ void tearDown(void) {
 
 void singleNumberTestExample1(void) {
     int nums[] = {1, 2, 1, 3, 2, 5};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int returnSize = -1;
     int *ans = singleNumber(nums, numsSize, &returnSize);
     int correctAns[] = {3, 5};
@@ -31,7 +31,7 @@ void singleNumberTestExample1(void) {
 
 void singleNumberTestExample2(void) {
     int nums[] = {-1, 0};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int returnSize = -1;
     int *ans = singleNumber(nums, numsSize, &returnSize);
     int correctAns[] = {-1, 0};
@@ -44,7 +44,7 @@ void singleNumberTestExample2(void) {
 
 void singleNumberTestExample3(void) {
     int nums[] = {0, 1};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int returnSize = -1;
     int *ans = singleNumber(nums, numsSize, &returnSize);
     int correctAns[] = {1, 0};
@@ -57,7 +57,7 @@ void singleNumberTestExample3(void) {
 
 void singleNumberTestTest0(void) {
     int nums[] = {1, 1, 0, INT_MIN};
-    int numsSize = sizeof(nums) / sizeof(int);
+    int numsSize = ARRAY_LENGTH(nums);
     int returnSize = -1;
     int *ans = singleNumber(nums, numsSize, &returnSize);
     int correctAns[] = {0, INT_MIN};

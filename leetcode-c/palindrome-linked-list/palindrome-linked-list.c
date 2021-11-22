@@ -20,7 +20,6 @@ struct ListNode *reverseList(struct ListNode *head) {
     return curNode;
 }
 
-
 bool isPalindrome(struct ListNode *head) {
     if (head == NULL) {
         return true;

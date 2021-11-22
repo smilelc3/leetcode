@@ -4,6 +4,7 @@
 
 #include <unity.h>
 #include <stdlib.h>
+#include "util.h"
 #include "construct-the-lexicographically-largest-valid-sequence.c"
 
 void setUp(void) {
@@ -19,7 +20,7 @@ void constructDistancedSequenceTestExample1(void) {
     int returnSize = -1;
     int *ans = constructDistancedSequence(n, &returnSize);
     int correctAns[] = {3, 1, 2, 3, 2};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
 }
@@ -29,7 +30,7 @@ void constructDistancedSequenceTestExample2(void) {
     int returnSize = -1;
     int *ans = constructDistancedSequence(n, &returnSize);
     int correctAns[] = {5, 3, 1, 4, 3, 5, 2, 4, 2};
-    TEST_ASSERT_EQUAL_INT(sizeof(correctAns) / sizeof(int), returnSize);
+    TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
 }

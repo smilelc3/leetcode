@@ -3,6 +3,7 @@
 //
 
 #include <unity.h>
+#include "util.h"
 #include "number-of-valid-words-for-each-puzzle.c"
 
 void setUp(void) {
@@ -15,26 +16,26 @@ void tearDown(void) {
 
 void findNumOfValidWordsTestExample1(void) {
     char *words[] = {"aaaa", "asas", "able", "ability", "actt", "actor", "access"};
-    int wordsSize = 7;
+    int wordsSize = ARRAY_LENGTH(words);
     char *puzzles[] = {"aboveyz", "abrodyz", "abslute", "absoryz", "actresz", "gaswxyz"};
-    int puzzlesSize = 6;
+    int puzzlesSize = ARRAY_LENGTH(puzzles);
     int rightAns[] = {1, 1, 3, 2, 4, 0};
     int returnSize = -1;
     int *ans = findNumOfValidWords(words, wordsSize, puzzles, puzzlesSize, &returnSize);
-    TEST_ASSERT_EQUAL_INT(returnSize, sizeof(rightAns) / sizeof(int));
+    TEST_ASSERT_EQUAL_INT(returnSize, ARRAY_LENGTH(rightAns));
     TEST_ASSERT_EQUAL_INT_ARRAY(rightAns, ans, returnSize);
     free(ans);
 }
 
 void findNumOfValidWordsTestTest0(void) {
     char *words[] = {"apple", "pleas", "please"};
-    int wordsSize = 3;
+    int wordsSize = ARRAY_LENGTH(words);
     char *puzzles[] = {"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-    int puzzlesSize = 5;
+    int puzzlesSize = ARRAY_LENGTH(puzzles);
     int rightAns[] = {0, 1, 3, 2, 0};
     int returnSize = -1;
     int *ans = findNumOfValidWords(words, wordsSize, puzzles, puzzlesSize, &returnSize);
-    TEST_ASSERT_EQUAL_INT(returnSize, sizeof(rightAns) / sizeof(int));
+    TEST_ASSERT_EQUAL_INT(returnSize, ARRAY_LENGTH(rightAns));
     TEST_ASSERT_EQUAL_INT_ARRAY(rightAns, ans, returnSize);
     free(ans);
 }

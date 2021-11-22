@@ -4,11 +4,13 @@
 
 #include <unity.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "Vector.h"
 #include "util.h"
 #include "TreeNode.h"
 #include "ListNode.h"
 
+#define null INT_MAX
 
 void setUp(void) {
     // set stuff up here
@@ -18,12 +20,11 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-
 void VectorIntTest(void) {
     int data[] = {8, 6, 4, 7, 2, 9, 3, 5, 0, 1};
     Vector *vector = VectorCreate(sizeof(int));
     TEST_ASSERT_EQUAL_INT(0, vector->size);
-    for (int idx = 0; idx < sizeof(data) / sizeof(int); idx++) {
+    for (int idx = 0; idx < ARRAY_LENGTH(data); idx++) {
         errno_t err = VectorAppend(vector, &data[idx]);
         TEST_ASSERT_EQUAL(NO_ERROR, err);
     }
@@ -34,7 +35,7 @@ void VectorIntTest(void) {
 
     /* 排序后期望为0 1 2 3 4 5 6 7 8 9 */
     VectorSort(vector, intAscCmpFunc);
-    for (int idx = 0; idx < sizeof(data) / sizeof(int); idx++) {
+    for (int idx = 0; idx < ARRAY_LENGTH(data); idx++) {
         TEST_ASSERT_EQUAL_INT(idx, *(int *) VectorAt(vector, idx));
     }
 
@@ -54,11 +55,8 @@ void VectorIntTest(void) {
     VectorClear(vector);
     TEST_ASSERT_TRUE(VectorIsEmpty(vector));
 
-
     VectorDestroy(vector);
-
 }
-
 
 void TreeCreateByNumsAndTreeDestroyTest(void) {
     struct TreeNode *rootCorrect;
@@ -84,8 +82,8 @@ void TreeCreateByNumsAndTreeDestroyTest(void) {
     rootCorrect->left->right->right = calloc(1, sizeof(struct TreeNode));
     rootCorrect->left->right->right->val = 4;
 
-    int nums[] = {3, 5, 1, 6, 2, 0, 8, -1, -1, 7, 4};
-    struct TreeNode *root = TreeCreateByNums(nums, sizeof(nums) / sizeof(int), -1);
+    int nums[] = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
+    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     TEST_ASSERT_TRUE(isSameTree(rootCorrect, root));
     TreeDestroy(rootCorrect);
     TreeDestroy(root);
@@ -94,9 +92,9 @@ void TreeCreateByNumsAndTreeDestroyTest(void) {
 
 void ListCreateByNumsAndListDestroyTest(void) {
     int nums[] = {1, 4, 2, 6, 8, 0, -1};
-    struct ListNode *head = ListCreateByNums(nums, sizeof(nums) / sizeof(int));
+    struct ListNode *head = ListCreateByNums(nums, ARRAY_LENGTH(nums));
     struct ListNode *node = head;
-    for (size_t idx = 0; idx < sizeof(nums) / sizeof(int); idx++) {
+    for (size_t idx = 0; idx < ARRAY_LENGTH(nums); idx++) {
         TEST_ASSERT_EQUAL_INT(nums[idx], node->val);
         node = node->next;
     }

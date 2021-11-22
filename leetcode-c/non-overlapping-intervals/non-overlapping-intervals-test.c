@@ -41,7 +41,6 @@ void eraseOverlapIntervalsTestExample1(void) {
 
     int rightAns = 1;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
-
 }
 
 void eraseOverlapIntervalsTestExample2(void) {
@@ -70,7 +69,6 @@ void eraseOverlapIntervalsTestExample2(void) {
 
     int rightAns = 2;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
-
 }
 
 void eraseOverlapIntervalsTestExample3(void) {
@@ -97,7 +95,6 @@ void eraseOverlapIntervalsTestExample3(void) {
 
     int rightAns = 0;
     TEST_ASSERT_EQUAL_INT(rightAns, ans);
-
 }
 
 int main(void) {
