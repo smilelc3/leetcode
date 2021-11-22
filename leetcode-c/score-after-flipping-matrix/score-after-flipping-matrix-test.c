@@ -21,28 +21,26 @@ void matrixScoreExample1(void) {
                      {1, 1, 0, 0}};
     int gridSize = ARRAY_LENGTH(nums);
     int gridColSize = ARRAY_LENGTH(nums[0]);
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
     }
     int ans = matrixScore(grid, gridSize, &gridColSize);
     int correctAns = 39;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
-    free(grid);
 }
 
 void matrixScoreExample2(void) {
     int nums[][1] = {{0}};
     int gridSize = ARRAY_LENGTH(nums);
     int gridColSize = ARRAY_LENGTH(nums[0]);
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
     }
     int ans = matrixScore(grid, gridSize, &gridColSize);
     int correctAns = 1;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
-    free(grid);
 }
 
 int main(void) {

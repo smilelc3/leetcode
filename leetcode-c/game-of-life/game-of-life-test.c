@@ -22,7 +22,7 @@ void gameOfLifeExample1(void) {
                      {0, 0, 0}};
     int boardSize = ARRAY_LENGTH(nums);
     int boardColSize = ARRAY_LENGTH(nums[0]);
-    int **board = malloc(sizeof(int *) * boardSize);
+    int *board[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < boardSize; ++idx) {
         board[idx] = nums[idx];
     }
@@ -35,7 +35,6 @@ void gameOfLifeExample1(void) {
     for (size_t idx = 0; idx < boardSize; ++idx) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[idx], board[idx], boardColSize);
     }
-    free(board);
 }
 
 void gameOfLifeExample2(void) {
@@ -43,7 +42,7 @@ void gameOfLifeExample2(void) {
                      {1, 0}};
     int boardSize = ARRAY_LENGTH(nums);
     int boardColSize = ARRAY_LENGTH(nums[0]);
-    int **board = malloc(sizeof(int *) * boardSize);
+    int *board[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < boardSize; ++idx) {
         board[idx] = nums[idx];
     }
@@ -54,7 +53,6 @@ void gameOfLifeExample2(void) {
     for (size_t idx = 0; idx < boardSize; ++idx) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[idx], board[idx], boardColSize);
     }
-    free(board);
 }
 
 int main(void) {

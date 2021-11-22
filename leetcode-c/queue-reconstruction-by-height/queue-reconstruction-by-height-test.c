@@ -24,7 +24,7 @@ void reconstructQueueTestExample1(void) {
                      {5, 2}};
     int peopleSize = ARRAY_LENGTH(nums);
     int peopleColSize[ARRAY_LENGTH(nums)];
-    int **people = malloc(sizeof(int *) * peopleSize);
+    int *people[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < peopleSize; ++idx) {
         people[idx] = nums[idx];
         peopleColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -44,7 +44,6 @@ void reconstructQueueTestExample1(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], peopleColSize[i]);
         free(ans[i]);
     }
-    free(people);
     free(returnColumnSizes);
     free(ans);
 }
@@ -58,7 +57,7 @@ void reconstructQueueTestExample2(void) {
                      {1, 4}};
     int peopleSize = ARRAY_LENGTH(nums);
     int peopleColSize[ARRAY_LENGTH(nums)];
-    int **people = malloc(sizeof(int *) * peopleSize);
+    int *people[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < peopleSize; ++idx) {
         people[idx] = nums[idx];
         peopleColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -78,7 +77,6 @@ void reconstructQueueTestExample2(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], peopleColSize[i]);
         free(ans[i]);
     }
-    free(people);
     free(returnColumnSizes);
     free(ans);
 }

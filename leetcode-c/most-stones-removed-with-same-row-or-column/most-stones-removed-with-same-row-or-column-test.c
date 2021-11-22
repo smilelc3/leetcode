@@ -24,15 +24,13 @@ void removeStonesExample1(void) {
                      {2, 2}};
     int stonesSize = ARRAY_LENGTH(nums);
     int stonesColSize = ARRAY_LENGTH(nums[0]);
-
-    int **stones = malloc(sizeof(int *) * stonesSize);
+    int *stones[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < stonesSize; ++idx) {
         stones[idx] = nums[idx];
     }
     int ans = removeStones(stones, stonesSize, &stonesColSize);
     int correctAns = 5;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
-    free(stones);
 }
 
 void removeStonesExample2(void) {
@@ -43,30 +41,26 @@ void removeStonesExample2(void) {
                      {2, 2}};
     int stonesSize = ARRAY_LENGTH(nums);
     int stonesColSize = ARRAY_LENGTH(nums[0]);
-
-    int **stones = malloc(sizeof(int *) * stonesSize);
+    int *stones[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < stonesSize; ++idx) {
         stones[idx] = nums[idx];
     }
     int ans = removeStones(stones, stonesSize, &stonesColSize);
     int correctAns = 3;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
-    free(stones);
 }
 
 void removeStonesExample3(void) {
     int nums[][2] = {{0, 0}};
     int stonesSize = ARRAY_LENGTH(nums);
     int stonesColSize = ARRAY_LENGTH(nums[0]);
-
-    int **stones = malloc(sizeof(int *) * stonesSize);
+    int *stones[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < stonesSize; ++idx) {
         stones[idx] = nums[idx];
     }
     int ans = removeStones(stones, stonesSize, &stonesColSize);
     int correctAns = 0;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
-    free(stones);
 }
 
 void removeStonesTest0(void) {
@@ -75,15 +69,13 @@ void removeStonesTest0(void) {
                      {1, 1}};
     int stonesSize = ARRAY_LENGTH(nums);
     int stonesColSize = ARRAY_LENGTH(nums[0]);
-
-    int **stones = malloc(sizeof(int *) * stonesSize);
+    int *stones[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < stonesSize; ++idx) {
         stones[idx] = nums[idx];
     }
     int ans = removeStones(stones, stonesSize, &stonesColSize);
     int correctAns = 2;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
-    free(stones);
 }
 
 void removeStonesTest1(void) {
@@ -91,15 +83,13 @@ void removeStonesTest1(void) {
                      {1, 0}};
     int stonesSize = ARRAY_LENGTH(nums);
     int stonesColSize = ARRAY_LENGTH(nums[0]);
-
-    int **stones = malloc(sizeof(int *) * stonesSize);
+    int *stones[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < stonesSize; ++idx) {
         stones[idx] = nums[idx];
     }
     int ans = removeStones(stones, stonesSize, &stonesColSize);
     int correctAns = 0;
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
-    free(stones);
 }
 
 int main(void) {

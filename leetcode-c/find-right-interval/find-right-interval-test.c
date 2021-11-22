@@ -19,7 +19,7 @@ void findRightIntervalExample1(void) {
     int nums[][2] = {{1, 2}};
     int intervalsSize = ARRAY_LENGTH(nums);
     int intervalsColSize[ARRAY_LENGTH(nums)];
-    int **intervals = malloc(sizeof(int *) * intervalsSize);
+    int *intervals[ARRAY_LENGTH(nums)];
     for (int idx = 0; idx < intervalsSize; ++idx) {
         intervals[idx] = nums[idx];
         intervalsColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -30,7 +30,6 @@ void findRightIntervalExample1(void) {
     TEST_ASSERT_EQUAL_INT(intervalsSize, returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
-    free(intervals);
 }
 
 void findRightIntervalExample2(void) {
@@ -39,7 +38,7 @@ void findRightIntervalExample2(void) {
                      {1, 2}};
     int intervalsSize = ARRAY_LENGTH(nums);
     int intervalsColSize[ARRAY_LENGTH(nums)];
-    int **intervals = malloc(sizeof(int *) * intervalsSize);
+    int *intervals[ARRAY_LENGTH(nums)];
     for (int idx = 0; idx < intervalsSize; ++idx) {
         intervals[idx] = nums[idx];
         intervalsColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -50,7 +49,6 @@ void findRightIntervalExample2(void) {
     TEST_ASSERT_EQUAL_INT(intervalsSize, returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
-    free(intervals);
 }
 
 void findRightIntervalExample3(void) {
@@ -59,7 +57,7 @@ void findRightIntervalExample3(void) {
                      {3, 4}};
     int intervalsSize = ARRAY_LENGTH(nums);
     int intervalsColSize[ARRAY_LENGTH(nums)];
-    int **intervals = malloc(sizeof(int *) * intervalsSize);
+    int *intervals[ARRAY_LENGTH(nums)];
     for (int idx = 0; idx < intervalsSize; ++idx) {
         intervals[idx] = nums[idx];
         intervalsColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -70,7 +68,6 @@ void findRightIntervalExample3(void) {
     TEST_ASSERT_EQUAL_INT(intervalsSize, returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
-    free(intervals);
 }
 
 void findRightIntervalTest0(void) {
@@ -79,7 +76,7 @@ void findRightIntervalTest0(void) {
                      {1, 2}};
     int intervalsSize = ARRAY_LENGTH(nums);
     int intervalsColSize[ARRAY_LENGTH(nums)];
-    int **intervals = malloc(sizeof(int *) * intervalsSize);
+    int *intervals[ARRAY_LENGTH(nums)];
     for (int idx = 0; idx < intervalsSize; ++idx) {
         intervals[idx] = nums[idx];
         intervalsColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -90,7 +87,6 @@ void findRightIntervalTest0(void) {
     TEST_ASSERT_EQUAL_INT(intervalsSize, returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
-    free(intervals);
 }
 
 int main(void) {

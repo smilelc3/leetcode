@@ -22,15 +22,13 @@ void maxIncreaseKeepingSkylineTestExample1(void) {
                      {0, 3, 1, 0}};
     int gridSize = ARRAY_LENGTH(nums);
     int gridColSize = ARRAY_LENGTH(nums[0]);
-
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
     }
     int ans = maxIncreaseKeepingSkyline(grid, gridSize, &gridColSize);
     int correctAns = 35;
     TEST_ASSERT_EQUAL_INT(ans, correctAns);
-    free(grid);
 }
 
 void maxIncreaseKeepingSkylineTestExample2(void) {
@@ -39,15 +37,13 @@ void maxIncreaseKeepingSkylineTestExample2(void) {
                      {0, 0, 0}};
     int gridSize = ARRAY_LENGTH(nums);
     int gridColSize = ARRAY_LENGTH(nums[0]);
-
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
     }
     int ans = maxIncreaseKeepingSkyline(grid, gridSize, &gridColSize);
     int correctAns = 0;
     TEST_ASSERT_EQUAL_INT(ans, correctAns);
-    free(grid);
 }
 
 int main(void) {

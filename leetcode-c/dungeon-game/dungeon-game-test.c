@@ -21,13 +21,12 @@ void calculateMinimumHPTestExample1(void) {
                      {10, 30,  -5}};
     int dungeonSize = ARRAY_LENGTH(nums);
     int dungeonColSize = ARRAY_LENGTH(nums[0]);
-    int **dungeon = malloc(sizeof(int *) * dungeonSize);
+    int *dungeon[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < dungeonSize; ++idx) {
         dungeon[idx] = nums[idx];
     }
     int ans = calculateMinimumHP(dungeon, dungeonSize, &dungeonColSize);
     int correctAns = 7;
-    free(dungeon);
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
@@ -35,13 +34,12 @@ void calculateMinimumHPTestExample2(void) {
     int nums[][1] = {{0}};
     int dungeonSize = ARRAY_LENGTH(nums);
     int dungeonColSize = ARRAY_LENGTH(nums[0]);
-    int **dungeon = malloc(sizeof(int *) * dungeonSize);
+    int *dungeon[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < dungeonSize; ++idx) {
         dungeon[idx] = nums[idx];
     }
     int ans = calculateMinimumHP(dungeon, dungeonSize, &dungeonColSize);
     int correctAns = 1;
-    free(dungeon);
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
@@ -49,13 +47,12 @@ void calculateMinimumHPTestTest0(void) {
     int nums[][2] = {{0, 0}};
     int dungeonSize = ARRAY_LENGTH(nums);
     int dungeonColSize = ARRAY_LENGTH(nums[0]);
-    int **dungeon = malloc(sizeof(int *) * dungeonSize);
+    int *dungeon[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < dungeonSize; ++idx) {
         dungeon[idx] = nums[idx];
     }
     int ans = calculateMinimumHP(dungeon, dungeonSize, &dungeonColSize);
     int correctAns = 1;
-    free(dungeon);
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 

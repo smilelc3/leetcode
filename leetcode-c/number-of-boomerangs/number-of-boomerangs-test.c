@@ -21,13 +21,12 @@ void numberOfBoomerangsTestExample1(void) {
                      {2, 0}};
     int pointsSize = ARRAY_LENGTH(nums);
     int pointsColSize = ARRAY_LENGTH(nums[0]);
-    int **points = malloc(sizeof(int *) * pointsSize);
+    int *points[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < pointsSize; ++idx) {
         points[idx] = nums[idx];
     }
     int ans = numberOfBoomerangs(points, pointsSize, &pointsColSize);
     int correctAns = 2;
-    free(points);
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
@@ -37,13 +36,12 @@ void numberOfBoomerangsTestExample2(void) {
                      {3, 3}};
     int pointsSize = ARRAY_LENGTH(nums);
     int pointsColSize = ARRAY_LENGTH(nums[0]);
-    int **points = malloc(sizeof(int *) * pointsSize);
+    int *points[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < pointsSize; ++idx) {
         points[idx] = nums[idx];
     }
     int ans = numberOfBoomerangs(points, pointsSize, &pointsColSize);
     int correctAns = 2;
-    free(points);
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
@@ -51,13 +49,12 @@ void numberOfBoomerangsTestExample3(void) {
     int nums[][2] = {{1, 1}};
     int pointsSize = ARRAY_LENGTH(nums);
     int pointsColSize = ARRAY_LENGTH(nums[0]);
-    int **points = malloc(sizeof(int *) * pointsSize);
+    int *points[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < pointsSize; ++idx) {
         points[idx] = nums[idx];
     }
     int ans = numberOfBoomerangs(points, pointsSize, &pointsColSize);
     int correctAns = 0;
-    free(points);
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 

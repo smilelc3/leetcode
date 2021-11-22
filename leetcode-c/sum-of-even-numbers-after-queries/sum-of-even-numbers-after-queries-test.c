@@ -23,7 +23,7 @@ void sumEvenAfterQueriesTestExample1(void) {
                      {2,  3}};
     int queriesSize = ARRAY_LENGTH(data);
     int *queriesColSize = malloc(sizeof(int) * queriesSize);
-    int **queries = malloc(sizeof(int *) * queriesSize);
+    int *queries[ARRAY_LENGTH(data)];
     for (size_t idx = 0; idx < queriesSize; ++idx) {
         queries[idx] = data[idx];
         queriesColSize[idx] = ARRAY_LENGTH(data[idx]);
@@ -34,7 +34,6 @@ void sumEvenAfterQueriesTestExample1(void) {
     int correctAns[] = {8, 6, 2, 4};
     TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
-    free(queries);
     free(queriesColSize);
     free(ans);
 }
@@ -44,7 +43,7 @@ void sumEvenAfterQueriesTestExample2(void) {
     int data[][2] = {{4, 0}};
     int queriesSize = ARRAY_LENGTH(data);
     int *queriesColSize = malloc(sizeof(int) * queriesSize);
-    int **queries = malloc(sizeof(int *) * queriesSize);
+    int *queries[ARRAY_LENGTH(data)];
     for (size_t idx = 0; idx < queriesSize; ++idx) {
         queries[idx] = data[idx];
         queriesColSize[idx] = ARRAY_LENGTH(data[idx]);
@@ -55,7 +54,6 @@ void sumEvenAfterQueriesTestExample2(void) {
     int correctAns[] = {0};
     TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(correctAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
-    free(queries);
     free(queriesColSize);
     free(ans);
 }

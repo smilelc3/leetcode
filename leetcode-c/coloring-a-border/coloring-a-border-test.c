@@ -20,7 +20,7 @@ void colorBorderTestExample1(void) {
                      {1, 2}};
     int gridSize = ARRAY_LENGTH(nums);
     int gridColSize[ARRAY_LENGTH(nums)];
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
         gridColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -37,7 +37,6 @@ void colorBorderTestExample1(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], gridColSize[i]);
         free(ans[i]);
     }
-    free(grid);
     free(returnColumnSizes);
     free(ans);
 }
@@ -47,7 +46,7 @@ void colorBorderTestExample2(void) {
                      {2, 3, 2}};
     int gridSize = ARRAY_LENGTH(nums);
     int gridColSize[ARRAY_LENGTH(nums)];
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
         gridColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -64,7 +63,6 @@ void colorBorderTestExample2(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], gridColSize[i]);
         free(ans[i]);
     }
-    free(grid);
     free(returnColumnSizes);
     free(ans);
 }
@@ -75,7 +73,7 @@ void colorBorderTestExample3(void) {
                      {1, 1, 1}};
     int gridSize = ARRAY_LENGTH(nums);
     int gridColSize[ARRAY_LENGTH(nums)];
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
         gridColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -93,7 +91,6 @@ void colorBorderTestExample3(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], gridColSize[i]);
         free(ans[i]);
     }
-    free(grid);
     free(returnColumnSizes);
     free(ans);
 }
@@ -104,7 +101,7 @@ void colorBorderTestTest0(void) {
                      {2, 2, 1}};
     int gridSize = ARRAY_LENGTH(nums);
     int gridColSize[ARRAY_LENGTH(nums)];
-    int **grid = malloc(sizeof(int *) * gridSize);
+    int *grid[ARRAY_LENGTH(nums)];
     for (size_t idx = 0; idx < gridSize; ++idx) {
         grid[idx] = nums[idx];
         gridColSize[idx] = ARRAY_LENGTH(nums[idx]);
@@ -122,7 +119,6 @@ void colorBorderTestTest0(void) {
         TEST_ASSERT_EQUAL_INT_ARRAY(correctAns[i], ans[i], gridColSize[i]);
         free(ans[i]);
     }
-    free(grid);
     free(returnColumnSizes);
     free(ans);
 }
