@@ -2,8 +2,8 @@
 // Created by l30014168 on 2021/9/30.
 //
 
-#include <unity.h>
 #include <stdlib.h>
+#include <unity.h>
 #include "util.h"
 #include "game-of-life.c"
 
