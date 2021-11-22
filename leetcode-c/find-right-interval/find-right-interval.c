@@ -14,16 +14,19 @@ static inline int leftAndIdxCmpFunc(const void *a, const void *b) {
     return intAscCmpFunc(&(*(LeftAndIdx *) a).leftVal, &(*(LeftAndIdx *) b).leftVal);
 }
 
-int findClosestIdx(LeftAndIdx *leftAndIdxArraySort, int arrayLength, int rightVal) {
-    if (leftAndIdxArraySort[arrayLength - 1].leftVal < rightVal) {
+// 在找到第一个大于等于rightVal的idx
+int findClosestIdx(LeftAndIdx *leftAndIdxArraySort, int right, int rightVal) {
+    if (leftAndIdxArraySort[right - 1].leftVal < rightVal) {
         return -1;
     }
-    int left = 0, right = arrayLength;      // left 左边界， right 右边界的下一个
-    while (left + 1 < right) {
+    int left = 0;      // left 左边界， right 右边界的下一个
+    while (left < right) {
         int mid = (left + right) / 2;
-        if (leftAndIdxArraySort[mid].leftVal <= rightVal) {
-            left = mid;
-        } else {
+        if (leftAndIdxArraySort[mid].leftVal == rightVal) {
+            return leftAndIdxArraySort[mid].idx;
+        } else if (leftAndIdxArraySort[mid].leftVal < rightVal) {
+            left = mid + 1;
+        } else {        // leftAndIdxArraySort[mid].leftVal > rightVal
             right = mid;
         }
     }

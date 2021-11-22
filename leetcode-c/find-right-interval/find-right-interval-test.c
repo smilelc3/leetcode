@@ -30,6 +30,7 @@ void findRightIntervalExample1(void) {
     TEST_ASSERT_EQUAL_INT(intervalsSize, returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
+    free(intervals);
 }
 
 void findRightIntervalExample2(void) {
@@ -49,6 +50,7 @@ void findRightIntervalExample2(void) {
     TEST_ASSERT_EQUAL_INT(intervalsSize, returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
+    free(intervals);
 }
 
 void findRightIntervalExample3(void) {
@@ -68,6 +70,7 @@ void findRightIntervalExample3(void) {
     TEST_ASSERT_EQUAL_INT(intervalsSize, returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
+    free(intervals);
 }
 
 void findRightIntervalTest0(void) {
@@ -87,13 +90,14 @@ void findRightIntervalTest0(void) {
     TEST_ASSERT_EQUAL_INT(intervalsSize, returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(correctAns, ans, returnSize);
     free(ans);
+    free(intervals);
 }
 
 int main(void) {
     UNITY_BEGIN();
-//    RUN_TEST(findRightIntervalExample1);
-//    RUN_TEST(findRightIntervalExample2);
-//    RUN_TEST(findRightIntervalExample3);
+    RUN_TEST(findRightIntervalExample1);
+    RUN_TEST(findRightIntervalExample2);
+    RUN_TEST(findRightIntervalExample3);
     RUN_TEST(findRightIntervalTest0);
     return UNITY_END();
 }

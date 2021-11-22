@@ -257,6 +257,7 @@
 | 406 | [Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/) | [queue-reconstruction-by-height.c](leetcode-c/queue-reconstruction-by-height/queue-reconstruction-by-height.c) | O(n^2) | 快速排序+插入 | O(n) |
 | 434  | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/) | [number-of-segments-in-a-string.c](leetcode-c/number-of-segments-in-a-string/number-of-segments-in-a-string.c) |    O(n)     |      遍历       |    O(1)     |
 | 435  | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | [non-overlapping-intervals.c](leetcode-c/non-overlapping-intervals/non-overlapping-intervals.c) | O(nlog(n))  |      贪心       | O(nlog(n))  |
+| 436 | [Find Right Interval](https://leetcode.com/problems/find-right-interval/) | [find-right-interval.c](leetcode-c/find-right-interval/find-right-interval.c) | O(nlog(n)) | 排序+二分查找 | O(n) |
 | 437 | [Path Sum III](https://leetcode.com/problems/path-sum-iii/) | [path-sum-iii.c](leetcode-c/path-sum-iii/path-sum-iii.c) | O(n) | 前缀和+HashMap | O(n) |
 | 447 | [Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs/) | [number-of-boomerangs.c](leetcode-c/number-of-boomerangs/number-of-boomerangs.c) | O(n^2) | HashMap | O(n) |
 | 460 | [LFU Cache](https://leetcode.com/problems/lfu-cache/) | [lfu-cache.cpp](leetcode-cpp/lfu-cache/lfu-cache.cpp) | O(1) | 双向链表+双HashMap实现LFU | O(n) |
