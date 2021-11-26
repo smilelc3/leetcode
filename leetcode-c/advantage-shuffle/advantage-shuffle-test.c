@@ -21,6 +21,7 @@ void advantageCountTestExample1(void) {
     int ansCorrect[] = {2, 11, 7, 15};
     TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(ansCorrect), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(ansCorrect, ans, returnSize);
+    free(ans);
 }
 
 void advantageCountTestExample2(void) {
@@ -30,6 +31,7 @@ void advantageCountTestExample2(void) {
     int ansCorrect[] = {24, 32, 8, 12};
     TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(ansCorrect), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(ansCorrect, ans, returnSize);
+    free(ans);
 }
 
 int main(void) {
