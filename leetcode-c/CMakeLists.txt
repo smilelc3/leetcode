@@ -33,7 +33,11 @@ include(FetchContent)
 
 # FetchContent获取uthash
 message(STATUS "3rd-party: start fetch troydhanson/uthash...")
-FetchContent_Declare(uthash GIT_REPOSITORY https://github.com/troydhanson/uthash.git)
+FetchContent_Declare(
+        uthash
+        GIT_REPOSITORY https://github.com/troydhanson/uthash.git
+        GIT_TAG master
+)
 FetchContent_Populate(uthash)
 message(STATUS "3rd-party: copy uthash.h to built-in folder...")
 file(COPY ${uthash_SOURCE_DIR}/src/uthash.h DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/built-in/)
@@ -41,13 +45,21 @@ message(STATUS "3rd-party: fetch troydhanson/uthash success!")
 
 # FetchContent获取Unity
 message(STATUS "3rd-party: start fetch ThrowTheSwitch/Unity...")
-FetchContent_Declare(Unity GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git)
+FetchContent_Declare(
+        Unity
+        GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git
+        GIT_TAG master
+)
 FetchContent_MakeAvailable(Unity)
 message(STATUS "3rd-party: fetch ThrowTheSwitch/Unity success!")
 
 # FetchContent获取ubench.h
 message(STATUS "3rd-party: start fetch sheredom/ubench.h...")
-FetchContent_Declare(ubench.h GIT_REPOSITORY https://github.com/sheredom/ubench.h.git)
+FetchContent_Declare(
+        ubench.h
+        GIT_REPOSITORY https://github.com/sheredom/ubench.h.git
+        GIT_TAG master
+)
 FetchContent_Populate(ubench.h)
 message(STATUS "3rd-party: include ubench.h to project...")
 include_directories(${ubench.h_SOURCE_DIR}/)

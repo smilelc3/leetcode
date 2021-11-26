@@ -35,14 +35,22 @@ include(FetchContent)
 
 # FetchContent获取GTest
 message(STATUS "3rd-party: start fetch GoogleTest...")
-FetchContent_Declare(googletest GIT_REPOSITORY https://github.com/google/googletest.git)
+FetchContent_Declare(
+        googletest
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG main
+)
 set(INSTALL_GTEST OFF)       # 不安装GTest
 FetchContent_MakeAvailable(googletest)
 message(STATUS "3rd-party: fetch GoogleTest success!")
 
 # git获取Google benchmark
 message(STATUS "3rd-party: start fetch Google benchmark...")
-FetchContent_Declare(benchmark GIT_REPOSITORY https://github.com/google/benchmark.git)
+FetchContent_Declare(
+        benchmark
+        GIT_REPOSITORY https://github.com/google/benchmark.git
+        GIT_TAG main
+)
 set(BENCHMARK_ENABLE_TESTING OFF)       # 不编译benchmark测试项
 set(BENCHMARK_ENABLE_INSTALL OFF)       # 不安装benchmark
 FetchContent_MakeAvailable(benchmark)
