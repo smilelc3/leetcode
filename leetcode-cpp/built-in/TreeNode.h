@@ -21,8 +21,8 @@ struct TreeNode {
 
 
 // 通过vector<int>构建Tree
-TreeNode *TreeCreateByNums(const std::vector<int> &numsConst, int nullNum);
-TreeNode *TreeCreateByNums(const std::vector<int> &numsConst);
+TreeNode *TreeCreateByNums(const std::vector<int> &nums, int nullNum);
+TreeNode *TreeCreateByNums(const std::vector<int> &nums);
 
 // 回收Tree
 void TreeDestroy(TreeNode *root);

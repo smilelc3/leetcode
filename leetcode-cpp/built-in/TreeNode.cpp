@@ -5,28 +5,28 @@
 # include <vector>
 #include <iostream>
 
-TreeNode *TreeCreateByNums(const std::vector<int> &numsConst, int nullNum) {
-    if (numsConst.empty() || numsConst[0] == nullNum) {
+TreeNode *TreeCreateByNums(const std::vector<int> &nums, int nullNum) {
+    if (nums.empty() || nums[0] == nullNum) {
         return nullptr;
     }
-    auto nums = std::vector<int>(numsConst.begin(), numsConst.end());
-    auto root = new TreeNode{nums[0]};
-    nums.erase(nums.begin());
+    auto numsCopy = std::vector<int>(nums.begin(), nums.end());
+    auto root = new TreeNode{numsCopy[0]};
+    numsCopy.erase(numsCopy.begin());
     auto preLevelNode = std::vector<TreeNode *>{root}; // 维护上一层所有非空父节点
-    while (!nums.empty()) {
+    while (!numsCopy.empty()) {
         decltype(preLevelNode.size()) numPreLevelNodes = preLevelNode.size();
-        decltype(nums.size()) numsIdx = 0;
+        decltype(numsCopy.size()) numsIdx = 0;
         for (decltype(numPreLevelNodes) idx = 0; idx < numPreLevelNodes; idx++) {
-            if (numsIdx < nums.size()) {
-                if (nums[numsIdx] != nullNum) {
-                    preLevelNode[idx]->left = new TreeNode{nums[numsIdx]};
+            if (numsIdx < numsCopy.size()) {
+                if (numsCopy[numsIdx] != nullNum) {
+                    preLevelNode[idx]->left = new TreeNode{numsCopy[numsIdx]};
                     preLevelNode.push_back(preLevelNode[idx]->left);
                 }
                 numsIdx++;
             }
-            if (numsIdx < nums.size()) {
-                if (nums[numsIdx] != nullNum) {
-                    preLevelNode[idx]->right = new TreeNode{nums[numsIdx]};
+            if (numsIdx < numsCopy.size()) {
+                if (numsCopy[numsIdx] != nullNum) {
+                    preLevelNode[idx]->right = new TreeNode{numsCopy[numsIdx]};
                     preLevelNode.push_back(preLevelNode[idx]->right);
                 }
                 numsIdx++;
@@ -34,37 +34,37 @@ TreeNode *TreeCreateByNums(const std::vector<int> &numsConst, int nullNum) {
 
         }
         preLevelNode.erase(preLevelNode.begin(), preLevelNode.begin() + numPreLevelNodes);
-        nums.erase(nums.begin(), nums.begin() + numsIdx);
+        numsCopy.erase(numsCopy.begin(), numsCopy.begin() + numsIdx);
     }
     return root;
 }
 
-TreeNode *TreeCreateByNums(const std::vector<int> &numsConst) {
-    if (numsConst.empty()) {
+TreeNode *TreeCreateByNums(const std::vector<int> &nums) {
+    if (nums.empty()) {
         return nullptr;
     }
-    auto nums = std::vector<int>(numsConst.begin(), numsConst.end());
-    auto root = new TreeNode{nums[0]};
-    nums.erase(nums.begin());
+    auto numsCopy = std::vector<int>(nums.begin(), nums.end());
+    auto root = new TreeNode{numsCopy[0]};
+    numsCopy.erase(numsCopy.begin());
     auto preLevelNode = std::vector<TreeNode *>{root}; // 维护上一层所有非空父节点
-    while (!nums.empty()) {
+    while (!numsCopy.empty()) {
         decltype(preLevelNode.size()) numPreLevelNodes = preLevelNode.size();
-        decltype(nums.size()) numsIdx = 0;
+        decltype(numsCopy.size()) numsIdx = 0;
         for (decltype(numPreLevelNodes) idx = 0; idx < numPreLevelNodes; idx++) {
-            if (numsIdx < nums.size()) {
-                preLevelNode[idx]->left = new TreeNode{nums[numsIdx]};
+            if (numsIdx < numsCopy.size()) {
+                preLevelNode[idx]->left = new TreeNode{numsCopy[numsIdx]};
                 preLevelNode.push_back(preLevelNode[idx]->left);
                 numsIdx++;
             }
-            if (numsIdx < nums.size()) {
-                preLevelNode[idx]->right = new TreeNode{nums[numsIdx]};
+            if (numsIdx < numsCopy.size()) {
+                preLevelNode[idx]->right = new TreeNode{numsCopy[numsIdx]};
                 preLevelNode.push_back(preLevelNode[idx]->right);
                 numsIdx++;
             }
 
         }
         preLevelNode.erase(preLevelNode.begin(), preLevelNode.begin() + numPreLevelNodes);
-        nums.erase(nums.begin(), nums.begin() + numsIdx);
+        numsCopy.erase(numsCopy.begin(), numsCopy.begin() + numsIdx);
     }
     return root;
 }
