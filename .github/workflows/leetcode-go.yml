@@ -2,7 +2,7 @@ name: leetcode-go
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
