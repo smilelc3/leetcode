@@ -22,8 +22,8 @@ void FindElementsExample1(void) {
     int nums[] = {-1, null, -1};
     struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     FindElements *obj = findElementsCreate(root);
-    TEST_ASSERT_TRUE(findElementsFind(obj, 1));
-    TEST_ASSERT_FALSE(findElementsFind(obj, 2));
+    TEST_ASSERT_FALSE(findElementsFind(obj, 1));
+    TEST_ASSERT_TRUE(findElementsFind(obj, 2));
     findElementsFree(obj);
     TreeDestroy(root);
 }
