@@ -69,7 +69,6 @@ message(STATUS "3rd-party: fetch sheredom/ubench.h success!")
 set(CMAKE_C_STANDARD 11)
 
 # 引入built-in依赖
-include_directories(built-in)
 add_subdirectory(built-in)
 
 # 生成所有子目录到变量 SUBDIRS

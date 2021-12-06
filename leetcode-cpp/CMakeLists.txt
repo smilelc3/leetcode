@@ -57,7 +57,6 @@ FetchContent_MakeAvailable(benchmark)
 message(STATUS "3rd-party: fetch Google benchmark success!")
 
 # 引入build-in依赖
-include_directories(built-in)
 add_subdirectory(built-in)
 
 # 生成所有子目录到变量 SUBDIRS
