@@ -50,6 +50,7 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git
         GIT_TAG master
 )
+add_compile_definitions(UNITY_INCLUDE_DOUBLE)       # 允许使用double类型
 FetchContent_MakeAvailable(Unity)
 message(STATUS "3rd-party: fetch ThrowTheSwitch/Unity success!")
 
