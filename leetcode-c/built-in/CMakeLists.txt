@@ -1,9 +1,3 @@
-# project名
-project(built-in)
-
-# 设置 C 标准
-set(CMAKE_C_STANDARD 11)
-
 # 将.（当前文件夹）下编译用的源文件添加到一个宏列表中
 aux_source_directory(. BUILT_IN_SRCS)
 
