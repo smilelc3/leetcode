@@ -33,7 +33,7 @@ void RandomizedSetTestExample1(void) {
         }
     }
     TEST_ASSERT_EQUAL_INT(totTime, int1Cnt + int2Cnt);
-    TEST_ASSERT_FLOAT_WITHIN(delta, 1.f / 2, int1Cnt * 1.0 / totTime);      // getRandom 应随机返回 1 或 2 。
+    TEST_ASSERT_DOUBLE_WITHIN(delta, 1.f / 2, int1Cnt * 1.0 / totTime);      // getRandom 应随机返回 1 或 2 。
     TEST_ASSERT_TRUE(randomizedSetRemove(obj, 1));      // 从集合中移除 1 ，返回 true 。集合现在包含 [2] 。
     TEST_ASSERT_FALSE(randomizedSetInsert(obj, 2));     // 由于 2 是集合中唯一的数字，getRandom 总是返回 2 。
     // 由于 2 是集合中唯一的数字，getRandom 总是返回 2 。

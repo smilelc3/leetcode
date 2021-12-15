@@ -2,7 +2,6 @@
 // Created by l30014168 on 2021/12/15.
 //
 
-#include <stdlib.h>
 #include <unity.h>
 #include "util.h"
 #include "maximum-average-subarray-i.c"
