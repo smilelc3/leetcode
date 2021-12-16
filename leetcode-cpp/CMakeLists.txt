@@ -49,7 +49,7 @@ message(STATUS "3rd-party: start fetch Google benchmark...")
 FetchContent_Declare(
         benchmark
         GIT_REPOSITORY https://github.com/google/benchmark.git
-        GIT_TAG master
+        GIT_TAG main
 )
 set(BENCHMARK_ENABLE_TESTING OFF)       # 不编译benchmark测试项
 set(BENCHMARK_ENABLE_INSTALL OFF)       # 不安装benchmark
