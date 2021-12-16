@@ -17,7 +17,7 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void isSubPathExample1(void) {
+void isSubPathTestExample1(void) {
     int listNums[] = {4, 2, 8};
     struct ListNode *head = ListCreateByNums(listNums, ARRAY_LENGTH(listNums));
     int treeNums[] = {1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3};
@@ -27,7 +27,7 @@ void isSubPathExample1(void) {
     TreeDestroy(root);
 }
 
-void isSubPathExample2(void) {
+void isSubPathTestExample2(void) {
     int listNums[] = {1, 4, 2, 6};
     struct ListNode *head = ListCreateByNums(listNums, ARRAY_LENGTH(listNums));
     int treeNums[] = {1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3};
@@ -37,7 +37,7 @@ void isSubPathExample2(void) {
     TreeDestroy(root);
 }
 
-void isSubPathExample3(void) {
+void isSubPathTestExample3(void) {
     int listNums[] = {1, 4, 2, 6, 8};
     struct ListNode *head = ListCreateByNums(listNums, ARRAY_LENGTH(listNums));
     int treeNums[] = {1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3};
@@ -49,8 +49,8 @@ void isSubPathExample3(void) {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(isSubPathExample1);
-    RUN_TEST(isSubPathExample2);
-    RUN_TEST(isSubPathExample3);
+    RUN_TEST(isSubPathTestExample1);
+    RUN_TEST(isSubPathTestExample2);
+    RUN_TEST(isSubPathTestExample3);
     return UNITY_END();
 }
