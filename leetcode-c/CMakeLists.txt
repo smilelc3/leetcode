@@ -18,12 +18,12 @@ if ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
             CMAKE_C_FLAGS_MINSIZEREL
             CMAKE_C_FLAGS_RELWITHDEBINFO
             )
-    foreach(CompilerFlag ${CompilerFlags})
+    foreach (CompilerFlag ${CompilerFlags})
         string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
-    endforeach()
+    endforeach ()
     # 指定代码文件编码格式为utf-8 (无BOM)
     add_compile_options(/utf-8)
-endif()
+endif ()
 
 # 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
 enable_testing()
@@ -82,8 +82,8 @@ foreach (SUBDIR ${SUBDIRS})
         # 编译test代码
         add_executable(${SUBDIR}-test ${SUBDIR}/${SUBDIR}-test.c)
         if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU" OR
-            "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang" OR
-            "${CMAKE_C_COMPILER_ID}" STREQUAL "AppleClang")
+                "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang" OR
+                "${CMAKE_C_COMPILER_ID}" STREQUAL "AppleClang")
             # 链接math库
             target_link_libraries(${SUBDIR}-test m)
         endif ()

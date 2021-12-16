@@ -46,11 +46,29 @@ void longestNiceSubstringTestExample4(void) {
     free(ans);
 }
 
+void longestNiceSubstringTestTest0(void) {
+    char *s = "cChH";
+    char *ans = longestNiceSubstring(s);
+    char *correctAns = "cChH";
+    TEST_ASSERT_EQUAL_STRING(correctAns, ans);
+    free(ans);
+}
+
+void longestNiceSubstringTestTest1(void) {
+    char *s = "HkhBubUYy";
+    char *ans = longestNiceSubstring(s);
+    char *correctAns = "BubUYy";
+    TEST_ASSERT_EQUAL_STRING(correctAns, ans);
+    free(ans);
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(longestNiceSubstringTestExample1);
     RUN_TEST(longestNiceSubstringTestExample2);
     RUN_TEST(longestNiceSubstringTestExample3);
     RUN_TEST(longestNiceSubstringTestExample4);
+    RUN_TEST(longestNiceSubstringTestTest0);
+    RUN_TEST(longestNiceSubstringTestTest1);
     return UNITY_END();
 }
