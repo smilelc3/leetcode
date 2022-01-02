@@ -1,13 +1,13 @@
 //
 // Created by smile on 2021/3/16.
 //
+
 #include "TreeNode.h"
 #include <tuple>
 #include <cstdlib>
 
 class Solution {
 public:
-
     // 平衡二叉树: 一棵二叉树，其中每个节点的左和右子树的高度差不超过1。
     static bool isBalanced(TreeNode *root) {
         if (root == nullptr) {

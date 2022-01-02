@@ -40,7 +40,6 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/google/googletest.git
         GIT_TAG main
 )
-set(INSTALL_GTEST OFF)       # 不安装GTest
 FetchContent_MakeAvailable(googletest)
 message(STATUS "3rd-party: fetch GoogleTest success!")
 
@@ -52,7 +51,6 @@ FetchContent_Declare(
         GIT_TAG main
 )
 set(BENCHMARK_ENABLE_TESTING OFF)       # 不编译benchmark测试项
-set(BENCHMARK_ENABLE_INSTALL OFF)       # 不安装benchmark
 FetchContent_MakeAvailable(benchmark)
 message(STATUS "3rd-party: fetch Google benchmark success!")
 
@@ -61,7 +59,7 @@ add_subdirectory(built-in)
 
 # 生成所有子目录到变量 SUBDIRS
 file(GLOB SUBDIRS RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
-# 遍历所有子目录，如果子目录下存在 CMakeLists.txt 文件，add_subdirectory
+# 遍历所有子目录
 foreach (SUBDIR ${SUBDIRS})
     # 检测test代码
     if (EXISTS ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/${SUBDIR}-test.cpp)
