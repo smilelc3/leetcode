@@ -50,11 +50,14 @@ public:
         //   a ^ (b0 + b1 * 10 + b2 * 10^2 + ... + bn * 10^n)
         // = a^b0 * a^(b1 * 10) * a^(b2 * 10^2) * ... * a^(bn * 10^n)
         // = a^b0 * (a^10)^b1 * (a^(10^2))^b2 * ... *(a^(10^n))^bn
-        int64_t aPow10N = a;
+        // 设 aPow10_i = a^(10^i)
+        // 原式 = (aPow10_1)^b0 * (aPow10_2)^b2 * ... * (aPow10_n)^bn
+        // aPow10_i = a^(10^i) = a^(10^(i-1)*10) = (a^(10^(i-1)))^10 = aPow10_(i-1)^10
+        int64_t aPow10i = a;
         int64_t ans = 1;
         for (auto bi = b.rbegin(); bi != b.rend(); ++bi) {
-            ans = (ans * fastPow(aPow10N, *bi, modVal)) % modVal;
-            aPow10N = (aPow10N * 10) % modVal;
+            ans = (ans * fastPow(aPow10i, *bi, modVal)) % modVal;
+            aPow10i = fastPow(aPow10i, 10, modVal);
         }
         return ans;
     }
