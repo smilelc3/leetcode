@@ -1,5 +1,5 @@
 //
-// Created by l30014168 on 2022/1/17.
+// Created by smile on 2022/1/17.
 //
 
 #include <string>
@@ -10,7 +10,7 @@ class Solution {
 public:
     static int calPoints(std::vector<std::string> &ops) {
         std::vector<int> dataStack;
-        for (auto const &op: ops) {
+        for (const auto &op: ops) {
             if (op == "D") {
                 dataStack.emplace_back(dataStack.back() * 2);
             } else if (op == "+") {

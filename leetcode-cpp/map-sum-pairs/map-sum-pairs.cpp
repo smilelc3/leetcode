@@ -1,5 +1,5 @@
 //
-// Created by l30014168 on 2022/1/10.
+// Created by smile on 2022/1/10.
 //
 
 #include <string>
@@ -80,7 +80,7 @@ private:
         if (root->isLeaf) {
             sum += root->val;
         }
-        for (auto const &nextRoot: root->nextMap) {
+        for (const auto &nextRoot: root->nextMap) {
             sum += sumSolver(iter, end, nextRoot.second);
         }
         return sum;
