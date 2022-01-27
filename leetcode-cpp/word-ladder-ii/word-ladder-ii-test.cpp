@@ -7,7 +7,7 @@
 #include "word-ladder-ii.cpp"
 
 namespace {
-    TEST(findLaddershTest, Example1) {
+    TEST(findLaddershTest, Example1) {      // NOLINT
         std::string beginWord = "hit", endWord = "cog";
         std::vector<std::string> wordList = {"hot", "dot", "dog", "lot", "log", "cog"};
         auto ans = Solution().findLadders(beginWord, endWord, wordList);
@@ -17,7 +17,7 @@ namespace {
     }
 
 
-    TEST(findLaddersTest, Example2) {
+    TEST(findLaddersTest, Example2) {       // NOLINT
         std::string beginWord = "hit", endWord = "cog";
         std::vector<std::string> wordList = {"hot", "dot", "dog", "lot", "log"};
         auto ans = Solution().findLadders(beginWord, endWord, wordList);
