@@ -3,8 +3,13 @@ name: leetcode-cpp
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'leetcode-cpp/**'
+
   pull_request:
     branches: [ master ]
+    paths:
+      - 'leetcode-cpp/**'
 
 jobs:
   cmake-build-debug-linux-gcc:

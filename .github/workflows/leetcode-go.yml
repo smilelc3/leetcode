@@ -3,9 +3,14 @@ name: leetcode-go
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'leetcode-go/**'
+
   pull_request:
     branches: [ master ]
-
+    paths:
+      - 'leetcode-go/**'
+      
 jobs:
   build-linux:
     runs-on: ubuntu-latest

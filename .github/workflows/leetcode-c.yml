@@ -3,8 +3,13 @@ name: leetcode-c
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'leetcode-c/**'
+
   pull_request:
     branches: [ master ]
+    paths:
+      - 'leetcode-c/**'
 
 env:
   BUILD_TYPE: Debug
