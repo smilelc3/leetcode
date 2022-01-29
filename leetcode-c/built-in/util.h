@@ -10,10 +10,12 @@
 #include <stdbool.h>
 #include <string.h>
 
-// 最大值、最小值、绝对值
+// 最大值、最小值、绝对值、乘方
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 #define abs(n) (((n) < 0) ? -(n) : (n))
+#define square(n) ((n) * (n))
+
 
 // 数组长度
 #define ARRAY_LENGTH(array) (sizeof(array) / sizeof(array[0]))
