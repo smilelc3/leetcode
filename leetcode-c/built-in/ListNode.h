@@ -41,5 +41,7 @@ void DuCirListErase(DuListNode *pNode);
 // 双向循环链表判空
 bool DuCirListIsEmpty(const DuListNode *head);
 
+// 判断两链表是否相同
+bool isSameList(const struct ListNode *head1, const struct ListNode *head2);
 
 #endif //LEETCODE_C_LISTNODE_H

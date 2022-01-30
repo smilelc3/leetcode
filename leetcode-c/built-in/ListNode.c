@@ -82,3 +82,13 @@ void DuCirListErase(DuListNode *pNode) {
     pNode->next->prev = pNode->prev;
     free(pNode);
 }
+
+bool isSameList(const struct ListNode *head1, const struct ListNode *head2) {
+    if (head1 == NULL && head2 == NULL) {
+        return true;
+    }
+    if (head1 != NULL && head2 != NULL) {
+        return head1->val == head2->val && isSameList(head1->next, head2->next);
+    }
+    return false;
+}
