@@ -88,7 +88,7 @@ jobs:
       run: ctest --verbose
 
   cmake-build-debug-windows-msvc:
-    runs-on: windows-2022
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
 
@@ -110,7 +110,7 @@ jobs:
       run: ctest --verbose
 
   cmake-build-release-windows-msvc:
-    runs-on: windows-2022
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
 
