@@ -36,7 +36,7 @@
 
 ### Python 补充
 
-* 使用 **python3** 标准，推荐使用 [Pycharm](https://www.jetbrains.com/pycharm/) 作为IDE，导入工程目录为：[leetcode/leetcode-python](leetcode-python) ；
+* 基于 **python3.6** 及以上版本，推荐使用 [Pycharm](https://www.jetbrains.com/pycharm/) 作为IDE，导入工程目录为：[leetcode/leetcode-python](leetcode-python) ；
 * python单元测试采用标准库uniitest，也推荐使用pytest进行全量测试；
 
 ### SQL 补充
@@ -261,6 +261,7 @@
 |     239      | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | [sliding-window-maximum.c](leetcode-c/sliding-window-maximum/sliding-window-maximum.c) |       O(n)       |                           单调队列                           |    O(n)     |
 |     240      | [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) | [search-a-2d-matrix-ii.cpp](leetcode-cpp/search-a-2d-matrix-ii/search-a-2d-matrix-ii.cpp) |      O(m+n)      |                          二叉查找树                          |    O(1)     |
 |     242      | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | [valid-anagram.cpp](leetcode-cpp/valid-anagram/valid-anagram.cpp) |       O(n)       |                           字符字典                           |    O(1)     |
+|     258      |   [Add Digits](https://leetcode.com/problems/add-digits/)    |  [add_digits.py](leetcode-python/add-digits/add_digits.py)   |       O(1)       | [树根](https://zh.wikipedia.org/w/index.php?title=%E6%95%B8%E6%A0%B9) |    O(1)     |
 |     260      | [Single Number III](https://leetcode.com/problems/single-number-iii/) | [single-number-iii.c](leetcode-c/single-number-iii/single-number-iii.c) |       O(n)       |                          异或+分组                           |    O(1)     |
 |     264      | [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/) | [ugly-number-ii.c](leetcode-c/ugly-number-ii/ugly-number-ii.c) |       O(n)       |                              DP                              |    O(n)     |
 |     274      |      [H-Index](https://leetcode.com/problems/h-index/)       |       [h-index.cpp](leetcode-cpp/h-index/h-index.cpp)        |       O(n)       |                            桶排序                            |    O(n)     |
