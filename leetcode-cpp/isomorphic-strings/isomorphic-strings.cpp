@@ -36,4 +36,4 @@ public:
 };
 
 const unsigned char Solution::UNDEF_CHAR_MAP = 0xFF;
-static_assert(Solution::UNDEF_CHAR_MAP > std::numeric_limits<char>::max(), "UNDEF_CHAR_MAP must > 127");
+static_assert(Solution::UNDEF_CHAR_MAP >= std::numeric_limits<unsigned char>::max(), "UNDEF_CHAR_MAP must >= 255");

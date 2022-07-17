@@ -3,7 +3,7 @@
 //
 
 #include <vector>
-#include <array>
+#include "util.h"
 
 class Solution {
 public:
@@ -26,10 +26,6 @@ public:
 private:
     int numOfIslands = 0;
     std::vector<std::vector<bool>> visit;
-
-    // 偏移量 左下右上
-    std::array<char, 4> dx{0, 1, 0, -1};
-    decltype(dx) dy{1, 0, -1, 0};
 
     // 坐标合法性判断
     constexpr bool isLegalCoord(int x, int y) noexcept {
