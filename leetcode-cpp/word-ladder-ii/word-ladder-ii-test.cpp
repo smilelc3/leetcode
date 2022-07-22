@@ -2,7 +2,6 @@
 // Created by smile on 2021/4/19.
 //
 
-
 #include <gtest/gtest.h>
 #include "word-ladder-ii.cpp"
 
@@ -16,7 +15,6 @@ namespace {
         ASSERT_EQ(ans, rightAns);
     }
 
-
     TEST(findLaddersTest, Example2) {       // NOLINT
         std::string beginWord = "hit", endWord = "cog";
         std::vector<std::string> wordList = {"hot", "dot", "dog", "lot", "log"};
@@ -24,9 +22,7 @@ namespace {
         decltype(ans) rightAns = {};
         ASSERT_EQ(ans, rightAns);
     }
-
 }
-
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
