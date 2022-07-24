@@ -15,11 +15,11 @@ public:
         return majorityVoteAlgorithm(nums);
     }
 
-    inline int bitsMethod(std::vector<int> &nums) {
+    int bitsMethod(std::vector<int> &nums) {
         int res = 0;
         for (char bit = 0; bit < 32; ++bit) {
             uint32_t bits = 0;
-            for (const auto &num : nums) {
+            for (const auto &num: nums) {
                 bits += (num >> bit) & 1;
             }
             if (bits * 2 >= nums.size()) {
@@ -29,9 +29,9 @@ public:
         return res;
     }
 
-    inline int majorityVoteAlgorithm(std::vector<int> &nums) {
+    int majorityVoteAlgorithm(std::vector<int> &nums) {
         int res = 0, votes = 0;
-        for (const auto &num : nums) {
+        for (const auto &num: nums) {
             if (votes == 0) {
                 res = num;  // 擂台无人时候，设置新上来的队伍就是擂主队伍
             }
