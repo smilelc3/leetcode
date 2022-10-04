@@ -10,6 +10,7 @@ namespace {
         auto head = LinkedListCreateByNums({1, 2, 3, 4, 5});
         auto ans = Solution::middleNode(head);
         decltype(ans) correctAns = head->next->next;
+        LinkedListDestroy(head);
         ASSERT_EQ(ans, correctAns);
     }
 
@@ -17,6 +18,7 @@ namespace {
         auto head = LinkedListCreateByNums({1, 2, 3, 4, 5, 6});
         auto ans = Solution::middleNode(head);
         decltype(ans) correctAns = head->next->next->next;
+        LinkedListDestroy(head);
         ASSERT_EQ(ans, correctAns);
     }
 }
