@@ -21,6 +21,8 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     foreach (CompilerFlag ${CompilerFlags})
         string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
     endforeach ()
+    # 指定使用math库中的定义宏
+    add_compile_definitions(_USE_MATH_DEFINES)
     # 指定编译器的标准一致性模式(支持关键词：and or not)
     add_compile_options(/permissive-)
     # 指定代码文件编码格式为utf-8 (无BOM)

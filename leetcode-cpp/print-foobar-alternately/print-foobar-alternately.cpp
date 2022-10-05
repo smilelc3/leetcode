@@ -6,35 +6,33 @@
 #include <mutex>
 #include <condition_variable>
 
-// mutex锁
+// thread yield
 class FooBar {
 private:
     int n;
-    std::mutex firstMutex, secondMutex;
-
+    std::atomic<bool> isReady{true};
 public:
     explicit FooBar(int n) {
         this->n = n;
-        secondMutex.lock();
-    }
-
-    ~FooBar() {
-        secondMutex.unlock();
     }
 
     void foo(const std::function<void()> &printFoo) {
         for (int i = 0; i < n; i++) {
-            firstMutex.lock();
+            while (not isReady) {
+                std::this_thread::yield();
+            }
             printFoo();      // printFoo() outputs "foo". Do not change or remove this line.
-            secondMutex.unlock();
+            isReady = false;
         }
     }
 
     void bar(const std::function<void()> &printBar) {
         for (int i = 0; i < n; i++) {
-            secondMutex.lock();
+            while (isReady) {
+                std::this_thread::yield();
+            }
             printBar();    // printBar() outputs "bar". Do not change or remove this line.
-            firstMutex.unlock();
+            isReady = true;
         }
     }
 };

@@ -10,8 +10,8 @@
 
 static std::stringstream ss;
 
-// mutex 锁
-static void benchFooBarMutex(benchmark::State &state) {
+// thread yield
+static void benchFooBarThreadYield(benchmark::State &state) {
     for (auto _: state) {
         state.PauseTiming();
         ss.str("");
@@ -28,7 +28,7 @@ static void benchFooBarMutex(benchmark::State &state) {
     }
 }
 
-BENCHMARK(benchFooBarMutex)->DenseRange(256, 1024, 256);    // NOLINT
+BENCHMARK(benchFooBarThreadYield)->DenseRange(256, 1024, 256);    // NOLINT
 
 
 // 条件变量锁
