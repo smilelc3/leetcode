@@ -23,7 +23,7 @@ namespace {
     TEST(hfindNthDigitTest, Test0) {     // NOLINT
         int n = 1000000000;
         auto ans = Solution().findNthDigit(n);
-        decltype(ans) correctAns = 0;
+        decltype(ans) correctAns = 1;
         ASSERT_EQ(ans, correctAns);
     }
 }
