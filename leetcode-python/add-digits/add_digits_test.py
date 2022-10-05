@@ -1,5 +1,5 @@
 import unittest
-from add_digits import *
+from add_digits import Solution
 
 
 class addDigitsCase(unittest.TestCase):

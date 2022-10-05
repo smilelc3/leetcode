@@ -1,5 +1,5 @@
 import unittest
-from ugly_number import *
+from ugly_number import Solution
 
 
 class isUglyTest(unittest.TestCase):

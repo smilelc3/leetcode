@@ -1,5 +1,5 @@
 import unittest
-from summary_ranges import *
+from summary_ranges import Solution
 
 
 class summaryRangesTest(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 from typing import List
-from range_sum_query_2d_immutable import *
+from range_sum_query_2d_immutable import NumMatrix
 
 
 class isPowerOfTwoTest(unittest.TestCase):

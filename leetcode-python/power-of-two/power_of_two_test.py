@@ -1,5 +1,5 @@
 import unittest
-from power_of_two import *
+from power_of_two import Solution
 
 
 class isPowerOfTwoTest(unittest.TestCase):
