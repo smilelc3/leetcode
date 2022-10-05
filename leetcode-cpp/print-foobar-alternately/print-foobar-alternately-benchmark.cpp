@@ -51,4 +51,24 @@ static void benchFooBarConditionVariable(benchmark::State &state) {
 
 BENCHMARK(benchFooBarConditionVariable)->DenseRange(256, 1024, 256);  // NOLINT
 
+// std::promise
+static void benchFooBarPromise(benchmark::State &state) {
+    for (auto _: state) {
+        state.PauseTiming();
+        ss.str("");
+        state.ResumeTiming();
+        auto obj = std::make_unique<FooBar3>(state.range(0));
+        std::thread threadA([](std::unique_ptr<FooBar3> &obj) {
+            obj->foo([] { ss << "foo"; });
+        }, std::ref(obj));
+        std::thread threadB([](std::unique_ptr<FooBar3> &obj) {
+            obj->bar([] { ss << "bar"; });
+        }, std::ref(obj));
+        threadA.join();
+        threadB.join();
+    }
+}
+
+BENCHMARK(benchFooBarPromise)->DenseRange(256, 1024, 256);  // NOLINT
+
 BENCHMARK_MAIN();
