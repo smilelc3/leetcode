@@ -17,7 +17,7 @@
 #define square(n) ((n) * (n))
 
 // 数组长度
-#define ARRAY_LENGTH(array) (sizeof(array) / sizeof(array[0]))
+#define ARRAY_LENGTH(array) (sizeof(array) / sizeof((array)[0]))
 
 // 位操作
 #define setBit(n, idx) ((n) |= (1 << (idx)))        // 置某一位为1
