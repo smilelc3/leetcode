@@ -10,17 +10,8 @@ set(CMAKE_C_STANDARD 11)
 
 # 使用Visual Studio编译额外的修改
 if ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
-    # MSVC默认以MD(多线程DLL)动态链接库文件，不适合本项目，替换MD为MT（多线程静态）
-    set(CompilerFlags
-            CMAKE_C_FLAGS
-            CMAKE_C_FLAGS_DEBUG
-            CMAKE_C_FLAGS_RELEASE
-            CMAKE_C_FLAGS_MINSIZEREL
-            CMAKE_C_FLAGS_RELWITHDEBINFO
-            )
-    foreach (CompilerFlag ${CompilerFlags})
-        string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
-    endforeach ()
+    # 指定使用math库中的定义宏
+    add_compile_definitions(_USE_MATH_DEFINES)
     # 指定代码文件编码格式为utf-8 (无BOM)
     add_compile_options(/utf-8)
 endif ()
@@ -81,6 +72,11 @@ foreach (SUBDIR ${SUBDIRS})
         message(STATUS "found target: ${SUBDIR}")
         # 编译test代码
         add_executable(${SUBDIR}-test ${SUBDIR}/${SUBDIR}-test.c)
+        # 链接ASan库 (MSVC除外，支持不完善)
+        if (NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+            target_compile_options(${SUBDIR}-test PRIVATE -fsanitize=address)
+            target_link_options(${SUBDIR}-test PRIVATE -fsanitize=address)
+        endif ()
         if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU" OR
                 "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang" OR
                 "${CMAKE_C_COMPILER_ID}" STREQUAL "AppleClang")
@@ -89,9 +85,6 @@ foreach (SUBDIR ${SUBDIRS})
         endif ()
         # 链接built-in库
         target_link_libraries(${SUBDIR}-test built-in)
-        # 链接ASan库
-        target_compile_options(${SUBDIR}-test PRIVATE -fsanitize=address)
-        target_link_options(${SUBDIR}-test PRIVATE -fsanitize=address)
         # 链接unity测试库
         target_link_libraries(${SUBDIR}-test unity)
         # 运行测试
