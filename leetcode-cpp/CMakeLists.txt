@@ -10,17 +10,6 @@ set(CMAKE_CXX_STANDARD 14)
 
 # 使用Visual Studio编译额外的修改
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-    # MSVC默认以MD(多线程DLL)动态链接库文件，不适合本项目，替换MD为MT（多线程静态）
-    set(CompilerFlags
-            CMAKE_CXX_FLAGS
-            CMAKE_CXX_FLAGS_DEBUG
-            CMAKE_CXX_FLAGS_RELEASE
-            CMAKE_CXX_FLAGS_MINSIZEREL
-            CMAKE_CXX_FLAGS_RELWITHDEBINFO
-            )
-    foreach (CompilerFlag ${CompilerFlags})
-        string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
-    endforeach ()
     # 指定使用math库中的定义宏
     add_compile_definitions(_USE_MATH_DEFINES)
     # 指定编译器的标准一致性模式(支持关键词：and or not)
@@ -42,6 +31,8 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/google/googletest.git
         GIT_TAG main
 )
+# 新的Visual Studio项目默认动态链接C运行时库，而GTest默认静态链接。启用该选项，使gtest也动态链接C运行时库
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 message(STATUS "3rd-party: fetch GoogleTest success!")
 
