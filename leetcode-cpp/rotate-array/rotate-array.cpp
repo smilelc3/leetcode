@@ -21,7 +21,7 @@ public:
                     std::swap(*(begin + i), *(end - (length - k) + i));
                 }
                 end -= length - k;
-                k -= length - k;
+                k -= static_cast<int>(length) - k;
             }
             length = end - begin;
         }

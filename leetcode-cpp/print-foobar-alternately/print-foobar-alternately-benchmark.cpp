@@ -16,7 +16,7 @@ static void benchFooBarThreadYield(benchmark::State &state) {
         state.PauseTiming();
         ss.str("");
         state.ResumeTiming();
-        auto obj = std::make_unique<FooBar>(state.range(0));
+        auto obj = std::make_unique<FooBar>(static_cast<int>(state.range(0)));
         std::thread threadA([](std::unique_ptr<FooBar> &obj) {
             obj->foo([] { ss << "foo"; });
         }, std::ref(obj));
@@ -37,7 +37,7 @@ static void benchFooBarConditionVariable(benchmark::State &state) {
         state.PauseTiming();
         ss.str("");
         state.ResumeTiming();
-        auto obj = std::make_unique<FooBar2>(state.range(0));
+        auto obj = std::make_unique<FooBar2>(static_cast<int>(state.range(0)));
         std::thread threadA([](std::unique_ptr<FooBar2> &obj) {
             obj->foo([] { ss << "foo"; });
         }, std::ref(obj));
@@ -57,7 +57,7 @@ static void benchFooBarPromise(benchmark::State &state) {
         state.PauseTiming();
         ss.str("");
         state.ResumeTiming();
-        auto obj = std::make_unique<FooBar3>(state.range(0));
+        auto obj = std::make_unique<FooBar3>(static_cast<int>(state.range(0)));
         std::thread threadA([](std::unique_ptr<FooBar3> &obj) {
             obj->foo([] { ss << "foo"; });
         }, std::ref(obj));

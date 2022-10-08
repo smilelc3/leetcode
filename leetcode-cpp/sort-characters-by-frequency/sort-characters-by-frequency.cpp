@@ -43,17 +43,17 @@ public:
         std::vector<Item> items;
         for (auto iter = lowerMap.begin(); iter != lowerMap.end(); iter++) {
             if (*iter > 0) {
-                items.emplace_back(iter - lowerMap.begin() + 'a', *iter);
+                items.emplace_back(static_cast<char>(iter - lowerMap.begin()) + 'a', *iter);
             }
         }
         for (auto iter = upperMap.begin(); iter != upperMap.end(); iter++) {
             if (*iter > 0) {
-                items.emplace_back(iter - upperMap.begin() + 'A', *iter);
+                items.emplace_back(static_cast<char>(iter - upperMap.begin()) + 'A', *iter);
             }
         }
         for (auto iter = numMap.begin(); iter != numMap.end(); iter++) {
             if (*iter > 0) {
-                items.emplace_back(iter - numMap.begin() + '0', *iter);
+                items.emplace_back(static_cast<char>(iter - numMap.begin()) + '0', *iter);
             }
         }
         std::sort(items.begin(), items.end(), std::greater<>());

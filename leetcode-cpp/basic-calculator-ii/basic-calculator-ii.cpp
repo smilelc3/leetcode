@@ -108,10 +108,10 @@ private:
         for (const auto &item: postfix) {
             if (item.Type != OPERATOR_TYPE) {
                 if (item.Type == INTEGER_TYPE) {
-                    nums.emplace(item.Value.Integer);
+                    nums.emplace(static_cast<int>(item.Value.Integer));
                 }
                 if (item.Type == DECIMAL_TYPE) {
-                    nums.emplace(item.Value.Decimal);
+                    nums.emplace(static_cast<int>(item.Value.Decimal));
                 }
                 continue;
             }
@@ -134,7 +134,7 @@ private:
                     break;
                 case '^':
                     std::tie(first, second) = getTwoNums(nums);
-                    nums.emplace(pow(first, second));
+                    nums.emplace(static_cast<int>(pow(first, second)));
                     break;
             }
         }

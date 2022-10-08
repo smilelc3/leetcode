@@ -116,7 +116,7 @@ public:
         auto matrixRow = matrix.size();
         auto matrixCol = matrix.front().size();
         auto coord = Coord((int64_t) matrixRow - 1, 0);
-        while (coord.row >= 0 and coord.col < matrixCol) {
+        while (coord.row >= 0 and coord.col < static_cast<decltype(coord.col)>(matrixCol)) {
             auto val = matrix[coord.row][coord.col];
             if (val > target) {
                 coord.row--;
