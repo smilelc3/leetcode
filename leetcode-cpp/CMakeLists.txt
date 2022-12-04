@@ -59,6 +59,8 @@ foreach (SUBDIR ${SUBDIRS})
         message(STATUS "found target: ${SUBDIR}")
         # 编译test代码
         add_executable(${SUBDIR}-test ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/${SUBDIR}-test.cpp)
+        # 引入Solution头文件
+        target_include_directories(${SUBDIR}-test PRIVATE ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR})
         # 链接ASan库 (MSVC除外，支持不完善)
         if (NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
             target_compile_options(${SUBDIR}-test PRIVATE -fsanitize=address)
