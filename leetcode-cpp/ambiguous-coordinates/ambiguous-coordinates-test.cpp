@@ -3,7 +3,6 @@
 //
 
 #include <gtest/gtest.h>
-#include <vector>
 #include <algorithm>
 #include "ambiguous-coordinates.cpp"
 

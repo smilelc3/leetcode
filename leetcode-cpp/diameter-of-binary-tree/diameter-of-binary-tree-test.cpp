@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <TreeNode.h>
-#include "diameter-of-binary-tree.h"
+#include "diameter-of-binary-tree.cpp"
 
 namespace {
     TEST(diameterOfBinaryTreeTest, Example1) {       // NOLINT
