@@ -7,31 +7,30 @@
 
 namespace {
     TEST(detectCycleTest, Example1) {       // NOLINT
-        ListNode *head = LinkedListCreateByNums({3, 2, 0, -4});
+        ListNode *head = LinkedList::createByNums({3, 2, 0, -4});
         head->next->next->next->next = head->next;
         auto ans = Solution().detectCycle(head);
         ASSERT_EQ(ans, head->next);
         head->next->next->next->next = nullptr;
-        LinkedListDestroy(head);
+        LinkedList::destroy(head);
     }
 
     TEST(hasCycleTest, Example2) {      // NOLINT
-        ListNode *head = LinkedListCreateByNums({1, 2});
+        ListNode *head = LinkedList::createByNums({1, 2});
         head->next->next = head;
         auto ans = Solution().detectCycle(head);
         ASSERT_EQ(ans, head);
         head->next->next = nullptr;
-        LinkedListDestroy(head);
+        LinkedList::destroy(head);
     }
 
     TEST(hasCycleTest, Example3) {      // NOLINT
-        ListNode *head = LinkedListCreateByNums({1});
+        ListNode *head = LinkedList::createByNums({1});
         auto ans = Solution().detectCycle(head);
         ASSERT_EQ(ans, nullptr);
-        LinkedListDestroy(head);
+        LinkedList::destroy(head);
     }
 }
-
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);

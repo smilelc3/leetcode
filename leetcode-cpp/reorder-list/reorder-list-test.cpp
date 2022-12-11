@@ -7,39 +7,39 @@
 
 namespace {
     TEST(reorderListTest, Example1) {       // NOLINT
-        auto head = LinkedListCreateByNums({1, 2, 3, 4});
+        auto head = LinkedList::createByNums({1, 2, 3, 4});
         Solution().reorderList(head);
-        auto rightAns = LinkedListCreateByNums({1, 4, 2, 3});
-        ASSERT_TRUE(isSameLinkedList(rightAns, head));
-        LinkedListDestroy(head);
-        LinkedListDestroy(rightAns);
+        auto rightAns = LinkedList::createByNums({1, 4, 2, 3});
+        ASSERT_TRUE(LinkedList::isEqual(rightAns, head));
+        LinkedList::destroy(head);
+        LinkedList::destroy(rightAns);
     }
 
     TEST(reorderListTest, Example2) {       // NOLINT
-        auto head = LinkedListCreateByNums({1, 2, 3, 4, 5});
+        auto head = LinkedList::createByNums({1, 2, 3, 4, 5});
         Solution().reorderList(head);
-        auto rightAns = LinkedListCreateByNums({1, 5, 2, 4, 3});
-        ASSERT_TRUE(isSameLinkedList(rightAns, head));
-        LinkedListDestroy(head);
-        LinkedListDestroy(rightAns);
+        auto rightAns = LinkedList::createByNums({1, 5, 2, 4, 3});
+        ASSERT_TRUE(LinkedList::isEqual(rightAns, head));
+        LinkedList::destroy(head);
+        LinkedList::destroy(rightAns);
     }
 
     TEST(reorderListTest, MyTest0) {        // NOLINT
-        auto head = LinkedListCreateByNums({1, 2, 3, 4, 5, 6, 7, 8});
+        auto head = LinkedList::createByNums({1, 2, 3, 4, 5, 6, 7, 8});
         Solution().reorderList(head);
-        auto rightAns = LinkedListCreateByNums({1, 8, 2, 7, 3, 6, 4, 5});
-        ASSERT_TRUE(isSameLinkedList(rightAns, head));
-        LinkedListDestroy(head);
-        LinkedListDestroy(rightAns);
+        auto rightAns = LinkedList::createByNums({1, 8, 2, 7, 3, 6, 4, 5});
+        ASSERT_TRUE(LinkedList::isEqual(rightAns, head));
+        LinkedList::destroy(head);
+        LinkedList::destroy(rightAns);
     }
 
     TEST(reorderListTest, Test0) {          // NOLINT
-        auto head = LinkedListCreateByNums({1});
+        auto head = LinkedList::createByNums({1});
         Solution().reorderList(head);
-        auto rightAns = LinkedListCreateByNums({1});
-        ASSERT_TRUE(isSameLinkedList(rightAns, head));
-        LinkedListDestroy(head);
-        LinkedListDestroy(rightAns);
+        auto rightAns = LinkedList::createByNums({1});
+        ASSERT_TRUE(LinkedList::isEqual(rightAns, head));
+        LinkedList::destroy(head);
+        LinkedList::destroy(rightAns);
     }
 }
 

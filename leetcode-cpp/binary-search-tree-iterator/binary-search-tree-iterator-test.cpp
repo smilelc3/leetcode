@@ -11,8 +11,8 @@ const auto null = INT_MAX;
 
 namespace {
     TEST(BSTIteratorTest, Example1) {      // NOLINT
-        auto root = TreeCreateByNums({7, 3, 15, null, null, 9, 20}, null);
-        auto iter = new BSTIterator(root);
+        auto root = BinaryTree::createByNums({7, 3, 15, null, null, 9, 20}, null);
+        auto iter = std::make_shared<BSTIterator>(root);
         ASSERT_EQ(3, iter->next());
         ASSERT_EQ(7, iter->next());
         ASSERT_TRUE(iter->hasNext());
@@ -22,11 +22,9 @@ namespace {
         ASSERT_TRUE(iter->hasNext());
         ASSERT_EQ(20, iter->next());
         ASSERT_FALSE(iter->hasNext());
-        TreeDestroy(root);
-        delete iter;
+        BinaryTree::destroy(root);
     }
 }
-
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);

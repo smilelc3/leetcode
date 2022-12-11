@@ -20,18 +20,17 @@ struct TreeNode {
     explicit TreeNode(int val, TreeNode *left, TreeNode *right) : val(val), left(left), right(right) {}
 };
 
+namespace BinaryTree {
+    // 通过vector<int>构建Tree
+    TreeNode *createByNums(const std::vector<int> &nums, int nullNum);
+    TreeNode *createByNums(const std::vector<int> &nums);
 
-// 通过vector<int>构建Tree
-TreeNode *TreeCreateByNums(const std::vector<int> &nums, int nullNum);
+    // 回收Tree
+    void destroy(TreeNode *root);
 
-TreeNode *TreeCreateByNums(const std::vector<int> &nums);
-
-// 回收Tree
-void TreeDestroy(TreeNode *root);
-
-// 通过判断两棵树是否相等
-bool isSameTree(TreeNode const *root1, TreeNode const *root2);
-
+    // 通过判断两棵树是否相等
+    bool isEqual(TreeNode const *root1, TreeNode const *root2);
+}
 
 // 多叉树
 class Node {

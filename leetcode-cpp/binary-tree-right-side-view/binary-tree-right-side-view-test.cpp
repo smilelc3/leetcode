@@ -6,28 +6,29 @@
 #include "binary-tree-right-side-view.cpp"
 
 namespace {
+    const int null = -1;
     TEST(rightSideViewTest, Example1) {     // NOLINT
-        auto root = TreeCreateByNums({1, 2, 3, -1, 5, -1, 4}, -1);
+        auto root = BinaryTree::createByNums({1, 2, 3, null, 5, -1, 4}, null);
         auto ans = Solution().rightSideView(root);
         decltype(ans) rightAns = {1, 3, 4};
         ASSERT_EQ(ans, rightAns);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 
     TEST(rightSideViewTest, Example2) {     // NOLINT
-        auto root = TreeCreateByNums({1, -1, 3}, -1);
+        auto root = BinaryTree::createByNums({1, null, 3}, null);
         auto ans = Solution().rightSideView(root);
         decltype(ans) rightAns = {1, 3};
         ASSERT_EQ(ans, rightAns);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 
     TEST(rightSideViewTest, Example3) {     // NOLINT
-        auto root = TreeCreateByNums({});
+        auto root = BinaryTree::createByNums({});
         auto ans = Solution().rightSideView(root);
         decltype(ans) rightAns = {};
         ASSERT_EQ(ans, rightAns);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 }
 

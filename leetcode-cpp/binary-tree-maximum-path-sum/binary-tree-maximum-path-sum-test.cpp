@@ -8,19 +8,20 @@
 
 namespace {
     TEST(maxPathSumTest, Example1) {        // NOLINT
-        auto root = TreeCreateByNums({1, 2, 3});
+        auto root = BinaryTree::createByNums({1, 2, 3});
         auto ans = Solution().maxPathSum(root);
         auto rightAns = 6;
         ASSERT_EQ(ans, rightAns);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 
+    const int null = -1;
     TEST(maxPathSumTest, Example2) {        // NOLINT
-        auto root = TreeCreateByNums({-10, 9, 20, -1, -1, 15, 7}, -1);
+        auto root = BinaryTree::createByNums({-10, 9, 20, null, null, 15, 7}, null);
         auto ans = Solution().maxPathSum(root);
         auto rightAns = 42;
         ASSERT_EQ(ans, rightAns);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 }
 

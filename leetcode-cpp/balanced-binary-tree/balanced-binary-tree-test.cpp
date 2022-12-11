@@ -3,25 +3,26 @@
 #include "balanced-binary-tree.cpp"
 
 namespace {
+    const int null = -1;
     TEST(isBalancedTest, Example1) {        // NOLINT
-        auto root = TreeCreateByNums({3, 9, 20, -1, -1, 15, 7}, -1);
+        auto root = BinaryTree::createByNums({3, 9, 20, null, null, 15, 7}, null);
         int result = Solution::isBalanced(root);
         ASSERT_TRUE(result);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 
     TEST(isBalanced, Example2) {            // NOLINT
-        auto root = TreeCreateByNums({1, 2, 2, 3, 3, -1, -1, 4, 4}, -1);
+        auto root = BinaryTree::createByNums({1, 2, 2, 3, 3, null, null, 4, 4}, null);
         int result = Solution::isBalanced(root);
         ASSERT_FALSE(result);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 
     TEST(isBalancedTest, nullTree) {        // NOLINT
         TreeNode *root = nullptr;
         int result = Solution::isBalanced(root);
         ASSERT_TRUE(result);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 }
 

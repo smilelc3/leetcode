@@ -7,21 +7,21 @@
 
 namespace {
     TEST(sortListTest, Example1) {      // NOLINT
-        auto head = LinkedListCreateByNums({4, 2, 3, 1});
+        auto head = LinkedList::createByNums({4, 2, 3, 1});
         auto ans = Solution::sortList(head);
-        auto rightAns = LinkedListCreateByNums({1, 2, 3, 4});
-        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
-        LinkedListDestroy(ans);
-        LinkedListDestroy(rightAns);
+        auto rightAns = LinkedList::createByNums({1, 2, 3, 4});
+        ASSERT_TRUE(LinkedList::isEqual(rightAns, ans));
+        LinkedList::destroy(ans);
+        LinkedList::destroy(rightAns);
     }
 
     TEST(sortListTest, Example2) {      // NOLINT
-        auto head = LinkedListCreateByNums({-1, 5, 3, 4, 0});
+        auto head = LinkedList::createByNums({-1, 5, 3, 4, 0});
         auto ans = Solution::sortList(head);
-        auto rightAns = LinkedListCreateByNums({-1, 0, 3, 4, 5});
-        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
-        LinkedListDestroy(ans);
-        LinkedListDestroy(rightAns);
+        auto rightAns = LinkedList::createByNums({-1, 0, 3, 4, 5});
+        ASSERT_TRUE(LinkedList::isEqual(rightAns, ans));
+        LinkedList::destroy(ans);
+        LinkedList::destroy(rightAns);
     }
 }
 

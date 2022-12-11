@@ -8,19 +8,19 @@
 
 namespace {
     TEST(diameterOfBinaryTreeTest, Example1) {       // NOLINT
-        auto root = TreeCreateByNums({1, 2, 3, 4, 5});
+        auto root = BinaryTree::createByNums({1, 2, 3, 4, 5});
         auto ans = Solution().diameterOfBinaryTree(root);
         decltype(ans) correctAns = 3;
         ASSERT_EQ(ans, correctAns);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 
     TEST(diameterOfBinaryTreeTest, Example2) {       // NOLINT
-        auto root = TreeCreateByNums({1, 2});
+        auto root = BinaryTree::createByNums({1, 2});
         auto ans = Solution().diameterOfBinaryTree(root);
         decltype(ans) correctAns = 1;
         ASSERT_EQ(ans, correctAns);
-        TreeDestroy(root);
+        BinaryTree::destroy(root);
     }
 }
 

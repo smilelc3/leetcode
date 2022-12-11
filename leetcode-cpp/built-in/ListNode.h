@@ -20,16 +20,19 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-// 通过vector<int>构建LinkedList
-ListNode *LinkedListCreateByNums(const std::vector<int> &nums);
+namespace LinkedList {
+    // 通过vector<int>构建LinkedList
+    ListNode *createByNums(const std::vector<int> &nums);
 
-// 销毁LinkList，释放空间
-void LinkedListDestroy(ListNode *head);
+    // 销毁LinkedList，释放空间
+    void destroy(ListNode *head);
 
-// TEST 判断两棵树是否相等
-bool isSameLinkedList(ListNode const *head1, ListNode const *head2);
+    // 判断LinkedList是否相等
+    bool isEqual(ListNode const *head1, ListNode const *head2);
 
-// 判断是否链表存在环
-bool isLinkedListHasCycle(ListNode const *head);
+    // 判断LinkedList是否存在环
+    bool isHasCycle(ListNode const *head);
+}
+
 
 #endif //LEETCODE_LISTNODE_H

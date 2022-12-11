@@ -8,30 +8,30 @@
 
 namespace {
     TEST(reverseListTest, Example1) {       // NOLINT
-        auto head = LinkedListCreateByNums({1, 2, 3, 4, 5});
+        auto head = LinkedList::createByNums({1, 2, 3, 4, 5});
         auto ans = Solution().reverseList(head);
-        auto rightAns = LinkedListCreateByNums({5, 4, 3, 2, 1});
-        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
-        LinkedListDestroy(ans);
-        LinkedListDestroy(rightAns);
+        auto rightAns = LinkedList::createByNums({5, 4, 3, 2, 1});
+        ASSERT_TRUE(LinkedList::isEqual(rightAns, ans));
+        LinkedList::destroy(ans);
+        LinkedList::destroy(rightAns);
     }
 
     TEST(reverseListTest, Example2) {       // NOLINT
-        auto head = LinkedListCreateByNums({1, 2});
+        auto head = LinkedList::createByNums({1, 2});
         auto ans = Solution().reverseList(head);
-        auto rightAns = LinkedListCreateByNums({2, 1});
-        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
-        LinkedListDestroy(ans);
-        LinkedListDestroy(rightAns);
+        auto rightAns = LinkedList::createByNums({2, 1});
+        ASSERT_TRUE(LinkedList::isEqual(rightAns, ans));
+        LinkedList::destroy(ans);
+        LinkedList::destroy(rightAns);
     }
 
     TEST(reverseListTest, MyTest0) {        // NOLINT
-        auto head = LinkedListCreateByNums({});
+        auto head = LinkedList::createByNums({});
         auto ans = Solution().reverseList(head);
-        auto rightAns = LinkedListCreateByNums({});
-        ASSERT_TRUE(isSameLinkedList(rightAns, ans));
-        LinkedListDestroy(ans);
-        LinkedListDestroy(rightAns);
+        auto rightAns = LinkedList::createByNums({});
+        ASSERT_TRUE(LinkedList::isEqual(rightAns, ans));
+        LinkedList::destroy(ans);
+        LinkedList::destroy(rightAns);
     }
 }
 
