@@ -2,8 +2,8 @@
 // Created by smile on 2022/12/11.
 //
 
+#include <algorithm>
 #include <gtest/gtest.h>
-#include <vector>
 #include "ListNode.h"
 #include "split-linked-list-in-parts.cpp"
 
