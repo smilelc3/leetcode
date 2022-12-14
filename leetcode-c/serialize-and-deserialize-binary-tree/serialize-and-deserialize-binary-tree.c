@@ -75,7 +75,7 @@ char *serialize(struct TreeNode *root) {
     for (size_t idx = 0; idx < nums->size; ++idx) {
         int num = *(int *) VectorAtNoCheck(nums, idx);
         if (num != nullNum) {
-            sprintf(buf, "%d", num);
+            snprintf(buf, sizeof(buf), "%d", num);
         } else {
             strcpy(buf, "null");
         }
@@ -133,8 +133,8 @@ struct TreeNode *deserialize(char *data) {
     num = str2Int(data + left, length - left - 1);
     VectorAppend(nums, &num);
 
-    // step 2: TreeCreateByNums
-    struct TreeNode *ret = TreeCreateByNums(nums->items, nums->size, nullNum);
+    // step 2: BinaryTreeCreateByNums
+    struct TreeNode *ret = BinaryTreeCreateByNums(nums->items, nums->size, nullNum);
     VectorDestroy(nums);
     return ret;
 }

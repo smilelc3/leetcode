@@ -15,12 +15,12 @@ struct TreeNode {
 };
 
 // 根据数组创建树
-struct TreeNode *TreeCreateByNums(const int *nums, size_t numsSize, int nullNum);
+struct TreeNode *BinaryTreeCreateByNums(const int *nums, size_t numsSize, int nullNum);
 
 // 释放二叉树
-void TreeDestroy(struct TreeNode *root);
+void BinaryTreeDestroy(struct TreeNode *root);
 
 // 判断两颗二叉树是否相同
-bool isSameTree(const struct TreeNode *root1, const struct TreeNode *root2);
+bool BinaryTreeIsEqual(const struct TreeNode *root1, const struct TreeNode *root2);
 
 #endif //BUILT_IN_TREENODE_H

@@ -20,61 +20,61 @@ void tearDown(void) {
 
 void serializeAndDeserializeTestExample1(void) {
     int nums[] = {1, 2, 3, INT_MIN, INT_MIN, 4, 5};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, ARRAY_LENGTH(nums), INT_MIN);
+    struct TreeNode *rootCorrect = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[1,2,3,null,null,4,5]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
 
     struct TreeNode *root = deserialize(serRight);
-    TEST_ASSERT_TRUE(isSameTree(rootCorrect, root));
+    TEST_ASSERT_TRUE(BinaryTreeIsEqual(rootCorrect, root));
 
-    TreeDestroy(rootCorrect);
-    TreeDestroy(root);
+    BinaryTreeDestroy(rootCorrect);
+    BinaryTreeDestroy(root);
     free(ser);
 }
 
 void serializeAndDeserializeTestExample2(void) {
     int* nums = NULL;
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, 0, INT_MIN);
+    struct TreeNode *rootCorrect = BinaryTreeCreateByNums(nums, 0, INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
 
     struct TreeNode *root = deserialize(serRight);
-    TEST_ASSERT_TRUE(isSameTree(rootCorrect, root));
+    TEST_ASSERT_TRUE(BinaryTreeIsEqual(rootCorrect, root));
 
-    TreeDestroy(rootCorrect);
-    TreeDestroy(root);
+    BinaryTreeDestroy(rootCorrect);
+    BinaryTreeDestroy(root);
     free(ser);
 }
 
 void serializeAndDeserializeTestExample3(void) {
     int nums[] = {1};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, ARRAY_LENGTH(nums), INT_MIN);
+    struct TreeNode *rootCorrect = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[1]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
 
     struct TreeNode *root = deserialize(serRight);
-    TEST_ASSERT_TRUE(isSameTree(rootCorrect, root));
+    TEST_ASSERT_TRUE(BinaryTreeIsEqual(rootCorrect, root));
 
-    TreeDestroy(rootCorrect);
-    TreeDestroy(root);
+    BinaryTreeDestroy(rootCorrect);
+    BinaryTreeDestroy(root);
     free(ser);
 }
 
 void serializeAndDeserializeTestExample4(void) {
     int nums[] = {1, 2};
-    struct TreeNode *rootCorrect = TreeCreateByNums(nums, ARRAY_LENGTH(nums), INT_MIN);
+    struct TreeNode *rootCorrect = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), INT_MIN);
     char *ser = serialize(rootCorrect);
     char *serRight = "[1,2]";
     TEST_ASSERT_EQUAL_CHAR_ARRAY(serRight, ser, strlen(serRight));
 
     struct TreeNode *root = deserialize(serRight);
-    TEST_ASSERT_TRUE(isSameTree(rootCorrect, root));
+    TEST_ASSERT_TRUE(BinaryTreeIsEqual(rootCorrect, root));
 
-    TreeDestroy(rootCorrect);
-    TreeDestroy(root);
+    BinaryTreeDestroy(rootCorrect);
+    BinaryTreeDestroy(root);
     free(ser);
 }
 

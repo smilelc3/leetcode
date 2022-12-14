@@ -36,12 +36,13 @@ char *largestNumber(const int *nums, int numsSize) {
         return NULL;
     }
     for (int idx = 0; idx < numsSize; ++idx) {
-        char *numStr = malloc(sizeof(char) * 11);        // 最多有10位
+        const uint8_t numStrLen = 10;  // 最多有10位
+        char *numStr = malloc(numStrLen + 1);
         if (numStr == NULL) {
             fprintf(stderr, "malloc fail. idx(%d)\n", idx);
             continue;
         }
-        sprintf(numStr, "%d", nums[idx]);
+        snprintf(numStr, numStrLen, "%d", nums[idx]);
         numsStr[idx] = numStr;
     }
 

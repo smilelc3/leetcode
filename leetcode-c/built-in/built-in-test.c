@@ -83,22 +83,22 @@ void TreeCreateByNumsAndTreeDestroyTest(void) {
     rootCorrect->left->right->right->val = 4;
 
     int nums[] = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
-    TEST_ASSERT_TRUE(isSameTree(rootCorrect, root));
-    TreeDestroy(rootCorrect);
-    TreeDestroy(root);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    TEST_ASSERT_TRUE(BinaryTreeIsEqual(rootCorrect, root));
+    BinaryTreeDestroy(rootCorrect);
+    BinaryTreeDestroy(root);
 
 }
 
 void ListCreateByNumsAndListDestroyTest(void) {
     int nums[] = {1, 4, 2, 6, 8, 0, -1};
-    struct ListNode *head = ListCreateByNums(nums, ARRAY_LENGTH(nums));
+    struct ListNode *head = LinkedListCreateByNums(nums, ARRAY_LENGTH(nums));
     struct ListNode *node = head;
     for (size_t idx = 0; idx < ARRAY_LENGTH(nums); idx++) {
         TEST_ASSERT_EQUAL_INT(nums[idx], node->val);
         node = node->next;
     }
-    ListDestroy(head);
+    LinkedListDestroy(head);
 }
 
 void fastPowTest(void) {

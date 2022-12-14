@@ -8,7 +8,7 @@
 #include "TreeNode.h"
 
 
-struct TreeNode *TreeCreateByNums(const int *nums, size_t numsSize, int nullNum) {
+struct TreeNode *BinaryTreeCreateByNums(const int *nums, size_t numsSize, int nullNum) {
     if (numsSize == 0 || nums[0] == nullNum) {
         return NULL;
     }
@@ -30,7 +30,7 @@ struct TreeNode *TreeCreateByNums(const int *nums, size_t numsSize, int nullNum)
                     (*pPreLevelNode)->left = calloc(1, sizeof(struct TreeNode));
                     if ((*pPreLevelNode)->left == NULL) {
                         fprintf(stderr, "calloc TreeNode fail.\n");
-                        TreeDestroy(root);
+                        BinaryTreeDestroy(root);
                         return NULL;
                     }
                     (*pPreLevelNode)->left->val = nums[numsIdx];
@@ -59,24 +59,24 @@ struct TreeNode *TreeCreateByNums(const int *nums, size_t numsSize, int nullNum)
 }
 
 // 删除树
-void TreeDestroy(struct TreeNode *root) {
+void BinaryTreeDestroy(struct TreeNode *root) {
     if (root == NULL) {
         return;
     }
-    TreeDestroy(root->left);
-    TreeDestroy(root->right);
+    BinaryTreeDestroy(root->left);
+    BinaryTreeDestroy(root->right);
     free(root);
 }
 
 
-bool isSameTree(const struct TreeNode *root1, const struct TreeNode *root2) {
+bool BinaryTreeIsEqual(const struct TreeNode *root1, const struct TreeNode *root2) {
     if (root1 == NULL && root2 == NULL) {
         return true;
     } else if (root1 != NULL && root2 != NULL) {
         if (root1->val != root2->val) {
             return false;
         }
-        return isSameTree(root1->left, root2->left) && isSameTree(root1->right, root2->right);
+        return BinaryTreeIsEqual(root1->left, root2->left) && BinaryTreeIsEqual(root1->right, root2->right);
     } else {
         return false;
     }

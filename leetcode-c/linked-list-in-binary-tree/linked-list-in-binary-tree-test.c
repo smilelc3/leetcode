@@ -19,32 +19,32 @@ void tearDown(void) {
 
 void isSubPathTestExample1(void) {
     int listNums[] = {4, 2, 8};
-    struct ListNode *head = ListCreateByNums(listNums, ARRAY_LENGTH(listNums));
+    struct ListNode *head = LinkedListCreateByNums(listNums, ARRAY_LENGTH(listNums));
     int treeNums[] = {1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3};
-    struct TreeNode *root = TreeCreateByNums(treeNums, ARRAY_LENGTH(treeNums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(treeNums, ARRAY_LENGTH(treeNums), null);
     TEST_ASSERT_TRUE(isSubPath(head, root));
-    ListDestroy(head);
-    TreeDestroy(root);
+    LinkedListDestroy(head);
+    BinaryTreeDestroy(root);
 }
 
 void isSubPathTestExample2(void) {
     int listNums[] = {1, 4, 2, 6};
-    struct ListNode *head = ListCreateByNums(listNums, ARRAY_LENGTH(listNums));
+    struct ListNode *head = LinkedListCreateByNums(listNums, ARRAY_LENGTH(listNums));
     int treeNums[] = {1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3};
-    struct TreeNode *root = TreeCreateByNums(treeNums, ARRAY_LENGTH(treeNums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(treeNums, ARRAY_LENGTH(treeNums), null);
     TEST_ASSERT_TRUE(isSubPath(head, root));
-    ListDestroy(head);
-    TreeDestroy(root);
+    LinkedListDestroy(head);
+    BinaryTreeDestroy(root);
 }
 
 void isSubPathTestExample3(void) {
     int listNums[] = {1, 4, 2, 6, 8};
-    struct ListNode *head = ListCreateByNums(listNums, ARRAY_LENGTH(listNums));
+    struct ListNode *head = LinkedListCreateByNums(listNums, ARRAY_LENGTH(listNums));
     int treeNums[] = {1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3};
-    struct TreeNode *root = TreeCreateByNums(treeNums, ARRAY_LENGTH(treeNums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(treeNums, ARRAY_LENGTH(treeNums), null);
     TEST_ASSERT_FALSE(isSubPath(head, root));
-    ListDestroy(head);
-    TreeDestroy(root);
+    LinkedListDestroy(head);
+    BinaryTreeDestroy(root);
 }
 
 int main(void) {

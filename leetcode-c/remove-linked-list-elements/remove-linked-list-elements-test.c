@@ -16,14 +16,14 @@ void tearDown(void) {
 
 void removeElementsTestExample1(void) {
     int nums[] = {1, 2, 6, 3, 4, 5, 6};
-    struct ListNode *head = ListCreateByNums(nums, ARRAY_LENGTH(nums));
+    struct ListNode *head = LinkedListCreateByNums(nums, ARRAY_LENGTH(nums));
     int val = 6;
     struct ListNode *ans = removeElements(head, val);
     int correctNums[] = {1, 2, 3, 4, 5};
-    struct ListNode *correctAns = ListCreateByNums(correctNums, ARRAY_LENGTH(correctNums));
-    TEST_ASSERT_TRUE(isSameList(ans, correctAns));
-    ListDestroy(ans);
-    ListDestroy(correctAns);
+    struct ListNode *correctAns = LinkedListCreateByNums(correctNums, ARRAY_LENGTH(correctNums));
+    TEST_ASSERT_TRUE(LinkedListIsEqual(ans, correctAns));
+    LinkedListDestroy(ans);
+    LinkedListDestroy(correctAns);
 }
 
 void removeElementsTestExample2(void) {
@@ -31,20 +31,20 @@ void removeElementsTestExample2(void) {
     int val = 1;
     struct ListNode *ans = removeElements(head, val);
     struct ListNode *correctAns = NULL;
-    TEST_ASSERT_TRUE(isSameList(ans, correctAns));
-    ListDestroy(ans);
-    ListDestroy(correctAns);
+    TEST_ASSERT_TRUE(LinkedListIsEqual(ans, correctAns));
+    LinkedListDestroy(ans);
+    LinkedListDestroy(correctAns);
 }
 
 void removeElementsTestExample3(void) {
     int nums[] = {7, 7, 7, 7};
-    struct ListNode *head = ListCreateByNums(nums, ARRAY_LENGTH(nums));
+    struct ListNode *head = LinkedListCreateByNums(nums, ARRAY_LENGTH(nums));
     int val = 7;
     struct ListNode *ans = removeElements(head, val);
     struct ListNode *correctAns = NULL;
-    TEST_ASSERT_TRUE(isSameList(ans, correctAns));
-    ListDestroy(ans);
-    ListDestroy(correctAns);
+    TEST_ASSERT_TRUE(LinkedListIsEqual(ans, correctAns));
+    LinkedListDestroy(ans);
+    LinkedListDestroy(correctAns);
 }
 
 int main(void) {

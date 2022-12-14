@@ -18,38 +18,38 @@ void tearDown(void) {
 
 void pruneTreeTestExample1(void) {
     int nums[] = {1, 0, 1, 0, 0, 0, 1};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     struct TreeNode *ans = pruneTree(root);
     int correctNums[] = {1, null, 1, null, 1};
-    struct TreeNode *correctAns = TreeCreateByNums(correctNums, ARRAY_LENGTH(correctNums), null);
-    TEST_ASSERT_TRUE(isSameTree(ans, correctAns));
-    TreeDestroy(root);
-    TreeDestroy(ans);
-    TreeDestroy(correctAns);
+    struct TreeNode *correctAns = BinaryTreeCreateByNums(correctNums, ARRAY_LENGTH(correctNums), null);
+    TEST_ASSERT_TRUE(BinaryTreeIsEqual(ans, correctAns));
+    BinaryTreeDestroy(root);
+    BinaryTreeDestroy(ans);
+    BinaryTreeDestroy(correctAns);
 }
 
 void pruneTreeTestExample2(void) {
     int nums[] = {1, 0, 1, 0, 0, 0, 1};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     struct TreeNode *ans = pruneTree(root);
     int correctNums[] = {1, null, 1, null, 1};
-    struct TreeNode *correctAns = TreeCreateByNums(correctNums, ARRAY_LENGTH(correctNums), null);
-    TEST_ASSERT_TRUE(isSameTree(ans, correctAns));
-    TreeDestroy(root);
-    TreeDestroy(ans);
-    TreeDestroy(correctAns);
+    struct TreeNode *correctAns = BinaryTreeCreateByNums(correctNums, ARRAY_LENGTH(correctNums), null);
+    TEST_ASSERT_TRUE(BinaryTreeIsEqual(ans, correctAns));
+    BinaryTreeDestroy(root);
+    BinaryTreeDestroy(ans);
+    BinaryTreeDestroy(correctAns);
 }
 
 void pruneTreeTestExample3(void) {
     int nums[] = {1, 1, 0, 1, 1, 0, 1, 0};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     struct TreeNode *ans = pruneTree(root);
     int correctNums[] = {1, 1, 0, 1, 1, null, 1};
-    struct TreeNode *correctAns = TreeCreateByNums(correctNums, ARRAY_LENGTH(correctNums), null);
-    TEST_ASSERT_TRUE(isSameTree(ans, correctAns));
-    TreeDestroy(root);
-    TreeDestroy(ans);
-    TreeDestroy(correctAns);
+    struct TreeNode *correctAns = BinaryTreeCreateByNums(correctNums, ARRAY_LENGTH(correctNums), null);
+    TEST_ASSERT_TRUE(BinaryTreeIsEqual(ans, correctAns));
+    BinaryTreeDestroy(root);
+    BinaryTreeDestroy(ans);
+    BinaryTreeDestroy(correctAns);
 }
 
 int main(void) {

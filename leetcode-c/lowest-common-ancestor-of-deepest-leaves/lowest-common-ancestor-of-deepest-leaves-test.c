@@ -19,29 +19,29 @@ void tearDown(void) {
 
 void lcaDeepestLeavesTestExample1(void) {
     int nums[] = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     struct TreeNode *ans = lcaDeepestLeaves(root);
     struct TreeNode *correctAns = root->left->right;
     TEST_ASSERT_EQUAL(correctAns, ans);
-    TreeDestroy(root);
+    BinaryTreeDestroy(root);
 }
 
 void lcaDeepestLeavesTestExample2(void) {
     int nums[] = {1};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     struct TreeNode *ans = lcaDeepestLeaves(root);
     struct TreeNode *correctAns = root;
     TEST_ASSERT_EQUAL(correctAns, ans);
-    TreeDestroy(root);
+    BinaryTreeDestroy(root);
 }
 
 void lcaDeepestLeavesTestExample3(void) {
     int nums[] = {0, 1, 3, null, 2};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     struct TreeNode *ans = lcaDeepestLeaves(root);
     struct TreeNode *correctAns = root->left->right;
     TEST_ASSERT_EQUAL(correctAns, ans);
-    TreeDestroy(root);
+    BinaryTreeDestroy(root);
 }
 
 int main(void) {

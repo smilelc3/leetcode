@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 
-struct ListNode *ListCreateByNums(const int *nums, size_t numsSize) {
+struct ListNode *LinkedListCreateByNums(const int *nums, size_t numsSize) {
     if (numsSize == 0) {
         return NULL;
     }
@@ -31,13 +31,23 @@ struct ListNode *ListCreateByNums(const int *nums, size_t numsSize) {
     return head;
 }
 
-void ListDestroy(struct ListNode *head) {
+void LinkedListDestroy(struct ListNode *head) {
     if (head == NULL) {
         return;
     }
-    ListDestroy(head->next);
+    LinkedListDestroy(head->next);
     free(head);
     head = NULL;
+}
+
+bool LinkedListIsEqual(const struct ListNode *head1, const struct ListNode *head2) {
+    if (head1 == NULL && head2 == NULL) {
+        return true;
+    }
+    if (head1 != NULL && head2 != NULL) {
+        return head1->val == head2->val && LinkedListIsEqual(head1->next, head2->next);
+    }
+    return false;
 }
 
 DuListNode *DuCirListCreate(void) {
@@ -81,14 +91,4 @@ void DuCirListErase(DuListNode *pNode) {
     pNode->prev->next = pNode->next;
     pNode->next->prev = pNode->prev;
     free(pNode);
-}
-
-bool isSameList(const struct ListNode *head1, const struct ListNode *head2) {
-    if (head1 == NULL && head2 == NULL) {
-        return true;
-    }
-    if (head1 != NULL && head2 != NULL) {
-        return head1->val == head2->val && isSameList(head1->next, head2->next);
-    }
-    return false;
 }

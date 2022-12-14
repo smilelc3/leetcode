@@ -14,11 +14,14 @@ struct ListNode {
     struct ListNode *next;
 };
 
-// 根据数组创建树
-struct ListNode *ListCreateByNums(const int *nums, size_t numsSize);
+// 根据数组创建链表
+struct ListNode *LinkedListCreateByNums(const int *nums, size_t numsSize);
 
-// 释放二叉树
-void ListDestroy(struct ListNode *head);
+// 释放链表
+void LinkedListDestroy(struct ListNode *head);
+
+// 判断两链表是否相同
+bool LinkedListIsEqual(const struct ListNode *head1, const struct ListNode *head2);
 
 // 双向链表 (Doubly Linked List)
 typedef struct tagDuListNode {
@@ -40,8 +43,5 @@ void DuCirListErase(DuListNode *pNode);
 
 // 双向循环链表判空
 bool DuCirListIsEmpty(const DuListNode *head);
-
-// 判断两链表是否相同
-bool isSameList(const struct ListNode *head1, const struct ListNode *head2);
 
 #endif //LEETCODE_C_LISTNODE_H

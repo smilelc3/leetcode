@@ -20,7 +20,7 @@ void tearDown(void) {
 
 void distanceKTestExample1(void) {
     int nums[] = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     struct TreeNode *target = root->left;
     int k = 2;
     int returnSize = -1;
@@ -28,25 +28,25 @@ void distanceKTestExample1(void) {
     int rightAns[] = {7, 4, 1};
     TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(rightAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(rightAns, ans, returnSize);
-    TreeDestroy(root);
+    BinaryTreeDestroy(root);
     free(ans);
 }
 
 void distanceKTestExample2(void) {
     int nums[] = {1};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     struct TreeNode *target = root;
     int k = 3;
     int returnSize = -1;
     int *ans = distanceK(root, target, k, &returnSize);
     TEST_ASSERT_EQUAL_INT(0, returnSize);
-    TreeDestroy(root);
+    BinaryTreeDestroy(root);
     free(ans);
 }
 
 void distanceKTestTest0(void) {
     int nums[] = {0, 1, null, 2, null, 3};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     struct TreeNode *target = root->left;
     int k = 2;
     int returnSize = -1;
@@ -54,7 +54,7 @@ void distanceKTestTest0(void) {
     int rightAns[] = {3};
     TEST_ASSERT_EQUAL_INT(ARRAY_LENGTH(rightAns), returnSize);
     TEST_ASSERT_EQUAL_INT_ARRAY(rightAns, ans, returnSize);
-    TreeDestroy(root);
+    BinaryTreeDestroy(root);
     free(ans);
 }
 

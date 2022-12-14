@@ -20,35 +20,35 @@ void tearDown(void) {
 
 void FindElementsExample1(void) {
     int nums[] = {-1, null, -1};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     FindElements *obj = findElementsCreate(root);
     TEST_ASSERT_FALSE(findElementsFind(obj, 1));
     TEST_ASSERT_TRUE(findElementsFind(obj, 2));
     findElementsFree(obj);
-    TreeDestroy(root);
+    BinaryTreeDestroy(root);
 }
 
 void FindElementsExample2(void) {
     int nums[] = {-1, -1, -1, -1, -1};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     FindElements *obj = findElementsCreate(root);
     TEST_ASSERT_TRUE(findElementsFind(obj, 1));
     TEST_ASSERT_TRUE(findElementsFind(obj, 3));
     TEST_ASSERT_FALSE(findElementsFind(obj, 5));
     findElementsFree(obj);
-    TreeDestroy(root);
+    BinaryTreeDestroy(root);
 }
 
 void FindElementsExample3(void) {
     int nums[] = {-1, null, -1, -1, null, -1};
-    struct TreeNode *root = TreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
+    struct TreeNode *root = BinaryTreeCreateByNums(nums, ARRAY_LENGTH(nums), null);
     FindElements *obj = findElementsCreate(root);
     TEST_ASSERT_TRUE(findElementsFind(obj, 2));
     TEST_ASSERT_FALSE(findElementsFind(obj, 3));
     TEST_ASSERT_FALSE(findElementsFind(obj, 4));
     TEST_ASSERT_TRUE(findElementsFind(obj, 5));
     findElementsFree(obj);
-    TreeDestroy(root);
+    BinaryTreeDestroy(root);
 }
 
 int main(void) {
