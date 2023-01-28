@@ -1,10 +1,5 @@
 //
-// Created by l30014168 on 2022/10/18.
-//
-
-//
-// Created by smile on 2022/10/4.
-//
+// Created by lcsmile on 2022/10/18.
 //
 
 #include <vector>
@@ -12,7 +7,6 @@
 #include <algorithm>
 #include <benchmark/benchmark.h>
 #include "h-index-ii.cpp"
-
 
 static std::vector<int> citations(1e5);
 

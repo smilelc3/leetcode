@@ -24,6 +24,6 @@ public:
                                          [](decltype(*pointNumMap.begin()) &a, decltype(a) &b) {
                                              return a.second < b.second;
                                          });
-        return wall.size() - maxPoint->second;
+        return static_cast<int>(wall.size() - maxPoint->second);
     }
 };

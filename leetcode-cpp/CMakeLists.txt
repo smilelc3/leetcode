@@ -8,6 +8,9 @@ message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
 # 设置 C++14 标准
 set(CMAKE_CXX_STANDARD 14)
 
+# 输出 compile_commands.json 文件
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # 使用Visual Studio编译额外的修改
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     # 指定使用math库中的定义宏
@@ -59,8 +62,6 @@ foreach (SUBDIR ${SUBDIRS})
         message(STATUS "found target: ${SUBDIR}")
         # 编译test代码
         add_executable(${SUBDIR}-test ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/${SUBDIR}-test.cpp)
-        # 引入Solution头文件
-        target_include_directories(${SUBDIR}-test PRIVATE ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR})
         # 链接ASan库 (MSVC除外，支持不完善)
         if (NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
             target_compile_options(${SUBDIR}-test PRIVATE -fsanitize=address)
