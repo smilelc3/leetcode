@@ -34,8 +34,8 @@ private:
     void dfsSolver(const std::vector<std::vector<int>> &grid, int i, int j, size_t curGold) {
         bool isEnd = true;
         for (int k = 0; k < 4; ++k) {
-            auto x = i + dx[k];
-            auto y = j + dy[k];
+            auto x = i + util::dx[k];
+            auto y = j + util::dy[k];
             if (not isCoordLegal(x, y) or grid[x][y] == 0 or isVisit[x][y]) {
                 continue;
             }

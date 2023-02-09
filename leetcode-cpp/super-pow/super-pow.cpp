@@ -56,8 +56,8 @@ public:
         int64_t aPow10i = a;
         int64_t ans = 1;
         for (auto bi = b.rbegin(); bi != b.rend(); ++bi) {
-            ans = (ans * fastPow(aPow10i, *bi, modVal)) % modVal;
-            aPow10i = fastPow(aPow10i, 10, modVal);
+            ans = (ans * util::fastPow(aPow10i, *bi, modVal)) % modVal;
+            aPow10i = util::fastPow(aPow10i, 10, modVal);
         }
         return ans;
     }

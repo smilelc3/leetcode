@@ -35,7 +35,7 @@ private:
     void dfs(int _x, int _y, const std::vector<std::vector<char>> &grid) {
         visit[_x][_y] = true;
         for (char idx = 0; idx < 4; ++idx) {
-            auto x = _x + dx[idx], y = _y + dy[idx];
+            auto x = _x + util::dx[idx], y = _y + util::dy[idx];
             if (isLegalCoord(x, y) and grid[x][y] == '1' and not visit[x][y]) {
                 dfs(x, y, grid);
             }
