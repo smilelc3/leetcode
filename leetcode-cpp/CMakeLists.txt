@@ -59,7 +59,7 @@ file(GLOB SUBDIRS RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*
 foreach (SUBDIR ${SUBDIRS})
     # 检测test代码
     if (EXISTS ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/${SUBDIR}-test.cpp)
-        message(STATUS "found target: ${SUBDIR}")
+        message(STATUS "found unit test target: ${SUBDIR}-test")
         # 编译test代码
         add_executable(${SUBDIR}-test ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/${SUBDIR}-test.cpp)
         # 链接ASan库 (MSVC除外，支持不完善)
@@ -76,6 +76,7 @@ foreach (SUBDIR ${SUBDIRS})
     endif ()
     # 检测benchmark代码
     if (EXISTS ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/${SUBDIR}-benchmark.cpp)
+        message(STATUS "found benchmark target: ${SUBDIR}-benchmark")
         # 编译benchmark代码
         add_executable(${SUBDIR}-benchmark ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/${SUBDIR}-benchmark.cpp)
         # 链接built-in库
