@@ -17,7 +17,7 @@ public:
             if (midSquare == num) {
                 return true;
             }
-            if (midSquare < num) {
+            if (midSquare < static_cast<decltype(midSquare)>(num)) {
                 left = mid;
             } else {
                 right = mid;

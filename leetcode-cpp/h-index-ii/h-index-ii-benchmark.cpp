@@ -8,7 +8,7 @@
 #include <benchmark/benchmark.h>
 #include "h-index-ii.cpp"
 
-static std::vector<int> citations(1e5);
+static std::vector<int> citations(100000ULL);
 
 static void initCitations() {
     std::random_device rd;
