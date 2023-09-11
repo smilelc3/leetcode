@@ -20,10 +20,10 @@ bool findElementsFind(FindElements *obj, int target) {
     for (size_t idx = 1; idx <= target; idx = idx * 2 + 1) {
         level++;
     }
-    size_t idxAtLevel = target - ((1 << level) - 1);     // 目标当前层数的节点idx
+    size_t idxAtLevel = target - (((size_t)1 << level) - 1);     // 目标当前层数的节点idx
     struct TreeNode *targetNode = obj->root;
     while (level > 0) {
-        size_t lastLevelNodeNum = 1 << (level - 1);
+        size_t lastLevelNodeNum = (size_t)1 << (level - 1);
         if (idxAtLevel >= lastLevelNodeNum) {
             idxAtLevel -= lastLevelNodeNum;
             targetNode = targetNode->right;

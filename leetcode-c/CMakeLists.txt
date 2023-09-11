@@ -2,16 +2,26 @@ cmake_minimum_required(VERSION 3.14)
 
 project(leetcode-c)
 
+# 当前cmake版本
+message(STATUS "CMAKE_VERSION: ${CMAKE_VERSION}")
+
+# 开启 warning as error
+if (${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.24")
+    set(CMAKE_COMPILE_WARNING_AS_ERROR ON)  # New in cmake version 3.24
+endif ()
+
 # 当前编译器ID
 message(STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
 
-# 设置 C 标准
+# 设置 C11 标准
 set(CMAKE_C_STANDARD 11)
 
 # 使用Visual Studio编译额外的修改
 if ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
     # 指定使用math库中的定义宏
     add_compile_definitions(_USE_MATH_DEFINES)
+    # CRT不安全函数版本不做告警
+    add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
     # 指定代码文件编码格式为utf-8 (无BOM)
     add_compile_options(/utf-8)
 endif ()
@@ -30,9 +40,9 @@ FetchContent_Declare(
         GIT_TAG master
 )
 FetchContent_Populate(uthash)
-message(STATUS "3rd-party: copy uthash.h to built-in folder...")
-file(COPY ${uthash_SOURCE_DIR}/src/uthash.h DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/built-in/)
+include_directories(${uthash_SOURCE_DIR}/src/)
 message(STATUS "3rd-party: fetch troydhanson/uthash success!")
+
 
 # FetchContent获取Unity
 message(STATUS "3rd-party: start fetch ThrowTheSwitch/Unity...")
@@ -41,9 +51,13 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/ThrowTheSwitch/Unity.git
         GIT_TAG master
 )
-add_compile_definitions(UNITY_INCLUDE_DOUBLE)       # 允许使用double类型
 FetchContent_MakeAvailable(Unity)
+target_compile_definitions(unity PUBLIC UNITY_INCLUDE_DOUBLE)  # 允许使用double类型
+if ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
+    target_compile_options(unity PRIVATE /wd5045)   # MSVC会报Spectre缓解漏洞告警，第三方忽略
+endif ()
 message(STATUS "3rd-party: fetch ThrowTheSwitch/Unity success!")
+
 
 # FetchContent获取ubench.h
 message(STATUS "3rd-party: start fetch sheredom/ubench.h...")
@@ -57,8 +71,6 @@ message(STATUS "3rd-party: include ubench.h to project...")
 include_directories(${ubench.h_SOURCE_DIR}/)
 message(STATUS "3rd-party: fetch sheredom/ubench.h success!")
 
-# 设置 C 标准
-set(CMAKE_C_STANDARD 11)
 
 # 引入built-in依赖
 add_subdirectory(built-in)
@@ -69,7 +81,7 @@ file(GLOB SUBDIRS RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*
 foreach (SUBDIR ${SUBDIRS})
     # 检测test代码
     if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SUBDIR}/${SUBDIR}-test.c)
-        message(STATUS "found target: ${SUBDIR}")
+        message(STATUS "found unit test target: ${SUBDIR}-test")
         # 编译test代码
         add_executable(${SUBDIR}-test ${SUBDIR}/${SUBDIR}-test.c)
         # 链接ASan库 (MSVC除外，支持不完善)
@@ -92,6 +104,7 @@ foreach (SUBDIR ${SUBDIRS})
     endif ()
     # 检测benchmark代码
     if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SUBDIR}/${SUBDIR}-benchmark.c)
+        message(STATUS "found benchmark target: ${SUBDIR}-benchmark")
         # 编译benchmark代码
         add_executable(${SUBDIR}-benchmark ${SUBDIR}/${SUBDIR}-benchmark.c)
         if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU" OR
