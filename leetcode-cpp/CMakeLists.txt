@@ -2,6 +2,14 @@ cmake_minimum_required(VERSION 3.14)
 
 project(leetcode-cpp)
 
+# 当前cmake版本
+message(STATUS "CMAKE_VERSION: ${CMAKE_VERSION}")
+
+# 开启 warning as error
+if (${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.24")
+    set(CMAKE_COMPILE_WARNING_AS_ERROR ON)  # New in cmake version 3.24
+endif ()
+
 # 当前编译器ID
 message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
 
