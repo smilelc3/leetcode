@@ -42,10 +42,10 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/google/googletest.git
         GIT_TAG main
 )
-FetchContent_MakeAvailable(googletest)
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-    target_compile_definitions(gtest_main PRIVATE gtest_force_shared_crt)   # 新的Visual Studio项目默认动态链接C运行时库，而GTest默认静态链接。启用该选项，使gtest也动态链接C运行时库
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)   # 新的Visual Studio项目默认动态链接C运行时库，而GTest默认静态链接。启用该选项，使gtest也动态链接C运行时库
 endif ()
+FetchContent_MakeAvailable(googletest)
 message(STATUS "3rd-party: fetch GoogleTest success!")
 
 # git获取Google benchmark
@@ -55,8 +55,8 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/google/benchmark.git
         GIT_TAG main
 )
+set(BENCHMARK_ENABLE_TESTING OFF)  # 不编译benchmark测试项
 FetchContent_MakeAvailable(benchmark)
-target_compile_definitions(benchmark_main PRIVATE BENCHMARK_ENABLE_TESTING=OFF)  # 不编译benchmark测试项
 message(STATUS "3rd-party: fetch Google benchmark success!")
 
 # 引入build-in依赖a

@@ -89,9 +89,7 @@ foreach (SUBDIR ${SUBDIRS})
             target_compile_options(${SUBDIR}-test PRIVATE -fsanitize=address)
             target_link_options(${SUBDIR}-test PRIVATE -fsanitize=address)
         endif ()
-        if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU" OR
-                "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang" OR
-                "${CMAKE_C_COMPILER_ID}" STREQUAL "AppleClang")
+        if ("${CMAKE_C_COMPILER_ID}" MATCHES "GNU|Clang|AppleClang")
             # 链接math库
             target_link_libraries(${SUBDIR}-test m)
         endif ()
@@ -107,9 +105,7 @@ foreach (SUBDIR ${SUBDIRS})
         message(STATUS "found benchmark target: ${SUBDIR}-benchmark")
         # 编译benchmark代码
         add_executable(${SUBDIR}-benchmark ${SUBDIR}/${SUBDIR}-benchmark.c)
-        if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU" OR
-                "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang" OR
-                "${CMAKE_C_COMPILER_ID}" STREQUAL "AppleClang")
+        if ("${CMAKE_C_COMPILER_ID}" MATCHES "GNU|Clang|AppleClang")
             # 链接math库
             target_link_libraries(${SUBDIR}-benchmark m)
         endif ()
