@@ -13,8 +13,8 @@ endif ()
 # 当前编译器ID
 message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
 
-# 设置 C++14 标准
-set(CMAKE_CXX_STANDARD 14)
+# 设置 C++17 标准
+set(CMAKE_CXX_STANDARD 17)
 
 # 输出 compile_commands.json 文件
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
