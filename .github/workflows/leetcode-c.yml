@@ -1,6 +1,7 @@
 name: leetcode-c
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
     paths:
@@ -91,10 +92,6 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-
-    - name: Get latest CMake
-      # VS自带cmake存在ASan链接问题，启用第三方cmake
-      uses: lukka/get-cmake@latest
      
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
@@ -113,10 +110,6 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-
-    - name: Get latest CMake
-      # VS自带cmake存在ASan链接问题，启用第三方cmake
-      uses: lukka/get-cmake@latest
       
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
