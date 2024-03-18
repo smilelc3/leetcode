@@ -29,6 +29,11 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     add_compile_options(/utf-8)
 endif ()
 
+# 检查编译器是否支持ASAN
+include(CheckCXXCompilerFlag)
+list(APPEND CMAKE_REQUIRED_LINK_OPTIONS "-fsanitize=address")
+check_cxx_compiler_flag("-fsanitize=address" COMPILER_SUPPORTS_ASAN)
+
 # 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
 enable_testing()
 
@@ -59,7 +64,7 @@ set(BENCHMARK_ENABLE_TESTING OFF)  # 不编译benchmark测试项
 FetchContent_MakeAvailable(benchmark)
 message(STATUS "3rd-party: fetch Google benchmark success!")
 
-# 引入build-in依赖a
+# 引入build-in依赖
 add_subdirectory(built-in)
 
 # 生成所有子目录到变量 SUBDIRS
@@ -71,8 +76,8 @@ foreach (SUBDIR ${SUBDIRS})
         message(STATUS "found unit test target: ${SUBDIR}-test")
         # 编译test代码
         add_executable(${SUBDIR}-test ${CMAKE_CURRENT_LIST_DIR}/${SUBDIR}/${SUBDIR}-test.cpp)
-        # 链接ASan库 (MSVC除外，支持不完善)
-        if (NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+        # 链接ASAN库
+        if (COMPILER_SUPPORTS_ASAN)
             target_compile_options(${SUBDIR}-test PRIVATE -fsanitize=address)
             target_link_options(${SUBDIR}-test PRIVATE -fsanitize=address)
         endif ()

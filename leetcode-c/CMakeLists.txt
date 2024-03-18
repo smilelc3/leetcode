@@ -13,6 +13,8 @@ endif ()
 # 当前编译器ID
 message(STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
 
+set(CMAKE_VERBOSE_MAKEFILEON ON)
+
 # 设置 C11 标准
 set(CMAKE_C_STANDARD 11)
 
@@ -25,6 +27,17 @@ if ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
     # 指定代码文件编码格式为utf-8 (无BOM)
     add_compile_options(/utf-8)
 endif ()
+
+# 检查编译器是否支持ASAN
+include(CheckCCompilerFlag)
+list(APPEND CMAKE_REQUIRED_LINK_OPTIONS "-fsanitize=address")
+check_c_compiler_flag("-fsanitize=address" COMPILER_SUPPORTS_ASAN)
+
+# 检查是否需要链接math库
+check_c_compiler_flag("-lm" NEED_LINK_MATH)
+
+# 引入built-in依赖
+add_subdirectory(built-in)
 
 # 启用对此目录及子目录的测试，该命令应位于源目录的根目录中
 enable_testing()
@@ -71,10 +84,6 @@ message(STATUS "3rd-party: include ubench.h to project...")
 include_directories(${ubench.h_SOURCE_DIR}/)
 message(STATUS "3rd-party: fetch sheredom/ubench.h success!")
 
-
-# 引入built-in依赖
-add_subdirectory(built-in)
-
 # 生成所有子目录到变量 SUBDIRS
 file(GLOB SUBDIRS RELATIVE ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/*)
 # 遍历所有子目录，如果子目录下存在同名源代码和同名-test单元测试代码或者-benchmark性能测试代码，创建测试对象
@@ -84,13 +93,12 @@ foreach (SUBDIR ${SUBDIRS})
         message(STATUS "found unit test target: ${SUBDIR}-test")
         # 编译test代码
         add_executable(${SUBDIR}-test ${SUBDIR}/${SUBDIR}-test.c)
-        # 链接ASan库 (MSVC除外，支持不完善)
-        if (NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+        # 链接ASAN库
+        if (COMPILER_SUPPORTS_ASAN)
             target_compile_options(${SUBDIR}-test PRIVATE -fsanitize=address)
             target_link_options(${SUBDIR}-test PRIVATE -fsanitize=address)
         endif ()
-        if ("${CMAKE_C_COMPILER_ID}" MATCHES "GNU|Clang|AppleClang")
-            # 链接math库
+        if (NEED_LINK_MATH) # 链接math库
             target_link_libraries(${SUBDIR}-test m)
         endif ()
         # 链接built-in库
@@ -105,8 +113,7 @@ foreach (SUBDIR ${SUBDIRS})
         message(STATUS "found benchmark target: ${SUBDIR}-benchmark")
         # 编译benchmark代码
         add_executable(${SUBDIR}-benchmark ${SUBDIR}/${SUBDIR}-benchmark.c)
-        if ("${CMAKE_C_COMPILER_ID}" MATCHES "GNU|Clang|AppleClang")
-            # 链接math库
+        if (NEED_LINK_MATH) # 链接math库
             target_link_libraries(${SUBDIR}-benchmark m)
         endif ()
         # 链接built-in库
