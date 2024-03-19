@@ -26,6 +26,8 @@ if ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
     add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
     # 指定代码文件编码格式为utf-8 (无BOM)
     add_compile_options(/utf-8)
+    # 禁止编译器警告 C4711 自动内联展开  https://learn.microsoft.com/zh-cn/cpp/error-messages/compiler-warnings/compiler-warning-level-1-c4711
+    add_compile_options(/wd4711)
 endif ()
 
 # 检查编译器是否支持ASAN
