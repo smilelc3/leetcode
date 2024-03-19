@@ -19,7 +19,7 @@ jobs:
   cmake-build-debug-linux-gcc:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
@@ -37,7 +37,7 @@ jobs:
   cmake-build-release-linux-gcc:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
@@ -53,9 +53,9 @@ jobs:
       run: ctest --verbose
 
   cmake-build-debug-macos-appleclang:
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
@@ -71,9 +71,9 @@ jobs:
       run: ctest --verbose
 
   cmake-build-release-macos-appleclang:
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
@@ -91,7 +91,7 @@ jobs:
   cmake-build-debug-windows-msvc:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
      
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c
@@ -109,7 +109,7 @@ jobs:
   cmake-build-release-windows-msvc:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       
     - name: Configure CMake
       working-directory: ${{github.workspace}}/leetcode-c

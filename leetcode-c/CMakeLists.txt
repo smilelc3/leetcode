@@ -10,10 +10,10 @@ if (${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.24")
     set(CMAKE_COMPILE_WARNING_AS_ERROR ON)  # New in cmake version 3.24
 endif ()
 
-# 当前编译器ID
+# 当前平台和编译器信息
+message(STATUS "CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME}")
+message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
-
-set(CMAKE_VERBOSE_MAKEFILEON ON)
 
 # 设置 C11 标准
 set(CMAKE_C_STANDARD 11)
@@ -26,8 +26,6 @@ if ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
     add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
     # 指定代码文件编码格式为utf-8 (无BOM)
     add_compile_options(/utf-8)
-    # 禁止编译器警告 C4711 自动内联展开  https://learn.microsoft.com/zh-cn/cpp/error-messages/compiler-warnings/compiler-warning-level-1-c4711
-    add_compile_options(/wd4711)
 endif ()
 
 # 检查编译器是否支持ASAN
@@ -36,7 +34,8 @@ list(APPEND CMAKE_REQUIRED_LINK_OPTIONS "-fsanitize=address")
 check_c_compiler_flag("-fsanitize=address" COMPILER_SUPPORTS_ASAN)
 
 # 检查是否需要链接math库
-check_c_compiler_flag("-lm" NEED_LINK_MATH)
+include(CheckLinkerFlag)
+check_linker_flag(C "-lm" NEED_LINK_MATH)
 
 # 引入built-in依赖
 add_subdirectory(built-in)
@@ -70,6 +69,8 @@ FetchContent_MakeAvailable(Unity)
 target_compile_definitions(unity PUBLIC UNITY_INCLUDE_DOUBLE)  # 允许使用double类型
 if ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
     target_compile_options(unity PRIVATE /wd5045)   # MSVC会报Spectre缓解漏洞告警，第三方忽略
+    # 禁止编译器警告 C4711 自动内联展开  https://learn.microsoft.com/zh-cn/cpp/error-messages/compiler-warnings/compiler-warning-level-1-c4711
+    target_compile_options(unity PRIVATE /wd4711)
 endif ()
 message(STATUS "3rd-party: fetch ThrowTheSwitch/Unity success!")
 
