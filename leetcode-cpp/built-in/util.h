@@ -15,13 +15,34 @@ namespace util {
     static const std::array<int8_t, 8> dy = {0, 1, 0, -1, -1, 1, -1, 1};
 
     // 快速幂
-    int64_t fastPow(int64_t a, size_t b);
+    constexpr int64_t fastPow(int64_t a, size_t b) {
+        int64_t ret = 1;
+        while (b > 0) {
+            if ((b & 1) == 1) {
+                ret *= a;
+            }
+            a *= a;
+            b >>= 1;
+        }
+        return ret;
+    }
 
-    int64_t fastPow(int64_t a, size_t b, int64_t mod);  // 带取模操作
+    // 带取模操作的快速幂
+    constexpr int64_t fastPow(int64_t a, size_t b, int64_t mod) {
+        int64_t ret = 1;
+        while (b > 0) {
+            if ((b & 1) == 1) {
+                ret = (ret * a) % mod;
+            }
+            a = (a * a) % mod;
+            b >>= 1;
+        }
+        return ret;
+    }
 
     // 平方
-    template<typename  T>
-    inline auto square(const T& x) -> T {
+    template<typename T>
+    inline auto square(const T &x) -> T {
         return x * x;
     }
 }
