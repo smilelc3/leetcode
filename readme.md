@@ -17,7 +17,7 @@
   * macOS(可用)：Apple Clang 或 GCC
 * C单元测试采用 [ThrowTheSwitch/Unity](https://github.com/ThrowTheSwitch/Unity) ，性能测试采用 [sheredom/ubench.h](https://github.com/sheredom/ubench.h)，在CMake构建中会拉取最新源码，需要环境自带[Git](https://git-scm.com/)；
 * 哈希表采用 [uthash](http://troydhanson.github.io/uthash/) 项目中的[uthash.h](https://github.com/troydhanson/uthash/blob/master/src/uthash.h)，在CMake构建中会拉取最新源码；
-* 默认启用 AddressSanitizer 内存检查功能，需要编译器支持该功能。
+* 将检测编译器是否支持 AddressSanitizer 内存检查功能，若支持将启用。
 
 ### C++ 补充
 
@@ -27,7 +27,7 @@
   * Windows(可用)：Visual Studio(MSVC) 16.8版本以上
   * macOS(可用)：Apple Clang 或 GCC
 * C++单元测试采用 [Google Test](https://github.com/google/googletest) ，性能测试采用 [Google Benchmark](https://github.com/google/benchmark) ，二者在CMake构建中会拉取最新源码，需要环境自带[Git](https://git-scm.com/)。
-* 默认启用 AddressSanitizer 内存检查功能，需要编译器支持该功能。
+* 将检测编译器是否支持 AddressSanitizer 内存检查功能，若支持将启用。
 
 ### Golang 补充
 
