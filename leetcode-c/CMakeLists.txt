@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.18)
 
 project(leetcode-c)
 
@@ -34,7 +34,7 @@ list(APPEND CMAKE_REQUIRED_LINK_OPTIONS "-fsanitize=address")
 check_c_compiler_flag("-fsanitize=address" COMPILER_SUPPORTS_ASAN)
 
 # 检查是否需要链接math库
-include(CheckLinkerFlag)
+include(CheckLinkerFlag)    # New in version 3.18
 check_linker_flag(C "-lm" NEED_LINK_MATH)
 
 # 引入built-in依赖
@@ -53,7 +53,7 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/troydhanson/uthash.git
         GIT_TAG master
 )
-FetchContent_Populate(uthash)
+FetchContent_MakeAvailable(uthash)
 include_directories(${uthash_SOURCE_DIR}/src/)
 message(STATUS "3rd-party: fetch troydhanson/uthash success!")
 
@@ -82,7 +82,7 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/sheredom/ubench.h.git
         GIT_TAG master
 )
-FetchContent_Populate(ubench.h)
+FetchContent_MakeAvailable(ubench.h)
 message(STATUS "3rd-party: include ubench.h to project...")
 include_directories(${ubench.h_SOURCE_DIR}/)
 message(STATUS "3rd-party: fetch sheredom/ubench.h success!")

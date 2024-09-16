@@ -34,10 +34,42 @@ void numDupDigitsAtMostNExample3(void) {
     TEST_ASSERT_EQUAL_INT(correctAns, ans);
 }
 
+void numDupDigitsAtMostNTest0(void) {
+    int n = 7;
+    int ans = numDupDigitsAtMostN(n);
+    int correctAns = 0;
+    TEST_ASSERT_EQUAL_INT(correctAns, ans);
+}
+
+void numDupDigitsAtMostNTest1(void) {
+    int n = 11;
+    int ans = numDupDigitsAtMostN(n);
+    int correctAns = 1;
+    TEST_ASSERT_EQUAL_INT(correctAns, ans);
+}
+
+void numDupDigitsAtMostNTest2(void) {
+    int n = 110;
+    int ans = numDupDigitsAtMostN(n);
+    int correctAns = 12;
+    TEST_ASSERT_EQUAL_INT(correctAns, ans);
+}
+
+void numDupDigitsAtMostNTest3(void) {
+    int n = 365;
+    int ans = numDupDigitsAtMostN(n);
+    int correctAns = 86;
+    TEST_ASSERT_EQUAL_INT(correctAns, ans);
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(numDupDigitsAtMostNExample1);
     RUN_TEST(numDupDigitsAtMostNExample2);
     RUN_TEST(numDupDigitsAtMostNExample3);
+    RUN_TEST(numDupDigitsAtMostNTest0);
+    RUN_TEST(numDupDigitsAtMostNTest1);
+    RUN_TEST(numDupDigitsAtMostNTest2);
+    RUN_TEST(numDupDigitsAtMostNTest3);
     return UNITY_END();
 }
