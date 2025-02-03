@@ -46,7 +46,8 @@ include(FetchContent)
 message(STATUS "3rd-party: start fetch GoogleTest...")
 FetchContent_Declare(
         googletest
-        GIT_REPOSITORY https://github.com/google/googletest.git
+        # GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_REPOSITORY https://gitee.com/mirrors/googletest.git
         GIT_TAG main
 )
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
@@ -59,7 +60,8 @@ message(STATUS "3rd-party: fetch GoogleTest success!")
 message(STATUS "3rd-party: start fetch Google benchmark...")
 FetchContent_Declare(
         benchmark
-        GIT_REPOSITORY https://github.com/google/benchmark.git
+        # GIT_REPOSITORY https://github.com/google/benchmark.git
+        GIT_REPOSITORY https://gitee.com/mirrors/benchmark.git
         GIT_TAG main
 )
 set(BENCHMARK_ENABLE_TESTING OFF)  # 不编译benchmark测试项
