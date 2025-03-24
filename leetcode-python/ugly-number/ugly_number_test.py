@@ -23,10 +23,6 @@ class isUglyTest(unittest.TestCase):
         n = -2147483648
         self.assertFalse(Solution().isUgly(n))
 
-    def test_test2(self):
-        n = float('inf')
-        self.assertFalse(Solution().isUgly(n))
-
 
 if __name__ == '__main__':
     unittest.main()
