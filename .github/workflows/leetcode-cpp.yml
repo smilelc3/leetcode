@@ -62,7 +62,7 @@ jobs:
       run: ctest --verbose
 
   cmake-build-release-macos-appleclang:
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v4
 
