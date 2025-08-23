@@ -25,7 +25,7 @@ UBENCH_F_SETUP(fixture) {
 
     ubench_fixture->baseCostsSize = 10;
     ubench_fixture->toppingCostsSize = 10;
-    ubench_fixture->target = 100000;
+    ubench_fixture->target = 10000;
     ubench_fixture->baseCosts = (int *) malloc(sizeof(int) * ubench_fixture->baseCostsSize);
     ubench_fixture->toppingCosts = (int *) malloc(sizeof(int) * ubench_fixture->toppingCostsSize);
     for (int i = 0; i < ubench_fixture->baseCostsSize; ++i) {
@@ -61,3 +61,4 @@ UBENCH_EX_F(fixture, closestCostDPMethod) {
 }
 
 UBENCH_MAIN();
+
